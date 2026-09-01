@@ -36,6 +36,14 @@ python -m jarvis --once "打開記事本"
 
 HUD 介面：用瀏覽器打開 `hud/jarvis_hub.html`，後端跑起來會自動連上。
 
+### 踩到 `anthropic-workspace-id is required` 的話
+
+代表你的金鑰是**多工作區金鑰**，每個請求都得指定 workspace。兩個解法擇一：
+
+- 重新建一把 **scope 到單一 workspace** 的金鑰（最省事，不用改設定）
+- 或到 [Settings → Workspaces](https://platform.claude.com/settings/workspaces) 拿 id
+  （格式 `wrkspc_xxxxxxxx`），填進 `.env` 的 `ANTHROPIC_WORKSPACE_ID=`
+
 ---
 
 ## 它能做什麼

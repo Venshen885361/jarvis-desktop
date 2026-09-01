@@ -42,6 +42,9 @@ class Settings:
 
     # ---- Anthropic ----
     anthropic_api_key: str = os.environ.get("ANTHROPIC_API_KEY", "")
+    # 多工作區（multi-workspace）金鑰必須在每個請求帶上 workspace id，否則 API 回 400。
+    # 金鑰若已 scope 到單一 workspace 就留空。
+    anthropic_workspace_id: str = os.environ.get("ANTHROPIC_WORKSPACE_ID", "")
     # computer_toolset_20260801 支援的模型中最便宜的一階；可用 env 覆寫。
     claude_model: str = os.environ.get("JARVIS_CLAUDE_MODEL", "claude-sonnet-5")
     # 純文字對話（不需要看畫面）時降級用的模型

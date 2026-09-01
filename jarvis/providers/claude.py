@@ -68,7 +68,16 @@ class ClaudeProvider(Provider):
             raise RuntimeError(
                 "未設定 ANTHROPIC_API_KEY。請複製 .env.example 成 .env 並填入金鑰。"
             )
-        self.client = anthropic.Anthropic(api_key=settings.anthropic_api_key)
+        # 多工作區金鑰要在每個請求帶 anthropic-workspace-id，不然是 400
+        # invalid_request_error。單一 workspace 的金鑰不需要，留空即可。
+        headers = (
+            {"anthropic-workspace-id": settings.anthropic_workspace_id}
+            if settings.anthropic_workspace_id
+            else None
+        )
+        self.client = anthropic.Anthropic(
+            api_key=settings.anthropic_api_key, default_headers=headers
+        )
         self.model = settings.claude_model
         self.messages: list[dict[str, Any]] = []
         self._custom_tools = [to_anthropic_tool(fn) for fn in CLAUDE_TOOLS]
