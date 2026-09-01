@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>J.A.R.V.I.S. — Core Interface</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#030711;
+    --panel:#071427;
+    --panel-line:#123049;
+    --cyan:#00e5ff;
+    --cyan-dim:#0a5c73;
+    --violet:#8a5cff;
+    --amber:#ffb300;
+    --text:#dff4ff;
+    --text-dim:#5c7a94;
+  }
+  *{box-sizing:border-box;}
+  html,body{
+    margin:0;
+    height:100%;
+    background:
+      radial-gradient(ellipse at 50% -10%, #0a2338 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 110%, #071a2c 0%, transparent 55%),
+      var(--bg);
+    color:var(--text);
+    font-family:'Rajdhani',sans-serif;
+    overflow:hidden;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:.001ms !important; animation-iteration-count:1 !important;}
+  }
+
+  .grid-overlay{
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+    background-image:
+      linear-gradient(rgba(0,229,255,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,229,255,.045) 1px, transparent 1px);
+    background-size:42px 42px;
+    mask-image:radial-gradient(ellipse at 50% 45%, black 0%, transparent 72%);
+  }
+
+  .scanline{
+    position:fixed; left:0; right:0; height:2px; z-index:1; pointer-events:none;
+    background:linear-gradient(90deg, transparent, rgba(0,229,255,.35), transparent);
+    animation:scan 6s linear infinite;
+    opacity:.5;
+  }
+  @keyframes scan{
+    0%{ top:-2%; } 100%{ top:102%; }
+  }
+
+  .app{
+    position:relative; z-index:2;
+    height:100%;
+    display:grid;
+    grid-template-rows:auto 1fr auto;
+    padding:22px 28px 18px;
+    gap:16px;
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    display:flex; align-items:center; justify-content:space-between;
+    border-bottom:1px solid var(--panel-line);
+    padding-bottom:12px;
+  }
+  .brand{
+    display:flex; align-items:baseline; gap:12px;
+  }
+  .brand .mark{
+    font-size:22px; letter-spacing:6px; font-weight:700; color:var(--cyan);
+    text-shadow:0 0 14px rgba(0,229,255,.55);
+  }
+  .brand .sub{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px; letter-spacing:3px; color:var(--text-dim);
+  }
+  .status-cluster{ display:flex; align-items:center; gap:22px; }
+  .status-pill{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px; letter-spacing:2px;
+    padding:6px 14px; border:1px solid var(--panel-line); border-radius:2px;
+    color:var(--text-dim);
+    display:flex; align-items:center; gap:8px;
+    transition:all .25s ease;
+  }
+  .status-pill .dot{ width:7px; height:7px; border-radius:50%; background:var(--text-dim); transition:all .25s ease;}
+  .status-pill.on{ color:var(--cyan); border-color:var(--cyan-dim); box-shadow:0 0 12px rgba(0,229,255,.15) inset; }
+  .status-pill.on .dot{ background:var(--cyan); box-shadow:0 0 8px var(--cyan); animation:pulse-dot 1.4s ease-in-out infinite; }
+  .status-pill.thinking{ color:var(--violet); border-color:#3a2a63; }
+  .status-pill.thinking .dot{ background:var(--violet); box-shadow:0 0 8px var(--violet); }
+  @keyframes pulse-dot{ 0%,100%{opacity:1;} 50%{opacity:.35;} }
+  .clock{ font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--text-dim); letter-spacing:1px;}
+
+  /* ---------- MAIN ---------- */
+  main{
+    display:grid;
+    grid-template-columns:300px 1fr 300px;
+    gap:20px;
+    min-height:0;
+  }
+
+  .panel{
+    background:linear-gradient(180deg, rgba(9,26,45,.6), rgba(4,13,24,.6));
+    border:1px solid var(--panel-line);
+    border-radius:3px;
+    position:relative;
+    padding:16px 16px 14px;
+    display:flex; flex-direction:column; min-height:0;
+  }
+  .panel::before, .panel::after{
+    content:''; position:absolute; width:12px; height:12px;
+    border:1px solid var(--cyan-dim); opacity:.7;
+  }
+  .panel::before{ top:-1px; left:-1px; border-right:none; border-bottom:none; }
+  .panel::after{ bottom:-1px; right:-1px; border-left:none; border-top:none; }
+
+  .panel h2{
+    margin:0 0 12px; font-size:12px; letter-spacing:3px; font-weight:600;
+    color:var(--text-dim); text-transform:uppercase;
+    display:flex; align-items:center; gap:8px;
+  }
+  .panel h2::before{ content:''; width:6px; height:6px; background:var(--cyan); box-shadow:0 0 6px var(--cyan); }
+
+  /* system log */
+  #log{
+    flex:1; overflow-y:auto; font-family:'JetBrains Mono',monospace; font-size:12.5px;
+    line-height:1.85; color:var(--text-dim);
+    padding-right:4px;
+  }
+  #log::-webkit-scrollbar{ width:4px; }
+  #log::-webkit-scrollbar-thumb{ background:var(--cyan-dim); }
+  #log .ln{ display:block; opacity:0; animation:fadein .4s ease forwards; }
+  #log .ln .tag{ color:var(--cyan); }
+  #log .ln .tag.sir{ color:var(--amber); }
+  @keyframes fadein{ from{opacity:0; transform:translateY(3px);} to{opacity:1; transform:translateY(0);} }
+
+  /* metrics panel */
+  .metric{ margin-bottom:14px; }
+  .metric-top{ display:flex; justify-content:space-between; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-dim); margin-bottom:5px; letter-spacing:1px;}
+  .metric-top span:last-child{ color:var(--cyan); }
+  .bar{ height:4px; background:#0c2338; border-radius:2px; overflow:hidden; }
+  .bar i{ display:block; height:100%; background:linear-gradient(90deg,var(--cyan-dim),var(--cyan)); border-radius:2px; transition:width .6s ease; }
+
+  .budget{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-dim); margin-bottom:4px; }
+  .budget .b{ display:flex; justify-content:space-between; padding:4px 0; border-top:1px solid rgba(255,255,255,.04); letter-spacing:1px; }
+  .budget .b b{ color:var(--cyan); font-weight:500; }
+  .budget .b b.warm{ color:var(--amber); }
+
+  .tool-list{ font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--text-dim); margin-top:6px; }
+  .tool-list .t{ display:flex; align-items:center; gap:8px; padding:6px 0; border-top:1px solid rgba(255,255,255,.04); }
+  .tool-list .t .led{ width:6px; height:6px; border-radius:50%; background:#1c3c53; flex:none; }
+  .tool-list .t.active .led{ background:var(--cyan); box-shadow:0 0 6px var(--cyan); animation:pulse-dot 1s infinite; }
+  .tool-list .t.active{ color:var(--cyan); }
+
+  /* ---------- CORE ---------- */
+  .core-panel{ align-items:center; justify-content:center; }
+  .core-wrap{
+    position:relative; width:100%; height:100%;
+    display:flex; align-items:center; justify-content:center;
+    min-height:0;
+  }
+  #core-canvas{ width:100%; height:100%; max-width:520px; max-height:520px; }
+
+  .core-caption{
+    position:absolute; bottom:6px; left:0; right:0; text-align:center;
+    font-family:'JetBrains Mono',monospace; letter-spacing:4px; font-size:13px;
+    color:var(--cyan); text-shadow:0 0 10px rgba(0,229,255,.6);
+    text-transform:uppercase;
+    pointer-events:none;
+  }
+
+  /* ---------- FOOTER / CONTROLS ---------- */
+  footer{
+    display:flex; align-items:center; justify-content:center; gap:16px;
+    border-top:1px solid var(--panel-line);
+    padding-top:16px;
+  }
+  button{
+    font-family:'Rajdhani',sans-serif; font-weight:600; letter-spacing:2px;
+    font-size:14px; text-transform:uppercase;
+    background:transparent; color:var(--cyan);
+    border:1px solid var(--cyan-dim);
+    padding:12px 26px; border-radius:2px; cursor:pointer;
+    position:relative; overflow:hidden;
+    transition:all .2s ease;
+  }
+  button:hover{ background:rgba(0,229,255,.08); border-color:var(--cyan); box-shadow:0 0 16px rgba(0,229,255,.25); }
+  button:active{ transform:translateY(1px); }
+  button:disabled{ opacity:.35; cursor:not-allowed; }
+  button.secondary{ color:var(--text-dim); border-color:var(--panel-line); }
+  button.secondary:hover{ color:var(--text); border-color:var(--text-dim); box-shadow:none; background:rgba(255,255,255,.03); }
+  .hint{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-dim); letter-spacing:1px; }
+</style>
+</head>
+<body>
+
+<div class="grid-overlay"></div>
+<div class="scanline"></div>
+
+<div class="app">
+
+  <header>
+    <div class="brand">
+      <div class="mark">J.A.R.V.I.S.</div>
+      <div class="sub">JUST A RATHER VERY INTELLIGENT SYSTEM &nbsp;·&nbsp; CORE v3.5</div>
+    </div>
+    <div class="status-cluster">
+      <div class="status-pill" id="pill-standby"><span class="dot"></span>STANDBY</div>
+      <div class="status-pill" id="pill-listen"><span class="dot"></span>LISTENING</div>
+      <div class="status-pill thinking" id="pill-think"><span class="dot"></span>PROCESSING</div>
+      <div class="status-pill" id="pill-speak"><span class="dot"></span>SPEAKING</div>
+      <div class="status-pill" id="pill-link"><span class="dot"></span>OFFLINE</div>
+      <div class="status-pill" id="pill-provider"><span class="dot"></span>NO PROVIDER</div>
+      <div class="clock" id="clock">00:00:00</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>System Log</h2>
+      <div id="log"></div>
+    </section>
+
+    <section class="panel core-panel">
+      <div class="core-wrap">
+        <canvas id="core-canvas" width="900" height="900"></canvas>
+        <div class="core-caption" id="core-caption">STANDBY</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Diagnostics</h2>
+      <div class="metric">
+        <div class="metric-top"><span>NEURAL LOAD</span><span id="m1v">4%</span></div>
+        <div class="bar"><i id="m1" style="width:4%"></i></div>
+      </div>
+      <div class="metric">
+        <div class="metric-top"><span>AUDIO INPUT</span><span id="m2v">0%</span></div>
+        <div class="bar"><i id="m2" style="width:0%"></i></div>
+      </div>
+      <div class="metric">
+        <div class="metric-top"><span>RESPONSE SYNTH</span><span id="m3v">0%</span></div>
+        <div class="bar"><i id="m3" style="width:0%"></i></div>
+      </div>
+
+      <h2 style="margin-top:6px;">Token Budget</h2>
+      <div class="budget" id="budget">
+        <div class="b"><span>LOCAL HIT RATE</span><b id="u-local">—</b></div>
+        <div class="b"><span>API CALLS</span><b id="u-calls">0</b></div>
+        <div class="b"><span>INPUT TOKENS</span><b id="u-in">0</b></div>
+        <div class="b"><span>OUTPUT TOKENS</span><b id="u-out">0</b></div>
+        <div class="b"><span>CACHE READ</span><b id="u-cache">0</b></div>
+        <div class="b"><span>EST. COST</span><b id="u-cost">$0.0000</b></div>
+      </div>
+
+      <h2 style="margin-top:6px;">Active Modules</h2>
+      <div class="tool-list" id="tool-list">
+        <div class="t" data-tool="computer"><span class="led"></span>computer (screen)</div>
+        <div class="t" data-tool="open_application"><span class="led"></span>open_application</div>
+        <div class="t" data-tool="focus_window"><span class="led"></span>focus_window</div>
+        <div class="t" data-tool="open_url"><span class="led"></span>open_url</div>
+        <div class="t" data-tool="set_volume"><span class="led"></span>set_volume</div>
+        <div class="t" data-tool="analyze_camera_view"><span class="led"></span>analyze_camera_view</div>
+        <div class="t" data-tool="open_gesture_selector"><span class="led"></span>open_gesture_selector</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <button id="btn-listen">🎤&nbsp; 喚醒聆聽</button>
+    <button id="btn-speak">🔊&nbsp; 測試語音回覆</button>
+    <button id="btn-tool" class="secondary">⚙&nbsp; 模擬工具呼叫</button>
+    <span class="hint" id="mic-hint">跑起 <code>python -m jarvis</code> 會自動連線同步；上面的按鈕是離線測試用</span>
+  </footer>
+
+</div>
+
+<script>
+/* ============================================================
+   狀態機： standby | listening | thinking | speaking
+   ============================================================ */
+const STATE = { standby:'standby', listening:'listening', thinking:'thinking', speaking:'speaking' };
+let current = STATE.standby;
+
+const pills = {
+  standby: document.getElementById('pill-standby'),
+  listening: document.getElementById('pill-listen'),
+  thinking: document.getElementById('pill-think'),
+  speaking: document.getElementById('pill-speak'),
+};
+const caption = document.getElementById('core-caption');
+const captionMap = { standby:'STANDBY', listening:'LISTENING', thinking:'PROCESSING', speaking:'SPEAKING' };
+
+function setState(s){
+  current = s;
+  Object.entries(pills).forEach(([k,el])=> el.classList.toggle('on', k===s || (k==='thinking' && s==='thinking')));
+  caption.textContent = captionMap[s];
+  document.getElementById('m1v').textContent = (s==='thinking' ? '87%' : s==='standby' ? '4%' : '32%');
+  document.getElementById('m1').style.width = (s==='thinking' ? '87%' : s==='standby' ? '4%' : '32%');
+}
+setState(STATE.standby);
+
+/* ============================================================
+   LOG
+   ============================================================ */
+const logEl = document.getElementById('log');
+function log(text, tag){
+  const line = document.createElement('span');
+  line.className = 'ln';
+  line.innerHTML = `<span class="tag ${tag==='SIR'?'sir':''}">[${tag}]</span> ${text}`;
+  logEl.appendChild(line);
+  logEl.scrollTop = logEl.scrollHeight;
+  while(logEl.children.length > 60) logEl.removeChild(logEl.firstChild);
+}
+log('系統開機完成，核心已就緒。','SYS');
+log('J.A.R.V.I.S. online. Systems fully operational, Sir.','JARVIS');
+
+/* ============================================================
+   CLOCK
+   ============================================================ */
+function tickClock(){
+  document.getElementById('clock').textContent = new Date().toLocaleTimeString('en-GB');
+}
+tickClock(); setInterval(tickClock, 1000);
+
+/* ============================================================
+   核心視覺化（Canvas）：同心環 + 徑向波形
+   ============================================================ */
+const canvas = document.getElementById('core-canvas');
+const ctx = canvas.getContext('2d');
+const BARS = 108;
+let amps = new Float32Array(BARS);      // 每根波形條的目前振幅 0..1
+let targetAmps = new Float32Array(BARS);
+let t = 0;
+
+function resizeCanvas(){
+  const rect = canvas.getBoundingClientRect();
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = rect.width * dpr;
+  canvas.height = rect.height * dpr;
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+}
+window.addEventListener('resize', resizeCanvas);
+
+function draw(){
+  requestAnimationFrame(draw);
+  t += 0.016;
+  const w = canvas.getBoundingClientRect().width;
+  const h = canvas.getBoundingClientRect().height;
+  const cx = w/2, cy = h/2;
+  const baseR = Math.min(w,h) * 0.22;
+
+  ctx.clearRect(0,0,w,h);
+
+  /* --- decay amps toward target --- */
+  for(let i=0;i<BARS;i++){
+    amps[i] += (targetAmps[i]-amps[i]) * 0.18;
+    targetAmps[i] *= 0.90; // natural decay so bursts fade
+  }
+
+  /* idle breathing baseline */
+  const breathe = current==='standby' ? (Math.sin(t*1.1)*0.5+0.5)*0.12 : 0;
+
+  /* --- outer rotating dashed ring --- */
+  ctx.save();
+  ctx.translate(cx,cy);
+  ctx.rotate(t*0.15);
+  ctx.strokeStyle = 'rgba(0,229,255,0.25)';
+  ctx.lineWidth = 1.5;
+  ctx.setLineDash([2, 10]);
+  ctx.beginPath();
+  ctx.arc(0,0, baseR*2.05, 0, Math.PI*2);
+  ctx.stroke();
+  ctx.restore();
+
+  ctx.save();
+  ctx.translate(cx,cy);
+  ctx.rotate(-t*0.09);
+  ctx.strokeStyle = 'rgba(138,92,255,0.22)';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([14, 8]);
+  ctx.beginPath();
+  ctx.arc(0,0, baseR*1.7, 0, Math.PI*2);
+  ctx.stroke();
+  ctx.restore();
+
+  /* --- radial waveform ring --- */
+  const accent = current==='thinking' ? '138,92,255' : '0,229,255';
+  for(let i=0;i<BARS;i++){
+    const ang = (i/BARS) * Math.PI*2;
+    const amp = Math.min(1, amps[i] + breathe);
+    const len = baseR*0.28 + amp * baseR*0.85;
+    const r1 = baseR*1.08;
+    const r2 = r1 + len;
+    const x1 = cx + Math.cos(ang)*r1, y1 = cy + Math.sin(ang)*r1;
+    const x2 = cx + Math.cos(ang)*r2, y2 = cy + Math.sin(ang)*r2;
+    ctx.strokeStyle = `rgba(${accent}, ${0.35 + amp*0.65})`;
+    ctx.lineWidth = 2.2;
+    ctx.lineCap='round';
+    ctx.beginPath();
+    ctx.moveTo(x1,y1); ctx.lineTo(x2,y2);
+    ctx.stroke();
+  }
+
+  /* --- inner core disc --- */
+  const pulse = current==='speaking' ? (Math.sin(t*10)*0.5+0.5)*0.08 : (Math.sin(t*1.6)*0.5+0.5)*0.05;
+  const grad = ctx.createRadialGradient(cx,cy,0, cx,cy, baseR*(1+pulse));
+  grad.addColorStop(0, `rgba(${accent},0.55)`);
+  grad.addColorStop(0.6, `rgba(${accent},0.12)`);
+  grad.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = grad;
+  ctx.beginPath();
+  ctx.arc(cx,cy, baseR*(1+pulse), 0, Math.PI*2);
+  ctx.fill();
+
+  ctx.strokeStyle = `rgba(${accent},0.9)`;
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.arc(cx,cy, baseR*0.62, 0, Math.PI*2);
+  ctx.stroke();
+
+  ctx.strokeStyle = `rgba(${accent},0.5)`;
+  ctx.beginPath();
+  ctx.arc(cx,cy, baseR*0.5, 0, Math.PI*2);
+  ctx.stroke();
+}
+resizeCanvas();
+requestAnimationFrame(draw);
+
+/* random flicker to keep idle state alive (subtle) */
+setInterval(()=>{
+  if(current==='standby'){
+    const i = Math.floor(Math.random()*BARS);
+    targetAmps[i] = Math.random()*0.15;
+  }
+}, 220);
+
+/* ============================================================
+   LISTENING 狀態的波形
+   注意：真正的收音與語音辨識是在 Python 後端用 speech_recognition 處理的，
+   瀏覽器這邊完全不需要、也不會再要求麥克風權限 —— 這裡純粹用程序波形
+   模擬「正在聆聽」的律動效果，視覺上跟真的收音差異不大，但不會一直跳權限視窗。
+   ============================================================ */
+let listening = false;
+let listenInterval = null;
+
+function startListening(){
+  if(listening) return;
+  listening = true;
+  let level = 0;
+  listenInterval = setInterval(()=>{
+    if(!listening || current!=='listening'){ clearInterval(listenInterval); listenInterval=null; return; }
+    for(let i=0;i<BARS;i++){
+      targetAmps[i] = Math.max(targetAmps[i], Math.random()*0.6);
+    }
+    level = Math.round(Math.random()*35 + 15);
+    document.getElementById('m2v').textContent = level+'%';
+    document.getElementById('m2').style.width = level+'%';
+  }, 90);
+}
+
+function stopListening(){
+  listening = false;
+  if(listenInterval){ clearInterval(listenInterval); listenInterval=null; }
+  document.getElementById('m2v').textContent = '0%';
+  document.getElementById('m2').style.width = '0%';
+}
+
+/* ============================================================
+   語音合成 → 波形律動（SPEAKING 狀態）
+   ============================================================ */
+function speak(text){
+  setState(STATE.speaking);
+  log(text, 'JARVIS');
+  document.getElementById('m3v').textContent = '0%';
+
+  if(!('speechSynthesis' in window)){
+    // 無 TTS 支援時，純用程序波形跑一段固定秒數
+    fakeSpeakBurst(2600, ()=> finishSpeaking());
+    return;
+  }
+
+  const utter = new SpeechSynthesisUtterance(text);
+  const voices = speechSynthesis.getVoices();
+  const zh = voices.find(v=>/zh/i.test(v.lang));
+  if(zh) utter.voice = zh;
+  utter.rate = 1.0;
+
+  let burstTimer = setInterval(()=>{
+    // 每個字/詞邊界觸發一次能量爆發，模擬語音振幅
+    for(let i=0;i<BARS;i++){
+      const falloff = Math.exp(-Math.pow((i-BARS/2)%BARS,2)/900);
+      targetAmps[i] = Math.max(targetAmps[i], Math.random()*0.9);
+    }
+    const level = Math.round(Math.random()*40+50);
+    document.getElementById('m3v').textContent = level+'%';
+    document.getElementById('m3').style.width = level+'%';
+  }, 90);
+
+  utter.onend = ()=>{
+    clearInterval(burstTimer);
+    finishSpeaking();
+  };
+  utter.onerror = ()=>{
+    clearInterval(burstTimer);
+    finishSpeaking();
+  };
+
+  speechSynthesis.cancel();
+  speechSynthesis.speak(utter);
+}
+
+function fakeSpeakBurst(durationMs, cb){
+  const start = performance.now();
+  const iv = setInterval(()=>{
+    for(let i=0;i<BARS;i++) targetAmps[i] = Math.max(targetAmps[i], Math.random()*0.9);
+    if(performance.now()-start > durationMs){ clearInterval(iv); cb(); }
+  }, 90);
+}
+
+function finishSpeaking(){
+  document.getElementById('m3v').textContent = '0%';
+  document.getElementById('m3').style.width = '0%';
+  setState(STATE.standby);
+  log('回覆播放完畢，恢復待命。','SYS');
+}
+
+/* ============================================================
+   按鈕互動
+   ============================================================ */
+const btnListen = document.getElementById('btn-listen');
+const btnSpeak = document.getElementById('btn-speak');
+const btnTool = document.getElementById('btn-tool');
+
+btnListen.addEventListener('click', ()=>{
+  if(current==='listening'){
+    stopListening();
+    setState(STATE.standby);
+    log('已結束聆聽。','SYS');
+    return;
+  }
+  setState(STATE.listening);
+  log('正在傾聽（離線模擬波形）...','SYS');
+  startListening();
+});
+
+const demoReplies = [
+  'Sir, all systems are functioning within normal parameters.',
+  '收到，正在為您執行指令。',
+  'Sir, 已為您找到相關資訊，馬上為您呈現。',
+  '目前雲端連線穩定，隨時待命。'
+];
+btnSpeak.addEventListener('click', ()=>{
+  if(current==='speaking') return;
+  stopListening();
+  setState(STATE.thinking);
+  log('分析指令中...','SYS');
+  setTimeout(()=>{
+    const text = demoReplies[Math.floor(Math.random()*demoReplies.length)];
+    speak(text);
+  }, 700);
+});
+
+const toolNames = ['computer','open_application','focus_window','open_url','set_volume','analyze_camera_view','open_gesture_selector'];
+btnTool.addEventListener('click', ()=>{
+  const name = toolNames[Math.floor(Math.random()*toolNames.length)];
+  const el = document.querySelector(`.t[data-tool="${name}"]`);
+  document.querySelectorAll('.tool-list .t').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  log(`啟動核心功能: ${name}(...)`, 'SYS');
+  setTimeout(()=> el.classList.remove('active'), 1600);
+});
+
+/* preload voices (some browsers populate asynchronously) */
+if('speechSynthesis' in window){
+  speechSynthesis.onvoiceschanged = ()=> speechSynthesis.getVoices();
+}
+
+/* ============================================================
+   WEBSOCKET BRIDGE — 連接 python 後端 (jarvis.py) 的即時事件
+   後端事件格式：
+     {"type":"state", "state":"standby|listening|thinking|speaking"}
+     {"type":"log",   "tag":"SYS|SIR|JARVIS", "text":"..."}
+     {"type":"tool",  "name":"open_application", "args":{...}}
+   ============================================================ */
+const WS_URL = 'ws://localhost:8765';
+const pillLink = document.getElementById('pill-link');
+let ws = null;
+let wsReconnectTimer = null;
+let speakBurstInterval = null;
+
+function setLinkStatus(connected){
+  pillLink.classList.toggle('on', connected);
+  pillLink.childNodes[1].textContent = connected ? 'LINKED' : 'OFFLINE';
+}
+setLinkStatus(false);
+
+function connectWS(){
+  try{
+    ws = new WebSocket(WS_URL);
+  }catch(e){
+    scheduleReconnect();
+    return;
+  }
+
+  ws.onopen = ()=>{
+    setLinkStatus(true);
+    log('已連上賈維斯後端，HUD 即時同步中。','SYS');
+  };
+
+  ws.onmessage = (evt)=>{
+    let msg;
+    try{ msg = JSON.parse(evt.data); }catch(e){ return; }
+    handleServerEvent(msg);
+  };
+
+  ws.onclose = ()=>{
+    setLinkStatus(false);
+    scheduleReconnect();
+  };
+
+  ws.onerror = ()=>{
+    ws.close();
+  };
+}
+
+function scheduleReconnect(){
+  clearTimeout(wsReconnectTimer);
+  wsReconnectTimer = setTimeout(connectWS, 3000);
+}
+
+function handleServerEvent(msg){
+  switch(msg.type){
+    case 'state':
+      applyServerState(msg.state);
+      break;
+    case 'log':
+      log(msg.text, msg.tag || 'SYS');
+      break;
+    case 'tool':
+      highlightTool(msg.name);
+      break;
+    case 'usage':
+      applyUsage(msg);
+      break;
+    case 'provider':
+      applyProvider(msg);
+      break;
+  }
+}
+
+const pillProvider = document.getElementById('pill-provider');
+function applyProvider(msg){
+  pillProvider.classList.add('on');
+  pillProvider.childNodes[1].textContent = `${(msg.provider||'?').toUpperCase()} · ${msg.model||''}`;
+}
+
+const fmt = n => (n||0).toLocaleString('en-US');
+function applyUsage(u){
+  document.getElementById('u-calls').textContent = fmt(u.api_calls);
+  document.getElementById('u-in').textContent    = fmt(u.input);
+  document.getElementById('u-out').textContent   = fmt(u.output);
+  document.getElementById('u-cache').textContent = fmt(u.cache_read);
+  document.getElementById('u-cost').textContent  = '$' + (u.cost_usd||0).toFixed(4);
+  const local = document.getElementById('u-local');
+  local.textContent = (u.local_ratio||0) + '%  (' + fmt(u.local_hits) + ')';
+  // 本機命中率低於三成才是值得注意的訊號 —— 代表大部分指令都在花錢
+  local.classList.toggle('warm', (u.local_ratio||0) < 30);
+}
+
+function applyServerState(state){
+  // 任何非 listening 的狀態都要確保麥克風收音已經停止
+  if(state !== 'listening') stopListening();
+  // 任何非 speaking 的狀態都要停止語音律動的持續爆發
+  if(state !== 'speaking' && speakBurstInterval){
+    clearInterval(speakBurstInterval);
+    speakBurstInterval = null;
+  }
+
+  setState(state);
+
+  if(state === 'listening'){
+    startListening();
+  }
+
+  if(state === 'speaking' && !speakBurstInterval){
+    // 實際聲音是由 python 後端的 pygame 播放，這裡只需要讓波形持續律動，
+    // 直到後端送出下一個非 speaking 的狀態（播放結束）為止。
+    speakBurstInterval = setInterval(()=>{
+      for(let i=0;i<BARS;i++){
+        targetAmps[i] = Math.max(targetAmps[i], Math.random()*0.9);
+      }
+    }, 90);
+  }
+}
+
+function highlightTool(name){
+  // 後端會送 "computer:left_click" 這種名稱，取冒號前的群組去對應面板項目
+  const key = String(name||'').split(':')[0];
+  const el = document.querySelector(`.t[data-tool="${key}"]`);
+  if(!el) return;
+  document.querySelectorAll('.tool-list .t').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  setTimeout(()=> el.classList.remove('active'), 1600);
+}
+
+connectWS();
+</script>
+</body>
+</html>

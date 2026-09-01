@@ -1,0 +1,24 @@
+# ---- 核心 ----
+python-dotenv>=1.0
+requests>=2.31
+pyautogui>=0.9.54
+pyperclip>=1.8
+pillow>=10.0
+websockets>=12.0          # HUD 即時連動（不裝也能跑，只是 HUD 不同步）
+
+# ---- 後端（至少裝一個）----
+anthropic>=0.40           # JARVIS_PROVIDER=claude
+google-genai>=1.0         # JARVIS_PROVIDER=gemini
+
+# ---- 語音（想用文字模式可以不裝）----
+SpeechRecognition>=3.10
+edge-tts>=6.1
+pygame>=2.5
+PyAudio>=0.2.14           # SpeechRecognition 的麥克風後端
+
+# ---- 鏡頭 / 手勢（選用）----
+opencv-python>=4.9
+mediapipe>=0.10
+
+# ---- Windows 專用（Linux 上不會安裝）----
+pygetwindow>=0.0.9; sys_platform == "win32"
