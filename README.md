@@ -16,7 +16,7 @@
 ## 快速開始
 
 ```bash
-git clone https://github.com/tonicatowo/jarvis-desktop
+git clone https://github.com/Venshen885361/jarvis-desktop
 cd jarvis-desktop
 
 python -m venv .venv
@@ -27,6 +27,8 @@ cp .env.example .env               # 填入 ANTHROPIC_API_KEY
 python -m jarvis
 ```
 
+Windows 使用者可以直接跑 `setup.bat`（建 venv、裝套件、跑一次驗證），之後用 `run.bat` 啟動。
+
 沒有麥克風？用鍵盤模式先玩玩看：
 
 ```bash
@@ -34,7 +36,33 @@ python -m jarvis --text
 python -m jarvis --once "打開記事本"
 ```
 
-HUD 介面：用瀏覽器打開 `hud/jarvis_hub.html`，後端跑起來會自動連上。
+![桌邊寵物的四種狀態](docs/pet-states.png)
+
+啟動後桌面右下角會出現一顆 **C60 骨架的桌邊寵物**：待命時緩慢自轉呼吸、聆聽時轉快、
+思考時變紫色脈動、講話時整顆共振抖動，最後一句回覆會顯示在下方。
+
+| 操作 | 方式 |
+|---|---|
+| 移動 | 左鍵拖曳 |
+| 調整大小 | 滾輪、拖右下角把手、或右鍵選單「放大／縮小」（120–640 px） |
+| 關閉 | 右上角 ×、按 Esc、右鍵選單「退出」、或直接說「再見」「退出」 |
+
+大小與位置會記在 `~/.jarvis_pet.json`，下次開在同一個地方。
+Windows 上是真正去背的（只剩線框浮在桌面）；Linux 退回半透明深色底。
+
+不想要寵物的話 `--no-pet` 走純終端機；`--hud` 會另外啟動 WebSocket 讓 `hud/jarvis_hub.html` 網頁版連上。
+
+### 沒有 Anthropic 額度？先用 Gemini 跑
+
+Anthropic API 是**預付制，跟 Claude 訂閱（Pro / Max）是分開的** —— 有訂閱不等於有 API 額度。
+看到 `Your credit balance is too low` 就是這個原因。
+
+想先免費試玩的話改用 Gemini：[AI Studio](https://aistudio.google.com/apikey) 拿一把免費金鑰，
+`.env` 改成 `JARVIS_PROVIDER=gemini` 加 `GEMINI_API_KEY=`。
+免費層涵蓋本專案預設的 `gemini-3.5-flash` 與 `gemini-3.5-flash-lite`。
+
+代價是 Gemini 沒有官方 computer-use toolset，GUI 操作靠視覺定位，多步驟任務較弱；
+本機路由那些 0 token 的功能則完全不受影響。
 
 ### 踩到 `anthropic-workspace-id is required` 的話
 
@@ -58,6 +86,8 @@ HUD 介面：用瀏覽器打開 `hud/jarvis_hub.html`，後端跑起來會自動
 | 「幫我把這個表單填一填」 | Claude 截圖 → 定位欄位 → 點擊輸入 → 再截圖確認 | 一輪 API |
 | 「唸出畫面上這段錯誤訊息」 | 截圖 → 模型讀 | 一輪 API |
 | 「這是什麼東西」（拿著東西對鏡頭） | 開鏡頭拍照 → 模型辨識 | 一次輕量呼叫 |
+| 「用 Lens 反向搜尋這個」 | 拍照→傳暫存圖床（1h）→開 Google Lens 以圖搜圖 | **0 token** |
+| 「用鏡頭查這個多少錢」 | 預覽→拍照→辨識出品牌型號→直接開 Google 購物搜尋（類 Google Lens） | 一次輕量呼叫 |
 
 ---
 
@@ -123,6 +153,22 @@ HUD 右側的 Token Budget 面板會即時顯示 input / output / cache read 與
 
 ---
 
+## 多裝置：Pi 大腦 + 電腦 / 手機手腳
+
+大腦（語音、路由、LLM）和手腳（截圖、點擊、開程式）可以分開跑：
+
+```bash
+# 被操作的電腦
+python -m jarvis.agent --token 密語
+
+# 大腦（Pi 或另一台電腦）
+JARVIS_DEVICES="pc=ws://100.64.0.2:8770?token=密語,phone=adb://192.168.1.50:5555" python -m jarvis
+```
+
+「切換到手機」「用電腦開 Firefox」「在手機上搜尋 …」會自動切換目標。Android 走 ADB 無線偵錯，
+手機上不用裝任何東西。完整步驟（Tailscale、systemd、ADB 配對、離線 STT）見
+[docs/raspberry-pi.md](docs/raspberry-pi.md)。
+
 ## 平台支援
 
 | 功能 | Windows | Linux |
@@ -152,7 +198,10 @@ jarvis/
 ├── screen.py            截圖擷取、縮放壓縮、座標換算
 ├── speech.py            STT / TTS（可退回純文字模式）
 ├── usage.py             token 計量與成本估算
-├── hud.py               HUD WebSocket 橋接
+├── agent.py             手腳 daemon：把本機工具掛到 WebSocket 上給大腦用
+├── devices/             Local / Remote(WebSocket) / Adb(Android) 三種裝置，統一 call(tool, args)
+├── hud.py               事件匯流排 + HUD WebSocket 橋接
+├── pet.py               桌邊寵物（tkinter，C60 線框，講話時共振）
 ├── platform_/           Windows / Linux 平台實作
 ├── tools/
 │   ├── apps.py          程式索引、開啟、視窗切換

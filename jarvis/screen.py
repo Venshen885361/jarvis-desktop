@@ -45,13 +45,12 @@ class Shot:
 
 
 def capture(region: tuple[int, int, int, int] | None = None) -> Shot:
-    """擷取螢幕（或指定區域），套用縮放與格式壓縮。
+    """擷取這台電腦的螢幕（或指定區域），套用縮放與格式壓縮。
 
     Args:
         region: (x1, y1, x2, y2) 真實螢幕座標。給定時只送這塊，省最多 token。
     """
     import pyautogui
-    from PIL import Image
 
     if region:
         x1, y1, x2, y2 = region
@@ -60,6 +59,15 @@ def capture(region: tuple[int, int, int, int] | None = None) -> Shot:
     else:
         img = pyautogui.screenshot()
         offset = (0, 0)
+    return compress(img, offset)
+
+
+def compress(img, offset: tuple[int, int] = (0, 0)) -> Shot:
+    """把任何 PIL 影像壓成模型要吃的 Shot（縮放 + JPEG）。
+
+    抽出來是因為手機截圖（adb screencap）走的是同一套節流，只是來源不同。
+    """
+    from PIL import Image
 
     orig_w, orig_h = img.size
     max_edge = settings.screenshot_max_edge

@@ -28,10 +28,31 @@ from .gui import (
     switch_input_method,
     write_clipboard,
 )
-from .vision import analyze_camera_view
+from .vision import analyze_camera_view, camera_search, lens_search
+
+
+def switch_device(name: str) -> str:
+    """切換接下來要操作的裝置（電腦 / 手機 / 本機）。
+
+    Args:
+        name: 裝置名稱或口語別名，例如「手機」「電腦」「pc」「phone」「local」。
+    """
+    from ..devices import get_devices
+
+    return get_devices().switch(name)
+
+
+def list_devices() -> str:
+    """列出目前可以控制的裝置，以及現在正在控制哪一台。"""
+    from ..devices import get_devices
+
+    return get_devices().describe_all()
+
 
 # Claude provider 用：computer toolset 已涵蓋滑鼠鍵盤，這裡只給牠做不到 / 做起來很貴的事
 CLAUDE_TOOLS = [
+    switch_device,
+    list_devices,
     open_application,
     focus_window,
     list_windows,
@@ -43,6 +64,8 @@ CLAUDE_TOOLS = [
     write_clipboard,
     execute_shell,
     analyze_camera_view,
+    camera_search,
+    lens_search,
     open_gesture_selector,
     refresh_app_index,
 ]

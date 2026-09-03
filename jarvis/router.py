@@ -17,16 +17,14 @@ import urllib.parse
 import requests
 
 from .config import settings
-from .platform_ import get_platform
-from .tools.apps import focus_window, list_windows, open_application, open_url
-from .tools.gui import (
-    lock_screen,
-    read_clipboard,
-    set_volume,
-    switch_input_method,
-    write_clipboard,
-)
+from .devices import get_devices
 from .usage import tracker
+
+
+def _dev(tool: str, **args) -> str:
+    """裝置相關的工具一律經過註冊表送到「目前目標裝置」——本機、Tailscale 另一端的電腦、
+    或 ADB 連著的手機。路由本身不再直接呼叫本機函式。"""
+    return str(get_devices().run_tool(tool, args))
 
 # ---------------------------------------------------------------- 算術
 _MATH_SAFE = re.compile(r"^[\d\.\+\-\*\/\%\(\)\s]+$")
@@ -105,9 +103,8 @@ _MEDIA_KEYS = {
 
 
 def _press(key: str) -> str:
-    import pyautogui
-
-    pyautogui.press(key)
+    # 走 computer:key 讓手機也能收到（AdbDevice 會翻成 KEYCODE_MEDIA_*）
+    _dev("computer:key", text=key)
     return "Sir, 已執行。"
 
 
@@ -134,7 +131,21 @@ def try_local(user_input: str) -> str | None:
     return result
 
 
+_DEVICE_PREFIX = re.compile(r"^(?:用|在|請用|幫我用)(手機|電腦|桌機|筆電|本機)(?:上|裡)?[，,\s]*")
+
+
 def _route(text: str) -> str | None:
+    # -1) 「用手機開 YouTube」「在電腦上搜尋 …」：先切裝置，再用剩下的句子繼續路由。
+    #     剩下的句子本機處理不了時回 None 交給模型 —— 裝置已經切好，模型會看到標示。
+    if (m := _DEVICE_PREFIX.match(text)):
+        devs = get_devices()
+        if devs.resolve_name(m.group(1)):
+            msg = devs.switch(m.group(1))
+            if not msg.startswith("Sir, 已切換"):
+                return msg  # 連不上就直接回報，不要繼續做
+            rest = text[m.end():].strip()
+            return _route(rest) if rest else msg
+
     # 0) 招呼語：整句就是招呼詞才算，避免「你好幫我打開瀏覽器」被攔截
     if len(text) <= 4:
         for k, v in _GREETINGS.items():
@@ -157,7 +168,7 @@ def _route(text: str) -> str | None:
     if any(k in text for k in _OPEN_TRIGGERS) and (m := _URL_RE.search(text)):
         candidate = m.group(1)
         if "." in candidate and not candidate.replace(".", "").isdigit():
-            return open_url(candidate)
+            return _dev("open_url", url=candidate)
 
     # 4) 網頁搜尋：直接組 Google 網址開啟，比讓模型開瀏覽器再視覺定位網址列
     #    少掉整整一輪截圖 + 定位（省最多的一條規則）
@@ -166,8 +177,24 @@ def _route(text: str) -> str | None:
             q = text[len(trigger):].strip(" ，,。")
             if q:
                 url = "https://www.google.com/search?q=" + urllib.parse.quote(q)
-                get_platform().open_url(url)
+                _dev("open_url", url=url)
                 return f"Sir, 已為您搜尋「{q}」。"
+
+    # 4.4) Google Lens 以圖搜圖：「用 lens 查」「反向搜尋這個」「以圖搜圖」
+    #      要排在 camera_search 前面，因為兩者的觸發詞高度重疊
+    if any(k in text.lower() for k in ("lens", "以圖搜圖", "反向搜", "反向查", "圖片搜尋", "找出處", "找來源")):
+        return _dev("lens_search", use_gesture=any(k in text for k in ("框選", "手勢")))
+
+    # 4.5) 鏡頭視覺搜尋：「用鏡頭查這是什麼」「拍一下幫我找哪裡買」「掃描這個」
+    #      這條要在「開啟應用程式」之前，不然「打開鏡頭查一下」會被當成開程式
+    if any(k in text for k in ("鏡頭", "相機", "拍一下", "拍照", "掃描", "掃一下", "框選")) and any(
+        k in text for k in ("搜尋", "查", "找", "什麼", "多少錢", "哪裡買", "評價", "規格", "牌子", "類似")
+    ):
+        hint = next(
+            (k for k in ("多少錢", "價格", "哪裡買", "怎麼用", "什麼牌子", "類似", "評價", "規格") if k in text),
+            "",
+        )
+        return _dev("camera_search", hint=hint, use_gesture=any(k in text for k in ("框選", "手勢")))
 
     # 5) 開啟應用程式
     for trigger in _OPEN_TRIGGERS:
@@ -175,25 +202,35 @@ def _route(text: str) -> str | None:
             app = text.split(trigger, 1)[1].strip()
             app = re.sub(r"^(我|一下|給我|的)", "", app).strip(" ，,。")
             if app:
-                return open_application(app)
+                return _dev("open_application", app_name=app)
 
-    # 6) 切換視窗
+    # 6) 切換「裝置」優先於切換「視窗」：「切換到手機」「改用電腦」「控制本機」
+    devs = get_devices()
+    for trigger in ("切換到", "切到", "改用", "控制", "換到", "用"):
+        if text.startswith(trigger):
+            target = text[len(trigger):].strip(" ，,。")
+            if devs.resolve_name(target):
+                return devs.switch(target)
+    if any(k in text for k in ("有哪些裝置", "列出裝置", "現在控制誰", "控制哪台")):
+        return devs.describe_all()
+
+    # 6.5) 切換視窗
     for trigger in ("切換到", "切到", "跳到", "回到"):
         if text.startswith(trigger):
             target = text[len(trigger):].strip(" ，,。")
             if target:
-                return focus_window(target)
+                return _dev("focus_window", keyword=target)
     if any(k in text for k in ("有哪些視窗", "開了什麼", "列出視窗")):
-        return list_windows()
+        return _dev("list_windows")
 
     # 7) 音量
     if any(k in text for k in ("音量", "聲音", "大聲", "小聲", "靜音")):
         if "靜音" in text:
-            return set_volume("mute")
+            return _dev("set_volume", action="mute")
         if any(k in text for k in ("大", "調高", "上升", "加")):
-            return set_volume("up")
+            return _dev("set_volume", action="up")
         if any(k in text for k in ("小", "調低", "下降", "減")):
-            return set_volume("down")
+            return _dev("set_volume", action="down")
 
     # 8) 媒體鍵
     for keywords, key in _MEDIA_KEYS.items():
@@ -202,23 +239,23 @@ def _route(text: str) -> str | None:
 
     # 9) 鎖定螢幕
     if any(k in text for k in ("鎖定螢幕", "鎖屏", "鎖電腦", "lock screen")):
-        return lock_screen()
+        return _dev("lock_screen")
 
     # 10) 輸入法
     if any(k in text for k in ("輸入法", "切換語言", "切成英文", "切成中文", "中英切換")):
         if "英文" in text:
-            return switch_input_method("english")
+            return _dev("switch_input_method", mode="english")
         if "中文" in text:
-            return switch_input_method("chinese")
-        return switch_input_method("toggle_lang")
+            return _dev("switch_input_method", mode="chinese")
+        return _dev("switch_input_method", mode="toggle_lang")
 
     # 11) 剪貼簿
     if any(k in text for k in ("剪貼簿", "剪貼板")):
         if text.startswith("複製"):
             content = text[2:].strip()
             if content:
-                return write_clipboard(content)
-        return read_clipboard()
+                return _dev("write_clipboard", text=content)
+        return _dev("read_clipboard")
 
     # 12) 天氣
     if any(k in text for k in ("天氣", "氣溫", "溫度", "下雨", "雨量")):

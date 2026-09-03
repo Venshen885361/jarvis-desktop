@@ -5,12 +5,40 @@ from __future__ import annotations
 import os
 from dataclasses import dataclass, field
 
-try:  # .env 是選用的：沒裝 python-dotenv 就純靠環境變數
+
+def _load_dotenv_fallback() -> None:
+    """沒裝 python-dotenv 時的最小 .env 解析：KEY=VALUE、忽略註解與空行、去掉引號。
+
+    以前是「沒裝就安靜跳過」，結果使用者換了個 Python 跑，.env 整份沒生效，
+    只看到「未設定金鑰」，完全猜不到原因。現在不依賴套件也一定會讀。
+    只補「環境裡還沒有」的鍵，真正的環境變數優先。
+    """
+    for folder in (os.getcwd(), os.path.dirname(os.path.dirname(os.path.abspath(__file__)))):
+        path = os.path.join(folder, ".env")
+        if not os.path.isfile(path):
+            continue
+        try:
+            with open(path, encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if not line or line.startswith("#") or "=" not in line:
+                        continue
+                    key, _, value = line.partition("=")
+                    key = key.strip()
+                    value = value.strip().strip('"').strip("'")
+                    if key and key not in os.environ:
+                        os.environ[key] = value
+        except OSError:
+            pass
+        return
+
+
+try:
     from dotenv import load_dotenv
 
     load_dotenv()
-except ImportError:  # pragma: no cover
-    pass
+except ImportError:
+    _load_dotenv_fallback()
 
 
 def _env_bool(key: str, default: bool) -> bool:
@@ -85,6 +113,9 @@ class Settings:
     # ---- 安全 ----
     # execute_shell 預設關閉：讓陌生人 clone 下來不會第一次講話就被模型 rm -rf。
     allow_shell: bool = _env_bool("JARVIS_ALLOW_SHELL", False)
+    # lens_search 需要把照片上傳到暫存圖床（1 小時後刪除）才能給 Google Lens 網址。
+    # 不想讓任何照片離開電腦就設 0；camera_search 不受影響（它只把圖送給模型供應商）。
+    allow_image_upload: bool = _env_bool("JARVIS_ALLOW_IMAGE_UPLOAD", True)
     # 每次動作之間的最小間隔，避免模型連點失控
     action_delay: float = float(os.environ.get("JARVIS_ACTION_DELAY", "0.15"))
 
@@ -93,6 +124,18 @@ class Settings:
     tts_voice_zh: str = os.environ.get("JARVIS_TTS_VOICE_ZH", "zh-CN-YunxiNeural")
     tts_voice_en: str = os.environ.get("JARVIS_TTS_VOICE_EN", "en-GB-RyanNeural")
     text_mode: bool = _env_bool("JARVIS_TEXT_MODE", False)
+
+    # ---- 多裝置（Pi 大腦 ↔ PC / 手機）----
+    # 例：JARVIS_DEVICES=pc=ws://100.64.0.2:8770?token=xxx,phone=adb://192.168.1.50:5555
+    # 沒設就只有本機。詳見 jarvis/devices/__init__.py 與 docs/raspberry-pi.md
+    agent_token: str = os.environ.get("JARVIS_AGENT_TOKEN", "")
+    agent_port: int = _env_int("JARVIS_AGENT_PORT", 8770)
+    agent_host: str = os.environ.get("JARVIS_AGENT_HOST", "0.0.0.0")
+
+    # ---- STT 引擎 ----
+    # google = 免費線上（預設）；vosk = 離線，需要 pip install vosk 並下載中文模型
+    stt_engine: str = os.environ.get("JARVIS_STT", "google").strip().lower()
+    vosk_model_path: str = os.environ.get("JARVIS_VOSK_MODEL", "models/vosk-model-small-cn-0.22")
 
     # ---- HUD ----
     ws_host: str = os.environ.get("JARVIS_WS_HOST", "localhost")

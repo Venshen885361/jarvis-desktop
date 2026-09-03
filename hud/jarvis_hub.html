@@ -266,6 +266,8 @@
         <div class="t" data-tool="open_url"><span class="led"></span>open_url</div>
         <div class="t" data-tool="set_volume"><span class="led"></span>set_volume</div>
         <div class="t" data-tool="analyze_camera_view"><span class="led"></span>analyze_camera_view</div>
+        <div class="t" data-tool="camera_search"><span class="led"></span>camera_search</div>
+        <div class="t" data-tool="lens_search"><span class="led"></span>lens_search</div>
         <div class="t" data-tool="open_gesture_selector"><span class="led"></span>open_gesture_selector</div>
       </div>
     </section>
@@ -566,7 +568,7 @@ btnSpeak.addEventListener('click', ()=>{
   }, 700);
 });
 
-const toolNames = ['computer','open_application','focus_window','open_url','set_volume','analyze_camera_view','open_gesture_selector'];
+const toolNames = ['computer','open_application','focus_window','open_url','set_volume','analyze_camera_view','camera_search','open_gesture_selector'];
 btnTool.addEventListener('click', ()=>{
   const name = toolNames[Math.floor(Math.random()*toolNames.length)];
   const el = document.querySelector(`.t[data-tool="${name}"]`);

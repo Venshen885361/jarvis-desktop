@@ -13,6 +13,14 @@ import tempfile
 from .config import settings
 from .hud import emit_log, emit_state
 
+# 文字模式的輸入來源。桌邊寵物開著時會塞一個 queue 進來，輸入框取代 stdin。
+_text_queue = None
+
+
+def use_text_queue(q) -> None:
+    global _text_queue
+    _text_queue = q
+
 
 async def _speak_async(text: str) -> None:
     from edge_tts import Communicate
@@ -56,7 +64,10 @@ def listen() -> str | None:
     if settings.text_mode:
         emit_state("listening")
         try:
-            text = input("\n[Sir] ").strip()
+            if _text_queue is not None:
+                text = str(_text_queue.get()).strip()
+            else:
+                text = input("\n[Sir] ").strip()
         except (EOFError, KeyboardInterrupt):
             return "再見"
         emit_state("thinking")

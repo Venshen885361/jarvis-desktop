@@ -19,6 +19,7 @@ claude = ["anthropic>=0.40"]
 gemini = ["google-genai>=1.0"]
 voice = ["SpeechRecognition>=3.10", "edge-tts>=6.1", "pygame>=2.5", "PyAudio>=0.2.14"]
 vision = ["opencv-python>=4.9", "mediapipe>=0.10"]
+offline-stt = ["vosk>=0.3.45", "opencc-python-reimplemented>=0.1.7"]
 windows = ["pygetwindow>=0.0.9"]
 
 [project.scripts]

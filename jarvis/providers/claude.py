@@ -20,9 +20,9 @@ from __future__ import annotations
 from typing import Any
 
 from ..config import settings
+from ..devices import get_devices
 from ..hud import emit_log, emit_state, emit_usage
-from ..tools import CLAUDE_TOOLS, dispatch
-from ..tools import computer as computer_exec
+from ..tools import CLAUDE_TOOLS
 from ..usage import tracker
 from .base import Provider
 from .prompt import JARVIS_PROMPT, LIGHT_PROMPT
@@ -163,6 +163,11 @@ class ClaudeProvider(Provider):
     # ------------------------------------------------------------------
     def run_turn(self, user_text: str) -> str:
         with_computer = _needs_screen(user_text)
+        # 目標裝置不是本機時，把它寫在 user 訊息前面（而不是 system prompt），
+        # 這樣 system + tools 的快取不會因為切裝置而失效。
+        devs = get_devices()
+        if devs.current_name != "local":
+            user_text = f"[目前控制的裝置：{devs.current_name}（{devs.current.platform}）] {user_text}"
         self.messages.append({"role": "user", "content": user_text})
         reply = self._loop(with_computer)
         self._prune()
@@ -227,13 +232,14 @@ class ClaudeProvider(Provider):
                 continue
 
             try:
+                devs = get_devices()
                 if is_computer:
-                    print(f"[computer] {block.name}({dict(block.input)})")
+                    print(f"[computer@{devs.current_name}] {block.name}({dict(block.input)})")
                     from ..hud import emit_tool
 
                     emit_tool(f"computer:{block.name}", dict(block.input))
-                    out = computer_exec.execute(block.name, dict(block.input))
-                    if hasattr(out, "b64"):  # Shot
+                    out = devs.run_tool(f"computer:{block.name}", dict(block.input))
+                    if hasattr(out, "b64"):  # ImageResult
                         result["content"] = [
                             {
                                 "type": "image",
@@ -247,8 +253,11 @@ class ClaudeProvider(Provider):
                     else:
                         result["content"] = [{"type": "text", "text": str(out)}]
                 else:
-                    print(f"[tool] {block.name}({dict(block.input)})")
-                    out = dispatch(block.name, dict(block.input))
+                    print(f"[tool@{devs.current_name}] {block.name}({dict(block.input)})")
+                    from ..hud import emit_tool
+
+                    emit_tool(block.name, dict(block.input))
+                    out = devs.run_tool(block.name, dict(block.input))
                     result["content"] = self.truncate_tool_result(str(out))
             except Exception as e:
                 result["content"] = f"Error: {e}"

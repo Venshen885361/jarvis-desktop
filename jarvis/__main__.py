@@ -11,7 +11,10 @@ from .router import try_local
 from .speech import listen, speak
 from .usage import tracker
 
-_EXIT_WORDS = ("再見", "關機", "掰掰", "bye", "quit", "exit")
+_EXIT_WORDS = (
+    "再見", "關機", "掰掰", "退出", "關閉賈維斯", "關閉桌寵", "關閉寵物", "下班",
+    "bye", "quit", "exit",
+)
 
 
 class _LazyProvider:
@@ -59,7 +62,7 @@ def _banner(provider) -> None:
     print(f"  平台：{__import__('sys').platform}  |  本機路由："
           f"{'開' if settings.enable_local_router else '關'}"
           f"  |  prompt cache：{'開' if settings.enable_prompt_cache else '關'}")
-    print(f"  HUD：開啟 hud/jarvis_hub.html（ws://{settings.ws_host}:{settings.ws_port}）")
+    print("  介面：桌邊寵物（右鍵選單可退出；--hud 另開網頁 HUD；--no-pet 純終端機）")
     print("=" * 58)
 
 
@@ -82,6 +85,12 @@ def main() -> int:
         "--provider", choices=["claude", "gemini"], help="覆寫 JARVIS_PROVIDER"
     )
     parser.add_argument("--once", metavar="指令", help="執行單一指令後結束")
+    parser.add_argument(
+        "--no-pet", action="store_true", help="不顯示桌邊寵物，只用終端機（與 HUD 網頁）"
+    )
+    parser.add_argument(
+        "--hud", action="store_true", help="同時啟動 WebSocket 供 hud/jarvis_hub.html 連線"
+    )
     args = parser.parse_args()
 
     if args.text or args.once:
@@ -90,7 +99,8 @@ def main() -> int:
         object.__setattr__(settings, "provider", args.provider)
 
     provider = _LazyProvider()
-    start_ws_server()
+    if args.hud or args.no_pet:
+        start_ws_server()
     _banner(provider)
 
     if args.once:
@@ -98,8 +108,25 @@ def main() -> int:
         _report_usage()
         return 0
 
-    speak("J.A.R.V.I.S. online. Systems ready, Sir.")
+    if args.no_pet:
+        _conversation_loop(provider)
+        _report_usage()
+        return 0
 
+    # 預設：桌邊寵物在主執行緒畫圖，賈維斯主流程搬到背景執行緒
+    from . import speech
+    from .pet import DesktopPet
+
+    pet = DesktopPet()
+    if settings.text_mode:
+        speech.use_text_queue(pet.text_queue)  # 打字改在寵物下方的輸入框
+        print("[系統] 文字模式：請在桌邊寵物下方的輸入框輸入指令。")
+    pet.run(worker=lambda: _conversation_loop(provider))
+    return 0
+
+
+def _conversation_loop(provider) -> None:
+    speak("J.A.R.V.I.S. online. Systems ready, Sir.")
     while True:
         try:
             user_input = listen()
@@ -111,10 +138,8 @@ def main() -> int:
             speak("Shutting down core systems. Have a good day, Sir.")
             break
         _handle(provider, user_input)
-
     emit_state("standby")
     _report_usage()
-    return 0
 
 
 def _handle(provider, user_input: str) -> None:

@@ -10,9 +10,10 @@ import json
 import re
 
 from ..config import settings
-from ..hud import emit_state, emit_usage
+from ..devices import get_devices
+from ..hud import emit_state, emit_tool, emit_usage
 from ..screen import capture
-from ..tools import GEMINI_TOOLS, dispatch
+from ..tools import GEMINI_TOOLS
 from ..usage import tracker
 from .base import Provider
 from .prompt import JARVIS_PROMPT
@@ -79,6 +80,9 @@ class GeminiProvider(Provider):
             else [settings.gemini_model_light, *settings.gemini_models]
         )
 
+        devs = get_devices()
+        if devs.current_name != "local":
+            user_text = f"[目前控制的裝置：{devs.current_name}（{devs.current.platform}）] {user_text}"
         trial = self.history + [
             types.Content(role="user", parts=[types.Part(text=user_text)])
         ]
@@ -127,8 +131,13 @@ class GeminiProvider(Provider):
             parts = []
             for call in response.function_calls:
                 args = dict(call.args) if call.args else {}
-                print(f"[tool] {call.name}({args})")
-                result = self.truncate_tool_result(dispatch(call.name, args))
+                devs = get_devices()
+                print(f"[tool@{devs.current_name}] {call.name}({args})")
+                emit_tool(call.name, args)
+                try:
+                    result = self.truncate_tool_result(str(devs.run_tool(call.name, args)))
+                except Exception as e:
+                    result = f"工具 {call.name} 執行失敗：{e}"
                 parts.append(
                     types.Part.from_function_response(
                         name=call.name, response={"result": result}

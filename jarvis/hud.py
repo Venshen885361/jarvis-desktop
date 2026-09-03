@@ -24,6 +24,14 @@ _ws_clients: set = set()
 _ws_loop: asyncio.AbstractEventLoop | None = None
 _ws_ready = threading.Event()
 
+# 行程內的訂閱者（桌邊寵物用）。跟 WebSocket 收到的是同一份事件。
+_listeners: list = []
+
+
+def subscribe(fn) -> None:
+    """fn(payload: dict) 會在 emit 的那個執行緒被呼叫，訂閱者自己要 thread-safe。"""
+    _listeners.append(fn)
+
 
 async def _ws_handler(websocket):
     _ws_clients.add(websocket)
@@ -52,6 +60,11 @@ async def _broadcast_async(payload: dict) -> None:
 
 
 def ws_emit(payload: dict) -> None:
+    for fn in _listeners:
+        try:
+            fn(payload)
+        except Exception:
+            pass
     if _ws_loop is None:
         return
     try:
