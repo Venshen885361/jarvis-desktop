@@ -162,6 +162,56 @@ def open_url(url: str) -> str:
         return f"開啟網址失敗：{e}"
 
 
+_FOLDER_ROOTS = (
+    "", "Downloads", "Desktop", "Documents", "Pictures", "Videos", "Music",
+    "OneDrive", "OneDrive/文件", "OneDrive/桌面", "OneDrive/Desktop", "OneDrive/Documents",
+    "下載", "桌面", "文件",
+)
+
+
+def open_folder(name: str) -> str:
+    """用檔案總管開啟一個資料夾。可以給完整路徑，或只給名稱（會在家目錄常見位置找）。
+
+    Args:
+        name: 完整路徑（如 C:\\Users\\me\\Downloads\\jarvis）或資料夾名稱（如「jarvis」「下載」）。
+    """
+    import os
+
+    q = name.strip().strip("「」\"'")
+    if not q:
+        return "Sir, 請告訴我要開哪個資料夾。"
+
+    candidates: list[str] = []
+    if os.path.isdir(os.path.expanduser(q)):
+        candidates.append(os.path.expanduser(q))
+    else:
+        home = os.path.expanduser("~")
+        ql = q.lower()
+        for root in _FOLDER_ROOTS:
+            base = os.path.join(home, root) if root else home
+            if not os.path.isdir(base):
+                continue
+            if os.path.basename(base).lower() == ql:
+                candidates.append(base)
+            try:
+                for entry in os.scandir(base):
+                    if entry.is_dir() and ql in entry.name.lower():
+                        candidates.append(entry.path)
+            except OSError:
+                continue
+    if not candidates:
+        return f"Sir, 在常見位置找不到叫「{q}」的資料夾。"
+
+    # 名稱完全相同 > 較短路徑（通常是較上層、較可能是使用者要的那個）
+    candidates.sort(key=lambda p: (os.path.basename(p).lower() != q.lower(), len(p)))
+    target = candidates[0]
+    try:
+        get_platform().open_url(target) if get_platform().name != "windows" else os.startfile(target)  # type: ignore[attr-defined]
+        return f"Sir, 已開啟 {target}。"
+    except Exception as e:
+        return f"開啟資料夾失敗：{e}"
+
+
 def refresh_app_index() -> str:
     """重新掃描已安裝程式清單（剛裝完新軟體時用）。"""
     n = len(get_index(force=True))
@@ -174,6 +224,7 @@ __all__ = [
     "get_index",
     "list_windows",
     "open_application",
+    "open_folder",
     "open_url",
     "refresh_app_index",
 ]

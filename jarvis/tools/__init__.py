@@ -14,6 +14,7 @@ from .apps import (
     focus_window,
     list_windows,
     open_application,
+    open_folder,
     open_url,
     refresh_app_index,
 )
@@ -54,6 +55,7 @@ CLAUDE_TOOLS = [
     switch_device,
     list_devices,
     open_application,
+    open_folder,
     focus_window,
     list_windows,
     open_url,

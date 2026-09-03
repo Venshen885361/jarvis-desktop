@@ -1,5 +1,11 @@
 # J.A.R.V.I.S.
 
+[![ci](https://github.com/Venshen885361/jarvis-desktop/actions/workflows/ci.yml/badge.svg)](https://github.com/Venshen885361/jarvis-desktop/actions/workflows/ci.yml)
+![python](https://img.shields.io/badge/python-3.11%2B-blue)
+![license](https://img.shields.io/badge/license-MIT-green)
+
+<p align="center"><img src="docs/pet.gif" width="220" alt="C60 桌邊寵物：待命 → 聆聽 → 思考 → 講話"></p>
+
 語音控制電腦的本機 AI 總管。對著麥克風講一句話，它會開程式、切視窗、看螢幕、點按鈕、打字。
 附一個 WebSocket 連動的 HUD 介面。
 
@@ -35,8 +41,6 @@ Windows 使用者可以直接跑 `setup.bat`（建 venv、裝套件、跑一次�
 python -m jarvis --text
 python -m jarvis --once "打開記事本"
 ```
-
-![桌邊寵物的四種狀態](docs/pet-states.png)
 
 啟動後桌面右下角會出現一顆 **C60 骨架的桌邊寵物**：待命時緩慢自轉呼吸、聆聽時轉快、
 思考時變紫色脈動、講話時整顆共振抖動，最後一句回覆會顯示在下方。
@@ -217,6 +221,32 @@ jarvis/
 ```
 
 ---
+
+## 專案狀態
+
+誠實版。「程式完成」不等於「實機驗證過」，這張表分開寫：
+
+| 功能 | 程式 | 實機驗證 |
+|---|---|---|
+| Gemini 後端、本機路由、token 節流 | ✅ | ✅ Windows 11 |
+| Claude computer-use 後端 | ✅ | ⚠️ 依官方文件實作，尚未以真實額度跑過完整 agent loop |
+| 桌邊寵物（去背、縮放、拖曳、關閉） | ✅ | ✅ Windows 11 |
+| 鏡頭辨識 / 手勢框選 | ✅ | ✅ Windows 11 |
+| Google Lens 反向搜尋（圖床上傳） | ✅ | ⚠️ 未實測 |
+| 大腦 / 手腳分家（`jarvis.agent` + `devices/`） | ✅ | ✅ Windows 11 localhost（大腦 → agent → 工具往返） |
+| Android ADB 控制 | ✅ | ⚠️ 僅以模擬 adb 驗證指令翻譯 |
+| 喚醒詞（openWakeWord） | ✅ | ⚠️ 未實測 |
+| Raspberry Pi 部署腳本 | ✅ | ⚠️ 未在真 Pi 上跑過 |
+| Linux（Hyprland）桌面操作 | ⚠️ 部分 | Wayland 下 pyautogui 受限，見上方說明 |
+
+### Roadmap
+
+- [ ] Pi 5 實機：喚醒詞、麥克風、Tailscale 跨網路控制電腦
+- [ ] Android 實機：ADB 無線偵錯 + 中文輸入
+- [ ] Linux：`ydotool` 後端補上 Wayland 原生視窗操作
+- [ ] STT / TTS 抽成 provider 介面（目前的 Google Web Speech / edge-tts 皆為非官方端點，不可商用）
+- [ ] 自架 relay server 取代 Tailscale（產品化前提）
+- [ ] 圓形 LCD 上畫 C60（Pi 攜帶版的臉）
 
 ## 參考
 

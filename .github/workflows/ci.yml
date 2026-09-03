@@ -1,0 +1,30 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install ruff
+      - run: ruff check jarvis/
+      - run: python -m compileall -q jarvis/
+      # 不需要金鑰、不需要麥克風的路徑：本機路由 + 幾何 + 座標換算
+      - run: pip install python-dotenv requests pillow websockets
+      - run: |
+          python - <<'PY'
+          from jarvis.router import try_local
+          assert "計算結果是 2" in try_local("1+1等於多少")
+          assert try_local("現在幾點").startswith("Sir, 現在是")
+          from jarvis.pet import c60_geometry
+          v, e = c60_geometry(); assert (len(v), len(e)) == (60, 90)
+          from jarvis.screen import Shot
+          s = Shot(b"", "image/jpeg", 1024, 576, 1024/1920)
+          assert s.to_screen(512, 288) == (960, 540)
+          print("smoke ok")
+          PY

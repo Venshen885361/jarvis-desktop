@@ -196,13 +196,18 @@ def _route(text: str) -> str | None:
         )
         return _dev("camera_search", hint=hint, use_gesture=any(k in text for k in ("框選", "手勢")))
 
-    # 5) 開啟應用程式
+    # 5) 開啟資料夾 / 應用程式
     for trigger in _OPEN_TRIGGERS:
         if trigger in text:
-            app = text.split(trigger, 1)[1].strip()
-            app = re.sub(r"^(我|一下|給我|的)", "", app).strip(" ，,。")
-            if app:
-                return _dev("open_application", app_name=app)
+            target = text.split(trigger, 1)[1].strip()
+            target = re.sub(r"^(我|一下|給我|的)", "", target).strip(" ，,。")
+            if not target:
+                continue
+            # 「打開 jarvis 的資料夾」「開啟下載資料夾」「打開 C:\\Users\\me\\Downloads」
+            if "資料夾" in target or "目錄" in target or re.match(r"^[A-Za-z]:\\|^[~/]", target):
+                folder = re.sub(r"(的)?(資料夾|目錄)$", "", target).strip(" 的")
+                return _dev("open_folder", name=folder or target)
+            return _dev("open_application", app_name=target)
 
     # 6) 切換「裝置」優先於切換「視窗」：「切換到手機」「改用電腦」「控制本機」
     devs = get_devices()
