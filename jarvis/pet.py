@@ -33,6 +33,8 @@ from .config import settings
 PHI = (1 + 5**0.5) / 2
 
 MIN_SIZE, MAX_SIZE = 120, 640
+# 講話動畫的整體強度：1.0 = 預設；嫌太安靜就調大，太誇張就調小（.env: JARVIS_PET_SPEAK_AMP）
+SPEAK_AMP = float(os.environ.get("JARVIS_PET_SPEAK_AMP", "1.6"))
 PREFS_PATH = Path.home() / ".jarvis_pet.json"  # 記住大小與位置，下次開在同一個地方
 
 # 狀態 → (R, G, B, 自轉速度倍率)
@@ -99,6 +101,7 @@ class DesktopPet:
         self.amp_target = 0.0
         self.caption = ""
         self.caption_until = 0.0
+        self.rings: list[float] = []  # 講話時往外擴散的聲波圈（記錄誕生時刻）
         self.device = ""  # 目前控制的裝置名稱（非本機時顯示）
 
         self.root = tk.Tk()
@@ -305,19 +308,24 @@ class DesktopPet:
 
         # 振幅：講話時隨機爆發，聆聽時微微起伏，思考時規律脈動，待命時靜止
         if self.state == "speaking":
-            if random.random() < 0.35:
-                self.amp_target = random.uniform(0.45, 1.0)
+            if random.random() < 0.45:
+                self.amp_target = random.uniform(0.55, 1.0)
+                if self.amp_target > 0.75 and (not self.rings or self.t - self.rings[-1] > 0.18):
+                    self.rings.append(self.t)
         elif self.state == "listening":
             self.amp_target = 0.18 + random.random() * 0.1
         elif self.state == "thinking":
             self.amp_target = 0.25 + 0.2 * math.sin(self.t * 5)
         else:
             self.amp_target = 0.0
-        self.amp += (self.amp_target - self.amp) * 0.25
-        self.amp_target *= 0.82
+        self.amp += (self.amp_target - self.amp) * 0.3
+        self.amp_target *= 0.86
+        self.rings = [r for r in self.rings if self.t - r < 0.9]
 
-        self.ax += 0.006 * speed
-        self.ay += 0.011 * speed
+        # 講話時轉速跟著音量衝，靜下來就慢回去
+        boost = 1 + self.amp * 2.2 if self.state == "speaking" else 1
+        self.ax += 0.006 * speed * boost
+        self.ay += 0.011 * speed * boost
 
         self._draw()
         self.root.after(int(1000 / self.FPS), self._tick)
@@ -326,7 +334,7 @@ class DesktopPet:
         cx, cy = self.w / 2, self.size / 2
         breathe = 0.03 * math.sin(self.t * 1.3) if self.state == "standby" else 0.0
         # 0.31 讓透視放大（最多 1.45x）加上講話抖動（1.1x）後仍落在 size/2 的命中圓盤內
-        R = self.size * 0.31 * (1 + breathe + self.amp * 0.05)
+        R = self.size * 0.31 * (1 + breathe + self.amp * 0.10 * SPEAK_AMP)
         D = 3.2
 
         sax, cax = math.sin(self.ax), math.cos(self.ax)
@@ -335,7 +343,10 @@ class DesktopPet:
         out = []
         for i, (x, y, z) in enumerate(self.verts):
             # 講話時每個頂點沿徑向抖動，相位各不同，看起來像整顆在共振
-            k = 1 + self.amp * 0.10 * math.sin(self.t * 13 + self.phase[i])
+            k = 1 + self.amp * SPEAK_AMP * (
+                0.16 * math.sin(self.t * 17 + self.phase[i])
+                + 0.06 * math.sin(self.t * 31 + self.phase[i] * 2)
+            )
             x, y, z = x * k, y * k, z * k
             # 繞 X 再繞 Y
             y, z = y * cax - z * sax, y * sax + z * cax
@@ -349,7 +360,7 @@ class DesktopPet:
         c.delete("all")
         pts, cx, cy, R = self._project()
         r, g, b = self.color
-        white = self.amp * 0.55 if self.state == "speaking" else 0.0
+        white = self.amp * 0.8 if self.state == "speaking" else 0.0
 
         # 命中圓盤 + 下方面板。Windows 的 -transparentcolor 會把透明像素的滑鼠事件
         # 一起丟給桌面，所以球的範圍內必須有「非去背色」的像素，拖曳／滾輪才接得到。
@@ -362,6 +373,17 @@ class DesktopPet:
             cx - half, cy - half, cx + half, cy + half,
             outline=_rgb(r * 0.18, g * 0.18, b * 0.18), width=1,
         )
+
+        # 講話時的聲波圈：從核心往外擴散、越遠越淡，一眼就知道它在出聲
+        for born in self.rings:
+            age = (self.t - born) / 0.9
+            rr = R * (0.55 + age * 1.05)
+            fade = (1 - age) ** 1.5
+            c.create_oval(
+                cx - rr, cy - rr, cx + rr, cy + rr,
+                outline=_rgb(r * fade + 255 * fade * 0.3, g * fade + 255 * fade * 0.3, b * fade),
+                width=2 if age < 0.4 else 1,
+            )
 
         # 內核兩圈（跟 HUD 一樣的語彙）
         pulse = (math.sin(self.t * 10) * 0.5 + 0.5) * 0.06 if self.state == "speaking" else 0
@@ -383,7 +405,10 @@ class DesktopPet:
                 g * bright + (255 - g) * white * depth,
                 b * bright + (255 - b) * white * depth,
             )
-            c.create_line(x1, y1, x2, y2, fill=col, width=2 if depth > 0.55 else 1)
+            width = 2 if depth > 0.55 else 1
+            if self.state == "speaking" and depth > 0.55 and self.amp > 0.5:
+                width = 3
+            c.create_line(x1, y1, x2, y2, fill=col, width=width)
 
         # 前側頂點的小點
         for x, y, z in pts:

@@ -35,6 +35,25 @@ python -m jarvis
 
 Windows 使用者可以直接跑 `setup.bat`（建 venv、裝套件、跑一次驗證），之後用 `run.bat` 啟動。
 
+### 像 App 一樣用（Windows）
+
+不想每次開 cmd：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\make-shortcut.ps1
+```
+
+桌面會多一個 **J.A.R.V.I.S.** 圖示（那顆 C60），雙擊就跑、沒有黑色視窗；輸出寫在
+`%USERPROFILE%\.jarvis\jarvis.log`。想開機自動啟動，把捷徑複製到「啟動」資料夾（腳本會印路徑）。
+
+要打包成**不需要 Python 的 .exe** 給別人：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\build-exe.ps1     # → dist\JARVIS\JARVIS.exe
+```
+
+⚠️ 打包版刻意不含 mediapipe（+300MB），手勢框選會回報未安裝；其他功能都在。
+
 沒有麥克風？用鍵盤模式先玩玩看：
 
 ```bash

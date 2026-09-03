@@ -13,7 +13,12 @@ def _load_dotenv_fallback() -> None:
     只看到「未設定金鑰」，完全猜不到原因。現在不依賴套件也一定會讀。
     只補「環境裡還沒有」的鍵，真正的環境變數優先。
     """
-    for folder in (os.getcwd(), os.path.dirname(os.path.dirname(os.path.abspath(__file__)))):
+    import sys
+
+    roots = [os.getcwd(), os.path.dirname(os.path.dirname(os.path.abspath(__file__)))]
+    if getattr(sys, "frozen", False):  # PyInstaller：.env 放在 JARVIS.exe 旁邊
+        roots.insert(0, os.path.dirname(sys.executable))
+    for folder in roots:
         path = os.path.join(folder, ".env")
         if not os.path.isfile(path):
             continue

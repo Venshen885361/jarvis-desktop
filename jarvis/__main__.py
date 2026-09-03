@@ -76,7 +76,21 @@ def _report_usage() -> None:
     )
 
 
+def _setup_headless_logging() -> None:
+    """用 pythonw（無主控台）啟動時 sys.stdout 是 None，任何 print 都會炸。
+    改把輸出寫到 ~/.jarvis/jarvis.log，出問題還有地方可以看。"""
+    if sys.stdout is not None and sys.stderr is not None:
+        return
+    from pathlib import Path
+
+    log_dir = Path.home() / ".jarvis"
+    log_dir.mkdir(exist_ok=True)
+    log_file = open(log_dir / "jarvis.log", "a", encoding="utf-8", buffering=1)  # noqa: SIM115
+    sys.stdout = sys.stderr = log_file
+
+
 def main() -> int:
+    _setup_headless_logging()
     parser = argparse.ArgumentParser(prog="jarvis")
     parser.add_argument(
         "--text", action="store_true", help="純文字模式（不用麥克風與喇叭）"
