@@ -5,6 +5,7 @@ pyautogui>=0.9.54
 pyperclip>=1.8
 pillow>=10.0
 websockets>=12.0          # HUD 即時連動（不裝也能跑，只是 HUD 不同步）
+pystray>=0.19             # 工作列托盤圖示（桌寵藏起來時的入口）
 
 # ---- 後端（至少裝一個）----
 anthropic>=0.40           # JARVIS_PROVIDER=claude

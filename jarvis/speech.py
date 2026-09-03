@@ -79,12 +79,24 @@ def listen() -> str | None:
             emit_log("SIR", text)
         return text or None
 
+    try:
+        import speech_recognition as sr
+    except ImportError:
+        # 以前這裡直接炸掉整個執行緒，桌寵還浮著但已經死了、什麼都不說。
+        # 現在改成講清楚缺什麼，然後退回文字輸入框讓人至少能用。
+        msg = "缺少語音套件（pip install SpeechRecognition PyAudio），改用文字輸入。"
+        print(f"[STT] {msg}")
+        emit_log("JARVIS", f"Sir, {msg}")
+        object.__setattr__(settings, "text_mode", True)
+        from .hud import ws_emit
+
+        ws_emit({"type": "need_text_mode"})
+        return None
+
     # 喚醒詞：沒說「Hey Jarvis」之前不開 STT（麥克風聲音不出網路）
     from .wakeword import wait_for_wake
 
     wait_for_wake()
-
-    import speech_recognition as sr
 
     r = sr.Recognizer()
     r.pause_threshold = 1.8      # 等講完的停頓長度

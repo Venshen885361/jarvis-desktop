@@ -148,7 +148,8 @@ class DesktopPet:
             self._place_bottom_right()
         self._bind_mouse()
         self._build_menu()
-        self.root.bind("<Escape>", lambda e: self.quit())
+        self.root.bind("<Escape>", lambda e: self.hide())
+        self._start_tray()
 
         hud.subscribe(self.events.put)
 
@@ -184,13 +185,17 @@ class DesktopPet:
         if size == self.size:
             return
         self.size = size
-        self.w = size
-        self.h = size + self.pad_bottom
+        self._relayout()
+        self._save_prefs()
+
+    def _relayout(self) -> None:
+        """依目前 size / pad_bottom 重排畫布、輸入框與視窗大小。"""
+        self.w = self.size
+        self.h = self.size + self.pad_bottom
         self.canvas.config(width=self.w, height=self.h)
-        if settings.text_mode:
+        if hasattr(self, "entry"):
             self.entry.place(x=12, y=self.h - 30, width=self.w - 24, height=24)
         self.root.geometry(f"{self.w}x{self.h}+{self.root.winfo_x()}+{self.root.winfo_y()}")
-        self._save_prefs()
 
     def _close_btn_rect(self) -> tuple[float, float, float, float]:
         r = 9
@@ -209,7 +214,7 @@ class DesktopPet:
 
         def press(e):
             if self._in_close_btn(e.x, e.y):
-                self.quit()
+                self.hide()  # 關掉的是臉，不是耳朵：JARVIS 繼續在背景聽
                 return
             self._resizing = self._in_resize_grip(e.x, e.y)
             self._resize_origin = (self.size, e.x_root)  # 以按下當時為基準，避免第一下跳動
@@ -258,7 +263,8 @@ class DesktopPet:
         menu.add_separator()
         menu.add_command(label="回到右下角", command=self._place_bottom_right)
         menu.add_separator()
-        menu.add_command(label="退出 J.A.R.V.I.S.  (Esc)", command=self.quit)
+        menu.add_command(label="隱藏桌寵，背景繼續聽  (Esc / ×)", command=self.hide)
+        menu.add_command(label="完全退出 J.A.R.V.I.S.", command=self.quit)
         self.canvas.bind("<ButtonPress-3>", lambda e: menu.tk_popup(e.x_root, e.y_root))
 
     def _build_entry(self) -> None:
@@ -291,6 +297,18 @@ class DesktopPet:
             elif kind == "log" and msg.get("tag") == "JARVIS":
                 self.caption = msg.get("text", "")
                 self.caption_until = self.t + 8.0
+                self._notify(self.caption)
+            elif kind == "show":
+                self.show()
+            elif kind == "hide":
+                self.hide()
+            elif kind == "need_text_mode" and not hasattr(self, "entry"):
+                self.pad_bottom = 96
+                self._build_entry()
+                self._relayout()
+                from . import speech
+
+                speech.use_text_queue(self.text_queue)
             elif kind == "device":
                 self.device = "" if msg.get("name") == "local" else str(msg.get("name", ""))
             elif kind == "quit":
@@ -446,6 +464,66 @@ class DesktopPet:
         for k in (4, 9, 14):
             c.create_line(gx - k, gy, gx, gy - k, fill=_rgb(r * 0.4, g * 0.4, b * 0.4), width=1)
 
+    # ------------------------------------------------------------------ 顯示 / 隱藏 / 托盤
+    def hide(self) -> None:
+        self.hidden = True
+        self.root.withdraw()
+        if getattr(self, "_tray", None) is None:
+            # 沒有托盤圖示的話，至少讓人知道它還活著、怎麼叫回來
+            print("[pet] 桌寵已隱藏，JARVIS 仍在背景運作。說「出來」或用托盤圖示叫回。")
+
+    def show(self) -> None:
+        self.hidden = False
+        self.root.deiconify()
+        self.root.attributes("-topmost", True)
+        self.root.lift()
+
+    def _asset(self, name: str) -> str:
+        """assets/ 在原始碼與 PyInstaller 打包後的位置不同，統一從這裡拿。"""
+        base = getattr(sys, "_MEIPASS", None) or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        return os.path.join(base, "assets", name)
+
+    def _start_tray(self) -> None:
+        """工作列托盤圖示：顯示 / 隱藏 / 退出。pystray 是選用相依，沒裝就沒有托盤，
+        但隱藏後仍可用語音「出來」叫回、用「再見」退出。"""
+        self._tray = None
+        self.hidden = False
+        try:
+            import pystray
+            from PIL import Image
+        except Exception as e:  # Linux 沒有 Xlib/AppIndicator 時 pystray 在 import 階段就會炸，不只 ImportError
+            print(f"[pet] 托盤圖示不可用（{e}），隱藏後請用語音「出來」叫回。")
+            return
+        try:
+            image = Image.open(self._asset("jarvis.png"))
+        except Exception:
+            return
+
+        # 托盤的回呼在 pystray 自己的執行緒；tk 只能在主執行緒動，所以全部丟 queue
+        put = self.events.put
+        menu = pystray.Menu(
+            pystray.MenuItem("顯示桌寵", lambda: put({"type": "show"}), default=True),
+            pystray.MenuItem("隱藏桌寵（背景聽）", lambda: put({"type": "hide"})),
+            pystray.Menu.SEPARATOR,
+            pystray.MenuItem("退出 J.A.R.V.I.S.", lambda: put({"type": "quit"})),
+        )
+        self._tray = pystray.Icon("jarvis", image, "J.A.R.V.I.S. — 背景運作中", menu)
+        try:
+            self._tray.run_detached()
+        except Exception:
+            # 少數平台不支援 run_detached，退回獨立執行緒
+            threading.Thread(target=self._tray.run, daemon=True).start()
+
+    def _notify(self, text: str) -> None:
+        """桌寵藏著的時候，JARVIS 的回覆改用系統通知露臉，不然使用者不知道它有沒有聽到。"""
+        tray = getattr(self, "_tray", None)
+        if tray is None or not self.hidden:
+            return
+        try:
+            tray.notify(text[:200], "J.A.R.V.I.S.")
+        except Exception:
+            pass
+
     # ------------------------------------------------------------------ 生命週期
     def run(self, worker) -> None:
         """在背景執行緒跑 worker（賈維斯主流程），主執行緒跑 tk。worker 結束就關窗。"""
@@ -465,6 +543,12 @@ class DesktopPet:
         self.quit()
 
     def quit(self) -> None:
+        tray = getattr(self, "_tray", None)
+        if tray is not None:
+            try:
+                tray.stop()
+            except Exception:
+                pass
         try:
             self.root.destroy()
         except tk.TclError:

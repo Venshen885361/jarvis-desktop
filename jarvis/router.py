@@ -146,6 +146,18 @@ def _route(text: str) -> str | None:
             rest = text[m.end():].strip()
             return _route(rest) if rest else msg
 
+    # -0.5) 桌寵顯示 / 隱藏（大腦自己的事，不經裝置）
+    if any(k in text for k in ("藏起來", "隱藏桌寵", "躲起來", "隱藏", "收起來")) and len(text) <= 8:
+        from .hud import ws_emit
+
+        ws_emit({"type": "hide"})
+        return "Sir, 我在背景待命。"
+    if any(k in text for k in ("出來", "顯示桌寵", "現身", "出現")) and len(text) <= 8:
+        from .hud import ws_emit
+
+        ws_emit({"type": "show"})
+        return "Sir, 我在。"
+
     # 0) 招呼語：整句就是招呼詞才算，避免「你好幫我打開瀏覽器」被攔截
     if len(text) <= 4:
         for k, v in _GREETINGS.items():

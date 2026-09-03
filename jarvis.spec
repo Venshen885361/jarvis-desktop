@@ -11,7 +11,8 @@ hidden = (
     + collect_submodules("jarvis")
     + ["anthropic", "google.genai", "speech_recognition", "edge_tts", "pygame", "pyaudio",
        "cv2", "websockets", "websockets.sync", "websockets.sync.client", "websockets.sync.server",
-       "pyautogui", "pygetwindow", "pyperclip", "PIL", "dotenv", "requests", "numpy"]
+       "pyautogui", "pygetwindow", "pyperclip", "PIL", "dotenv", "requests", "numpy",
+       "pystray", "pystray._win32"]
 )
 datas = (
     [("hud", "hud"), ("assets", "assets"), (".env.example", ".")]

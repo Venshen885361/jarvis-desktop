@@ -5,6 +5,23 @@ $root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 Set-Location $root
 
 $py = if (Test-Path ".venv\Scripts\python.exe") { ".venv\Scripts\python.exe" } else { "python" }
+Write-Host "使用 Python：$py"
+
+# 打包前先確認套件都在。PyInstaller 找不到 hidden import 只會警告不會停，
+# 結果就是 exe 跑起來才發現 No module named ...
+$required = "speech_recognition","edge_tts","pygame","pyaudio","google.genai","anthropic","websockets","pyautogui","pyperclip","PIL","cv2","numpy","openwakeword","pystray"
+$missing = @()
+foreach ($m in $required) {
+    & $py -c "import $m" 2>$null
+    if ($LASTEXITCODE -ne 0) { $missing += $m }
+}
+if ($missing.Count -gt 0) {
+    Write-Host ""
+    Write-Host "這個 Python 缺少：$($missing -join ', ')" -ForegroundColor Red
+    Write-Host "先裝：$py -m pip install SpeechRecognition edge-tts pygame PyAudio google-genai anthropic websockets pyautogui pyperclip pillow opencv-python numpy openwakeword pystray"
+    exit 1
+}
+
 & $py -m pip install --quiet pyinstaller
 & $py -m PyInstaller --noconfirm --clean jarvis.spec
 
