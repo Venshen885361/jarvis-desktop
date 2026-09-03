@@ -52,20 +52,20 @@ JARVIS_DEVICES="pc=ws://127.0.0.1:8770?token=隨便一串密語" python -m jarvi
 
 ## 第二段：Pi 當大腦，Tailscale 串起來
 
-### Pi 端
+### Pi 端：一鍵安裝
 
 ```bash
 # Raspberry Pi OS (64-bit, Bookworm)
-sudo apt update && sudo apt install -y python3-venv python3-pip portaudio19-dev libopenblas-dev
-curl -fsSL https://tailscale.com/install.sh | sh && sudo tailscale up
+curl -fsSL https://raw.githubusercontent.com/Venshen885361/jarvis-desktop/main/scripts/pi-setup.sh | bash
 
-git clone https://github.com/Venshen885361/jarvis-desktop && cd jarvis-desktop
-python3 -m venv .venv && source .venv/bin/activate
-pip install python-dotenv requests websockets pillow anthropic google-genai \
-            SpeechRecognition edge-tts pygame PyAudio
+# 想順便裝離線辨識：
+WITH_VOSK=1 bash ~/jarvis-desktop/scripts/pi-setup.sh
 ```
 
-Pi 上**不需要** pyautogui / pygetwindow / opencv —— 那些是手腳的事。
+腳本會裝 apt 套件、Tailscale、adb、venv、Python 套件、喚醒詞模型，建 `.env` 與 systemd 服務。
+每一步都可重跑。跑完照它印出來的四個步驟做（登入 Tailscale → 填 .env → 手動跑一次 → 開機自動跑）。
+
+Pi 上**不需要** pyautogui / pygetwindow / opencv —— 那些是手腳的事，腳本不會裝。
 
 `.env`：
 
@@ -170,10 +170,22 @@ wget https://alphacephei.com/vosk/models/vosk-model-small-cn-0.22.zip && unzip v
 | 網路 | 手機開熱點 | Tailscale 在熱點下照常運作 |
 | 顯示（選配） | Waveshare 1.28" 圓形 LCD（240×240） | 剛好放 `pet.py` 那顆 C60 |
 
-### 還沒做的：喚醒詞
+### 喚醒詞（已內建）
 
-攜帶時沒按鈕，得靠「Hey Jarvis」喚醒 —— 而且**只有喚醒後才開始 STT**，不然整天在錄音。
-候選：[openWakeWord](https://github.com/dscripka/openWakeWord)（開源、Pi 5 跑得動）。這是下一步，目前版本還是持續聆聽。
+攜帶時沒按鈕，靠「**Hey Jarvis**」喚醒。用 [openWakeWord](https://github.com/dscripka/openWakeWord)
+的預訓練 `hey_jarvis` 模型，在 Pi 本機跑，**喚醒前麥克風聲音不出網路** —— 只有喚醒後那幾秒才開 STT。
+
+```
+JARVIS_WAKE_WORD=1
+JARVIS_WAKE_WORD_THRESHOLD=0.5     # 太常誤喚醒調高，喊不醒調低
+JARVIS_WAKE_FOLLOWUP_SECONDS=8     # 回覆後這幾秒內可直接接話，不用再喊
+```
+
+模型載入失敗會自動退回持續聆聽並在 log 提示，不會讓賈維斯變聾。
+桌機上通常不需要（有寵物可以點），`.env.example` 預設是關的；`pi-setup.sh` 建的 `.env` 預設是開的。
+
+> ⚠️ 推論框架固定用 onnxruntime（Pi 5 / x86 都有 wheel）。openwakeword 安裝時會一起拉
+> tflite-runtime，那個在新版 Python 上可能裝不起來 —— 裝不起來沒關係，我們不用它。
 
 ---
 

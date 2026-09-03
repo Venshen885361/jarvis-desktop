@@ -196,7 +196,8 @@ jarvis/
 ├── config.py            所有可調參數（讀 .env）
 ├── router.py            本機優先路由 ← 省 token 的第一道關卡
 ├── screen.py            截圖擷取、縮放壓縮、座標換算
-├── speech.py            STT / TTS（可退回純文字模式）
+├── speech.py            STT / TTS（可退回純文字模式；支援 Vosk 離線）
+├── wakeword.py          「Hey Jarvis」喚醒詞（openWakeWord，攜帶版用）
 ├── usage.py             token 計量與成本估算
 ├── agent.py             手腳 daemon：把本機工具掛到 WebSocket 上給大腦用
 ├── devices/             Local / Remote(WebSocket) / Adb(Android) 三種裝置，統一 call(tool, args)

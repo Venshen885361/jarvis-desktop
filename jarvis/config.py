@@ -132,6 +132,13 @@ class Settings:
     agent_port: int = _env_int("JARVIS_AGENT_PORT", 8770)
     agent_host: str = os.environ.get("JARVIS_AGENT_HOST", "0.0.0.0")
 
+    # ---- 喚醒詞（攜帶版必開）----
+    wake_word: bool = _env_bool("JARVIS_WAKE_WORD", False)
+    wake_word_model: str = os.environ.get("JARVIS_WAKE_WORD_MODEL", "hey_jarvis")
+    wake_word_threshold: float = float(os.environ.get("JARVIS_WAKE_WORD_THRESHOLD", "0.5"))
+    # 回覆講完後這幾秒內可以直接接著講，不用再喊喚醒詞
+    wake_followup_seconds: float = float(os.environ.get("JARVIS_WAKE_FOLLOWUP_SECONDS", "8"))
+
     # ---- STT 引擎 ----
     # google = 免費線上（預設）；vosk = 離線，需要 pip install vosk 並下載中文模型
     stt_engine: str = os.environ.get("JARVIS_STT", "google").strip().lower()

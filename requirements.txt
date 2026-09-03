@@ -16,6 +16,10 @@ edge-tts>=6.1
 pygame>=2.5
 PyAudio>=0.2.14           # SpeechRecognition 的麥克風後端
 
+# ---- 喚醒詞（選用，Pi 攜帶版必裝）----
+# openwakeword>=0.6
+# numpy>=1.24
+
 # ---- 離線語音辨識（選用，Pi 攜帶版）----
 # vosk>=0.3.45
 # opencc-python-reimplemented>=0.1.7   # Vosk 中文模型輸出簡體，轉繁體用
