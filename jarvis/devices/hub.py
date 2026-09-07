@@ -162,6 +162,9 @@ class HubDevice(Device):
         self.platform = p.platform
         return p
 
+    def status(self) -> str:
+        return "已連線" if get_hub().peer(self.peer_name) else "未連線（手機 App 沒連上）"
+
     def ping(self) -> bool:
         try:
             self._peer().request("ping", {}, timeout=5)

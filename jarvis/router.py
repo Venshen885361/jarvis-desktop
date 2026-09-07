@@ -84,6 +84,25 @@ def fetch_weather(query: str) -> str | None:
 
 # ---------------------------------------------------------------- 規則表
 _OPEN_TRIGGERS = ("打開", "開啟", "啟動", "執行", "幫我開")
+# 句首的單字「開」也算（「開 YouTube」「開記事本」），但不放進 _OPEN_TRIGGERS 以免「開心」「開會」誤觸
+_BARE_OPEN = re.compile(r"^(?:幫我|請)?開(?!心|會|始|玩|發|學|車|門|關|燈|口|放|頭|花|水|機)\s*(?=\S)")
+
+# 常見「其實是網站」的東西：電腦上沒裝 App 時直接開網頁，不要回「找不到程式」
+_WEB_APPS = {
+    "youtube": "https://www.youtube.com", "yt": "https://www.youtube.com",
+    "google": "https://www.google.com", "gmail": "https://mail.google.com",
+    "netflix": "https://www.netflix.com", "chatgpt": "https://chatgpt.com",
+    "instagram": "https://www.instagram.com", "ig": "https://www.instagram.com",
+    "facebook": "https://www.facebook.com", "fb": "https://www.facebook.com",
+    "twitter": "https://x.com", "x": "https://x.com", "threads": "https://www.threads.net",
+    "github": "https://github.com", "reddit": "https://www.reddit.com",
+    "twitch": "https://www.twitch.tv", "spotify": "https://open.spotify.com",
+    "notion": "https://www.notion.so", "討論區": "https://www.ptt.cc", "ptt": "https://www.ptt.cc",
+    "地圖": "https://maps.google.com", "google map": "https://maps.google.com", "maps": "https://maps.google.com",
+    "翻譯": "https://translate.google.com", "行事曆": "https://calendar.google.com",
+    "雲端硬碟": "https://drive.google.com", "drive": "https://drive.google.com",
+    "瀏覽器": "https://www.google.com",
+}
 _URL_RE = re.compile(r"((?:https?://)?[\w\-]+(?:\.[\w\-]+)+(?:/\S*)?)")
 
 _GREETINGS = {
@@ -235,17 +254,27 @@ def _route(text: str) -> str | None:
         return _dev("camera_search", hint=hint, use_gesture=any(k in text for k in ("框選", "手勢")))
 
     # 5) 開啟資料夾 / 應用程式
+    open_target = None
     for trigger in _OPEN_TRIGGERS:
         if trigger in text:
-            target = text.split(trigger, 1)[1].strip()
-            target = re.sub(r"^(我|一下|給我|的)", "", target).strip(" ，,。")
-            if not target:
-                continue
+            open_target = text.split(trigger, 1)[1].strip()
+            break
+    if open_target is None and (m := _BARE_OPEN.match(text)):
+        open_target = text[m.end():]
+    if open_target is not None:
+        target = re.sub(r"^(我|一下|給我|的)", "", open_target).strip(" ，,。")
+        if target:
             # 「打開 jarvis 的資料夾」「開啟下載資料夾」「打開 C:\\Users\\me\\Downloads」
             if "資料夾" in target or "目錄" in target or re.match(r"^[A-Za-z]:\\|^[~/]", target):
                 folder = re.sub(r"(的)?(資料夾|目錄)$", "", target).strip(" 的")
                 return _dev("open_folder", name=folder or target)
-            return _dev("open_application", app_name=target)
+            result = _dev("open_application", app_name=target)
+            # 電腦上沒裝、但它其實是網站：改開網頁（手機端自己認得 App，不會走到這）
+            if "找不到" in result and get_devices().current_name == "local":
+                url = _WEB_APPS.get(target.lower().strip())
+                if url:
+                    return _dev("open_url", url=url)
+            return result
 
     # 6) 切換「裝置」優先於切換「視窗」：「切換到手機」「改用電腦」「控制本機」
     devs = get_devices()

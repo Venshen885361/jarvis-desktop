@@ -59,6 +59,9 @@ class RemoteDevice(Device):
                 pass
             self._ws = None
 
+    def status(self) -> str:
+        return "已連線" if self._ws is not None else "未連線（需要時會自動連）"
+
     def ping(self) -> bool:
         try:
             with self._lock:

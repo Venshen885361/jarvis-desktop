@@ -42,5 +42,9 @@ class Device(ABC):
     def describe(self) -> str:
         return f"{self.name}（{self.kind} / {self.platform}）"
 
+    def status(self) -> str:
+        """給 list_devices 用的即時狀態，不能做網路呼叫（要快）。空字串 = 不適用。"""
+        return ""
+
     def close(self) -> None:  # noqa: B027 — 有些裝置沒有連線要關
         pass

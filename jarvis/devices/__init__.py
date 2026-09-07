@@ -37,6 +37,15 @@ _ALIASES = {
 }
 
 
+def _is_pi() -> bool:
+    """Raspberry Pi 當大腦時，「電腦」不該指 Pi 自己。"""
+    try:
+        with open("/proc/device-tree/model", "rb") as f:
+            return b"Raspberry Pi" in f.read()
+    except OSError:
+        return False
+
+
 class DeviceRegistry:
     def __init__(self) -> None:
         self._devices: dict[str, Device] = {}
@@ -76,6 +85,12 @@ class DeviceRegistry:
             for n, spec in self._specs.items():
                 if spec.startswith(("ws://", "wss://")):
                     return n
+            # 沒有註冊遠端電腦、而大腦本身就是一台電腦（Windows / Linux 桌機）：「電腦」= 本機。
+            # 手機遙控時常見：大腦跑在電腦上，使用者說「切換到電腦」指的就是它。
+            import sys
+
+            if sys.platform in ("win32", "linux", "darwin") and not _is_pi():
+                return "local"
         return None
 
     def get(self, name: str) -> Device:
@@ -140,8 +155,14 @@ class DeviceRegistry:
         for n in self.names():
             mark = "◉" if n == self.current_name else "○"
             spec = self._specs.get(n, "本機")
-            lines.append(f"{mark} {n}：{spec.split('?')[0]}")
-        return "可控制的裝置：\n" + "\n".join(lines)
+            status = ""
+            dev = self._devices.get(n)  # 只看已建立的，不為了列清單去連線
+            if dev is None and n != "local":
+                status = "（尚未使用）"
+            elif dev is not None and (st := dev.status()):
+                status = f"（{st}）"
+            lines.append(f"{mark} {n}：{spec.split('?')[0]}{status}")
+        return "可控制的裝置（◉ = 目前）：\n" + "\n".join(lines)
 
     # ------------------------------------------------------------------
     def run_tool(self, tool: str, args: dict) -> ToolOutput:

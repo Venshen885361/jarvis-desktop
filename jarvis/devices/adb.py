@@ -162,6 +162,9 @@ class AdbDevice(Device):
             raise RuntimeError(f"adb shell {' '.join(args)} 失敗：{out}")
         return out
 
+    def status(self) -> str:
+        return f"已連線 {self.target}" if self.target else "未連線"
+
     def ping(self) -> bool:
         try:
             return self._shell("echo", "ok") == "ok"
