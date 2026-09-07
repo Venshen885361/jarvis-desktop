@@ -188,7 +188,7 @@ HUD 右側的 Token Budget 面板會即時顯示 input / output / cache read 與
 python -m jarvis.agent --token 密語
 
 # 大腦（Pi 或另一台電腦）
-JARVIS_DEVICES="pc=ws://100.64.0.2:8770?token=密語,phone=adb://192.168.1.50:5555" python -m jarvis
+JARVIS_DEVICES="pc=ws://100.64.0.2:8770?token=密語,phone=adb://auto" python -m jarvis
 ```
 
 「切換到手機」「用電腦開 Firefox」「在手機上搜尋 …」會自動切換目標。Android 走 ADB 無線偵錯，
@@ -256,7 +256,7 @@ jarvis/
 | 鏡頭辨識 / 手勢框選 | ✅ | ✅ Windows 11 |
 | Google Lens 反向搜尋（圖床上傳） | ✅ | ⚠️ 未實測 |
 | 大腦 / 手腳分家（`jarvis.agent` + `devices/`） | ✅ | ✅ Windows 11 localhost（大腦 → agent → 工具往返） |
-| Android ADB 控制 | ✅ | ⚠️ 僅以模擬 adb 驗證指令翻譯 |
+| Android ADB 控制 | ✅ | ✅ realme 12x（Android 14）無線偵錯實測 |
 | 喚醒詞（openWakeWord） | ✅ | ⚠️ 未實測 |
 | Raspberry Pi 部署腳本 | ✅ | ⚠️ 未在真 Pi 上跑過 |
 | Linux（Hyprland）桌面操作 | ⚠️ 部分 | Wayland 下 pyautogui 受限，見上方說明 |

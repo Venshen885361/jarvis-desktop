@@ -117,10 +117,12 @@ Linux 用 systemd user service（下面有範本）。
    adb connect <手機 IP>:<無線偵錯的埠>   # 注意：跟配對埠不同
    adb devices                         # 應該看到 device
    ```
-3. `.env` 的 `JARVIS_DEVICES` 加上 `phone=adb://<手機 IP>:<埠>`
+3. `.env` 的 `JARVIS_DEVICES` 加上 `phone=adb://auto`（自動用 mDNS 找配對過的手機；要固定位址也可寫 `adb://<手機 IP>:<埠>`）
 
-> ⚠️ 無線偵錯的埠每次重開會變。穩定做法：USB 接一次 `adb tcpip 5555`，之後固定用 5555。
-> 手機重開機後要再接一次 USB。
+> 無線偵錯的埠每次重開會變、換網路 IP 也會變；`adb://auto` 會自己重找，只要手機配對過一次。
+> 想完全不靠 mDNS（例如路由器擋廣播）再用 USB `adb tcpip 5555` + `adb://IP:5555`。
+>
+> realme / OPPO（ColorOS）額外要開「停用權限監控」和「USB 偵錯（安全性設定）」，否則 `input tap` 會被擋。
 
 ### 中文輸入
 

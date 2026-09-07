@@ -78,27 +78,79 @@ class AdbDevice(Device):
     platform = "android"
 
     def __init__(self, name: str, target: str = "") -> None:
-        """target: 'ip:port'（無線）或 USB 序號；空字串 = 唯一一台連著的裝置。"""
+        """target:
+          - 'ip:port'：無線偵錯 / `adb tcpip 5555` 的固定位址
+          - USB 序號
+          - 'auto' 或空字串：自動找。先看 `adb devices` 有沒有已連上的，沒有就用
+            mDNS（`adb mdns services`）找同網段開著無線偵錯的手機再 connect。
+            換網路 / 埠變了都不用改 .env，只要手機配對過一次。
+        """
         self.name = name
-        self.target = target
+        self.auto = target in ("", "auto")
+        self.target = "" if self.auto else target
         self._last_scale = 1.0
         self._last_offset = (0, 0)
         self._screen_size: tuple[int, int] | None = None
         if not shutil.which("adb"):
             raise RuntimeError("找不到 adb，請安裝 Android platform-tools 並加入 PATH。")
-        if target and ":" in target:
+        if self.auto:
+            self._resolve_auto()
+        elif ":" in target:
             code, out = self._run_adb(["connect", target], serial=False, timeout=15)
             if "connected" not in out.lower():
                 raise ConnectionError(f"adb connect {target} 失敗：{out}")
 
+    # ------------------------------------------------------------------ 自動探索
+    def _connected_serials(self) -> list[str]:
+        code, out = self._run_adb(["devices"], serial=False, timeout=10)
+        serials = []
+        for line in out.splitlines()[1:]:
+            parts = line.split()
+            if len(parts) >= 2 and parts[1] == "device":
+                serials.append(parts[0])
+        return serials
+
+    def _resolve_auto(self) -> None:
+        """找一台能用的手機並填進 self.target。找不到就丟 ConnectionError。"""
+        serials = self._connected_serials()
+        if serials:
+            # 同一支手機常被列兩次（ip:port + mDNS 名稱），優先拿 ip:port 那個
+            serials.sort(key=lambda s: (":" not in s or "_tcp" in s, s))
+            self.target = serials[0]
+            return
+        # 沒有已連上的：用 mDNS 找開著無線偵錯的手機
+        code, out = self._run_adb(["mdns", "services"], serial=False, timeout=10)
+        for line in out.splitlines():
+            if "_adb-tls-connect._tcp" not in line:
+                continue
+            m = re.search(r"(\d+\.\d+\.\d+\.\d+:\d+)", line)
+            if not m:
+                continue
+            code, res = self._run_adb(["connect", m.group(1)], serial=False, timeout=15)
+            if "connected" in res.lower():
+                self.target = m.group(1)
+                return
+        raise ConnectionError(
+            "找不到手機：請確認手機的「無線偵錯」已開啟、與這台機器在同一個網路，"
+            "且至少配對過一次（adb pair）。"
+        )
+
     # ------------------------------------------------------------------ 基礎
     def _run_adb(self, args: list[str], serial: bool = True, timeout: float = 20,
-                 binary: bool = False):
+                 binary: bool = False, _retry: bool = True):
         cmd = ["adb"]
         if serial and self.target:
             cmd += ["-s", self.target]
         cmd += args
         r = subprocess.run(cmd, capture_output=True, timeout=timeout)
+        err = (r.stderr or b"").decode("utf-8", "replace")
+        # auto 模式下手機換 IP / 埠變了：重新找一次再重試
+        if (self.auto and _retry and serial and r.returncode != 0
+                and re.search(r"device .*not found|offline|more than one device|no devices", err)):
+            self.target = ""
+            self._screen_size = None
+            self._resolve_auto()
+            return self._run_adb(args, serial, timeout, binary, _retry=False)
         if binary:
             return r.returncode, r.stdout
         out = (r.stdout or r.stderr or b"").decode("utf-8", "replace").strip()
