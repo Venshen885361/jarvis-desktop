@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<title>J.A.R.V.I.S.</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="JARVIS">
+<meta name="theme-color" content="#0b1220">
+<style>
+  :root{--bg:#0b1220;--panel:#111a2e;--line:#1e293b;--fg:#e2e8f0;--muted:#64748b;--accent:#38bdf8;--ok:#4ade80;--warn:#fbbf24;--err:#f87171}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;-webkit-text-size-adjust:100%}
+  body{display:flex;flex-direction:column;height:100dvh;padding-top:env(safe-area-inset-top)}
+  header{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--panel)}
+  .dot{width:10px;height:10px;border-radius:50%;background:var(--muted);box-shadow:0 0 0 0 rgba(56,189,248,.5);transition:background .2s}
+  .dot.listening{background:var(--accent);animation:pulse 1.2s infinite}
+  .dot.thinking{background:var(--warn);animation:pulse .7s infinite}
+  .dot.speaking{background:var(--ok);animation:pulse .5s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(56,189,248,.45)}100%{box-shadow:0 0 0 10px rgba(56,189,248,0)}}
+  header h1{font-size:15px;margin:0;letter-spacing:.12em;color:var(--accent);flex:1}
+  header .st{font-size:12px;color:var(--muted)}
+  #gear{background:none;border:0;color:var(--muted);font-size:18px;padding:4px}
+  .chips{display:flex;gap:8px;padding:8px 12px;overflow-x:auto;border-bottom:1px solid var(--line);-webkit-overflow-scrolling:touch}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:none;border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:999px;padding:6px 12px;font-size:13px}
+  .chip.dev{border-color:#1d4ed8;color:#93c5fd}
+  .chip.dev.on{background:#1d4ed8;color:#fff}
+  main{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px;-webkit-overflow-scrolling:touch}
+  .msg{max-width:86%;padding:10px 12px;border-radius:14px;white-space:pre-wrap;word-break:break-word}
+  .sir{align-self:flex-end;background:#1d4ed8;color:#fff;border-bottom-right-radius:4px}
+  .jarvis{align-self:flex-start;background:var(--panel);border:1px solid var(--line);border-bottom-left-radius:4px}
+  .sys{align-self:center;font-size:12px;color:var(--muted);text-align:center}
+  .tool{align-self:flex-start;font-size:12px;color:#93c5fd;font-family:ui-monospace,Menlo,monospace;padding:2px 10px}
+  form{display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));border-top:1px solid var(--line);background:var(--panel)}
+  #q{flex:1;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:12px;padding:10px 12px;font-size:16px;outline:none}
+  #q:focus{border-color:var(--accent)}
+  button.act{border:0;border-radius:12px;padding:0 14px;font-size:16px;background:var(--accent);color:#0b1220;font-weight:600}
+  #mic{background:var(--panel);color:var(--accent);border:1px solid var(--line)}
+  #mic.rec{background:var(--err);color:#fff;border-color:var(--err)}
+  #mic[hidden]{display:none}
+  dialog{background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:16px;padding:18px;width:min(92vw,420px)}
+  dialog::backdrop{background:rgba(0,0,0,.6)}
+  dialog label{display:block;font-size:12px;color:var(--muted);margin:10px 0 4px}
+  dialog input{width:100%;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:10px;padding:10px;font-size:16px}
+  dialog .row{display:flex;gap:8px;margin-top:16px;justify-content:flex-end}
+  dialog .row button{border:0;border-radius:10px;padding:8px 14px;font-size:14px;background:var(--line);color:var(--fg)}
+  dialog .row button.primary{background:var(--accent);color:#0b1220;font-weight:600}
+  .toggle{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:14px}
+  .usage{font-size:11px;color:var(--muted);margin-top:12px;font-family:ui-monospace,Menlo,monospace}
+</style>
+</head>
+<body>
+<header>
+  <div class="dot" id="dot"></div>
+  <h1>J.A.R.V.I.S.</h1>
+  <span class="st" id="st">未連線</span>
+  <button id="gear" aria-label="設定">⚙︎</button>
+</header>
+<div class="chips" id="devs"></div>
+<div class="chips" id="quick"></div>
+<main id="log"></main>
+<form id="f" autocomplete="off">
+  <button type="button" class="act" id="mic" aria-label="語音輸入" hidden>🎙</button>
+  <input id="q" placeholder="對 JARVIS 說…" enterkeyhint="send">
+  <button type="submit" class="act" id="send">送出</button>
+</form>
+
+<dialog id="dlg">
+  <strong>連線設定</strong>
+  <label>JARVIS 位址（留空 = 這個網頁的來源）</label>
+  <input id="cfgUrl" placeholder="http://100.x.x.x:8080" inputmode="url">
+  <label>密語（.env 的 JARVIS_AGENT_TOKEN）</label>
+  <input id="cfgTok" type="password">
+  <div class="toggle"><input type="checkbox" id="cfgSpeak"> <label for="cfgSpeak" style="margin:0">用手機唸出回覆</label></div>
+  <div class="usage" id="usage"></div>
+  <div class="row"><button id="cfgCancel">取消</button><button class="primary" id="cfgSave">儲存並連線</button></div>
+</dialog>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s);
+  const log = $('#log'), dot = $('#dot'), st = $('#st'), q = $('#q'), mic = $('#mic'), devs = $('#devs'), quick = $('#quick');
+  const cfg = {
+    get url() { return (localStorage.getItem('jarvis.url') || '').replace(/\/$/, '') || location.origin; },
+    get token() { return localStorage.getItem('jarvis.token') || ''; },
+    get speak() { return localStorage.getItem('jarvis.speak') === '1'; },
+  };
+  const QUICK = ['現在幾點', '關掉所有的燈', '冷氣設 26 度', '切換到電腦', '用電腦開 YouTube', '今天天氣'];
+
+  // ---------- UI ----------
+  function add(cls, text) {
+    const d = document.createElement('div'); d.className = 'msg ' + cls; d.textContent = text;
+    log.appendChild(d); log.scrollTop = log.scrollHeight; return d;
+  }
+  function setState(s) { dot.className = 'dot ' + s; st.textContent = {standby:'待命', listening:'聆聽中', thinking:'思考中', speaking:'回覆中'}[s] || s; }
+  function renderDevices(list, current) {
+    devs.innerHTML = '';
+    for (const n of list) {
+      const b = document.createElement('button'); b.className = 'chip dev' + (n === current ? ' on' : ''); b.textContent = n;
+      b.onclick = () => api('/api/device', {name: n}).then(r => { add('sys', r.reply); renderDevices(r.devices, r.device); });
+      devs.appendChild(b);
+    }
+  }
+  for (const t of QUICK) { const b = document.createElement('button'); b.className = 'chip'; b.textContent = t; b.onclick = () => send(t); quick.appendChild(b); }
+
+  // ---------- API ----------
+  async function api(path, body) {
+    const r = await fetch(cfg.url + path, {
+      method: body ? 'POST' : 'GET',
+      headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + cfg.token},
+      body: body ? JSON.stringify(body) : undefined,
+    });
+    if (r.status === 401) { add('sys', '密語錯誤，請到 ⚙︎ 設定'); $('#dlg').showModal(); throw new Error('401'); }
+    return r.json();
+  }
+  let busy = false;
+  async function send(text) {
+    text = (text || '').trim(); if (!text || busy) return;
+    busy = true; $('#send').disabled = true; add('sir', text); q.value = '';
+    try {
+      const r = await api('/api/ask', {text});
+      if (!wsOpen) { // 沒有 WebSocket 時用 HTTP 回覆補上工具與回覆
+        for (const s of r.steps || []) add('tool', '⚙ ' + s.tool);
+        add('jarvis', r.reply);
+        if (cfg.speak) speak(r.reply);
+      }
+    } catch (e) { add('sys', '送出失敗：' + e.message); }
+    busy = false; $('#send').disabled = false;
+  }
+  $('#f').onsubmit = e => { e.preventDefault(); send(q.value); };
+
+  // ---------- WebSocket（即時狀態）----------
+  let ws, wsOpen = false, retry = 1000, wsPort = 8765;
+  function connectWS() {
+    try { ws && ws.close(); } catch {}
+    const u = new URL(cfg.url); const proto = u.protocol === 'https:' ? 'wss' : 'ws';
+    ws = new WebSocket(`${proto}://${u.hostname}:${wsPort}`);
+    ws.onopen = () => { ws.send(JSON.stringify({type: 'auth', token: cfg.token})); };
+    ws.onmessage = ev => {
+      const m = JSON.parse(ev.data);
+      if (m.type === 'auth') { wsOpen = !!m.ok; st.textContent = m.ok ? '已連線' : '密語錯誤'; retry = 1000; return; }
+      if (m.type === 'state') setState(m.state);
+      else if (m.type === 'log') {
+        if (m.tag === 'JARVIS') { add('jarvis', m.text); if (cfg.speak) speak(m.text); }
+        else if (m.tag === 'SYS' && !m.text.startsWith('[手機]')) add('sys', m.text);
+        // SIR 的 log 是我們自己送出的，已經顯示過
+      }
+      else if (m.type === 'tool') add('tool', '⚙ ' + m.name + (m.args && m.args.app_name ? ' ' + m.args.app_name : ''));
+      else if (m.type === 'device') api('/api/status').then(s => renderDevices(s.devices, s.device)).catch(() => {});
+      else if (m.type === 'usage') $('#usage').textContent = `API ${m.api_calls} 次 · 本機 ${m.local_hits} 次 · 估計 $${m.cost_usd}`;
+    };
+    ws.onclose = () => { wsOpen = false; st.textContent = '重新連線…'; setTimeout(connectWS, retry); retry = Math.min(retry * 2, 15000); };
+    ws.onerror = () => ws.close();
+  }
+
+  // ---------- 語音 ----------
+  function speak(text) {
+    try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(text); u.lang = /[一-鿿]/.test(text) ? 'zh-TW' : 'en-GB'; u.rate = 1.05; speechSynthesis.speak(u); } catch {}
+  }
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (SR) {
+    mic.hidden = false;
+    let rec = null;
+    mic.onclick = () => {
+      if (rec) { rec.stop(); return; }
+      rec = new SR(); rec.lang = 'zh-TW'; rec.interimResults = true; mic.classList.add('rec'); q.placeholder = '聆聽中…';
+      rec.onresult = ev => { q.value = Array.from(ev.results).map(r => r[0].transcript).join(''); };
+      rec.onend = () => { mic.classList.remove('rec'); q.placeholder = '對 JARVIS 說…'; const t = q.value; rec = null; if (t) send(t); };
+      rec.onerror = () => { mic.classList.remove('rec'); rec = null; };
+      rec.start();
+    };
+  } else {
+    q.placeholder = '對 JARVIS 說…（鍵盤上的 🎙 可聽寫）';
+  }
+
+  // ---------- 設定 ----------
+  const dlg = $('#dlg');
+  $('#gear').onclick = () => { $('#cfgUrl').value = localStorage.getItem('jarvis.url') || ''; $('#cfgTok').value = cfg.token; $('#cfgSpeak').checked = cfg.speak; dlg.showModal(); };
+  $('#cfgCancel').onclick = () => dlg.close();
+  $('#cfgSave').onclick = () => {
+    localStorage.setItem('jarvis.url', $('#cfgUrl').value.trim());
+    localStorage.setItem('jarvis.token', $('#cfgTok').value.trim());
+    localStorage.setItem('jarvis.speak', $('#cfgSpeak').checked ? '1' : '0');
+    dlg.close(); boot();
+  };
+
+  async function boot() {
+    if (!cfg.token) { dlg.showModal(); return; }
+    try {
+      const s = await api('/api/status');
+      renderDevices(s.devices, s.device); st.textContent = '已連線 · ' + s.provider; wsPort = s.ws_port || 8765;
+      connectWS();
+    } catch (e) { if (e.message !== '401') add('sys', '連不上 JARVIS：' + cfg.url); }
+  }
+  boot();
+})();
+</script>
+</body>
+</html>

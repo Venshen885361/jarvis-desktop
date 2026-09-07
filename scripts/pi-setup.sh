@@ -111,7 +111,8 @@ After=network-online.target sound.target
 
 [Service]
 WorkingDirectory=$DIR
-ExecStart=$DIR/.venv/bin/python -m jarvis --no-pet
+# --serve：手機當遙控器（http://<Pi>:8080 + ws :8765）。想改成 Pi 自己聽麥克風就換成 --no-pet
+ExecStart=$DIR/.venv/bin/python -m jarvis --serve
 Restart=on-failure
 RestartSec=5
 
@@ -131,7 +132,8 @@ $(printf '\033[32m')安裝完成。$(printf '\033[0m')接下來：
 
   2. 填 .env：
        nano $DIR/.env
-     至少要有 GEMINI_API_KEY；要控制電腦再填 JARVIS_DEVICES / JARVIS_AGENT_TOKEN
+     至少要有 GEMINI_API_KEY 與 JARVIS_AGENT_TOKEN（手機遙控的密語）；
+     要控制電腦再填 JARVIS_DEVICES；家電再填 HA_URL / HA_TOKEN
 
   3. 先手動跑一次確認麥克風與喇叭：
        cd $DIR && source .venv/bin/activate

@@ -139,6 +139,9 @@ class Settings:
     # hub：手機 App 主動連進來的 WebSocket server（hub:// 裝置才會啟動），密語同 agent_token
     hub_port: int = _env_int("JARVIS_HUB_PORT", 8771)
     hub_host: str = os.environ.get("JARVIS_HUB_HOST", "0.0.0.0")
+    # server mode（--serve）：手機遙控用的 HTTP 埠；認證同樣用 agent_token
+    server_host: str = os.environ.get("JARVIS_SERVER_HOST", "0.0.0.0")
+    server_port: int = _env_int("JARVIS_SERVER_PORT", 8080)
 
     # ---- 喚醒詞（攜帶版必開）----
     wake_word: bool = _env_bool("JARVIS_WAKE_WORD", False)

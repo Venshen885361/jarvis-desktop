@@ -11,6 +11,7 @@
 from __future__ import annotations
 
 import datetime as _dt
+import os
 import re
 import urllib.parse
 
@@ -131,6 +132,17 @@ def try_local(user_input: str) -> str | None:
     return result
 
 
+# 「開客廳燈」「把冷氣關掉」「客廳燈關掉」「冷氣設 26 度」「燈調到 40」
+_HOME_WORDS = r"(?:燈|冷氣|空調|暖氣|電扇|風扇|插座|電視|音響|窗簾|捲門|門鎖|加濕器|除濕機|掃地機)"
+_HOME_RE = re.compile(
+    rf"^(?:幫我|請)?(?:把)?"
+    rf"(?:(打開|開啟|啟動|開|關掉|關閉|關)\s*([^\d]*?{_HOME_WORDS})"
+    rf"|([^\d]*?{_HOME_WORDS})\s*(打開|開啟|開|關掉|關閉|關|設定|設為|設成|設|調到|調成|調)\s*(\d+)?\s*(?:度|%|趴)?)"
+    rf"\s*$"
+)
+_HOME_STRIP = re.compile(r"^(?:所有的?|全部的?|把|的)+|的$")
+
+
 _DEVICE_PREFIX = re.compile(r"^(?:用|在|請用|幫我用)(手機|電腦|桌機|筆電|本機)(?:上|裡)?[，,\s]*")
 
 
@@ -157,6 +169,20 @@ def _route(text: str) -> str | None:
 
         ws_emit({"type": "show"})
         return "Sir, 我在。"
+
+    # -0.2) 家電（Home Assistant 有設定才啟用）：「把客廳燈關掉」「開冷氣」「冷氣設 26 度」
+    if os.environ.get("HA_URL") and (m := _HOME_RE.match(text)):
+        from .tools.home import home_control
+
+        verb1, dev1, dev2, verb2, num = m.groups()
+        device = _HOME_STRIP.sub("", (dev1 or dev2 or "").strip())
+        verb = verb1 or verb2 or ""
+        if num:
+            return home_control(device, "set", num)
+        if verb.startswith(("設", "調")):
+            return "Sir, 要設定成多少？"
+        action = "on" if verb in ("開", "打開", "開啟", "啟動") else "off"
+        return home_control(device, action)
 
     # 0) 招呼語：整句就是招呼詞才算，避免「你好幫我打開瀏覽器」被攔截
     if len(text) <= 4:

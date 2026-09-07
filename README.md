@@ -179,6 +179,15 @@ HUD 右側的 Token Budget 面板會即時顯示 input / output / cache read 與
 
 ---
 
+## 手機當遙控器 + 家電
+
+```bash
+python -m jarvis --serve      # http://<IP>:8080 給手機 Safari / Chrome 加到主畫面；密語 = JARVIS_AGENT_TOKEN
+```
+
+iPhone 不需要 App：PWA 打字或語音、Siri 捷徑「問 JARVIS」一句話問答；家電走 Home Assistant
+（「開客廳燈」「冷氣設 26 度」走本機路由，零 token）。完整步驟見 [docs/mobile.md](docs/mobile.md)。
+
 ## 多裝置：Pi 大腦 + 電腦 / 手機手腳
 
 大腦（語音、路由、LLM）和手腳（截圖、點擊、開程式）可以分開跑：
@@ -261,6 +270,8 @@ jarvis/
 | Android ADB 控制 | ✅ | ✅ realme 12x（Android 14）無線偵錯實測 |
 | Android App（無障礙 + hub） | ✅ | ⚠️ Python 端以模擬 App 驗證；APK 尚未實機編譯 |
 | iPhone（捷徑自動化，僅預定義動作） | ✅ | ⚠️ 寄信端以假 SMTP 驗證；捷徑端未實機驗證 |
+| 手機遙控（`--serve` PWA + Siri 捷徑） | ✅ | ✅ HTTP/WS/認證端到端測試，PWA 以 Chromium 驗證 |
+| 家電（Home Assistant） | ✅ | ⚠️ 以模擬 HA 驗證 service 呼叫與路由 |
 | 喚醒詞（openWakeWord） | ✅ | ⚠️ 未實測 |
 | Raspberry Pi 部署腳本 | ✅ | ⚠️ 未在真 Pi 上跑過 |
 | Linux（Hyprland）桌面操作 | ⚠️ 部分 | Wayland 下 pyautogui 受限，見上方說明 |
@@ -270,7 +281,8 @@ jarvis/
 - [ ] Pi 5 實機：喚醒詞、麥克風、Tailscale 跨網路控制電腦
 - [x] Android 實機：ADB 無線偵錯
 - [ ] Android App 實機：編譯、無障礙授權、UI 樹 → 點擊
-- [ ] iPhone 捷徑實機：自動化觸發、message / navigate 動詞
+- [ ] iPhone 實機：PWA 加到主畫面、Siri 捷徑「問 JARVIS」
+- [ ] Home Assistant 實機：Pi Docker + 至少一個真實裝置
 - [ ] Pi 藍牙 HID + AirPlay 鏡像：讓 JARVIS 真的能看著 iPhone 操作
 - [ ] Linux：`ydotool` 後端補上 Wayland 原生視窗操作
 - [ ] STT / TTS 抽成 provider 介面（目前的 Google Web Speech / edge-tts 皆為非官方端點，不可商用）

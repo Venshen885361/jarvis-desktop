@@ -105,14 +105,30 @@ def main() -> int:
     parser.add_argument(
         "--hud", action="store_true", help="同時啟動 WebSocket 供 hud/jarvis_hub.html 連線"
     )
+    parser.add_argument(
+        "--serve", action="store_true",
+        help="server mode：手機當遙控器（HTTP :8080 + WebSocket），文字模式、不開桌寵"
+    )
     args = parser.parse_args()
 
-    if args.text or args.once:
+    if args.text or args.once or args.serve:
         object.__setattr__(settings, "text_mode", True)
     if args.provider:
         object.__setattr__(settings, "provider", args.provider)
 
     provider = _LazyProvider()
+    if args.serve:
+        # 手機遙控：HTTP + WS 都綁到 server_host，輸入來自 server.text_queue
+        from . import server, speech
+
+        object.__setattr__(settings, "ws_host", settings.server_host)
+        start_ws_server()
+        server.start(settings.server_host, settings.server_port, settings.agent_token)
+        speech.use_text_queue(server.text_queue)
+        _banner(provider)
+        print("  server mode：手機 Safari 開 http://<這台的IP>:%d，⚙︎ 填 .env 的 JARVIS_AGENT_TOKEN" % settings.server_port)
+        _conversation_loop(provider)
+        return 0
     if args.hud or args.no_pet:
         start_ws_server()
     _banner(provider)

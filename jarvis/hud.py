@@ -33,7 +33,39 @@ def subscribe(fn) -> None:
     _listeners.append(fn)
 
 
+def unsubscribe(fn) -> None:
+    try:
+        _listeners.remove(fn)
+    except ValueError:
+        pass
+
+
+# server mode 才會設：WebSocket 第一則訊息必須是 {"type":"auth","token":...}
+_required_token: str | None = None
+
+
+def require_token(token: str) -> None:
+    global _required_token
+    _required_token = token or None
+
+
 async def _ws_handler(websocket):
+    if _required_token:
+        import secrets
+
+        try:
+            first = json.loads(await asyncio.wait_for(websocket.recv(), timeout=10))
+            ok = first.get("type") == "auth" and secrets.compare_digest(str(first.get("token", "")), _required_token)
+        except Exception:
+            ok = False
+        if not ok:
+            try:
+                await websocket.send(json.dumps({"type": "auth", "ok": False}))
+                await websocket.close()
+            except Exception:
+                pass
+            return
+        await websocket.send(json.dumps({"type": "auth", "ok": True}))
     _ws_clients.add(websocket)
     print(f"[HUD] 前端已連線（共 {len(_ws_clients)} 個）。")
     try:

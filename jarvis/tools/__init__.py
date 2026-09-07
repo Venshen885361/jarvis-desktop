@@ -29,6 +29,7 @@ from .gui import (
     switch_input_method,
     write_clipboard,
 )
+from .home import home_control, home_list, home_status
 from .vision import analyze_camera_view, camera_search, lens_search
 
 
@@ -98,6 +99,9 @@ CLAUDE_TOOLS = [
     lens_search,
     open_gesture_selector,
     refresh_app_index,
+    home_control,
+    home_status,
+    home_list,
 ]
 
 # Gemini provider 用：沒有官方 computer toolset，需要自己的視覺定位與 GUI 工具

@@ -24,8 +24,11 @@ from .base import Device, ImageResult, ToolOutput
 # 這幾個名稱不是「某台裝置上的工具」，而是大腦自己的：切換目標、列出裝置。
 CORE_TOOLS = ("switch_device", "list_devices")
 
-# 大腦本機（Pi 或桌機）才有鏡頭，這些不轉發
-LOCAL_ONLY_TOOLS = ("analyze_camera_view", "camera_search", "lens_search", "open_gesture_selector")
+# 大腦本機（Pi 或桌機）才有鏡頭 / 才連得到 Home Assistant，這些不轉發到目標裝置
+LOCAL_ONLY_TOOLS = (
+    "analyze_camera_view", "camera_search", "lens_search", "open_gesture_selector",
+    "home_control", "home_status", "home_list",
+)
 
 _ALIASES = {
     "電腦": "pc", "桌機": "pc", "筆電": "pc", "computer": "pc", "desktop": "pc", "laptop": "pc",
