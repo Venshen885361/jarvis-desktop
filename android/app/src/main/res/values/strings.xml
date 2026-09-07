@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">JARVIS Agent</string>
+    <string name="accessibility_label">JARVIS 手腳服務</string>
+    <string name="accessibility_description">讓 JARVIS 讀取畫面上的元件、代替你點擊、滑動、輸入文字與截圖。只有連上你自己的 JARVIS（需要密語）時才會動作。</string>
+    <string name="notif_channel">JARVIS 連線狀態</string>
+</resources>

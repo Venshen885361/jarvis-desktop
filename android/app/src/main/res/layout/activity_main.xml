@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0B1220">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="J.A.R.V.I.S. Agent"
+            android:textColor="#38BDF8"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="尚未連線"
+            android:textColor="#94A3B8" />
+
+        <TextView style="@style/Label" android:text="JARVIS 位址（ws://大腦IP:8771）" />
+        <EditText
+            android:id="@+id/url"
+            style="@style/Field"
+            android:hint="ws://192.168.1.10:8771"
+            android:inputType="textUri" />
+
+        <TextView style="@style/Label" android:text="密語（JARVIS_AGENT_TOKEN）" />
+        <EditText
+            android:id="@+id/token"
+            style="@style/Field"
+            android:inputType="textPassword" />
+
+        <TextView style="@style/Label" android:text="裝置名稱（.env 裡 hub://後面那個）" />
+        <EditText
+            android:id="@+id/name"
+            style="@style/Field"
+            android:text="phone"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/connect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#38BDF8"
+            android:text="儲存並連線"
+            android:textColor="#0B1220" />
+
+        <Button
+            android:id="@+id/disconnect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#1E293B"
+            android:text="中斷連線"
+            android:textColor="#E2E8F0" />
+
+        <TextView style="@style/Label" android:layout_marginTop="24dp" android:text="權限" />
+
+        <TextView
+            android:id="@+id/accStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="無障礙服務：未開啟"
+            android:textColor="#F87171" />
+
+        <Button
+            android:id="@+id/openAccessibility"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:backgroundTint="#1E293B"
+            android:text="去開啟無障礙服務"
+            android:textColor="#E2E8F0" />
+
+        <Button
+            android:id="@+id/battery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:backgroundTint="#1E293B"
+            android:text="關閉電池最佳化（避免背景被殺）"
+            android:textColor="#E2E8F0" />
+
+        <TextView
+            android:id="@+id/log"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="monospace"
+            android:textColor="#64748B"
+            android:textSize="12sp" />
+    </LinearLayout>
+</ScrollView>

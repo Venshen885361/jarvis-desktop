@@ -1,8 +1,13 @@
 """裝置註冊表：哪些裝置可以被操作、現在對哪一台說話。
 
 設定格式（.env）：
-  JARVIS_DEVICES=pc=ws://100.101.102.103:8770?token=abc,phone=adb://192.168.1.50:5555
+  JARVIS_DEVICES=pc=ws://100.101.102.103:8770?token=abc,phone=hub://phone
   JARVIS_DEFAULT_DEVICE=pc
+
+  ws://   大腦去連跑著 jarvis.agent 的電腦
+  hub://  裝了 JARVIS Android App 的手機主動連進大腦（名稱要跟 App 內填的一樣）
+  adb://  ADB 無線偵錯（auto = 自動找），不裝 App 的備案
+  ios://  iPhone：寄信觸發捷徑自動化（ios://you@icloud.com），只能跑預先定義的動作
 
 沒設 JARVIS_DEVICES 就只有一台 "local"（現在的單機模式），行為跟以前完全一樣。
 """
@@ -24,7 +29,7 @@ LOCAL_ONLY_TOOLS = ("analyze_camera_view", "camera_search", "lens_search", "open
 
 _ALIASES = {
     "電腦": "pc", "桌機": "pc", "筆電": "pc", "computer": "pc", "desktop": "pc", "laptop": "pc",
-    "手機": "phone", "android": "phone", "mobile": "phone",
+    "手機": "phone", "android": "phone", "mobile": "phone", "iphone": "phone", "蘋果": "phone",
     "本機": "local", "這台": "local", "自己": "local",
 }
 
@@ -62,7 +67,7 @@ class DeviceRegistry:
         # 「手機」但註冊名叫 "pixel"：找 kind 是 android 的
         if alias == "phone":
             for n, spec in self._specs.items():
-                if spec.startswith("adb://"):
+                if spec.startswith(("adb://", "hub://", "ios://")):
                     return n
         if alias == "pc":
             for n, spec in self._specs.items():
@@ -97,7 +102,15 @@ class DeviceRegistry:
             from .adb import AdbDevice
 
             return AdbDevice(name, u.netloc)
-        raise ValueError(f"不認得的裝置設定：{spec}（支援 ws:// wss:// adb://）")
+        if u.scheme == "hub":
+            from .hub import HubDevice
+
+            return HubDevice(name, u.netloc or name)
+        if u.scheme == "ios":
+            from .ios import IosDevice
+
+            return IosDevice(name, spec[len("ios://"):])
+        raise ValueError(f"不認得的裝置設定：{spec}（支援 ws:// wss:// hub:// adb:// ios://）")
 
     @property
     def current(self) -> Device:

@@ -103,7 +103,14 @@ Linux 用 systemd user service（下面有範本）。
 
 ---
 
-## 第三段：Android 手機（ADB 無線偵錯）
+## 第三段：手機
+
+iPhone 走 [docs/ios.md](ios.md)（捷徑自動化，只能做預定義動作）。以下是 Android。
+
+## 第三段（Android）：Android 手機
+
+推薦裝 [JARVIS Agent App](../android/README.md)：`.env` 寫 `phone=hub://phone`，手機 App 填 `ws://<Pi 的 Tailscale IP>:8771` 與密語即可，
+不用開發人員選項、不用同網段。以下是不裝 App 的 ADB 備案。
 
 手機上**不用裝 agent**。Android 11+ 內建無線 ADB。
 

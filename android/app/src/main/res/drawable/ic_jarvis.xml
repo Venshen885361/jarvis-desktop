@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 簡化的 C60 六邊形環，跟桌寵同一個意象 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp" android:height="48dp"
+    android:viewportWidth="48" android:viewportHeight="48">
+    <path android:fillColor="#0B1220" android:pathData="M0,0h48v48h-48z" />
+    <path android:strokeColor="#38BDF8" android:strokeWidth="2" android:fillColor="#00000000"
+        android:pathData="M24,6 L39.6,15 L39.6,33 L24,42 L8.4,33 L8.4,15 Z" />
+    <path android:strokeColor="#38BDF8" android:strokeWidth="1.5" android:fillColor="#00000000"
+        android:pathData="M24,15 L31.8,19.5 L31.8,28.5 L24,33 L16.2,28.5 L16.2,19.5 Z" />
+    <path android:strokeColor="#38BDF8" android:strokeWidth="1.2" android:fillColor="#00000000"
+        android:pathData="M24,6 L24,15 M39.6,15 L31.8,19.5 M39.6,33 L31.8,28.5 M24,42 L24,33 M8.4,33 L16.2,28.5 M8.4,15 L16.2,19.5" />
+</vector>

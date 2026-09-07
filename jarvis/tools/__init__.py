@@ -50,10 +50,38 @@ def list_devices() -> str:
     return get_devices().describe_all()
 
 
+def get_ui_tree() -> str:
+    """讀取目前控制的手機畫面上的 UI 元件清單（文字、id、座標、可否點擊）。
+
+    比截圖便宜非常多而且精準：先用這個找到目標元件的中心座標再點，
+    只有在畫面是圖片 / 遊戲 / 自繪內容、UI 樹讀不到東西時才截圖。
+    只有裝了 JARVIS App 的 Android 手機支援；電腦上會回報不支援。
+    """
+    from ..devices import get_devices
+
+    return str(get_devices().run_tool("get_ui_tree", {}))
+
+
+def phone_command(command: str) -> str:
+    """對 iPhone 下一個捷徑指令（iPhone 無法被看畫面或點擊，只能做這些預先定義的動作）。
+
+    Args:
+        command: 第一個字是動詞，其餘是參數：
+            "url youtube://"（開 App，常見 App 的 URL scheme：youtube:// line:// instagram:// spotify: maps://）、
+            "url https://…"、"message 媽媽 我晚點到"、"call 爸爸"、"navigate 台北車站"、
+            "volume 30"、"timer 10"（分鐘）、"say 該出門了"、"shortcut 捷徑名稱 輸入"。
+    """
+    from ..devices import get_devices
+
+    return str(get_devices().run_tool("phone_command", {"command": command}))
+
+
 # Claude provider 用：computer toolset 已涵蓋滑鼠鍵盤，這裡只給牠做不到 / 做起來很貴的事
 CLAUDE_TOOLS = [
     switch_device,
     list_devices,
+    get_ui_tree,
+    phone_command,
     open_application,
     open_folder,
     focus_window,

@@ -347,9 +347,47 @@ class AdbDevice(Device):
             if not settings.allow_shell:
                 return "Sir, 手機 shell 預設關閉（JARVIS_ALLOW_SHELL=1 才放行）。"
             return self._shell(*a.get("command", "").split())[:2000]
+        if tool == "get_ui_tree":
+            return self._ui_tree()
         if tool in ("analyze_camera_view", "camera_search", "lens_search", "open_gesture_selector"):
             return "Sir, 鏡頭類工具請切回電腦或 Pi 本機執行。"
         return f"Sir, 手機不支援工具 {tool}。"
+
+    def _ui_tree(self, limit: int = 120) -> str:
+        """uiautomator dump → 精簡成一行一個元件，給模型當「便宜的截圖」。
+
+        只留有文字 / 描述 / 可點擊的節點，座標是螢幕真實像素（tap 直接用）。
+        """
+        import xml.etree.ElementTree as ET
+
+        self._shell("uiautomator", "dump", "/sdcard/jarvis_ui.xml", timeout=15)
+        code, xml = self._run_adb(["exec-out", "cat", "/sdcard/jarvis_ui.xml"], binary=True, timeout=15)
+        if code != 0 or not xml:
+            return "UI 樹讀取失敗（畫面可能是安全內容或正在轉場），請改用截圖。"
+        rows = []
+        try:
+            for node in ET.fromstring(xml).iter("node"):
+                text = node.get("text") or node.get("content-desc") or ""
+                clickable = node.get("clickable") == "true"
+                if not text and not clickable:
+                    continue
+                m = re.match(r"\[(\d+),(\d+)\]\[(\d+),(\d+)\]", node.get("bounds", ""))
+                if not m:
+                    continue
+                x1, y1, x2, y2 = map(int, m.groups())
+                rid = (node.get("resource-id") or "").split("/")[-1]
+                flag = "🔘" if clickable else "  "
+                rows.append(f"{flag} ({(x1 + x2) // 2},{(y1 + y2) // 2}) {text[:40]!r}" + (f" #{rid}" if rid else ""))
+                if len(rows) >= limit:
+                    break
+        except ET.ParseError:
+            return "UI 樹解析失敗，請改用截圖。"
+        if not rows:
+            return "UI 樹是空的（畫面可能是圖片 / 遊戲 / 受保護內容），請改用截圖。"
+        # 座標系跟著「最後一次看畫面」走：UI 樹給的是真實像素，之後的 click 不再縮放，
+        # 直到下一次 screenshot 重新設定 scale。
+        self._last_scale, self._last_offset = 1.0, (0, 0)
+        return "元件（🔘=可點，座標為手機真實像素，可直接 left_click）：\n" + "\n".join(rows)
 
     # ------------------------------------------------------------------
     def call(self, tool: str, args: dict) -> ToolOutput:

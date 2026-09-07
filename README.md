@@ -188,11 +188,13 @@ HUD 右側的 Token Budget 面板會即時顯示 input / output / cache read 與
 python -m jarvis.agent --token 密語
 
 # 大腦（Pi 或另一台電腦）
-JARVIS_DEVICES="pc=ws://100.64.0.2:8770?token=密語,phone=adb://auto" python -m jarvis
+JARVIS_DEVICES="pc=ws://100.64.0.2:8770?token=密語,phone=hub://phone" python -m jarvis
 ```
 
-「切換到手機」「用電腦開 Firefox」「在手機上搜尋 …」會自動切換目標。Android 走 ADB 無線偵錯，
-手機上不用裝任何東西。完整步驟（Tailscale、systemd、ADB 配對、離線 STT）見
+「切換到手機」「用電腦開 Firefox」「在手機上搜尋 …」會自動切換目標。Android 有兩條路：
+裝 [JARVIS Agent App](android/README.md)（推薦：讀 UI 樹不用截圖、免開發人員選項、跨網路），
+或 `phone=adb://auto` 走 ADB 無線偵錯（不裝 App 的備案）。iPhone 沒有這種 API，
+只能透過[捷徑自動化](docs/ios.md)做預先定義的動作（開 App、傳訊息、導航、唸文字…）。完整步驟（Tailscale、systemd、ADB 配對、離線 STT）見
 [docs/raspberry-pi.md](docs/raspberry-pi.md)。
 
 ## 平台支援
@@ -257,6 +259,8 @@ jarvis/
 | Google Lens 反向搜尋（圖床上傳） | ✅ | ⚠️ 未實測 |
 | 大腦 / 手腳分家（`jarvis.agent` + `devices/`） | ✅ | ✅ Windows 11 localhost（大腦 → agent → 工具往返） |
 | Android ADB 控制 | ✅ | ✅ realme 12x（Android 14）無線偵錯實測 |
+| Android App（無障礙 + hub） | ✅ | ⚠️ Python 端以模擬 App 驗證；APK 尚未實機編譯 |
+| iPhone（捷徑自動化，僅預定義動作） | ✅ | ⚠️ 寄信端以假 SMTP 驗證；捷徑端未實機驗證 |
 | 喚醒詞（openWakeWord） | ✅ | ⚠️ 未實測 |
 | Raspberry Pi 部署腳本 | ✅ | ⚠️ 未在真 Pi 上跑過 |
 | Linux（Hyprland）桌面操作 | ⚠️ 部分 | Wayland 下 pyautogui 受限，見上方說明 |
@@ -264,7 +268,10 @@ jarvis/
 ### Roadmap
 
 - [ ] Pi 5 實機：喚醒詞、麥克風、Tailscale 跨網路控制電腦
-- [ ] Android 實機：ADB 無線偵錯 + 中文輸入
+- [x] Android 實機：ADB 無線偵錯
+- [ ] Android App 實機：編譯、無障礙授權、UI 樹 → 點擊
+- [ ] iPhone 捷徑實機：自動化觸發、message / navigate 動詞
+- [ ] Pi 藍牙 HID + AirPlay 鏡像：讓 JARVIS 真的能看著 iPhone 操作
 - [ ] Linux：`ydotool` 後端補上 Wayland 原生視窗操作
 - [ ] STT / TTS 抽成 provider 介面（目前的 Google Web Speech / edge-tts 皆為非官方端點，不可商用）
 - [ ] 自架 relay server 取代 Tailscale（產品化前提）
