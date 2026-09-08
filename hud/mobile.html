@@ -218,6 +218,7 @@
     <input id="cfgUrl" placeholder="留空 = 這個網頁的來源" inputmode="url" autocapitalize="off">
     <label class="f" for="cfgTok">密語</label>
     <input id="cfgTok" type="password" autocomplete="off">
+    <p class="hint">改位址或密語後按「儲存」會直接改連新的大腦。<a href="#" id="cfgLogout">登出（回到登入頁）</a></p>
     <div class="toggle"><input type="checkbox" id="cfgSpeak"><label for="cfgSpeak">用手機唸出回覆</label><button type="button" id="ttsTest" class="mini">🔊 試聽</button></div>
     <label class="f" for="cfgVoice">手機的聲音</label>
     <select id="cfgVoice"><option value="">自動（系統預設中文）</option></select>
@@ -678,16 +679,26 @@ const Orb = Avatar;   // 登入頁用同一個引擎
     }
     const profile = { name: $('#pfName').value.trim() || 'Sir', style, notes: $('#pfNotes').value.trim(),
       quick: $('#pfQuick').value.split(/[,，]/).map(x => x.trim()).filter(Boolean), onboarded: true };
+    if (connChanged) {
+      // 位址 / 密語變了：舊連線很可能就是壞的（不然幹嘛改），所以不經過舊大腦，直接切過去重連。
+      // 模型金鑰等其他設定不在這一輪存，連上新大腦後再開設定存一次。
+      localStorage.setItem('jarvis.url', newUrl); localStorage.setItem('jarvis.token', newTok);
+      dlg.close();
+      boot().catch(e => showLogin(e instanceof AuthError ? '密語錯誤' : '連不上 ' + cfg.url + '\n' + (e && (e.name + ': ' + e.message))));
+      return;
+    }
     try {
-      const r = await api('/api/settings', { env, profile });   // 用舊連線存，確定存到再切換
+      const r = await api('/api/settings', { env, profile });
       dlg.close();
       add('sys', r.setup_needed ? '還沒有可用的模型金鑰，只能用本機功能（時間、開程式、家電）。' : '設定已儲存。');
       renderQuick(r.profile.top);
-      if (connChanged) {
-        localStorage.setItem('jarvis.url', newUrl); localStorage.setItem('jarvis.token', newTok);
-        boot().catch(e => showLogin(e instanceof AuthError ? '密語錯誤' : '連不上 ' + cfg.url));
-      }
     } catch (e) { add('sys', e instanceof AuthError ? '密語錯誤' : '儲存失敗：' + e.message); }
+  };
+  $('#cfgLogout').onclick = e => {
+    e.preventDefault();
+    localStorage.removeItem('jarvis.url'); localStorage.removeItem('jarvis.token');
+    dlg.close(); if (ws) { try { ws.close(); } catch {} }
+    showLogin('');
   };
 
   // ---------- 啟動 ----------

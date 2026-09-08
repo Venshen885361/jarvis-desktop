@@ -11,7 +11,11 @@ d.update({
     # iOS 14+ 的「區域網路」隱私：連 192.168.x / Tailscale 100.x 這種非公網位址要有這行，
     # 否則第一次連線 iOS 直接擋掉且不一定跳提示（結果就是 Load failed）。
     "NSLocalNetworkUsageDescription": "連到同一個網路裡的 JARVIS 大腦（電腦 / Raspberry Pi）",
-    "NSAppTransportSecurity": {"NSAllowsArbitraryLoads": True, "NSAllowsLocalNetworking": True},
+    # ATS：只放 NSAllowsArbitraryLoads。**不要**同時加 NSAllowsLocalNetworking / *InWebContent —
+    # Apple 文件：iOS 10+ 只要出現其他全域例外鍵，NSAllowsArbitraryLoads 就被忽略；
+    # 而 iOS 17+ 預設又禁止連 IP 位址，結果 http://100.x.x.x:8080 在原生層直接被擋（Load failed）。
+    # https://developer.apple.com/documentation/bundleresources/information-property-list/nsapptransportsecurity
+    "NSAppTransportSecurity": {"NSAllowsArbitraryLoads": True},
     "UIBackgroundModes": ["audio"],
     "CFBundleDisplayName": "JARVIS",
 })
