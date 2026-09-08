@@ -7,6 +7,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 
 from ..config import settings
@@ -24,6 +25,16 @@ _SCREEN_HINTS = ("畫面", "螢幕", "截圖", "點", "按鈕", "搜尋", "輸�
 def is_quota_error(e: Exception) -> bool:
     s = str(e).lower()
     return "429" in s or "resource_exhausted" in s or "quota" in s
+
+
+_ANSWER_MAX_TOKENS = int(os.environ.get("JARVIS_ANSWER_MAX_TOKENS", "3000"))
+
+
+def _finish_reason(response) -> str:
+    try:
+        return str(response.candidates[0].finish_reason.name)
+    except Exception:
+        return ""
 
 
 class GeminiProvider(Provider):
@@ -46,7 +57,8 @@ class GeminiProvider(Provider):
 
         return types.GenerateContentConfig(
             system_instruction=system_prompt(),
-            max_output_tokens=300,
+            # thinking 模型的思考 token 也算在這個上限裡，太小會把回覆截斷
+            max_output_tokens=1024,
             tools=GEMINI_TOOLS if tools else None,
             # 自己接管工具執行：執行完要把結果餵回去讓模型接續判斷
             automatic_function_calling=types.AutomaticFunctionCallingConfig(
@@ -174,7 +186,10 @@ class GeminiProvider(Provider):
                 contents=user_text,
                 config=types.GenerateContentConfig(
                     system_instruction=answer_prompt(context),
-                    max_output_tokens=700,
+                    # gemini-3.x / 2.5 是 thinking 模型：思考 token 算在 max_output_tokens 裡，
+                    # 700 會在「Sir，看來您正身處…考慮到現在是清晨」就被 MAX_TOKENS 砍掉。
+                    # 回覆長度由 answer_prompt 的規則控制，這裡只是安全上限。
+                    max_output_tokens=_ANSWER_MAX_TOKENS,
                     tools=[types.Tool(google_search=types.GoogleSearch())],
                 ),
             )
@@ -184,10 +199,13 @@ class GeminiProvider(Provider):
             response = self.client.models.generate_content(
                 model=model,
                 contents=user_text,
-                config=types.GenerateContentConfig(system_instruction=answer_prompt(context + "\n（目前沒有網路搜尋能力，只能憑既有知識回答，請說明這點。）"), max_output_tokens=700),
+                config=types.GenerateContentConfig(system_instruction=answer_prompt(context + "\n（目前沒有網路搜尋能力，只能憑既有知識回答，請說明這點。）"), max_output_tokens=_ANSWER_MAX_TOKENS),
             )
         self._record_usage(model, response)
         text = (response.text or "").strip()
+        fr = _finish_reason(response)
+        if fr and fr != "STOP":
+            print(f"[answer] 回覆未正常結束：finish_reason={fr}（若是 MAX_TOKENS，提高 JARVIS_ANSWER_MAX_TOKENS）")
         self.remember(user_text, text)
         return text or "Sir, 我沒有找到可靠的資訊。"
 
