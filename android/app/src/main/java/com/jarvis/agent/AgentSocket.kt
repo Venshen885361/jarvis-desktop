@@ -88,7 +88,15 @@ class AgentSocket(
 
             override fun onFailure(webSocket: WebSocket, t: Throwable, response: Response?) {
                 Log.w(TAG, "failure: ${t.message}")
-                scheduleReconnect("連線失敗：${t.message ?: t.javaClass.simpleName}")
+                val msg = t.message ?: t.javaClass.simpleName
+                val hint = when {
+                    // 連到 8080（HTTP）而不是 8771（hub）時 OkHttp 會這樣講
+                    msg.contains("Expected HTTP 101") -> "位址是 HTTP 埠，請改用 hub 埠：ws://<大腦IP>:8771"
+                    msg.contains("ECONNREFUSED") || msg.contains("Failed to connect") ->
+                        "連不上：確認大腦有跑、.env 有 JARVIS_DEVICES=phone=hub://phone、同一個網路"
+                    else -> "連線失敗：$msg"
+                }
+                scheduleReconnect(hint)
             }
 
             override fun onClosed(webSocket: WebSocket, code: Int, reason: String) {

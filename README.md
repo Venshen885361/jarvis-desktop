@@ -272,6 +272,9 @@ jarvis/
 | iPhone（捷徑自動化，僅預定義動作） | ✅ | ⚠️ 寄信端以假 SMTP 驗證；捷徑端未實機驗證 |
 | 手機遙控（`--serve` PWA + Siri 捷徑） | ✅ | ✅ HTTP/WS/認證端到端測試，PWA 以 Chromium 驗證 |
 | 家電（Home Assistant） | ✅ | ⚠️ 以模擬 HA 驗證 service 呼叫與路由 |
+| YouTube 搜尋並播放（yt-dlp，本機路由） | ✅ | ⚠️ 沙箱連不到 YouTube 未實測；失敗會退回搜尋頁 |
+| 下載 / 安裝程式（winget）、Steam 安裝 / 啟動遊戲、下載網址檔案 | ✅ | ⚠️ 以假 winget / 假 Steam API 驗證解析與流程 |
+| 純問答（附近美食 / top 10 / 解釋，含搜尋 grounding 與手機定位） | ✅ | ⚠️ 路由與位置上下文以假 provider 驗證；Gemini google_search / Claude web_search 未實測 |
 | 喚醒詞（openWakeWord） | ✅ | ⚠️ 未實測 |
 | Raspberry Pi 部署腳本 | ✅ | ⚠️ 未在真 Pi 上跑過 |
 | Linux（Hyprland）桌面操作 | ⚠️ 部分 | Wayland 下 pyautogui 受限，見上方說明 |

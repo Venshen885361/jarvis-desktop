@@ -16,7 +16,7 @@ from ..screen import capture
 from ..tools import GEMINI_TOOLS
 from ..usage import tracker
 from .base import Provider
-from .prompt import JARVIS_PROMPT
+from .prompt import answer_prompt, system_prompt
 
 _SCREEN_HINTS = ("畫面", "螢幕", "截圖", "點", "按鈕", "搜尋", "輸入", "打字")
 
@@ -45,7 +45,7 @@ class GeminiProvider(Provider):
         from google.genai import types
 
         return types.GenerateContentConfig(
-            system_instruction=JARVIS_PROMPT,
+            system_instruction=system_prompt(),
             max_output_tokens=300,
             tools=GEMINI_TOOLS if tools else None,
             # 自己接管工具執行：執行完要把結果餵回去讓模型接續判斷
@@ -161,6 +161,35 @@ class GeminiProvider(Provider):
             cache_read=getattr(meta, "cached_content_token_count", 0) or 0,
         )
         emit_usage()
+
+    # ------------------------------------------------------------------
+    def answer(self, user_text: str, context: str = "") -> str:
+        """純問答 + Google 搜尋 grounding（附近美食這種需要即時資料的問題才答得出來）。"""
+        from google.genai import types
+
+        model = settings.gemini_models[0]
+        try:
+            response = self.client.models.generate_content(
+                model=model,
+                contents=user_text,
+                config=types.GenerateContentConfig(
+                    system_instruction=answer_prompt(context),
+                    max_output_tokens=700,
+                    tools=[types.Tool(google_search=types.GoogleSearch())],
+                ),
+            )
+        except Exception as e:
+            # grounding 不可用（配額 / 地區）時退回純模型回答，如實標記
+            print(f"[answer] 搜尋 grounding 失敗，改用純模型：{e}")
+            response = self.client.models.generate_content(
+                model=model,
+                contents=user_text,
+                config=types.GenerateContentConfig(system_instruction=answer_prompt(context + "\n（目前沒有網路搜尋能力，只能憑既有知識回答，請說明這點。）"), max_output_tokens=700),
+            )
+        self._record_usage(model, response)
+        text = (response.text or "").strip()
+        self.remember(user_text, text)
+        return text or "Sir, 我沒有找到可靠的資訊。"
 
     # ------------------------------------------------------------------
     def describe_image(self, data: bytes, media_type: str, prompt: str) -> str:

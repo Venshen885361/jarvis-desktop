@@ -1,0 +1,17 @@
+{
+  "appId": "xyz.tonicatowo.jarvis",
+  "appName": "JARVIS",
+  "webDir": "www",
+  "ios": {
+    "contentInset": "always",
+    "backgroundColor": "#0b1220",
+    "allowsLinkPreview": false
+  },
+  "server": {
+    "allowNavigation": ["*"],
+    "cleartext": true
+  },
+  "plugins": {
+    "SplashScreen": { "launchShowDuration": 0 }
+  }
+}

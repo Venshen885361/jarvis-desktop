@@ -26,5 +26,8 @@ if ($missing.Count -gt 0) {
 & $py -m PyInstaller --noconfirm --clean jarvis.spec
 
 Write-Host ""
-Write-Host "完成：dist\JARVIS\JARVIS.exe"
+# 順便打包成 zip 放到 dist\downloads：手機 JARVIS 頁的「下載 App」會直接提供這個檔
+New-Item -ItemType Directory -Force -Path dist\downloads | Out-Null
+Compress-Archive -Path dist\JARVIS\* -DestinationPath dist\downloads\JARVIS-windows.zip -Force
+Write-Host "完成：dist\JARVIS\JARVIS.exe（zip：dist\downloads\JARVIS-windows.zip）"
 Write-Host "整個 dist\JARVIS 資料夾就是可散佈的程式；第一次跑會在旁邊找 .env（或用 .env.example 複製一份）。"

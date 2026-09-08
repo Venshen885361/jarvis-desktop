@@ -51,7 +51,6 @@
   header .st{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:36%}
   .ib{flex:none;background:none;border:0;color:var(--muted);font-size:17px;width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:0}
   .ib:active{background:var(--panel2)}
-  .ib.on{color:var(--accent);background:var(--panel2);box-shadow:inset 0 0 0 1px var(--accent)}
   .chips{display:flex;gap:8px;padding:8px 12px;overflow-x:auto;border-bottom:1px solid var(--line);-webkit-overflow-scrolling:touch}
   .chips:empty{display:none}
   .chips::-webkit-scrollbar{display:none}
@@ -86,7 +85,6 @@
   .seg button.on{border-color:var(--accent);color:var(--accent)}
   .toggle{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:14px}
   .toggle input{width:auto;accent-color:var(--accent);margin:0}
-  .mini{margin-left:auto;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:8px;padding:4px 10px;font-size:13px}
   .usage{font-size:11px;color:var(--muted);margin-top:14px;font-family:ui-monospace,Menlo,monospace}
   .row{display:flex;gap:8px;margin-top:18px;justify-content:flex-end}
   .row button{border:0;border-radius:10px;padding:9px 16px;font-size:14px;background:var(--line);color:var(--fg)}
@@ -179,7 +177,7 @@
   <header>
     <h1>J.A.R.V.I.S.</h1>
     <span class="st" id="st">未連線</span>
-    <button class="ib" id="wakeBtn" aria-label="喚醒詞聆聽" title="Hey Jarvis" hidden>🎧</button>
+    <button class="ib" id="modeBtn" aria-label="切換造型" title="球 / 人像">◎</button>
     <button class="ib" id="histBtn" aria-label="對話紀錄">☰</button>
     <button class="ib" id="dlBtn" aria-label="下載 App">📥</button>
     <button class="ib" id="gear" aria-label="設定">⚙︎</button>
@@ -218,13 +216,7 @@
     <input id="cfgUrl" placeholder="留空 = 這個網頁的來源" inputmode="url" autocapitalize="off">
     <label class="f" for="cfgTok">密語</label>
     <input id="cfgTok" type="password" autocomplete="off">
-    <div class="toggle"><input type="checkbox" id="cfgSpeak"><label for="cfgSpeak">用手機唸出回覆</label><button type="button" id="ttsTest" class="mini">🔊 試聽</button></div>
-    <label class="f" for="cfgVoice">手機的聲音</label>
-    <select id="cfgVoice"><option value="">自動（系統預設中文）</option></select>
-    <label class="f" for="cfgRate">語速 <span id="rateVal">1.0</span></label>
-    <input id="cfgRate" type="range" min="0.7" max="1.5" step="0.05" value="1.0">
-    <p class="hint" id="ttsInfo"></p>
-    <div class="toggle"><input type="checkbox" id="cfgGeo"><label for="cfgGeo">分享位置給 JARVIS（「附近有什麼好吃的」才答得出來）</label></div>
+    <div class="toggle"><input type="checkbox" id="cfgSpeak"><label for="cfgSpeak">用手機唸出回覆</label></div>
     <div class="usage" id="usage"></div>
   </section>
 
@@ -297,15 +289,71 @@ const ORB_STYLE = {
   offline:   { rgb: [100, 116, 139], speed: 0.4 },
 };
 
+/* ---------- 點構成的人像：用膠囊 / 橢圓截面在 3D 取樣表面點（y 向上，高約 2） ---------- */
+function buildFigure(N) {
+  const rnd = (() => { let s = 1337; return () => (s = (s * 16807) % 2147483647) / 2147483647; })();   // 固定種子，每次長得一樣
+  const pts = [];
+  const sphereDir = () => { const u = rnd() * 2 - 1, a = rnd() * Math.PI * 2, r = Math.sqrt(1 - u * u); return [r * Math.cos(a), u, r * Math.sin(a)]; };
+  // 掃掠球（膠囊）：A→B，半徑 r（可兩端不同），n 個點
+  const capsule = (A, B, r0, r1, n) => {
+    for (let i = 0; i < n; i++) {
+      const t = rnd(), r = r0 + (r1 - r0) * t, d = sphereDir();
+      pts.push([A[0] + (B[0] - A[0]) * t + d[0] * r, A[1] + (B[1] - A[1]) * t + d[1] * r * 0.6, A[2] + (B[2] - A[2]) * t + d[2] * r]);
+    }
+  };
+  // 軀幹：沿脊椎的橢圓截面，寬 / 深隨高度變化（肩寬、腰窄、臀略寬）
+  const torso = n => {
+    for (let i = 0; i < n; i++) {
+      const t = rnd(), y = -0.08 + t * 0.66;                       // 臀 -0.08 → 肩 0.58
+      const w = 0.19 + 0.10 * Math.pow(t, 1.4) - 0.04 * Math.sin(t * Math.PI) * (1 - t);   // 肩最寬、腰內縮
+      const d = 0.10 + 0.03 * t;
+      const a = rnd() * Math.PI * 2;
+      pts.push([Math.cos(a) * w, y, Math.sin(a) * d]);
+    }
+  };
+  const head = n => { for (let i = 0; i < n; i++) { const d = sphereDir(); pts.push([d[0] * 0.115, 0.80 + d[1] * 0.145, d[2] * 0.125 + 0.01]); } };
+  const budget = { head: 0.14, torso: 0.38, arms: 0.20, legs: 0.28 };
+  head(Math.round(N * budget.head));
+  torso(Math.round(N * budget.torso));
+  capsule([0, 0.62, 0], [0, 0.68, 0], 0.055, 0.06, Math.round(N * 0.02));                          // 頸
+  const arm = sx => {
+    capsule([sx * 0.30, 0.56, 0], [sx * 0.34, 0.22, 0.03], 0.075, 0.055, Math.round(N * budget.arms * 0.28));   // 上臂
+    capsule([sx * 0.34, 0.22, 0.03], [sx * 0.31, -0.12, 0.10], 0.055, 0.045, Math.round(N * budget.arms * 0.22)); // 前臂
+  };
+  arm(1); arm(-1);
+  const leg = sx => {
+    capsule([sx * 0.11, -0.05, 0], [sx * 0.13, -0.50, 0.01], 0.10, 0.075, Math.round(N * budget.legs * 0.26));    // 大腿
+    capsule([sx * 0.13, -0.50, 0.01], [sx * 0.14, -0.95, 0.0], 0.07, 0.05, Math.round(N * budget.legs * 0.20));   // 小腿
+    capsule([sx * 0.14, -0.97, 0.02], [sx * 0.15, -0.97, 0.13], 0.045, 0.035, Math.round(N * budget.legs * 0.04)); // 腳
+  };
+  leg(1); leg(-1);
+  while (pts.length < N) pts.push(pts[Math.floor(rnd() * pts.length)].slice());
+  return pts.slice(0, N);
+}
+/* C60 版的目標：60 個頂點 + 其餘點平均鋪在 90 條邊上 —— 變回球時點會「排成」骨架 */
+function buildOrbTargets(N) {
+  const out = C60.V.map(v => v.slice());
+  const perEdge = Math.max(1, Math.floor((N - 60) / C60.edges.length));
+  for (const [i, j] of C60.edges) for (let k = 1; k <= perEdge; k++) {
+    const t = k / (perEdge + 1); out.push([0, 1, 2].map(a => C60.V[i][a] + (C60.V[j][a] - C60.V[i][a]) * t));
+  }
+  while (out.length < N) out.push(C60.V[out.length % 60].slice());
+  return out.slice(0, N);
+}
+
 class Avatar {
   constructor(canvas, opts = {}) {
     this.c = canvas; this.ctx = canvas.getContext('2d'); this.state = 'standby'; this.color = [56, 189, 248];
-    this.thin = !!opts.thin;
+    this.thin = !!opts.thin; this.N = opts.points || 720;
+    this.figure = buildFigure(this.N); this.orbT = buildOrbTargets(this.N);
+    this.pos = this.orbT.map(v => v.slice()); this.mode = 'orb'; this.morph = 0;   // 0 = 球，1 = 人像
     this.ax = 0.5; this.ay = 0; this.t = 0; this.amp = 0; this.rings = [];
+    this.phase = this.pos.map(() => Math.random() * Math.PI * 2);
     this.reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
     this.resize(); new ResizeObserver(() => this.resize()).observe(canvas);
     const loop = () => { if (this.c.isConnected && !this.c.closest('[hidden]')) this.draw(); requestAnimationFrame(loop); };
     requestAnimationFrame(loop);
+    if (opts.mode) this.setMode(opts.mode, true);
   }
   resize() {
     const r = this.c.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2.5);
@@ -313,9 +361,10 @@ class Avatar {
     this.c.width = r.width * d; this.c.height = r.height * d; this.ctx.setTransform(d, 0, 0, d, 0, 0); this.w = r.width; this.h = r.height;
   }
   set(state) { this.state = ORB_STYLE[state] ? state : 'standby'; }
+  setMode(mode, instant) { this.mode = mode; if (instant) this.morph = mode === 'figure' ? 1 : 0; }
   draw() {
     const { ctx, w, h } = this; if (!w) return;
-    this.t += this.reduced ? 0 : 0.016; const t = this.t;
+    const dt = this.reduced ? 0 : 0.016; this.t += dt; const t = this.t;
     const st = ORB_STYLE[this.state];
     for (let i = 0; i < 3; i++) this.color[i] += (st.rgb[i] - this.color[i]) * 0.1;
     const [r, g, b] = this.color;
@@ -323,40 +372,75 @@ class Avatar {
     this.amp += (target - this.amp) * 0.25;
     if (this.state === 'speaking' && this.amp > 0.6 && (!this.rings.length || t - this.rings[this.rings.length - 1] > 0.22)) this.rings.push(t);
     this.rings = this.rings.filter(x => t - x < 0.9);
-    if (!this.reduced) { this.ax += 0.006 * st.speed; this.ay += 0.011 * st.speed; }
-    const breathe = this.state === 'standby' ? 0.03 * Math.sin(t * 1.3) : 0;
-    const cx = w / 2, cy = h / 2, R = Math.min(w, h) * (this.thin ? 0.42 : 0.36) * (1 + breathe + this.amp * 0.14);
-    ctx.clearRect(0, 0, w, h);
-    // 外圈裝飾：兩個反向慢轉的虛線環（只在大畫面）
-    if (!this.thin && Math.min(w, h) > 200) {
-      ctx.save(); ctx.translate(cx, cy); ctx.rotate(t * 0.15); ctx.setLineDash([2, 10]); ctx.lineWidth = 1.2;
-      ctx.strokeStyle = `rgba(${r | 0},${g | 0},${b | 0},0.22)`; ctx.beginPath(); ctx.arc(0, 0, R * 1.5, 0, Math.PI * 2); ctx.stroke(); ctx.restore();
-      ctx.save(); ctx.translate(cx, cy); ctx.rotate(-t * 0.09); ctx.setLineDash([14, 8]); ctx.lineWidth = 1;
-      ctx.strokeStyle = 'rgba(138,92,255,0.18)'; ctx.beginPath(); ctx.arc(0, 0, R * 1.32, 0, Math.PI * 2); ctx.stroke(); ctx.restore();
+    // 漸變（0.9 秒）
+    const goal = this.mode === 'figure' ? 1 : 0;
+    this.morph += (goal - this.morph) * (this.reduced ? 1 : 0.06);
+    const m = this.morph, ease = m * m * (3 - 2 * m);
+    // 旋轉：球是雙軸自轉；人像是面向前方輕微左右轉頭（思考時轉一圈找答案）
+    if (!this.reduced) {
+      const orbSpeed = 1 - ease, figSpeed = ease;
+      this.ax += 0.006 * st.speed * orbSpeed; this.ay += 0.011 * st.speed * orbSpeed;
+      const yawGoal = this.state === 'thinking' ? this.ay + 0.02 * figSpeed * 3 : 0.35 * Math.sin(t * 0.6);
+      if (figSpeed > 0.5) { this.ay += (yawGoal - this.ay) * 0.04; this.ax += (0.08 * Math.sin(t * 0.9) - this.ax) * 0.04; }
     }
+    const breathe = this.state === 'standby' ? 0.03 * Math.sin(t * 1.3) : 0;
+    const cx = w / 2, cy = h / 2;
+    const Rorb = Math.min(w, h) * (this.thin ? 0.42 : 0.36) * (1 + breathe + this.amp * 0.14);
+    const Rfig = Math.min(h * 0.44, w * 0.9) * (1 + breathe * 0.5);
+    const R = Rorb * (1 - ease) + Rfig * ease;
+    ctx.clearRect(0, 0, w, h);
+    // 講話聲波：球從中心、人像從頭部發出
+    const ringY = cy - ease * R * 0.80, ringR = R * (1 - ease) + R * 0.16 * ease;
     for (const born of this.rings) {
       const age = (t - born) / 0.9;
-      ctx.strokeStyle = `rgba(${r | 0},${g | 0},${b | 0},${Math.pow(1 - age, 1.5) * 0.7})`; ctx.lineWidth = age < 0.4 ? 1.5 : 1;
-      ctx.beginPath(); ctx.arc(cx, cy, R * (0.6 + age * 1.0), 0, Math.PI * 2); ctx.stroke();
+      ctx.strokeStyle = `rgba(${r | 0},${g | 0},${b | 0},${Math.pow(1 - age, 1.5) * 0.7})`; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.arc(cx, ringY, ringR * (0.7 + age * 0.9), 0, Math.PI * 2); ctx.stroke();
     }
-    const D = 3.2, sax = Math.sin(this.ax), cax = Math.cos(this.ax), say = Math.sin(this.ay), cay = Math.cos(this.ay);
-    const pts = C60.V.map((v, i) => {
-      const k = 1 + this.amp * 1.4 * (0.16 * Math.sin(t * 17 + C60.phase[i]) + 0.06 * Math.sin(t * 31 + C60.phase[i] * 2));
-      let x = v[0] * k, y = v[1] * k, z = v[2] * k;
+    // 位置：球 / 人像目標插值 + 狀態擾動
+    const D = 3.4, sax = Math.sin(this.ax), cax = Math.cos(this.ax), say = Math.sin(this.ay), cay = Math.cos(this.ay);
+    const jitter = this.state === 'thinking' ? 0.012 * (0.5 + ease) : 0;
+    const proj = [];
+    for (let i = 0; i < this.N; i++) {
+      const o = this.orbT[i], f = this.figure[i], ph = this.phase[i];
+      let x = o[0] + (f[0] - o[0]) * ease, y = o[1] + (f[1] - o[1]) * ease, z = o[2] + (f[2] - o[2]) * ease;
+      if (ease < 1 && i < 60) { const k = 1 + this.amp * 1.4 * (1 - ease) * (0.16 * Math.sin(t * 17 + ph) + 0.06 * Math.sin(t * 31 + ph * 2)); x *= k; y *= k; z *= k; }
+      if (ease > 0) {
+        // 人像：說話時頭部點往外呼吸、胸口微亮；思考時整體細微抖動
+        const headK = (y > 0.62 ? 1 + this.amp * 0.10 * ease : 1);
+        x *= headK; z *= headK; y = y > 0.62 ? 0.62 + (y - 0.62) * headK : y;
+        if (jitter) { x += (Math.sin(t * 23 + ph) * jitter); y += (Math.cos(t * 19 + ph * 1.7) * jitter); }
+        y += 0.015 * Math.sin(t * 1.3) * ease;   // 呼吸
+      }
       [y, z] = [y * cax - z * sax, y * sax + z * cax]; [x, z] = [x * cay + z * say, -x * say + z * cay];
-      const p = D / (D - z); return [cx + x * R * p, cy + y * R * p, z];
-    });
-    const order = C60.edges.slice().sort((e1, e2) => (pts[e1[0]][2] + pts[e1[1]][2]) - (pts[e2[0]][2] + pts[e2[1]][2]));
-    ctx.lineCap = 'round'; ctx.setLineDash([]);
-    const white = this.state === 'speaking' ? this.amp * 0.8 : 0;
-    for (const [i, j] of order) {
-      const depth = ((pts[i][2] + pts[j][2]) / 2 + 1) / 2, br = 0.2 + 0.8 * depth;
-      const cr = r * br + (255 - r) * white * depth, cg = g * br + (255 - g) * white * depth, cb = b * br + (255 - b) * white * depth;
-      ctx.strokeStyle = `rgb(${cr | 0},${cg | 0},${cb | 0})`;
-      ctx.lineWidth = this.thin ? (depth > 0.55 ? 1.2 : 0.7) : (depth > 0.55 ? (this.state === 'speaking' && this.amp > 0.5 ? 2.6 : 1.9) : 1);
-      ctx.beginPath(); ctx.moveTo(pts[i][0], pts[i][1]); ctx.lineTo(pts[j][0], pts[j][1]); ctx.stroke();
+      const p = D / (D - z);
+      proj.push([cx + x * R * p, cy - y * R * p, z, p]);   // y 向上
     }
-    if (!this.thin) { ctx.fillStyle = `rgb(${r | 0},${g | 0},${b | 0})`; for (const [x, y, z] of pts) if (z > 0.15) { ctx.beginPath(); ctx.arc(x, y, 1.4 + z * 1.6, 0, Math.PI * 2); ctx.fill(); } }
+    // 球模式的邊（隨漸變淡出）
+    if (ease < 0.98) {
+      ctx.lineCap = 'round';
+      const edgeA = (1 - ease) * (this.thin ? 0.9 : 1);
+      const order = C60.edges.slice().sort((e1, e2) => (proj[e1[0]][2] + proj[e1[1]][2]) - (proj[e2[0]][2] + proj[e2[1]][2]));
+      for (const [i, j] of order) {
+        const depth = ((proj[i][2] + proj[j][2]) / 2 + 1) / 2, br = 0.2 + 0.8 * depth;
+        ctx.strokeStyle = `rgba(${(r * br) | 0},${(g * br) | 0},${(b * br) | 0},${edgeA})`;
+        ctx.lineWidth = this.thin ? (depth > 0.55 ? 1.2 : 0.7) : (depth > 0.55 ? 1.8 : 1);
+        ctx.beginPath(); ctx.moveTo(proj[i][0], proj[i][1]); ctx.lineTo(proj[j][0], proj[j][1]); ctx.stroke();
+      }
+    }
+    // 點：近的大且亮
+    const base = this.thin ? 0.9 : (1.1 + ease * 0.25);
+    for (let i = 0; i < this.N; i++) {
+      const [x, y, z] = proj[i]; const depth = (z + 1) / 2;
+      if (ease < 0.98 && i >= 60 && depth < 0.35) continue;            // 球模式：背面的邊上點不畫，維持線框感
+      const a = 0.25 + 0.75 * depth, sz = base * (0.6 + depth * 0.9) * (1 + this.amp * 0.4 * (ease > 0 && i < this.N * 0.16 ? 1 : 0.3));
+      ctx.fillStyle = `rgba(${r | 0},${g | 0},${b | 0},${a})`;
+      ctx.beginPath(); ctx.arc(x, y, sz, 0, Math.PI * 2); ctx.fill();
+    }
+    // 人像：腳下一圈淡淡的地面光環
+    if (ease > 0.3) {
+      ctx.strokeStyle = `rgba(${r | 0},${g | 0},${b | 0},${0.25 * ease})`; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.ellipse(cx, cy + R * 0.99, R * 0.42, R * 0.07, 0, 0, Math.PI * 2); ctx.stroke();
+    }
   }
 }
 const Orb = Avatar;   // 登入頁用同一個引擎
@@ -368,11 +452,8 @@ const Orb = Avatar;   // 登入頁用同一個引擎
     get url() { return (localStorage.getItem('jarvis.url') || '').replace(/\/$/, '') || location.origin; },
     get token() { return localStorage.getItem('jarvis.token') || ''; },
     get speak() { return localStorage.getItem('jarvis.speak') === '1'; },
-    get geo() { return localStorage.getItem('jarvis.geo') === '1'; },
-    get voice() { return localStorage.getItem('jarvis.voice') || ''; },
-    get rate() { return parseFloat(localStorage.getItem('jarvis.rate') || '1') || 1; },
   };
-  const QUICK = ['現在幾點', '今天天氣', '附近有什麼好吃的', '用電腦開 YouTube', '關掉所有的燈', '冷氣設 26 度'];
+  const QUICK = ['現在幾點', '今天天氣', '用電腦開 YouTube', '關掉所有的燈', '冷氣設 26 度', '有哪些裝置'];
   const RELEASES = 'https://github.com/Venshen885361/jarvis-desktop/releases/latest';
 
   // ---------- 畫面切換 ----------
@@ -407,8 +488,12 @@ const Orb = Avatar;   // 登入頁用同一個引擎
     else if (cls === 'sys') { if (!lastAns.textContent.trim() || lastAns.classList.contains('sys')) { lastAns.textContent = text; lastAns.classList.add('sys'); } }
     return d;
   }
-  const orb = new Orb($('#orb')), logoOrb = new Orb($('#logoOrb'));
+  const orb = new Orb($('#orb'), { points: 760, mode: localStorage.getItem('jarvis.avatar') || 'orb' }), logoOrb = new Orb($('#logoOrb'), { points: 420 });
   orb.set('offline');
+  const modeBtn = $('#modeBtn');
+  function syncModeBtn() { modeBtn.textContent = orb.mode === 'figure' ? '👤' : '◎'; modeBtn.title = orb.mode === 'figure' ? '切換成 C60' : '切換成人像'; }
+  syncModeBtn();
+  modeBtn.onclick = () => { orb.setMode(orb.mode === 'figure' ? 'orb' : 'figure'); try { localStorage.setItem('jarvis.avatar', orb.mode); } catch {} syncModeBtn(); };
   $('#histBtn').onclick = () => { $('#histDlg').showModal(); log.scrollTop = log.scrollHeight; };
   $('#histClose').onclick = () => $('#histDlg').close();
   function setState(s) {
@@ -444,23 +529,12 @@ const Orb = Avatar;   // 登入頁用同一個引擎
     if (r.status === 401) throw new AuthError('密語錯誤');
     return r.json();
   }
-  let geoCache = null;   // {lat, lon, ts}
-  function getLocation() {
-    return new Promise(resolve => {
-      if (!cfg.geo || !navigator.geolocation) return resolve(null);
-      if (geoCache && Date.now() - geoCache.ts < 5 * 60 * 1000) return resolve(geoCache);
-      navigator.geolocation.getCurrentPosition(
-        p => { geoCache = { lat: p.coords.latitude, lon: p.coords.longitude, ts: Date.now() }; resolve(geoCache); },
-        () => resolve(geoCache), { enableHighAccuracy: false, timeout: 4000, maximumAge: 300000 });
-    });
-  }
   let busy = false;
   async function send(text) {
     text = (text || '').trim(); if (!text || busy) return;
     busy = true; $('#send').disabled = true; add('sir', text); q.value = ''; showTyping();
     try {
-      const loc = await getLocation();
-      const r = await api('/api/ask', loc ? {text, location: {lat: loc.lat, lon: loc.lon}} : {text});
+      const r = await api('/api/ask', {text});
       if (!wsOpen) {
         for (const s of r.steps || []) add('tool', '⚙ ' + s.tool);
         add('jarvis', r.reply);
@@ -497,88 +571,10 @@ const Orb = Avatar;   // 登入頁用同一個引擎
   }
 
   // ---------- 語音 ----------
-  function pickVoice(lang) {
-    const vs = speechSynthesis.getVoices();
-    if (cfg.voice) { const chosen = vs.find(v => v.voiceURI === cfg.voice || v.name === cfg.voice); if (chosen) return chosen; }
-    return vs.find(v => v.lang.replace('_', '-').toLowerCase() === lang.toLowerCase()) || vs.find(v => v.lang.toLowerCase().startsWith(lang.slice(0, 2).toLowerCase())) || null;
-  }
-  function fillVoices() {
-    const sel = $('#cfgVoice'); if (!('speechSynthesis' in window)) return;
-    const vs = speechSynthesis.getVoices().slice().sort((a, b) => (/^zh/i.test(b.lang) - /^zh/i.test(a.lang)) || a.lang.localeCompare(b.lang) || a.name.localeCompare(b.name));
-    const cur = cfg.voice;
-    sel.innerHTML = '<option value="">自動（系統預設中文）</option>' + vs.map(v => `<option value="${v.voiceURI.replace(/"/g, '&quot;')}"${v.voiceURI === cur ? ' selected' : ''}>${v.name} — ${v.lang}${v.localService ? '' : '（需連網）'}</option>`).join('');
-  }
   function speak(text) {
-    try {
-      speechSynthesis.cancel();
-      const u = new SpeechSynthesisUtterance(text);
-      u.lang = /[一-鿿]/.test(text) ? 'zh-TW' : 'en-GB'; u.rate = cfg.rate; u.volume = 1;
-      const v = pickVoice(u.lang); if (v) u.voice = v;
-      speechSynthesis.speak(u);
-    } catch (e) { add('sys', '手機發聲失敗：' + e.message); }
+    try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(text); u.lang = /[一-鿿]/.test(text) ? 'zh-TW' : 'en-GB'; u.rate = 1.05; speechSynthesis.speak(u); } catch {}
   }
-  function ttsInfo() {
-    const vs = speechSynthesis.getVoices ? speechSynthesis.getVoices() : [];
-    const zh = vs.filter(v => /^zh/i.test(v.lang)).length;
-    $('#ttsInfo').textContent = vs.length ? `這支手機有 ${vs.length} 個語音，中文 ${zh} 個。沒聲音請檢查：側邊靜音鍵、媒體音量、先點過畫面一次。` : '瀏覽器尚未回報可用語音（iOS 要先按一次「試聽」）。';
-  }
-  if ('speechSynthesis' in window) { speechSynthesis.onvoiceschanged = () => { ttsInfo(); fillVoices(); }; }
-  $('#cfgRate').oninput = e => $('#rateVal').textContent = Number(e.target.value).toFixed(2);
-  $('#cfgVoice').onchange = e => localStorage.setItem('jarvis.voice', e.target.value);
-  $('#ttsTest').onclick = () => { unlocked = true; localStorage.setItem('jarvis.voice', $('#cfgVoice').value); localStorage.setItem('jarvis.rate', $('#cfgRate').value); const u = new SpeechSynthesisUtterance('Sir, 我在。這是手機的聲音測試。'); u.lang = 'zh-TW'; u.rate = cfg.rate; const v = pickVoice('zh-TW'); if (v) u.voice = v; speechSynthesis.cancel(); speechSynthesis.speak(u); setTimeout(() => { ttsInfo(); fillVoices(); }, 300); };
-  // iOS 的 speechSynthesis 要先被使用者手勢「解鎖」一次，之後從 WebSocket 事件觸發才會出聲
-  let unlocked = false;
-  const unlockTTS = () => { if (unlocked) return; unlocked = true; try { const u = new SpeechSynthesisUtterance(''); u.volume = 0; speechSynthesis.speak(u); } catch {} };
-  document.addEventListener('touchend', unlockTTS, { once: true, passive: true });
-  document.addEventListener('click', unlockTTS, { once: true });
-
-  // ---- Capacitor（iOS App 殼）：用原生語音辨識取代 Safari 的，穩很多 ----
-  const CAP = window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform() ? window.Capacitor : null;
-  const NativeSR = CAP ? (() => { try { return CAP.registerPlugin('SpeechRecognition'); } catch { return null; } })() : null;
-  // 用原生 plugin 模擬瀏覽器 SpeechRecognition 的最小介面（start/stop/onresult/onend），下面的程式不用改
-  function makeNativeSR() {
-    let last = '', timer = null, listeners = [];
-    const self = { lang: 'zh-TW', continuous: false, interimResults: true, onresult: null, onend: null, onerror: null };
-    const finish = async () => { clearTimeout(timer); try { await NativeSR.stop(); } catch {} for (const l of listeners) { try { l.remove(); } catch {} } listeners = [];
-      if (last && self.onresult) self.onresult({ resultIndex: 0, results: [Object.assign([{ transcript: last }], { isFinal: true })] });
-      last = ''; self.onend && self.onend(); };
-    self.start = async () => {
-      try {
-        const perm = await NativeSR.requestPermissions(); if (perm && perm.speechRecognition && perm.speechRecognition !== 'granted') throw new Error('not-allowed');
-        listeners.push(await NativeSR.addListener('partialResults', d => { const m = (d.matches || [])[0]; if (m) { last = m; clearTimeout(timer); timer = setTimeout(finish, self.continuous ? 1200 : 1500); } }));
-        listeners.push(await NativeSR.addListener('listeningState', d => { if (d.status === 'stopped') finish(); }));
-        await NativeSR.start({ language: self.lang, partialResults: true, popup: false, maxResults: 1 });
-        timer = setTimeout(finish, 8000);   // 8 秒沒講話就收
-      } catch (e) { self.onerror && self.onerror({ error: String(e && e.message || e).includes('not-allowed') ? 'not-allowed' : 'native' }); self.onend && self.onend(); }
-    };
-    self.stop = finish;
-    return self;
-  }
-  const SR = NativeSR ? function () { return makeNativeSR(); } : (window.SpeechRecognition || window.webkitSpeechRecognition);
-  // ---- 喚醒詞（瀏覽器版，盡力而為）：持續聽，聽到「Hey Jarvis / 嘿賈維斯」就把後面的話送出 ----
-  const WAKE_RE = /^(?:hey|嘿|嗨|欸|喂)?\s*(?:jarvis|賈維斯|佳維斯|加維斯|夾維斯|賈維斯)[，,。\s]*/i;
-  let wakeRec = null, wakeOn = false, awakeUntil = 0;
-  function startWake() {
-    if (!SR || wakeRec) return;
-    wakeRec = new SR(); wakeRec.lang = 'zh-TW'; wakeRec.continuous = true; wakeRec.interimResults = false;
-    wakeRec.onresult = ev => {
-      for (let i = ev.resultIndex; i < ev.results.length; i++) {
-        if (!ev.results[i].isFinal) continue;
-        const said = ev.results[i][0].transcript.trim();
-        const m = said.match(WAKE_RE);
-        if (m) { const rest = said.slice(m[0].length).trim(); if (rest) send(rest); else { awakeUntil = Date.now() + 8000; st.textContent = '請說…'; } }
-        else if (Date.now() < awakeUntil) { awakeUntil = 0; send(said); }
-      }
-    };
-    wakeRec.onend = () => { wakeRec = null; if (wakeOn) setTimeout(startWake, 300); };   // iOS 會自己停，停了就再開
-    wakeRec.onerror = e => { if (e.error === 'not-allowed') { wakeOn = false; $('#wakeBtn').classList.remove('on'); add('sys', '瀏覽器拒絕麥克風，喚醒詞已關閉'); } };
-    try { wakeRec.start(); } catch {}
-  }
-  function stopWake() { wakeOn = false; try { wakeRec && wakeRec.stop(); } catch {} wakeRec = null; }
-  if (SR) {
-    const wb = $('#wakeBtn'); wb.hidden = false;
-    wb.onclick = () => { wakeOn = !wakeOn; wb.classList.toggle('on', wakeOn); if (wakeOn) { startWake(); add('sys', '喚醒詞聆聽中：說「Hey Jarvis」+ 指令。畫面要保持開著。'); } else stopWake(); };
-  }
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (SR) {
     mic.hidden = false;
     let rec = null;
@@ -648,7 +644,7 @@ const Orb = Avatar;   // 登入頁用同一個引擎
     $('#keyGemini').hidden = v !== 'gemini'; $('#keyClaude').hidden = v !== 'claude';
   }
   async function openSettings(firstRun) {
-    $('#cfgUrl').value = localStorage.getItem('jarvis.url') || ''; $('#cfgTok').value = cfg.token; $('#cfgSpeak').checked = cfg.speak; $('#cfgGeo').checked = cfg.geo;
+    $('#cfgUrl').value = localStorage.getItem('jarvis.url') || ''; $('#cfgTok').value = cfg.token; $('#cfgSpeak').checked = cfg.speak;
     $('#dlgTitle').textContent = firstRun ? '初次設定' : '設定';
     $('#dlgHint').textContent = firstRun ? '填一次金鑰與稱呼，之後不用再管' : '';
     try {
@@ -660,7 +656,6 @@ const Orb = Avatar;   // 登入頁用同一個引擎
       style = pf.style || 'concise'; $('#pfStyle').querySelectorAll('button').forEach(x => x.classList.toggle('on', x.dataset.v === style));
     } catch {}
     showTab(firstRun ? 'model' : 'conn');
-    if ('speechSynthesis' in window) { ttsInfo(); fillVoices(); $('#cfgRate').value = cfg.rate; $('#rateVal').textContent = cfg.rate.toFixed(2); }
     if (!dlg.open) dlg.showModal();
   }
   $('#gear').onclick = () => openSettings(false);
@@ -669,9 +664,6 @@ const Orb = Avatar;   // 登入頁用同一個引擎
     const newUrl = $('#cfgUrl').value.trim().replace(/\/$/, ''), newTok = $('#cfgTok').value.trim();
     const connChanged = newUrl !== (localStorage.getItem('jarvis.url') || '') || newTok !== cfg.token;
     localStorage.setItem('jarvis.speak', $('#cfgSpeak').checked ? '1' : '0');
-    localStorage.setItem('jarvis.geo', $('#cfgGeo').checked ? '1' : '0');
-    localStorage.setItem('jarvis.voice', $('#cfgVoice').value); localStorage.setItem('jarvis.rate', $('#cfgRate').value);
-    if ($('#cfgGeo').checked && navigator.geolocation) navigator.geolocation.getCurrentPosition(() => {}, () => {}, { timeout: 3000 });   // 先跳一次授權
     const env = { JARVIS_PROVIDER: provider };
     for (const k of ['GEMINI_API_KEY', 'ANTHROPIC_API_KEY', 'ANTHROPIC_WORKSPACE_ID', 'HA_URL', 'HA_TOKEN']) {
       const el = document.getElementById('env' + k); if (el && el.value.trim() !== '') env[k] = el.value.trim();

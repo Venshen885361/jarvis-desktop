@@ -28,6 +28,7 @@ CORE_TOOLS = ("switch_device", "list_devices")
 LOCAL_ONLY_TOOLS = (
     "analyze_camera_view", "camera_search", "lens_search", "open_gesture_selector",
     "home_control", "home_status", "home_list",
+    "youtube_play",  # 搜尋在大腦做，開網址那步會再經 run_tool 送到目前裝置
 )
 
 _ALIASES = {
@@ -56,6 +57,14 @@ class DeviceRegistry:
         default = os.environ.get("JARVIS_DEFAULT_DEVICE", "").strip()
         if default and default in self._specs:
             self.current_name = default
+        # hub:// 是「手機主動連進來」，server 要一開始就開著，不能等到第一次切換到手機才開
+        if any(spec.startswith("hub://") for spec in self._specs.values()):
+            try:
+                from .hub import get_hub
+
+                get_hub()
+            except Exception as e:
+                print(f"[hub] 無法啟動：{e}")
 
     def _parse(self, raw: str) -> None:
         for item in raw.split(","):

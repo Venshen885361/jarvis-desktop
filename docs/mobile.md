@@ -45,6 +45,39 @@ API（自己接別的東西也行）：
 
 認證：`Authorization: Bearer <token>` 或 `?token=`。**沒設 token 不會啟動。**
 
+## 1.5 喚醒詞「Hey Jarvis」
+
+三個地方都可以，看你人在哪：
+
+| 在哪裡說 | 怎麼開 | 可靠度 |
+|---|---|---|
+| **大腦旁邊（Pi / 電腦的麥克風）** | `python -m jarvis --serve --voice`（需 `pip install openwakeword SpeechRecognition PyAudio`）。喚醒後回覆從喇叭出來，手機畫面同步 | 高，離線喚醒詞模型（openWakeWord `hey_jarvis`） |
+| **手機網頁** | 標題列 🎧 開啟，畫面保持開著；說「Hey Jarvis 現在幾點」或先「Hey Jarvis」再講 | 中：靠瀏覽器的語音辨識，Android Chrome 穩，iOS Safari 會自己停（會自動重開）⚠️ |
+| **Siri** | 第 3 節的捷徑：「Hey Siri，問 JARVIS」 | 高，但多一層 Siri |
+
+`--serve --voice` 就是攜帶版 Pi 的最終型態：Pi + USB 麥克風喇叭，隨時 Hey Jarvis；手機是備用的畫面與打字入口。
+
+## 1.55 https：iPhone 的定位與麥克風只在 https 下開放
+
+Safari 對 `http://` 網頁**不給** `navigator.geolocation`（定位）與部分麥克風功能——「附近有什麼好吃的」抓不到位置就是這個原因。
+兩條路：
+
+1. **裝成 iOS App**（`ios-app/`）：App 內是安全環境，不用 https。
+2. **Tailscale 憑證**（真的 https，免費）：
+   - Tailscale 管理頁 → DNS → 開 **MagicDNS** 與 **HTTPS Certificates**。
+   - 電腦（PowerShell，Tailscale 已裝）：`tailscale cert 你的機器名.你的tailnet.ts.net` → 產生 `.crt` 與 `.key`（名稱用 `tailscale status` 看）。
+   - `.env` 加 `JARVIS_TLS_CERT=<.crt 的完整路徑>`、`JARVIS_TLS_KEY=<.key 的完整路徑>`，重跑 `--serve`。
+   - 手機改連 `https://你的機器名.你的tailnet.ts.net:8080`（WebSocket 自動改走 wss）。憑證 90 天到期，再跑一次 `tailscale cert`。
+
+## 1.6 問資訊 vs 做事
+
+「附近有什麼好吃的」「台北 top 10 美食」「什麼是 Tailscale」「明天會下雨嗎」這類是**問資訊**，
+JARVIS 不會去操作電腦，而是直接回答（Gemini 用 Google 搜尋 grounding、Claude 用 web search），
+答案顯示在手機並唸出。句首是動作動詞（開 / 播 / 下載 / 關 / 切換 / 搜尋…）的才會去操作裝置。
+
+「附近」需要位置：⚙︎ → 連線 → 勾「分享位置給 JARVIS」，手機會在每次提問附上座標（5 分鐘快取），
+大腦端反查成「台北市信義區」這種地名一起給模型。沒分享位置時 JARVIS 會直說不知道你在哪。
+
 ## 2. iPhone：PWA
 
 1. iPhone 裝 [Tailscale](https://apps.apple.com/app/tailscale/id1470499037) 登入同一個帳號（出門也能用；在家同網段可以直接用區網 IP）。
@@ -96,7 +129,19 @@ docker run -d --name homeassistant --restart unless-stopped --privileged --netwo
 
 Pi 5 記憶體：HA 約 600 MB–1 GB，JARVIS 約 300 MB（含喚醒詞），4 GB 版夠用。
 
-## 5. Android 手機也一樣
+## 5. 「下載 App」頁
+
+手機 JARVIS 頁右上 📥（登入畫面也有）列出電腦版與 Android App。
+把檔案放到 JARVIS 資料夾的 `dist/downloads/`，就會從這台 JARVIS 直接提供下載（帶密語）：
+
+| 檔案 | 怎麼產生 |
+|---|---|
+| `JARVIS-windows.zip` | `scripts/build-exe.ps1` 會自動打包 |
+| `jarvis-agent.apk` | Android Studio Build APK 後把 `android/app/build/outputs/apk/debug/app-debug.apk` 複製過來改名 |
+
+沒放檔案時顯示 GitHub Releases 連結。
+
+## 6. Android 手機也一樣
 
 同一個網址，Chrome 開 → 選單 → 加到主畫面。Android 的 Chrome 有 `SpeechRecognition`，🎙 按鈕會出現。
 

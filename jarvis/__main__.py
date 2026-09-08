@@ -7,7 +7,7 @@ import sys
 
 from .config import settings
 from .hud import emit_log, emit_provider, emit_state, emit_usage, start_ws_server
-from .router import try_local
+from .router import is_info_query, try_local
 from .speech import listen, speak
 from .usage import tracker
 
@@ -25,6 +25,13 @@ class _LazyProvider:
     def __init__(self) -> None:
         self._p = None
         self._failed: str | None = None
+
+    def reset(self) -> None:
+        from .providers import reset_provider
+
+        reset_provider()
+        self._p = None
+        self._failed = None
 
     def get(self):
         if self._p is None and self._failed is None:
@@ -54,6 +61,12 @@ class _LazyProvider:
         if p is None:
             return f"Sir, 模型後端無法啟動：{self._failed}"
         return p.run_turn(user_text)
+
+    def answer(self, user_text: str, context: str = "") -> str:
+        p = self.get()
+        if p is None:
+            return f"Sir, 模型後端無法啟動：{self._failed}"
+        return p.answer(user_text, context)
 
 
 def _banner(provider) -> None:
@@ -109,6 +122,10 @@ def main() -> int:
         "--serve", action="store_true",
         help="server mode：手機當遙控器（HTTP :8080 + WebSocket），文字模式、不開桌寵"
     )
+    parser.add_argument(
+        "--voice", action="store_true",
+        help="搭配 --serve：這台機器的麥克風也能用（Hey Jarvis 喚醒），回覆用喇叭唸"
+    )
     args = parser.parse_args()
 
     if args.text or args.once or args.serve:
@@ -124,7 +141,21 @@ def main() -> int:
         object.__setattr__(settings, "ws_host", settings.server_host)
         start_ws_server()
         server.start(settings.server_host, settings.server_port, settings.agent_token)
+        server.on_settings_changed = provider.reset
         speech.use_text_queue(server.text_queue)
+        # 語音：--voice 或 JARVIS_WAKE_WORD=1 → 麥克風執行緒 + 喇叭輸出
+        import os as _os
+
+        want_voice = args.voice or settings.wake_word
+        if want_voice:
+            from . import voice
+
+            if args.voice:
+                object.__setattr__(settings, "wake_word", True)
+            if voice.start(server.text_queue):
+                speech.voice_out = _os.environ.get("JARVIS_SERVE_TTS", "1") != "0"
+        elif _os.environ.get("JARVIS_SERVE_TTS") == "1":
+            speech.voice_out = True
         _banner(provider)
         print("  server mode：手機 Safari 開 http://<這台的IP>:%d，⚙︎ 填 .env 的 JARVIS_AGENT_TOKEN" % settings.server_port)
         _conversation_loop(provider)
@@ -183,7 +214,14 @@ def _handle(provider, user_input: str) -> None:
         return
 
     try:
-        reply = provider.run_turn(user_input)
+        if is_info_query(user_input):
+            # 問資訊（附近美食 / 解釋 / 推薦）：純回答，不碰裝置；有搜尋就先搜
+            emit_log("SYS", "純問答（不操作裝置）")
+            from . import server
+
+            reply = provider.answer(user_input, server.context())
+        else:
+            reply = provider.run_turn(user_input)
     except Exception as e:
         emit_log("SYS", f"模型呼叫失敗：{e}")
         reply = f"Sir, 這個指令執行時發生問題：{e}"

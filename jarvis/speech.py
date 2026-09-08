@@ -15,6 +15,8 @@ from .hud import emit_log, emit_state
 
 # 文字模式的輸入來源。桌邊寵物開著時會塞一個 queue 進來，輸入框取代 stdin。
 _text_queue = None
+# server mode（文字輸入）也要用喇叭講話時設 True（--serve --voice 或 JARVIS_SERVE_TTS=1）
+voice_out = False
 
 
 def use_text_queue(q) -> None:
@@ -47,9 +49,12 @@ async def _speak_async(text: str) -> None:
 
 
 def speak(text: str) -> None:
+    from .profile import personalize
+
+    text = personalize(text)
     print(f"\n[J.A.R.V.I.S.] {text}")
     emit_log("JARVIS", text)
-    if settings.text_mode:
+    if settings.text_mode and not voice_out:
         emit_state("standby")
         return
     try:
@@ -92,6 +97,13 @@ def listen() -> str | None:
 
         ws_emit({"type": "need_text_mode"})
         return None
+
+    return listen_voice()
+
+
+def listen_voice() -> str | None:
+    """麥克風那一段：喚醒詞 → 錄一句 → 辨識。server mode 的語音執行緒也用這個。"""
+    import speech_recognition as sr
 
     # 喚醒詞：沒說「Hey Jarvis」之前不開 STT（麥克風聲音不出網路）
     from .wakeword import wait_for_wake

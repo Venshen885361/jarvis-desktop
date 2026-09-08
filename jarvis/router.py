@@ -128,6 +128,25 @@ def _press(key: str) -> str:
     return "Sir, 已執行。"
 
 
+# 「問資訊」而不是「做事」：附近美食、top 10、解釋、翻譯、建議… 這類直接由模型回答（可搜尋），
+# 顯示在手機 / 唸出來，不會去操作電腦。動作動詞在句首的一律不算。
+_ACTION_START = re.compile(r"^(?:幫我|請|用|在)?\s*(?:打開|開啟|開|關掉|關閉|關|播放|播|放|下載|安裝|裝|切換|搜尋|搜|查一下|google|截圖|鎖定|調|設|切到|跳到|回到|執行|啟動|傳|寄|輸入|打字|點)", re.I)
+_INFO_RE = re.compile(
+    r"(附近|這附近|周邊|哪裡有|哪裡可以|推薦|top\s*\d+|前\s*\d+\s*名|排行|排名|有什麼好(吃|玩|逛)|好吃的|好玩的|"
+    r"什麼是|是什麼|為什麼|為何|怎麼|如何|怎樣|差別|比較(?!大聲|小聲)|解釋|介紹|說明一下|"
+    r"翻譯|意思|建議|該不該|值得|評價|好不好|多少錢|幾點開|營業時間|天氣預報|幫我想|幫我寫|給我.*(清單|名單|列表)|"
+    r"\?$|？$|嗎$|吧$|呢$)",
+    re.I,
+)
+
+
+def is_info_query(text: str) -> bool:
+    t = text.strip()
+    if not t or _ACTION_START.match(t):
+        return False
+    return bool(_INFO_RE.search(t))
+
+
 def try_local(user_input: str) -> str | None:
     """本機能處理就處理掉，回傳語音文字；否則回 None。"""
     if not settings.enable_local_router:
@@ -161,6 +180,25 @@ _HOME_RE = re.compile(
 )
 _HOME_STRIP = re.compile(r"^(?:所有的?|全部的?|把|的)+|的$")
 
+
+# 下載 / 安裝：「下載 X」「安裝 X」「幫我裝 X」「(用|在) Steam (安裝|下載|開|玩) X」「X 這款遊戲」
+_INSTALL_RE = re.compile(
+    r"^(?:"
+    r"(?:幫我|請)?(?P<steam>(?:用|在|去|從)?\s*steam\s*(?:上)?)\s*(?:(?P<run>開|玩|啟動|執行)|下載並安裝|下載|安裝|裝)"  # 有 Steam：動詞放寬
+    r"|(?:幫我|請)?(?:下載並安裝|下載|安裝)"                                                                  # 沒 Steam：只認 下載 / 安裝
+    r"|(?:幫我|請)裝"                                                                                         # 「幫我裝 VLC」；單獨「裝」會撞「裝潢」
+    r")\s*(?:一下)?\s*(?P<q>.+?)\s*(?P<game>這款遊戲|這個遊戲|的遊戲)?\s*(?:這個程式|這個)?$",
+    re.I,
+)
+
+# 播放：句首「播 / 播放 / 放 / 放一下 / 幫我播」，或「(用|在) YouTube (播|放|搜尋…播)」
+_PLAY_RE = re.compile(
+    r"^(?:幫我|請)?"
+    r"(?:(?P<yt>(?:用|在|去)?\s*(?:youtube|yt|油管)\s*(?:上)?)\s*(?:播放|播|放|搜尋|找)"   # 有 YouTube 前綴：動詞放寬
+    r"|(?:播放|播(?!報|客)|放一下|放(?=[^假學棄]))"                                          # 沒前綴：只認「播 / 播放 / 放」
+    r")\s*(?P<q>.+?)\s*(?:來播|來聽|給我聽|並播放|然後播)?$",
+    re.I,
+)
 
 _DEVICE_PREFIX = re.compile(r"^(?:用|在|請用|幫我用)(手機|電腦|桌機|筆電|本機)(?:上|裡)?[，,\s]*")
 
@@ -226,6 +264,26 @@ def _route(text: str) -> str | None:
         candidate = m.group(1)
         if "." in candidate and not candidate.replace(".", "").isdigit():
             return _dev("open_url", url=candidate)
+
+    # 3.4) 下載 / 安裝：「下載 Discord」「幫我裝 VLC」「安裝 Steam 上的 Terraria」「用 Steam 開 Terraria」「下載 https://…」
+    if (m := _INSTALL_RE.match(text)):
+        from .tools.downloads import download_file, install_app, install_steam_game
+
+        target = m.group("q").strip(" ，,。")
+        if re.match(r"^(https?://|www\.)", target):
+            return download_file(target)
+        if m.group("steam") or m.group("game") or re.search(r"遊戲|game", target, re.I):
+            target = re.sub(r"(這款|這個|的)?(遊戲|game)$", "", target, flags=re.I).strip()
+            return install_steam_game(target, run=bool(m.group("run")))
+        return install_app(target)
+
+    # 3.5) 播放音樂 / 影片：「播晴天」「播放 周杰倫的歌」「用 YouTube 放 lofi」「YouTube 搜尋 xxx 然後播」
+    if (m := _PLAY_RE.match(text)):
+        from .tools.media import youtube_play
+
+        q = m.group("q").strip(" ，,。的")
+        q = re.sub(r"(的)?(歌|音樂|影片|MV|mv)$", "", q).strip() or m.group("q")
+        return youtube_play(q, music=bool(re.search(r"music|音樂|歌", text, re.I)))
 
     # 4) 網頁搜尋：直接組 Google 網址開啟，比讓模型開瀏覽器再視覺定位網址列
     #    少掉整整一輪截圖 + 定位（省最多的一條規則）

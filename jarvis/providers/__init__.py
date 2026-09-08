@@ -8,6 +8,12 @@ from .base import Provider
 _provider: Provider | None = None
 
 
+def reset_provider() -> None:
+    """設定（金鑰 / 後端 / 使用者檔案）改了之後丟掉舊的，下次 get_provider 重建。"""
+    global _provider
+    _provider = None
+
+
 def get_provider() -> Provider:
     global _provider
     if _provider is None:

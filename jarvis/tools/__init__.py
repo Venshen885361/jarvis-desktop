@@ -30,6 +30,8 @@ from .gui import (
     write_clipboard,
 )
 from .home import home_control, home_list, home_status
+from .downloads import download_file, install_app, install_steam_game
+from .media import youtube_play
 from .vision import analyze_camera_view, camera_search, lens_search
 
 
@@ -102,6 +104,10 @@ CLAUDE_TOOLS = [
     home_control,
     home_status,
     home_list,
+    youtube_play,
+    install_app,
+    install_steam_game,
+    download_file,
 ]
 
 # Gemini provider 用：沒有官方 computer toolset，需要自己的視覺定位與 GUI 工具

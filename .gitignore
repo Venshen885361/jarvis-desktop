@@ -21,4 +21,6 @@ android/.idea/
 android/*.iml
 android/app/*.iml
 android/.kotlin/
-_to_delete/
+
+# 手機「下載 App」頁提供的安裝檔（本機產生，不進 repo）
+dist/downloads/

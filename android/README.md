@@ -40,6 +40,7 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 
 1. 開 App，填：
    - **JARVIS 位址**：`ws://<大腦 IP>:8771`（同一個 Wi-Fi 用區網 IP；跨網路用 Tailscale 的 `100.x.x.x`）
+     ⚠️ 是 **8771**（hub 埠），不是手機網頁的 8080。填 8080 會出現 `Expected HTTP 101 response but was 200 OK`。
    - **密語**：跟大腦 `.env` 的 `JARVIS_AGENT_TOKEN` 一模一樣
    - **裝置名稱**：`phone`（要跟 `.env` 裡 `hub://` 後面的名字一樣）
 2. 按 **儲存並連線** → 允許通知。

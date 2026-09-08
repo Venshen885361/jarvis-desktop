@@ -11,6 +11,9 @@ pystray>=0.19             # 工作列托盤圖示（桌寵藏起來時的入口�
 anthropic>=0.40           # JARVIS_PROVIDER=claude
 google-genai>=1.0         # JARVIS_PROVIDER=gemini
 
+# ---- 媒體 ----
+yt-dlp>=2024.8            # 「播晴天」找 YouTube 影片 ID 用（最穩的方式）
+
 # ---- 語音（想用文字模式可以不裝）----
 SpeechRecognition>=3.10
 edge-tts>=6.1

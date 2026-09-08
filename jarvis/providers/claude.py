@@ -25,7 +25,7 @@ from ..hud import emit_log, emit_state, emit_usage
 from ..tools import CLAUDE_TOOLS
 from ..usage import tracker
 from .base import Provider
-from .prompt import JARVIS_PROMPT, LIGHT_PROMPT
+from .prompt import answer_prompt, system_prompt
 from .schema import to_anthropic_tool
 
 COMPUTER_TOOLSET = "computer_toolset_20260801"
@@ -99,7 +99,7 @@ class ClaudeProvider(Provider):
         return tools
 
     def _system(self, with_computer: bool) -> list[dict]:
-        text = JARVIS_PROMPT if with_computer else LIGHT_PROMPT
+        text = system_prompt(light=not with_computer)
         block: dict[str, Any] = {"type": "text", "text": text}
         if settings.enable_prompt_cache:
             block["cache_control"] = {"type": "ephemeral"}
@@ -283,6 +283,27 @@ class ClaudeProvider(Provider):
         emit_usage()
 
     # ------------------------------------------------------------------
+    def answer(self, user_text: str, context: str = "") -> str:
+        """純問答 + Anthropic 伺服器端 web search（不給 computer / 裝置工具）。"""
+        kwargs = dict(
+            model=settings.claude_model,
+            max_tokens=900,
+            system=answer_prompt(context),
+            messages=[{"role": "user", "content": user_text}],
+        )
+        try:
+            response = self.client.messages.create(
+                tools=[{"type": "web_search_20260318", "name": "web_search", "max_uses": 3}], **kwargs
+            )
+        except Exception as e:
+            print(f"[answer] web search 不可用，改用純模型：{e}")
+            kwargs["system"] = answer_prompt(context + "\n（目前沒有網路搜尋能力，只能憑既有知識回答，請說明這點。）")
+            response = self.client.messages.create(**kwargs)
+        self._record_usage(settings.claude_model, response)
+        text = "".join(getattr(b, "text", "") for b in response.content if getattr(b, "type", "") == "text").strip()
+        self.remember(user_text, text)
+        return text or "Sir, 我沒有找到可靠的資訊。"
+
     def describe_image(self, data: bytes, media_type: str, prompt: str) -> str:
         import base64
 

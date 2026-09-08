@@ -28,6 +28,17 @@ _ws_ready = threading.Event()
 _listeners: list = []
 
 
+def tls_context():
+    """JARVIS_TLS_CERT / JARVIS_TLS_KEY 都有設才回 SSLContext，否則 None（純 http / ws）。"""
+    if not (settings.tls_cert and settings.tls_key):
+        return None
+    import ssl
+
+    ctx = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+    ctx.load_cert_chain(settings.tls_cert, settings.tls_key)
+    return ctx
+
+
 def subscribe(fn) -> None:
     """fn(payload: dict) 會在 emit 的那個執行緒被呼叫，訂閱者自己要 thread-safe。"""
     _listeners.append(fn)
@@ -144,8 +155,9 @@ def _run_ws_server() -> None:
     _ws_loop = loop
 
     async def _serve():
-        async with websockets.serve(_ws_handler, settings.ws_host, settings.ws_port):
-            print(f"[HUD] ws://{settings.ws_host}:{settings.ws_port} 已啟動")
+        ssl_ctx = tls_context()
+        async with websockets.serve(_ws_handler, settings.ws_host, settings.ws_port, ssl=ssl_ctx):
+            print(f"[HUD] {'wss' if ssl_ctx else 'ws'}://{settings.ws_host}:{settings.ws_port} 已啟動")
             _ws_ready.set()
             await asyncio.Future()
 

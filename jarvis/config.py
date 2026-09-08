@@ -142,6 +142,9 @@ class Settings:
     # server mode（--serve）：手機遙控用的 HTTP 埠；認證同樣用 agent_token
     server_host: str = os.environ.get("JARVIS_SERVER_HOST", "0.0.0.0")
     server_port: int = _env_int("JARVIS_SERVER_PORT", 8080)
+    # TLS（選用）：iOS Safari 的定位 / 麥克風只在 https 下開放。憑證用 `tailscale cert <機器>.<tailnet>.ts.net`
+    tls_cert: str = os.environ.get("JARVIS_TLS_CERT", "")
+    tls_key: str = os.environ.get("JARVIS_TLS_KEY", "")
 
     # ---- 喚醒詞（攜帶版必開）----
     wake_word: bool = _env_bool("JARVIS_WAKE_WORD", False)

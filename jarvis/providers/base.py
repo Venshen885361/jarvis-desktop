@@ -19,6 +19,11 @@ class Provider(ABC):
     def describe_image(self, data: bytes, media_type: str, prompt: str) -> str:
         """單次影像問答（鏡頭 / 手勢框選用）。不進對話歷史。"""
 
+    def answer(self, user_text: str, context: str = "") -> str:
+        """純問答（附近美食 / 解釋 / 推薦 / 翻譯…）：不給任何裝置工具，可用搜尋。
+        回覆直接顯示在手機 / 唸出來，不會去操作電腦。預設退回 run_turn。"""
+        return self.run_turn(user_text)
+
     def locate_element(self, description: str) -> tuple[int, int] | None:
         """在目前畫面上定位一個元素，回傳真實螢幕座標。不支援時回傳 None。"""
         return None
