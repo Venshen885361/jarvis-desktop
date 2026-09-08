@@ -8,6 +8,9 @@ d.update({
     "NSMicrophoneUsageDescription": "對 JARVIS 說話（語音輸入）",
     "NSSpeechRecognitionUsageDescription": "把你說的話轉成文字給 JARVIS",
     "NSLocationWhenInUseUsageDescription": "回答「附近有什麼」時需要你的位置",
+    # iOS 14+ 的「區域網路」隱私：連 192.168.x / Tailscale 100.x 這種非公網位址要有這行，
+    # 否則第一次連線 iOS 直接擋掉且不一定跳提示（結果就是 Load failed）。
+    "NSLocalNetworkUsageDescription": "連到同一個網路裡的 JARVIS 大腦（電腦 / Raspberry Pi）",
     "NSAppTransportSecurity": {"NSAllowsArbitraryLoads": True, "NSAllowsLocalNetworking": True},
     "UIBackgroundModes": ["audio"],
     "CFBundleDisplayName": "JARVIS",
