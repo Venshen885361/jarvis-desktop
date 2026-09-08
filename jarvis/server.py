@@ -222,6 +222,23 @@ def _status() -> dict:
 class _Handler(BaseHTTPRequestHandler):
     server_version = "jarvis/1"
 
+    # ---- CORS ----
+    # PWA 與網頁同源、不需要；但 iOS App（Capacitor）的頁面來源是 capacitor://localhost，
+    # 對 http://<大腦>:8080 的 fetch 是跨來源，瀏覽器會先發 OPTIONS 預檢、再看回應有沒有
+    # Access-Control-Allow-Origin，兩個都沒有就直接 "Load failed"。
+    # 開放 * 沒問題：每個 API 都要 Bearer token，且不用 cookie（沒有 CSRF 面）。
+    def end_headers(self) -> None:
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Headers", "Authorization, Content-Type")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        super().end_headers()
+
+    def do_OPTIONS(self) -> None:
+        self.send_response(HTTPStatus.NO_CONTENT)
+        self.send_header("Access-Control-Max-Age", "86400")
+        self.send_header("Content-Length", "0")
+        self.end_headers()
+
     # ---- helpers ----
     def _authed(self) -> bool:
         auth = self.headers.get("Authorization", "")
