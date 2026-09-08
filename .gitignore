@@ -24,3 +24,10 @@ android/.kotlin/
 
 # 手機「下載 App」頁提供的安裝檔（本機產生，不進 repo）
 dist/downloads/
+
+# TLS 憑證（tailscale cert）、Sideloadly 用的 IPA —— 絕不進 repo
+*.crt
+*.key
+*.pem
+*.ipa
+_to_delete/

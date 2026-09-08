@@ -6,6 +6,9 @@ on:
   push:
     paths: ["ios-app/**", "hud/mobile.html", ".github/workflows/ios-app.yml"]
 
+permissions:
+  contents: write   # 發 Release（ios-latest）用
+
 jobs:
   build:
     runs-on: macos-15
@@ -39,3 +42,13 @@ jobs:
         with:
           name: JARVIS-ios-unsigned
           path: ios-app/ios/App/build/JARVIS-unsigned.ipa
+      # 同時掛到固定的 Release 標籤，讓任何人不用登入就能抓：
+      # https://github.com/<owner>/<repo>/releases/download/ios-latest/JARVIS-unsigned.ipa
+      - name: 發佈到 Release ios-latest
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ios-latest
+          name: JARVIS iOS（未簽章，Sideloadly 安裝）
+          body: 用 Sideloadly + 自己的 Apple ID 簽章安裝，見 docs/ios.md。每次 build 覆蓋。
+          prerelease: true
+          files: ios-app/ios/App/build/JARVIS-unsigned.ipa
