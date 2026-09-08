@@ -12,6 +12,7 @@
     "cleartext": true
   },
   "plugins": {
-    "SplashScreen": { "launchShowDuration": 0 }
+    "SplashScreen": { "launchShowDuration": 0 },
+    "CapacitorHttp": { "enabled": true }
   }
 }

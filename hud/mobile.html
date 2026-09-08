@@ -38,7 +38,7 @@
   .field .row2{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:6px}
   .field .row2 label{font-size:13px;color:var(--muted);white-space:nowrap}
   .field .row2 small{font-size:12px;color:#4b5877;text-align:right}
-  .err{min-height:20px;font-size:13px;color:var(--err);margin:4px 0 10px;line-height:1.4}
+  .err{min-height:20px;font-size:13px;color:var(--err);margin:4px 0 10px;line-height:1.4;white-space:pre-wrap;word-break:break-all}
   .links{display:flex;justify-content:center;gap:18px;margin-top:22px;font-size:13px}
   .links a{color:var(--muted)}
 
@@ -602,7 +602,7 @@ const Orb = Avatar;   // 登入頁用同一個引擎
     $('#lgGo').disabled = true; $('#lgErr').textContent = '';
     localStorage.setItem('jarvis.url', url); localStorage.setItem('jarvis.token', tok);
     try { await boot(); }
-    catch (e) { $('#lgErr').textContent = e instanceof AuthError ? '密語錯誤' : '連不上 ' + cfg.url + '（同一個網路？JARVIS 有開 --serve？）'; }
+    catch (e) { $('#lgErr').textContent = e instanceof AuthError ? '密語錯誤' : '連不上 ' + cfg.url + '（同一個網路？JARVIS 有開 --serve？）\n' + (e && (e.name + ': ' + e.message)); }
     $('#lgGo').disabled = false;
   };
   $('#lgTok').addEventListener('keydown', e => { if (e.key === 'Enter') $('#lgGo').click(); });
