@@ -50,7 +50,7 @@ def _states(max_age: float = 15.0) -> list[dict]:
         url, headers = _cfg()
         try:
             r = requests.get(f"{url}/api/states", headers=headers, timeout=8)
-        except requests.RequestException as e:
+        except requests.RequestException:
             raise RuntimeError(f"連不到 {url}（HA_URL 對嗎？Pi 跟 HA 同一個網路嗎？）") from None
         if r.status_code == 401:
             raise RuntimeError("HA_TOKEN 無效（HA → 個人資料 → 安全性 → 長效存取權杖）")

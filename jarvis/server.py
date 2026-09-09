@@ -45,7 +45,7 @@ _RELEASES = "https://github.com/Venshen885361/jarvis-desktop/releases/latest"
 _DL_TYPES = {".zip": "application/zip", ".apk": "application/vnd.android.package-archive",
              ".exe": "application/octet-stream", ".msi": "application/octet-stream"}
 
-text_queue: "queue.Queue[str]" = queue.Queue()
+text_queue: queue.Queue[str] = queue.Queue()
 # 手機最後回報的位置（選用；PWA 開「分享位置」才會送），給「附近…」類問題用
 last_location: dict = {}
 _geo_cache: dict = {}

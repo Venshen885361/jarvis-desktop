@@ -18,6 +18,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     defaults: { run: { working-directory: ios-app } }
+    env:
+      KS: ${{ secrets.ANDROID_DEBUG_KEYSTORE_B64 }}   # steps.if 不能直接讀 secrets，要先放進 env
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -25,8 +27,7 @@ jobs:
       - uses: actions/setup-java@v4
         with: { distribution: temurin, java-version: "21" }   # Capacitor 7 的 android 模組要 Java 21
       - name: 固定的 debug keystore（有設 secret 才用）
-        if: ${{ secrets.ANDROID_DEBUG_KEYSTORE_B64 != '' }}
-        env: { KS: "${{ secrets.ANDROID_DEBUG_KEYSTORE_B64 }}" }
+        if: ${{ env.KS != '' }}
         run: |
           mkdir -p ~/.android
           echo "$KS" | base64 -d > ~/.android/debug.keystore

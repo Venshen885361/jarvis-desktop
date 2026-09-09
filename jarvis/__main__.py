@@ -157,7 +157,7 @@ def main() -> int:
         elif _os.environ.get("JARVIS_SERVE_TTS") == "1":
             speech.voice_out = True
         _banner(provider)
-        print("  server mode：手機 Safari 開 http://<這台的IP>:%d，⚙︎ 填 .env 的 JARVIS_AGENT_TOKEN" % settings.server_port)
+        print(f"  server mode：手機 Safari 開 http://<這台的IP>:{settings.server_port}，⚙︎ 填 .env 的 JARVIS_AGENT_TOKEN")
         _conversation_loop(provider)
         return 0
     if args.hud or args.no_pet:

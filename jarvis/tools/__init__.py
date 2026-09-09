@@ -18,6 +18,7 @@ from .apps import (
     open_url,
     refresh_app_index,
 )
+from .downloads import download_file, install_app, install_steam_game
 from .gestures import open_gesture_selector
 from .gui import (
     control_gui,
@@ -30,7 +31,6 @@ from .gui import (
     write_clipboard,
 )
 from .home import home_control, home_list, home_status
-from .downloads import download_file, install_app, install_steam_game
 from .media import youtube_play
 from .vision import analyze_camera_view, camera_search, lens_search
 

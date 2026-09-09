@@ -87,7 +87,7 @@ def install_app(name: str) -> str:
         return f"Sir, {pick[0]} 安裝沒有成功：{tail}（有些程式需要在電腦上按一下 UAC 同意）。"
     if sys.platform.startswith("linux") and shutil.which("flatpak"):
         code, out = _run(["flatpak", "search", "--columns=application,name", q], 40)
-        line = next((l for l in out.splitlines() if "\t" in l), "")
+        line = next((ln for ln in out.splitlines() if "\t" in ln), "")
         if not line:
             return _open_download_page(q)
         app_id, app_name = line.split("\t", 1)

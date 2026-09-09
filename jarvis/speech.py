@@ -85,7 +85,7 @@ def listen() -> str | None:
         return text or None
 
     try:
-        import speech_recognition as sr
+        import speech_recognition as sr  # noqa: F401  只是探測有沒有裝
     except ImportError:
         # 以前這裡直接炸掉整個執行緒，桌寵還浮著但已經死了、什麼都不說。
         # 現在改成講清楚缺什麼，然後退回文字輸入框讓人至少能用。
