@@ -195,7 +195,13 @@ def _downloads() -> dict:
             if f.suffix.lower() not in _DL_TYPES or not f.is_file():
                 continue
             name = f.name.lower()
-            platform = "android" if f.suffix.lower() == ".apk" or "android" in name or "agent" in name else "windows"
+            # agent = 被控端（android/ 的 Agent App）；android = 遙控 App（ios-app/ 的 Capacitor 殼）
+            if "agent" in name:
+                platform = "agent"
+            elif f.suffix.lower() == ".apk" or "android" in name:
+                platform = "android"
+            else:
+                platform = "windows"
             items.append({"name": f.name, "platform": platform, "size": f.stat().st_size,
                           "url": f"/downloads/{f.name}"})
     return {"local": items, "releases": _RELEASES}

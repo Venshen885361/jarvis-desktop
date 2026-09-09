@@ -375,6 +375,9 @@ const Orb = Avatar;   // 登入頁用同一個引擎
   };
   const QUICK = ['現在幾點', '今天天氣', '附近有什麼好吃的', '用電腦開 YouTube', '關掉所有的燈', '冷氣設 26 度'];
   const RELEASES = 'https://github.com/Venshen885361/jarvis-desktop/releases/latest';
+  // 手機 App 的固定下載點（GitHub Actions 每次 build 覆蓋，公開 repo 不用登入）
+  const APP_APK = 'https://github.com/Venshen885361/jarvis-desktop/releases/download/android-latest/JARVIS-android.apk';
+  const APP_IPA = 'https://github.com/Venshen885361/jarvis-desktop/releases/download/ios-latest/JARVIS-unsigned.ipa';
 
   // ---------- 畫面切換 ----------
   function showLogin(err) {
@@ -622,14 +625,16 @@ const Orb = Avatar;   // 登入頁用同一個引擎
     const card = (icon, title, sub, href, label, ghost) => `
       <div class="dl"><div class="ic">${icon}</div><div class="tx"><b>${title}</b><small>${sub}</small></div>
       <a class="get${ghost ? ' ghost' : ''}" href="${href}" target="_blank" rel="noopener">${label}</a></div>`;
-    const win = local('windows')[0], apk = local('android')[0];
+    const win = local('windows')[0], agent = local('agent')[0], apk = local('android')[0];
     $('#dlList').innerHTML =
+      (apk ? card('📱', 'JARVIS 遙控 App（Android）', `${apk.name} · ${fmt(apk.size)} · 從這台 JARVIS 直接下載`, `${cfg.url}${apk.url}?token=${tok}`, '下載')
+           : card('📱', 'JARVIS 遙控 App（Android）', '就是這個畫面的 App 版：原生語音、定位、不用瀏覽器。允許未知來源後直接裝', APP_APK, '下載')) +
+      card('', 'JARVIS 遙控 App（iPhone）', '未簽章 IPA，電腦用 Sideloadly + 自己的 Apple ID 安裝（免費，7 天重簽）。不想裝就用 Safari 加入主畫面', APP_IPA, '下載', true) +
       (win ? card('🖥', 'JARVIS 電腦版（Windows）', `${win.name} · ${fmt(win.size)} · 從這台 JARVIS 直接下載`, `${cfg.url}${win.url}?token=${tok}`, '下載')
            : card('🖥', 'JARVIS 電腦版（Windows）', '桌寵 + 語音 + 操作電腦。解壓後執行 JARVIS.exe', info.releases, 'GitHub', true)) +
-      (apk ? card('🤖', 'JARVIS Agent（Android）', `${apk.name} · ${fmt(apk.size)} · 讓 JARVIS 操作這支手機`, `${cfg.url}${apk.url}?token=${tok}`, '下載')
-           : card('🤖', 'JARVIS Agent（Android）', '讓 JARVIS 操作 Android 手機（無障礙服務）。以 Android Studio 編譯 android/ 或等 Release', info.releases, 'GitHub', true)) +
-      card('📱', 'iPhone / Android 遙控', '不用裝 App：這個網頁「加入主畫面」就是了', '#', '已在用', true);
-    $('#dlNote').innerHTML = 'Android 裝 APK 要允許「安裝未知來源的應用程式」。要讓「下載」直接從這台 JARVIS 提供檔案：把 <code>JARVIS-windows.zip</code>、<code>jarvis-agent.apk</code> 放到 JARVIS 資料夾的 <code>dist/downloads/</code>。';
+      (agent ? card('🤖', 'JARVIS Agent（Android 被控端）', `${agent.name} · ${fmt(agent.size)} · 讓 JARVIS 操作這支手機`, `${cfg.url}${agent.url}?token=${tok}`, '下載')
+             : card('🤖', 'JARVIS Agent（Android 被控端）', '讓 JARVIS 操作 Android 手機（無障礙服務）。以 Android Studio 編譯 android/ 或等 Release', info.releases, 'GitHub', true));
+    $('#dlNote').innerHTML = 'Android 裝 APK 要允許「安裝未知來源的應用程式」；每次 build 若簽章不同，覆蓋安裝會被拒，先解除安裝再裝。要從這台 JARVIS 直接提供檔案：把 <code>JARVIS-android.apk</code>、<code>JARVIS-windows.zip</code>、<code>jarvis-agent.apk</code> 放到 <code>dist/downloads/</code>。';
     dlDlg.showModal();
   }
 

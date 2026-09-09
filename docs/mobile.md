@@ -62,7 +62,7 @@ API（自己接別的東西也行）：
 Safari 對 `http://` 網頁**不給** `navigator.geolocation`（定位）與部分麥克風功能——「附近有什麼好吃的」抓不到位置就是這個原因。
 兩條路：
 
-1. **裝成 iOS App**（`ios-app/`）：App 內是安全環境，不用 https。
+1. **裝成 App**（`ios-app/`，iOS 與 Android 共用；下載點見 `ios-app/README.md`）：App 內不用 https，語音也走原生。
 2. **Tailscale 憑證**（真的 https，免費）：
    - Tailscale 管理頁 → DNS → 開 **MagicDNS** 與 **HTTPS Certificates**。
    - 電腦（PowerShell，Tailscale 已裝）：`tailscale cert 你的機器名.你的tailnet.ts.net` → 產生 `.crt` 與 `.key`（名稱用 `tailscale status` 看）。

@@ -1,17 +1,19 @@
 {
-  "name": "jarvis-ios",
+  "name": "jarvis-mobile",
   "version": "0.1.0",
   "private": true,
-  "description": "JARVIS 手機遙控的 iOS 殼（Capacitor 包 hud/mobile.html）",
+  "description": "JARVIS 手機遙控的 App 殼（Capacitor 包 hud/mobile.html；iOS 與 Android 共用）",
   "scripts": {
     "sync-www": "node sync-www.mjs",
-    "build": "npm run sync-www && npx cap sync ios"
+    "build": "npm run sync-www && npx cap sync ios",
+    "build:android": "npm run sync-www && npx cap sync android"
   },
   "dependencies": {
     "@capacitor/core": "^7.6.9",
     "@capacitor/ios": "^7.6.9",
     "@capacitor/geolocation": "^7.1.8",
-    "@capacitor-community/speech-recognition": "^7.0.1"
+    "@capacitor-community/speech-recognition": "^7.0.1",
+    "@capacitor/android": "^7.6.9"
   },
   "devDependencies": {
     "@capacitor/cli": "^7.6.9"

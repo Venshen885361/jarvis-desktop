@@ -1,0 +1,61 @@
+name: android-app
+# 在 GitHub 的 Linux runner 上把 hud/mobile.html 包成 Android App（遙控端，不是 android/ 的 Agent）。
+# 產出 debug 簽章 APK：手機直接裝（允許未知來源），不用 Sideloadly、沒有 7 天限制。
+#
+# 簽章注意：debug keystore 每次 CI 重新產生的話，覆蓋安裝會因簽章不同被拒（要先解除安裝）。
+# 想要能直接覆蓋更新：本機 `keytool -genkey -v -keystore debug.keystore -alias androiddebugkey
+#   -storepass android -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"`
+# 然後 `base64 -w0 debug.keystore` 貼到 repo Secrets 的 ANDROID_DEBUG_KEYSTORE_B64，之後每次都用同一把。
+on:
+  workflow_dispatch:
+  push:
+    paths: ["ios-app/**", "hud/mobile.html", ".github/workflows/android-app.yml"]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: ios-app } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: "21" }   # Capacitor 7 的 android 模組要 Java 21
+      - name: 固定的 debug keystore（有設 secret 才用）
+        if: ${{ secrets.ANDROID_DEBUG_KEYSTORE_B64 != '' }}
+        env: { KS: "${{ secrets.ANDROID_DEBUG_KEYSTORE_B64 }}" }
+        run: |
+          mkdir -p ~/.android
+          echo "$KS" | base64 -d > ~/.android/debug.keystore
+      - name: 安裝相依 + 同步網頁
+        run: |
+          npm install --no-audit --no-fund
+          npm run sync-www
+      - name: 產生 Android 專案（不進 repo）
+        run: |
+          npx cap add android
+          python3 patch_android.py
+          npx cap sync android
+      - name: Gradle assembleDebug
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon -q
+          cp app/build/outputs/apk/debug/app-debug.apk ../JARVIS-android.apk
+          ls -la ../JARVIS-android.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: JARVIS-android
+          path: ios-app/JARVIS-android.apk
+      # 固定網址：https://github.com/<owner>/<repo>/releases/download/android-latest/JARVIS-android.apk
+      - name: 發佈到 Release android-latest
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: android-latest
+          name: JARVIS Android 遙控 App（debug 簽章）
+          body: 手機瀏覽器直接下載安裝（要允許未知來源）。每次 build 覆蓋。這是遙控端；讓 JARVIS 操作手機的 Agent 在 android/。
+          prerelease: true
+          files: ios-app/JARVIS-android.apk
