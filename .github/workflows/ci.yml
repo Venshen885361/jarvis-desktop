@@ -15,7 +15,8 @@ jobs:
       - run: ruff check jarvis/
       - run: python -m compileall -q jarvis/
       # 不需要金鑰、不需要麥克風的路徑：本機路由 + 幾何 + 座標換算
-      - run: pip install python-dotenv requests pillow websockets
+      - run: pip install python-dotenv requests pillow websockets pytest
+      - run: JARVIS_AGENT_TOKEN=ci python -m pytest -q tests/
       - run: |
           python - <<'PY'
           from jarvis.router import try_local

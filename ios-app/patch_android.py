@@ -14,6 +14,10 @@ PERMS = [
     "android.permission.ACCESS_COARSE_LOCATION",   # 「附近有什麼好吃的」
     "android.permission.ACCESS_FINE_LOCATION",
 ]
+# Android 9+ 預設禁 http（cleartext）。Capacitor 的 server.cleartext 只寫進 cordova 外掛模組的 manifest，
+# 靠 merger 合併進來；這裡直接寫在 app 的 <application> 上，不賭合併結果（否則 http://<IP>:8080 → Failed to fetch）。
+if "usesCleartextTraffic" not in xml:
+    xml = xml.replace("<application", '<application\n        android:usesCleartextTraffic="true"', 1)
 add = "".join(f'    <uses-permission android:name="{p}" />\n' for p in PERMS if p not in xml)
 xml = xml.replace("</manifest>", add + "</manifest>")
 # WebView 的 getUserMedia（瀏覽器版 🎙）也需要這行才會出授權框

@@ -31,3 +31,9 @@ dist/downloads/
 *.pem
 *.ipa
 _to_delete/
+
+# 研究用（蛻變測試）的生成結果與 API 快取
+research/mt/out/
+
+# 我的暫存 / Claude 產出，不進 repo
+Claude outputs/
