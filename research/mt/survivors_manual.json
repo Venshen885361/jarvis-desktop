@@ -1,0 +1,487 @@
+{
+ "_doc": "E3 第 2 步：從 512 個存活突變體隨機抽 60 個（random.seed(7)）人工分類。verdict: uncovered=測試沒覆蓋（killer 是能殺掉它的句子）、equivalent=等價、harness=harness 看不到。python -m research.mt.survivors 會驗證每個 killer。",
+ "sample": {
+  "seed": 7,
+  "n": 60,
+  "population": 512
+ },
+ "mutants": {
+  "m0592": {
+   "op": "ALT_DEL",
+   "line": 280,
+   "before": "(?:鎖定|鎖起來|鎖上|鎖)",
+   "verdict": "uncovered",
+   "note": "_LOCK_RE 少「鎖上」；種子只有「鎖定螢幕」",
+   "killer": "螢幕鎖上"
+  },
+  "m0267": {
+   "op": "ALT_DEL",
+   "line": 222,
+   "before": "(?:欸|誒|嘿|喂|那個|嗯|呃|對了|哎呀|哎|唉|好啦|好的|好嗎|好了|jarvis|賈維斯)",
+   "verdict": "uncovered",
+   "note": "填充詞「誒」：只對 startswith / fullmatch 型規則有差（報時、搜尋）；「誒 打開記事本」殺不掉，因為開程式規則用 in 找「打開」",
+   "killer": "誒 現在幾點"
+  },
+  "m0763": {
+   "op": "KW_DEL",
+   "line": 32,
+   "before": "\"是多少\"",
+   "verdict": "equivalent",
+   "note": "_MATH_FILLER 的「是多少」被同表的「多少」蓋掉，剩下的「是」在 _pure_math 的字元表裡；try_math 用 replace 而不是整詞比對",
+   "killer": "3乘5是多少"
+  },
+  "m0066": {
+   "op": "ALT_DEL",
+   "line": 150,
+   "before": "(?:幫我|請|麻煩)",
+   "verdict": "equivalent",
+   "note": "_normalize 的 _OUTER_RE 已先剝掉「麻煩」，_SEARCH_VERB 永遠看不到它",
+   "killer": "麻煩搜尋 python 教學"
+  },
+  "m0096": {
+   "op": "ALT_DEL",
+   "line": 189,
+   "before": "(?:燈|冷氣|空調|暖氣|電扇|風扇|插座|電視|音響|窗簾|捲門|門鎖|加濕器|除濕機|掃地機)",
+   "verdict": "uncovered",
+   "note": "家電詞表：除濕機",
+   "killer": "開除濕機"
+  },
+  "m0143": {
+   "op": "ALT_DEL",
+   "line": 193,
+   "before": "(打開|開啟|開起來|開|關掉|關閉|關上|關起來|關|熄掉|熄滅|設定|設為|設成|設|調到|調成|調|改為|改成)",
+   "verdict": "uncovered",
+   "note": "家電（裝置在前）：關上",
+   "killer": "客廳燈關上"
+  },
+  "m0685": {
+   "op": "ALT_DEL",
+   "line": 384,
+   "before": "(?:有什麼|是什麼|內容|東西)",
+   "verdict": "uncovered",
+   "note": "剪貼簿：「內容」",
+   "killer": "剪貼簿內容"
+  },
+  "m0076": {
+   "op": "ALT_DEL",
+   "line": 150,
+   "before": "(?:搜尋|搜|查詢|查一下|查|找一下|找找|找|尋找|google)",
+   "verdict": "equivalent",
+   "note": "_SEARCH_VERB 只在 is_info_query 用；但「google …」永遠先被搜尋觸發詞迴圈接走（且 google 觸發不做 info 檢查），這個分支是死的",
+   "killer": "google 附近有什麼好吃的"
+  },
+  "m0386": {
+   "op": "ALT_DEL",
+   "line": 235,
+   "before": "(打開|開啟|開起來|開一下|裝起來|裝好|安裝好|裝一下|鎖定起來|鎖定|鎖起來|鎖上|關掉|關閉|關上|關起來|熄掉",
+   "verdict": "equivalent",
+   "note": "_SOV_RE 的「關掉」：家電的「把 X 關掉」被 _HOME_RE 先接走，非家電的「關掉 X」router 沒有任何規則會收，SOV 轉不轉都是 model",
+   "killer": "把記事本關掉"
+  },
+  "m0051": {
+   "op": "LOOK_DEL",
+   "line": 140,
+   "before": "(?!報|客)",
+   "verdict": "uncovered",
+   "note": "_ACTION_START 的 播(?!報|客)：需要「播客 + 問資訊」的句子，現有種子「播報新聞」兩邊都是 model",
+   "killer": "播客有什麼推薦"
+  },
+  "m0125": {
+   "op": "ALT_DEL",
+   "line": 192,
+   "before": "(?:到|成|在|為)",
+   "verdict": "uncovered",
+   "note": "家電動詞在前：設 X「在」N 度（裝置在前的分支殺不掉，因為 (\\d+)? 後面沒有錨點，數字由另一個群組撈到）",
+   "killer": "設冷氣在26度"
+  },
+  "m0840": {
+   "op": "KW_DEL",
+   "line": 417,
+   "before": "\"google\"",
+   "verdict": "uncovered",
+   "note": "搜尋觸發詞 google（_SEARCH_VERB 也有 google，但 is_info_query 只判 info；這裡是真的走 Google 搜尋）",
+   "killer": "google 貓咪飼料"
+  },
+  "m0809": {
+   "op": "KW_DEL",
+   "line": 351,
+   "before": "\"改\"",
+   "verdict": "uncovered",
+   "note": "有數字時走 set 分支，startswith 只影響「沒說數字」的句子：原版問「要設定成多少」，突變體直接關燈",
+   "killer": "客廳燈改成"
+  },
+  "m0093": {
+   "op": "ALT_DEL",
+   "line": 189,
+   "before": "(?:燈|冷氣|空調|暖氣|電扇|風扇|插座|電視|音響|窗簾|捲門|門鎖|加濕器|除濕機|掃地機)",
+   "verdict": "uncovered",
+   "note": "家電詞表：捲門",
+   "killer": "打開捲門"
+  },
+  "m0422": {
+   "op": "ALT_DEL",
+   "line": 246,
+   "before": "(?:要怎麼|該怎麼|怎樣才能|才能|才要|也不知道|搞不清楚|怎麼說|會被|是不是|會不會|好像|沒反應|沒有反應|壞",
+   "verdict": "uncovered",
+   "note": "問句守門：「才要」",
+   "killer": "現在才要打開記事本"
+  },
+  "m0135": {
+   "op": "ALT_DEL",
+   "line": 193,
+   "before": "(?:溫度|風量|亮度)",
+   "verdict": "uncovered",
+   "note": "家電：風量",
+   "killer": "冷氣風量調到3"
+  },
+  "m0823": {
+   "op": "KW_DEL",
+   "line": 372,
+   "before": "\"減\"",
+   "verdict": "uncovered",
+   "note": "音量：減",
+   "killer": "音量減一點"
+  },
+  "m0080": {
+   "op": "BOOL",
+   "line": 167,
+   "before": "not",
+   "verdict": "harness",
+   "note": "try_local 的 enable_local_router 開關；harness 直接呼叫 _route，看不到"
+  },
+  "m0217": {
+   "op": "ALT_DEL",
+   "line": 211,
+   "before": "(?:請|麻煩)",
+   "verdict": "equivalent",
+   "note": "同 m0066：_OUTER_RE 先剝「麻煩」",
+   "killer": "麻煩播晴天"
+  },
+  "m0397": {
+   "op": "ALT_DEL",
+   "line": 239,
+   "before": "(?:不要|別|不用|不必|不想|不准|不可以|我不想|我不要|我不用|千萬不要|拜託不要)",
+   "verdict": "equivalent",
+   "note": "否定詞「不想」：刪掉後「不想開記事本」也沒有其他規則會收（開 不在句首），仍是 model",
+   "killer": "不想開記事本"
+  },
+  "m0085": {
+   "op": "ALT_DEL",
+   "line": 189,
+   "before": "(?:燈|冷氣|空調|暖氣|電扇|風扇|插座|電視|音響|窗簾|捲門|門鎖|加濕器|除濕機|掃地機)",
+   "verdict": "uncovered",
+   "note": "家電詞表：空調",
+   "killer": "打開空調"
+  },
+  "m0765": {
+   "op": "KW_DEL",
+   "line": 32,
+   "before": "\"算一下\"",
+   "verdict": "equivalent",
+   "note": "「算一下」三個字都在 _pure_math 的剩餘字元表裡，刪不刪填充詞結果一樣",
+   "killer": "算一下3乘5"
+  },
+  "m0067": {
+   "op": "ALT_DEL",
+   "line": 150,
+   "before": "(?:搜尋|搜|查詢|查一下|查|找一下|找找|找|尋找|google)",
+   "verdict": "equivalent",
+   "note": "「搜尋」被同群組的「搜」蓋掉：regex 走 搜 + 剩下「尋…」，is_info_query 只看剩下的字有沒有 _INFO_RE，結果一樣",
+   "killer": "搜尋附近有什麼好吃的"
+  },
+  "m0395": {
+   "op": "ALT_DEL",
+   "line": 239,
+   "before": "(?:不要|別|不用|不必|不想|不准|不可以|我不想|我不要|我不用|千萬不要|拜託不要)",
+   "verdict": "uncovered",
+   "note": "否定詞「不用」：刪掉後開程式規則用 in 找到「打開」→ 真的打開；「不用開燈」殺不掉是因為 _HOME_RE 有 ^ 錨點",
+   "killer": "不用打開記事本"
+  },
+  "m0063": {
+   "op": "ALT_DEL",
+   "line": 144,
+   "before": "(清單|名單|列表)",
+   "verdict": "uncovered",
+   "note": "_INFO_RE：給我…列表",
+   "killer": "給我台北美食列表"
+  },
+  "m0239": {
+   "op": "ALT_DEL",
+   "line": 212,
+   "before": "(?:播放|播|放|搜尋|找|聽|看)",
+   "verdict": "uncovered",
+   "note": "YouTube 前綴後的動詞「找」",
+   "killer": "用 YouTube 找 lofi"
+  },
+  "m0541": {
+   "op": "ALT_DEL",
+   "line": 278,
+   "before": "(?:播放|播|放|跳到|切到|切換到|轉到|換到|跳|切|換|來)",
+   "verdict": "uncovered",
+   "note": "_NEXT_RE 動詞「跳」：「跳下一首」殺不掉（媒體鍵表用 in 兜底），要加「歌」讓兜底失效——突變體變成 focus_window:下一首歌，是真的會發生的誤路由",
+   "killer": "幫我跳下一首歌"
+  },
+  "m0817": {
+   "op": "KW_DEL",
+   "line": 370,
+   "before": "\"上升\"",
+   "verdict": "uncovered",
+   "note": "音量：上升",
+   "killer": "音量上升"
+  },
+  "m0259": {
+   "op": "ALT_DEL",
+   "line": 218,
+   "before": "(手機|電腦|桌機|筆電|本機)",
+   "verdict": "uncovered",
+   "note": "_DEVICE_PREFIX：電腦",
+   "killer": "用電腦打開記事本"
+  },
+  "m0191": {
+   "op": "OPT_DEL",
+   "line": 202,
+   "before": ")?",
+   "verdict": "uncovered",
+   "note": "Steam 規則的介詞 (?:用|在|…)? 變必要：裸「steam 安裝 X」就接不到",
+   "killer": "steam 安裝 Terraria"
+  },
+  "m0567": {
+   "op": "ALT_DEL",
+   "line": 279,
+   "before": "(?:播放|播|放|跳到|切到|切換到|轉到|換到|回到|跳|切|換)",
+   "verdict": "uncovered",
+   "note": "_PREV_RE 動詞「跳」：同 m0541，突變體變 focus_window",
+   "killer": "跳上一首歌"
+  },
+  "m0326": {
+   "op": "ALT_DEL",
+   "line": 230,
+   "before": "(搜尋|搜|播放|播|放|打開|開啟|開|關掉|關|下載|安裝|裝|查詢|查|找|幫我|幫忙|麻煩|看|聽|用|鎖定|鎖",
+   "verdict": "equivalent",
+   "note": "_MID_YIXIA_RE 的「安裝」被同群組的「裝」蓋掉：搜到「裝一下」一樣剝掉",
+   "killer": "安裝一下 VLC"
+  },
+  "m0156": {
+   "op": "ALT_DEL",
+   "line": 193,
+   "before": "(打開|開啟|開起來|開|關掉|關閉|關上|關起來|關|熄掉|熄滅|設定|設為|設成|設|調到|調成|調|改為|改成)",
+   "verdict": "uncovered",
+   "note": "家電（裝置在前）動詞「改成」",
+   "killer": "客廳燈改成50"
+  },
+  "m0338": {
+   "op": "ALT_DEL",
+   "line": 230,
+   "before": "(搜尋|搜|播放|播|放|打開|開啟|開|關掉|關|下載|安裝|裝|查詢|查|找|幫我|幫忙|麻煩|看|聽|用|鎖定|鎖",
+   "verdict": "uncovered",
+   "note": "_MID_YIXIA_RE 的「鎖」",
+   "killer": "鎖一下螢幕"
+  },
+  "m0701": {
+   "op": "ALT_DEL",
+   "line": 398,
+   "before": "(https?://|www\\.)",
+   "verdict": "uncovered",
+   "note": "www. 開頭的下載網址：不認 www. 就變成安裝一個叫 www.example.com 的程式；「打開 www.」殺不掉是因為 open_url 路徑另有處理",
+   "killer": "下載 www.example.com/a.zip"
+  },
+  "m0146": {
+   "op": "ALT_DEL",
+   "line": 193,
+   "before": "(打開|開啟|開起來|開|關掉|關閉|關上|關起來|關|熄掉|熄滅|設定|設為|設成|設|調到|調成|調|改為|改成)",
+   "verdict": "uncovered",
+   "note": "家電（裝置在前）：熄掉",
+   "killer": "客廳燈熄掉"
+  },
+  "m0086": {
+   "op": "ALT_DEL",
+   "line": 189,
+   "before": "(?:燈|冷氣|空調|暖氣|電扇|風扇|插座|電視|音響|窗簾|捲門|門鎖|加濕器|除濕機|掃地機)",
+   "verdict": "uncovered",
+   "note": "家電詞表：暖氣",
+   "killer": "開暖氣"
+  },
+  "m0081": {
+   "op": "BOOL",
+   "line": 171,
+   "before": "not",
+   "verdict": "harness",
+   "note": "try_local 的空字串檢查；harness 直接呼叫 _route"
+  },
+  "m0365": {
+   "op": "ALT_DEL",
+   "line": 232,
+   "before": "(看|用|聽|開|打開|裝|播|放|下載|安裝|查|找|切換到|切到|切換|切)",
+   "verdict": "uncovered",
+   "note": "_DESIRE_RE 動詞「切」",
+   "killer": "我想切 Chrome"
+  },
+  "m0923": {
+   "op": "KW_DEL",
+   "line": 509,
+   "before": "\"氣溫\"",
+   "verdict": "uncovered",
+   "note": "天氣關鍵字「氣溫」：「今天氣溫」殺不掉是因為另一條天氣規則先接（今天 + 氣溫），要避開「今天 / 明天」",
+   "killer": "現在氣溫幾度"
+  },
+  "m0828": {
+   "op": "KW_DEL",
+   "line": 388,
+   "before": "\"連去\"",
+   "verdict": "uncovered",
+   "note": "URL 觸發詞「連去」",
+   "killer": "連去 github.com"
+  },
+  "m0573": {
+   "op": "ALT_DEL",
+   "line": 279,
+   "before": "(上一首歌|上一首|上一曲|前一首)",
+   "verdict": "uncovered",
+   "note": "_PREV_RE：前一首",
+   "killer": "前一首"
+  },
+  "m0885": {
+   "op": "KW_DEL",
+   "line": 435,
+   "before": "\"牌子\"",
+   "verdict": "uncovered",
+   "note": "鏡頭提示詞「牌子」：句子不能含「什麼 / 看看」這些同表的字",
+   "killer": "用相機看牌子"
+  },
+  "m0868": {
+   "op": "KW_DEL",
+   "line": 430,
+   "before": "\"手勢\"",
+   "verdict": "harness",
+   "note": "lens_search 的 use_gesture kwarg；harness 的 Label 只記 kind+target"
+  },
+  "m0677": {
+   "op": "ALT_DEL",
+   "line": 384,
+   "before": "(?:目前|現在)",
+   "verdict": "uncovered",
+   "note": "剪貼簿前的「現在」",
+   "killer": "現在剪貼簿有什麼"
+  },
+  "m0558": {
+   "op": "ALT_DEL",
+   "line": 279,
+   "before": "(?:播放|播|放|跳到|切到|切換到|轉到|換到|回到|跳|切|換)",
+   "verdict": "uncovered",
+   "note": "_PREV_RE 動詞「播放」",
+   "killer": "播放上一首"
+  },
+  "m0433": {
+   "op": "ALT_DEL",
+   "line": 247,
+   "before": "(?:快速鍵|快捷鍵|的教學|教學影片|差別|好處|由來|笑話|梗圖|原因|版權|誰設計|誰會用|哪個比較|什麼原因|什",
+   "verdict": "uncovered",
+   "note": "問句守門「快速鍵」：句子要有動作動詞，否則兩邊都是 model",
+   "killer": "打開記事本的快速鍵"
+  },
+  "m0325": {
+   "op": "ALT_DEL",
+   "line": 230,
+   "before": "(搜尋|搜|播放|播|放|打開|開啟|開|關掉|關|下載|安裝|裝|查詢|查|找|幫我|幫忙|麻煩|看|聽|用|鎖定|鎖",
+   "verdict": "equivalent",
+   "note": "_INSTALL_RE 自己有 (?:一下)?，_MID_YIXIA_RE 的「下載」是重複處理",
+   "killer": "下載一下 Discord"
+  },
+  "m0425": {
+   "op": "ALT_DEL",
+   "line": 246,
+   "before": "(?:要怎麼|該怎麼|怎樣才能|才能|才要|也不知道|搞不清楚|怎麼說|會被|是不是|會不會|好像|沒反應|沒有反應|壞",
+   "verdict": "uncovered",
+   "note": "問句守門：怎麼說",
+   "killer": "打開記事本英文怎麼說"
+  },
+  "m0120": {
+   "op": "ALT_DEL",
+   "line": 192,
+   "before": "(打開|開啟|啟動|開|關掉|關閉|關上|關|熄掉|熄滅|設定|設|調)",
+   "verdict": "uncovered",
+   "note": "家電（動詞在前）：調",
+   "killer": "調冷氣到26度"
+  },
+  "m0559": {
+   "op": "ALT_DEL",
+   "line": 279,
+   "before": "(?:播放|播|放|跳到|切到|切換到|轉到|換到|回到|跳|切|換)",
+   "verdict": "uncovered",
+   "note": "_PREV_RE 動詞「播」",
+   "killer": "播上一首"
+  },
+  "m0921": {
+   "op": "KW_DEL",
+   "line": 501,
+   "before": "\"中英切換\"",
+   "verdict": "uncovered",
+   "note": "輸入法：中英切換",
+   "killer": "中英切換"
+  },
+  "m0652": {
+   "op": "NUM",
+   "line": 367,
+   "before": "14",
+   "verdict": "uncovered",
+   "note": "長度上限 14→15：剛好 15 字、且不能有會被 _TAIL_RE 剝掉的語助詞（「啊啊啊」會被剝掉，第一次判斷錯在這）",
+   "killer": "音量太大我的耳朵真的非常非常痛"
+  },
+  "m0861": {
+   "op": "KW_DEL",
+   "line": 429,
+   "before": "\"找來源\"",
+   "verdict": "equivalent",
+   "note": "lens 觸發詞「找來源」是死碼：搜尋觸發詞「找」排在前面，任何含「找來源」的句子都先被搜尋接走（除非另含「這張圖」，那就不需要它）",
+   "killer": "找來源"
+  },
+  "m0536": {
+   "op": "ALT_DEL",
+   "line": 278,
+   "before": "(?:播放|播|放|跳到|切到|切換到|轉到|換到|跳|切|換|來)",
+   "verdict": "uncovered",
+   "note": "_NEXT_RE 動詞「跳到」：同 m0541",
+   "killer": "幫我跳到下一首歌"
+  },
+  "m0300": {
+   "op": "ALT_DEL",
+   "line": 228,
+   "before": "(?:一下下|一下|好嗎|好不好|可以嗎|行嗎|謝謝|謝啦|拜託|好了|喔|啦|吧|呢|哦|嘛|唷|喲|啊|呀|耶|那邊",
+   "verdict": "uncovered",
+   "note": "句尾語助詞「謝啦」",
+   "killer": "打開記事本謝啦"
+  },
+  "m0651": {
+   "op": "NUM",
+   "line": 367,
+   "before": "14",
+   "verdict": "uncovered",
+   "note": "長度上限 14→13：剛好 14 字，同樣不能有句尾語助詞",
+   "killer": "把音量調到百分之五十再高一點"
+  },
+  "m0269": {
+   "op": "ALT_DEL",
+   "line": 222,
+   "before": "(?:欸|誒|嘿|喂|那個|嗯|呃|對了|哎呀|哎|唉|好啦|好的|好嗎|好了|jarvis|賈維斯)",
+   "verdict": "uncovered",
+   "note": "填充詞「喂」：同 m0267，要配 fullmatch 型規則才看得出來",
+   "killer": "喂 現在幾點"
+  },
+  "m0914": {
+   "op": "KW_DEL",
+   "line": 492,
+   "before": "\"有哪些視窗\"",
+   "verdict": "uncovered",
+   "note": "視窗列表：有哪些視窗",
+   "killer": "有哪些視窗"
+  },
+  "m0820": {
+   "op": "KW_DEL",
+   "line": 372,
+   "before": "\"小\"",
+   "verdict": "uncovered",
+   "note": "音量：小",
+   "killer": "音量小一點"
+  }
+ }
+}

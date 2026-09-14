@@ -109,6 +109,51 @@ python -m research.mt.reduce out/matrix_<tag>.csv --drop-trivial
 LOOK_DEL 一開始 3 個全存活 → 加 5 條近似句種子（開心一點 / 播報新聞 / 放假…）→ `_BARE_OPEN` 的 lookahead 被殺；
 `_ACTION_START` 的還活著，因為它只影響 info / model 之分，需要「開心嗎」這種問句種子。**突變測試在告訴你種子缺什麼。**
 
+### E3 第 2 步：存活突變體人工分類（60 / 512，`random.seed(7)`）
+
+```bash
+python -m research.mt.survivors --sample 60 --seed 7   # 抽樣給人看
+python -m research.mt.survivors                         # 驗證 survivors_manual.json 的每個 killer
+python -m research.mt.survivors --seeds                 # 印出可補進 seeds.json 的句子
+```
+
+分類寫在 `survivors_manual.json`，每個「沒覆蓋」的判斷都附一句 **killer**：人寫的、能殺掉那個突變體的句子。
+`survivors.py` 把每句 killer 真的丟進原版與突變體跑，判斷錯會直接印出來（CI 也跑）。
+
+| 分類 | 數 | 例子 |
+|---|---|---|
+| **沒覆蓋** uncovered | **46（77%）** | 家電詞表 除濕機 / 捲門 / 空調 / 暖氣；「螢幕鎖上」「前一首」「音量減一點」「中英切換」「連去 github.com」；填充詞 誒 / 喂；問句守門 才要 / 怎麼說 / 快速鍵；長度上限的邊界句 |
+| **等價** equivalent | 11（18%） | 同群組被短詞蓋掉（搜尋 ⊃ 搜、安裝 ⊃ 裝、是多少 ⊃ 多少）；`_normalize` 早就剝掉「麻煩」；別處重複處理（`_INSTALL_RE` 自己有 `(?:一下)?`）；**死碼**（lens 的「找來源」永遠先被搜尋的「找」接走、`_SEARCH_VERB` 的 google 永遠先被觸發詞迴圈接走） |
+| harness 看不到 | 3（5%） | `try_local` 的開關與空字串檢查（harness 直接叫 `_route`）、`lens_search` 的 `use_gesture` kwarg（Label 只記 kind + target） |
+
+推回全體：512 個存活裡約 95 個等價、25 個 harness 看不到，**扣掉後的突變分數約 415 / 807 ≈ 0.51**（原 0.448）。
+
+兩個研究上的發現：
+
+1. **人工判斷不可靠，要有可執行證據。** 第一輪我 57 個判斷錯了 19 個（33%）：大多是 killer 寫錯——句子被另一條規則接住（開程式規則用 `in` 找「打開」，所以「誒 打開記事本」殺不掉填充詞突變體，要換成 fullmatch 型的「誒 現在幾點」；「啊啊啊」被 `_TAIL_RE` 剝掉所以長度邊界句失效）。
+   修完 killer 後有 5 個從「沒覆蓋」改判「等價」。沒有這支驗證工具，這 19 個就直接進報告了。
+2. **存活突變體會順便指出 router 的問題**：「幫我跳下一首歌」少了「跳」會變成 `focus_window:下一首歌`（切換視窗規則太貪）；
+   「google 附近有什麼好吃的」走 Google 搜尋、「幫我查附近有什麼好吃的」走純問答（同一件事兩條路）；「找來源」「`_MATH_FILLER`」是死碼。
+
+46 句 killer 就是下一輪的種子（`--seeds` 直接印成 seeds.json 格式）。
+
+### E3 第 3 步：把 killer 補成種子，重跑
+
+46 句 killer 直接補進 `seeds.json`（id `sv_*`，來源記成 `seed_sv`），矩陣重跑兩次：先只加種子，再加上規則式生成器對新種子產的 718 句改寫。
+
+| 測試集 | 測試數 | 殺 / 927 | 分數 |
+|---|---|---|---|
+| 41 種子 + 規則式 + 四個溫度（run1） | 2 433 | 415 | 0.448 |
+| + 46 句 killer（run2） | 2 479 | 478 | **0.516** |
+| + 規則式對 46 句的 718 句改寫（run3） | 3 164 | 480 | 0.518 |
+
+- **46 句殺 191 個**，比原本 41 條種子（156）多、跟規則式 655 句（193）一樣多：每句 killer 都是對著一個沒測到的詞寫的，一句頂十句。
+- **718 句改寫只多殺 2 個**：改寫換的是句型（語助詞、語序），突變體改的是詞表——改寫句用的還是同一個詞，碰不到新的可變點。突變分數要靠「詞」的覆蓋，蛻變關係要的是「句型」的覆蓋，兩者正交，所以要分開補。
+- 規則式批次在 87 條種子上：1 373 句、81 違反；新種子的 718 句找到 29 違反 / 15 個錯，幾乎全是已知的 R3 語序，加兩個生成器自己的漂移（「打開捲門」的同義詞「執行捲門」——執行是給程式的，不是給家電的）。
+- 縮減 / 排序在 3 164 條上結論不變：需求 = 突變體時 194 條（6.1%）保留 100%、同大小隨機 54%；additional APFD 0.984，前 10% 找到 100%；便宜準則 relseed ≈ 隨機（65–69% vs 67%）。
+
+三次的 `matrix_merged.csv` / `mutation_summary.json` 各留一份（`out/run1_41seeds/`、`out/run2_87seeds_norules/`、`out/`）。
+
 ## 檔案
 
 | 檔案 | 作用 |
@@ -118,7 +163,11 @@ LOOK_DEL 一開始 3 個全存活 → 加 5 條近似句種子（開心一點 / 
 | `rules.py` | 模板生成器（對照組） |
 | `llm.py` | Gemini 生成器：溫度可調、JSON 輸出、磁碟快取、失敗如實記錄 |
 | `run.py` | 生成 → 過濾 → 路由 → 判定 → 報表 |
-| `seeds.json` | 36 條種子句與期望路由 |
+| `compare.py` | 批次比較：Jaccard、錯集合差、脆弱種子 |
+| `mutation.py` | 突變器 + 測試×突變體矩陣（`--range/--merge` 分段） |
+| `reduce.py` | 縮減（greedy / HGS / irreplaceable / random）與排序（APFD） |
+| `survivors.py` + `survivors_manual.json` | 存活突變體人工分類與 killer 驗證 |
+| `seeds.json` | 87 條種子句與期望路由（41 條原始 + 46 條 `sv_*` killer） |
 | `../../tests/test_mt_harness.py` | 煙霧測試（CI 跑） |
 
 ## 下一步（研究計畫）

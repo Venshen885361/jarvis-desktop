@@ -205,6 +205,237 @@
       "id": "nm_zhuanghuang",
       "text": "裝潢要多少錢",
       "expect": "info"
+    },
+    {
+      "id": "sv_m0592",
+      "text": "螢幕鎖上",
+      "expect": "lock_screen"
+    },
+    {
+      "id": "sv_m0267",
+      "text": "誒 現在幾點",
+      "expect": "time"
+    },
+    {
+      "id": "sv_m0096",
+      "text": "開除濕機",
+      "expect": "home_control:除濕機=on"
+    },
+    {
+      "id": "sv_m0143",
+      "text": "客廳燈關上",
+      "expect": "home_control:客廳燈=off"
+    },
+    {
+      "id": "sv_m0685",
+      "text": "剪貼簿內容",
+      "expect": "read_clipboard"
+    },
+    {
+      "id": "sv_m0051",
+      "text": "播客有什麼推薦",
+      "expect": "info"
+    },
+    {
+      "id": "sv_m0125",
+      "text": "設冷氣在26度",
+      "expect": "home_control:冷氣=set=26"
+    },
+    {
+      "id": "sv_m0840",
+      "text": "google 貓咪飼料",
+      "expect": "open_url:google:貓咪飼料"
+    },
+    {
+      "id": "sv_m0809",
+      "text": "客廳燈改成",
+      "expect": "home_control:?"
+    },
+    {
+      "id": "sv_m0093",
+      "text": "打開捲門",
+      "expect": "home_control:捲門=on"
+    },
+    {
+      "id": "sv_m0422",
+      "text": "現在才要打開記事本",
+      "expect": "model"
+    },
+    {
+      "id": "sv_m0135",
+      "text": "冷氣風量調到3",
+      "expect": "home_control:冷氣=set=3"
+    },
+    {
+      "id": "sv_m0823",
+      "text": "音量減一點",
+      "expect": "set_volume:down"
+    },
+    {
+      "id": "sv_m0085",
+      "text": "打開空調",
+      "expect": "home_control:空調=on"
+    },
+    {
+      "id": "sv_m0395",
+      "text": "不用打開記事本",
+      "expect": "model"
+    },
+    {
+      "id": "sv_m0063",
+      "text": "給我台北美食列表",
+      "expect": "info"
+    },
+    {
+      "id": "sv_m0239",
+      "text": "用 YouTube 找 lofi",
+      "expect": "youtube_play:lofi"
+    },
+    {
+      "id": "sv_m0541",
+      "text": "幫我跳下一首歌",
+      "expect": "computer:key:nexttrack"
+    },
+    {
+      "id": "sv_m0817",
+      "text": "音量上升",
+      "expect": "set_volume:up"
+    },
+    {
+      "id": "sv_m0259",
+      "text": "用電腦打開記事本",
+      "expect": "device_switch:電腦"
+    },
+    {
+      "id": "sv_m0191",
+      "text": "steam 安裝 Terraria",
+      "expect": "install_steam_game:Terraria"
+    },
+    {
+      "id": "sv_m0567",
+      "text": "跳上一首歌",
+      "expect": "computer:key:prevtrack"
+    },
+    {
+      "id": "sv_m0156",
+      "text": "客廳燈改成50",
+      "expect": "home_control:客廳燈=set=50"
+    },
+    {
+      "id": "sv_m0338",
+      "text": "鎖一下螢幕",
+      "expect": "lock_screen"
+    },
+    {
+      "id": "sv_m0701",
+      "text": "下載 www.example.com/a.zip",
+      "expect": "download_file:www.example.com/a.zip"
+    },
+    {
+      "id": "sv_m0146",
+      "text": "客廳燈熄掉",
+      "expect": "home_control:客廳燈=off"
+    },
+    {
+      "id": "sv_m0086",
+      "text": "開暖氣",
+      "expect": "home_control:暖氣=on"
+    },
+    {
+      "id": "sv_m0365",
+      "text": "我想切 Chrome",
+      "expect": "focus_window:Chrome"
+    },
+    {
+      "id": "sv_m0923",
+      "text": "現在氣溫幾度",
+      "expect": "weather:現在氣溫幾度"
+    },
+    {
+      "id": "sv_m0828",
+      "text": "連去 github.com",
+      "expect": "open_url:github.com"
+    },
+    {
+      "id": "sv_m0573",
+      "text": "前一首",
+      "expect": "computer:key:prevtrack"
+    },
+    {
+      "id": "sv_m0885",
+      "text": "用相機看牌子",
+      "expect": "camera_search"
+    },
+    {
+      "id": "sv_m0677",
+      "text": "現在剪貼簿有什麼",
+      "expect": "read_clipboard"
+    },
+    {
+      "id": "sv_m0558",
+      "text": "播放上一首",
+      "expect": "computer:key:prevtrack"
+    },
+    {
+      "id": "sv_m0433",
+      "text": "打開記事本的快速鍵",
+      "expect": "model"
+    },
+    {
+      "id": "sv_m0425",
+      "text": "打開記事本英文怎麼說",
+      "expect": "model"
+    },
+    {
+      "id": "sv_m0120",
+      "text": "調冷氣到26度",
+      "expect": "home_control:冷氣=set=26"
+    },
+    {
+      "id": "sv_m0559",
+      "text": "播上一首",
+      "expect": "computer:key:prevtrack"
+    },
+    {
+      "id": "sv_m0921",
+      "text": "中英切換",
+      "expect": "switch_input_method:toggle_lang"
+    },
+    {
+      "id": "sv_m0652",
+      "text": "音量太大我的耳朵真的非常非常痛",
+      "expect": "model"
+    },
+    {
+      "id": "sv_m0536",
+      "text": "幫我跳到下一首歌",
+      "expect": "computer:key:nexttrack"
+    },
+    {
+      "id": "sv_m0300",
+      "text": "打開記事本謝啦",
+      "expect": "open_application:記事本"
+    },
+    {
+      "id": "sv_m0651",
+      "text": "把音量調到百分之五十再高一點",
+      "expect": "set_volume:up"
+    },
+    {
+      "id": "sv_m0269",
+      "text": "喂 現在幾點",
+      "expect": "time"
+    },
+    {
+      "id": "sv_m0914",
+      "text": "有哪些視窗",
+      "expect": "list_windows"
+    },
+    {
+      "id": "sv_m0820",
+      "text": "音量小一點",
+      "expect": "set_volume:down"
     }
-  ]
+  ],
+  "_doc_sv": "id 以 sv_ 開頭的 46 條是 E3 第 2 步從存活突變體反推的 killer（survivors_manual.json），2026-09-14 補入；mutation.py 把它們記成來源 seed_sv，方便跟原本 41 條分開算。"
 }

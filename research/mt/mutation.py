@@ -185,7 +185,8 @@ def load_tests(tags: list[str]) -> list[dict]:
     for s in seeds:
         if s["text"] not in seen:
             seen.add(s["text"])
-            tests.append({"id": f"seed:{s['id']}", "text": s["text"], "expect": s["expect"], "src": "seed", "relation": "seed"})
+            src_tag = "seed_sv" if s["id"].startswith("sv_") else "seed"   # sv_：從存活突變體反推的 killer
+            tests.append({"id": f"seed:{s['id']}", "text": s["text"], "expect": s["expect"], "src": src_tag, "relation": "seed"})
     for tag in tags:
         p = OUT / f"tests_{tag}.jsonl"
         if not p.is_file():

@@ -40,3 +40,13 @@ def test_mutation_generate_and_reduce_smoke():
     assert set(reduce.kill_set(reduce.greedy(cov), cov)) == {0, 1, 2}
     assert len(reduce.hgs(cov)) == 2 and len(reduce.irreplaceable_first(cov)) == 2
     assert abs(reduce.apfd([0, 2, 1], cov, 3) - (1 - (1 + 1 + 2) / 9 + 1 / 6)) < 1e-9
+
+
+def test_survivor_classification_is_backed_by_killers():
+    """survivors_manual.json 的人工分類要有可執行證據：uncovered 的 killer 真的殺得掉、equivalent 的殺不掉。
+    router.py 改過導致 id 對不上的條目跳過（要重跑突變測試再分類），不算失敗。"""
+    from research.mt import survivors
+
+    bad, stale, rows = survivors.verify(quiet=True)
+    assert bad == 0, [r for r in rows if (r[1] == "uncovered") != (r[2] == "殺") and r[1] != "harness"]
+    assert stale < len(rows) + stale  # 至少有一筆還對得上
