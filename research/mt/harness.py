@@ -169,9 +169,10 @@ def route_label(text: str) -> Label:
 def same_route(a: Label, b: Label) -> bool:
     """蛻變關係用的等價判斷：目的地一樣、目標（程式名 / 歌名）一樣就算同路。
     目標比對忽略大小寫與前後空白；時間 / 日期 / 招呼這類沒有目標的只比 kind。"""
-    if a.kind != b.kind:
-        return False
-    return a.target.strip().lower() == b.target.strip().lower()
+    # 用字串形式比：seeds.json 的 "computer:key:nexttrack" 解析成 (computer, key:nexttrack)，
+    # 而 route_label 給的是 (computer:key, nexttrack)，結構不同但意義相同
+    norm = lambda x: f"{x.kind}:{x.target.strip()}".rstrip(":").lower()  # noqa: E731
+    return norm(a) == norm(b)
 
 
 if __name__ == "__main__":

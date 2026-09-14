@@ -85,7 +85,7 @@ def fetch_weather(query: str) -> str | None:
 # ---------------------------------------------------------------- 規則表
 _OPEN_TRIGGERS = ("打開", "開啟", "啟動", "執行", "幫我開")
 # 句首的單字「開」也算（「開 YouTube」「開記事本」），但不放進 _OPEN_TRIGGERS 以免「開心」「開會」誤觸
-_BARE_OPEN = re.compile(r"^(?:幫我|請)?開(?!心|會|始|玩|發|學|車|門|關|燈|口|放|頭|花|水|機)\s*(?=\S)")
+_BARE_OPEN = re.compile(r"^(?:請)?(?:幫我)?開(?!心|會|始|玩|發|學|車|門|關|燈|口|放|頭|花|水|機)\s*(?=\S)")
 
 # 常見「其實是網站」的東西：電腦上沒裝 App 時直接開網頁，不要回「找不到程式」
 _WEB_APPS = {
@@ -103,7 +103,8 @@ _WEB_APPS = {
     "雲端硬碟": "https://drive.google.com", "drive": "https://drive.google.com",
     "瀏覽器": "https://www.google.com",
 }
-_URL_RE = re.compile(r"((?:https?://)?[\w\-]+(?:\.[\w\-]+)+(?:/\S*)?)")
+# 網域只認 ASCII：\w 在 Python 會吃中文，「開啟github.com」整段就被當成網址
+_URL_RE = re.compile(r"((?:https?://)?[A-Za-z0-9\-]+(?:\.[A-Za-z0-9\-]+)+(?:/\S*)?)")
 
 _GREETINGS = {
     "你好": "Sir, 我在。",
@@ -173,9 +174,9 @@ def try_local(user_input: str) -> str | None:
 # 「開客廳燈」「把冷氣關掉」「客廳燈關掉」「冷氣設 26 度」「燈調到 40」
 _HOME_WORDS = r"(?:燈|冷氣|空調|暖氣|電扇|風扇|插座|電視|音響|窗簾|捲門|門鎖|加濕器|除濕機|掃地機)"
 _HOME_RE = re.compile(
-    rf"^(?:幫我|請)?(?:把)?"
+    rf"^(?:請|麻煩)?(?:幫我|替我)?(?:把)?"
     rf"(?:(打開|開啟|啟動|開|關掉|關閉|關)\s*([^\d]*?{_HOME_WORDS})"
-    rf"|([^\d]*?{_HOME_WORDS})\s*(打開|開啟|開|關掉|關閉|關|設定|設為|設成|設|調到|調成|調)\s*(\d+)?\s*(?:度|%|趴)?)"
+    rf"|([^\d]*?{_HOME_WORDS})\s*(?:的)?(?:溫度|風量|亮度)?\s*(打開|開啟|開|關掉|關閉|關|設定|設為|設成|設|調到|調成|調)\s*(?:到|成|在|為)?\s*(\d+)?\s*(?:度|%|趴)?)"
     rf"\s*$"
 )
 _HOME_STRIP = re.compile(r"^(?:所有的?|全部的?|把|的)+|的$")
@@ -184,17 +185,17 @@ _HOME_STRIP = re.compile(r"^(?:所有的?|全部的?|把|的)+|的$")
 # 下載 / 安裝：「下載 X」「安裝 X」「幫我裝 X」「(用|在) Steam (安裝|下載|開|玩) X」「X 這款遊戲」
 _INSTALL_RE = re.compile(
     r"^(?:"
-    r"(?:幫我|請)?(?P<steam>(?:用|在|去|從)?\s*steam\s*(?:上)?)\s*(?:(?P<run>開|玩|啟動|執行)|下載並安裝|下載|安裝|裝)"  # 有 Steam：動詞放寬
-    r"|(?:幫我|請)?(?:下載並安裝|下載|安裝)"                                                                  # 沒 Steam：只認 下載 / 安裝
-    r"|(?:幫我|請)裝"                                                                                         # 「幫我裝 VLC」；單獨「裝」會撞「裝潢」
+    r"(?:請)?(?:幫我)?(?P<steam>(?:用|在|去|從|透過|藉由)?\s*steam\s*(?:上面|裡面|上|裡)?\s*(?:來)?)\s*(?:(?P<run>開|玩|啟動|執行)|下載並安裝|下載安裝|下載|安裝|裝)"  # 有 Steam：動詞放寬
+    r"|(?:請)?(?:幫我|協助|幫忙)?(?:下載並安裝|下載安裝|下載|安裝)"                                                          # 沒 Steam：只認 下載 / 安裝
+    r"|(?:請)?(?:幫我|幫忙)(?:裝|載)"                                                                                     # 「幫我裝 VLC」「幫我載 VLC」；單獨「裝」會撞「裝潢」
     r")\s*(?:一下)?\s*(?P<q>.+?)\s*(?P<game>這款遊戲|這個遊戲|的遊戲)?\s*(?:這個程式|這個)?$",
     re.I,
 )
 
 # 播放：句首「播 / 播放 / 放 / 放一下 / 幫我播」，或「(用|在) YouTube (播|放|搜尋…播)」
 _PLAY_RE = re.compile(
-    r"^(?:幫我|請)?"
-    r"(?:(?P<yt>(?:用|在|去)?\s*(?:youtube|yt|油管)\s*(?:上)?)\s*(?:播放|播|放|搜尋|找)"   # 有 YouTube 前綴：動詞放寬
+    r"^(?:請|麻煩)?(?:幫我|幫忙)?"
+    r"(?:(?P<yt>(?:用|在|去|透過|藉由|從)?\s*(?:youtube|yt|油管)\s*(?:上面|裡面|上|裡)?)\s*(?:來)?\s*(?:播放|播|放|搜尋|找|聽|看)"   # 有 YouTube 前綴：動詞放寬
     r"|(?:播放|播(?!報|客)|放一下|放(?=[^假學棄]))"                                          # 沒前綴：只認「播 / 播放 / 放」
     r")\s*(?P<q>.+?)\s*(?:來播|來聽|給我聽|並播放|然後播)?$",
     re.I,
@@ -202,8 +203,64 @@ _PLAY_RE = re.compile(
 
 _DEVICE_PREFIX = re.compile(r"^(?:用|在|請用|幫我用)(手機|電腦|桌機|筆電|本機)(?:上|裡)?[，,\s]*")
 
+# ---- 正規化（蛻變測試找到的一整類錯：任何前綴 / 語助詞就讓 startswith 型規則失效）----
+# 句首填充：「欸」「那個」「嗯」「JARVIS」「對了」——說話時的口頭禪，對意圖沒有貢獻
+_FILLER_RE = re.compile(r"^(?:(?:欸|誒|嘿|喂|那個|嗯|呃|對了|jarvis|賈維斯)[，,、。!！\s]*)+", re.I)
+# 外層客氣話：「麻煩」「可以」「能不能」——剝掉後留下「幫我 / 請」給各規則自己處理（_INSTALL_RE 靠「幫我裝」區分「裝潢」）
+_OUTER_RE = re.compile(r"^(?:麻煩|拜託|可以|可不可以|能不能|能否)+[，,\s]*")
+# 內層：startswith 型規則（搜尋 / 切換 / 複製）比對前再剝「幫我 / 請」
+_POLITE_RE = re.compile(r"^(?:幫我|請|替我|幫忙)+\s*")
+# 句尾語助詞：「一下」「好嗎」「謝謝」——不剝掉會黏進程式名（open_application("記事本好嗎")）
+_TAIL_RE = re.compile(r"(?:[，,\s]*(?:一下下|一下|好嗎|好不好|可以嗎|行嗎|謝謝|謝啦|拜託|好了|喔|啦|吧|呢|哦|嘛|唷|喲))+[。！!？?]*$")
+# 動詞後面的「一下」：「搜尋一下 python」「播放一下周杰倫」——語氣，不是目標的一部分
+_MID_YIXIA_RE = re.compile(r"(搜尋|搜|播放|播|放|打開|開啟|開|下載|安裝|裝|查|找|幫我|幫忙|麻煩|看|聽|用)一下")
+# 「我要看 YouTube」「我想聽晴天」「想裝 VLC」：意願句 = 指令；看 / 用 → 開，聽 → 播
+_DESIRE_RE = re.compile(r"^(?:我)?(?:想要|想|要|需要)\s*(看|用|聽|開|打開|裝|播|放|下載|安裝|查|找)\s*(?=\S)")
+_DESIRE_VERB = {"看": "開", "用": "開", "聽": "播", "裝": "安裝"}
+# 「把記事本打開」「把 Terraria 裝起來」：受詞在前的句型，翻回動詞在前
+_SOV_RE = re.compile(r"^((?:用|在|去|透過|藉由)\s*\S+\s*)?把\s*(.+?)\s*(打開|開啟|開起來|開一下|裝起來|裝好|安裝好|裝一下)$")
+_SOV_VERB = {"打開": "打開", "開啟": "開啟", "開起來": "打開", "開一下": "打開", "裝起來": "安裝", "裝好": "安裝", "安裝好": "安裝", "裝一下": "安裝"}
+# 否定 / 反問：「不要打開記事本」「我不想播晴天」——本機規則不該執行，交給模型用講的回
+_NEGATION_RE = re.compile(r"^(?:先)?(?:不要|別|不用|不必|不想|不准|不可以|我不想|我不要|我不用|千萬不要|拜託不要)")
+
+
+# 問句 / 反問：「剛剛靜音了嗎」「鎖定螢幕會怎樣」「音量調大的教學在哪」——是在問，不是在下令
+_QUESTION_RE = re.compile(
+    r"(了嗎|了沒|會怎樣|會怎麼樣|怎麼辦|在哪|在哪裡|是什麼意思|什麼意思|嗎)[？?]?$"
+    r"|^(?:為什麼|為何|怎麼|如何|什麼是|有人知道|誰知道|請問.*(?:嗎|呢)$)"
+    r"|(?:要怎麼|該怎麼|怎樣才能|才能|才要|也不知道|搞不清楚|怎麼說|會被)"
+)
+
+
+def _normalize(text: str) -> str:
+    t = _FILLER_RE.sub("", text.strip())
+    t = _MID_YIXIA_RE.sub(r"\1", t)
+    t = _OUTER_RE.sub("", t)
+    t = re.sub(r"^一下[，,\s]*", "", t)
+    t = _TAIL_RE.sub("", t).strip(" ，,。")
+    t = re.sub(r"[。！!？?]+$", "", t).strip()
+    # 「幫我，開 YouTube」：客氣前綴後面的逗號拿掉，不然 ^(?:幫我)?開 接不上
+    t = re.sub(r"^(幫我|請|幫忙|替我)[，,、\s]+", r"\1", t)
+    # 「幫我開記事本嗎」是請求不是問句：客氣前綴 + 句尾「嗎」→ 把「嗎」拿掉
+    if t.endswith("嗎") and _POLITE_RE.match(t):
+        t = t[:-1]
+    # 意願句：「我要看 YouTube」→「開 YouTube」；問句形式（怎麼 / 什麼）不算
+    if (m := _DESIRE_RE.match(t)) and not re.search(r"怎麼|什麼|為何|如何|嗎", t):
+        verb = _DESIRE_VERB.get(m.group(1), m.group(1))
+        t = verb + t[m.end():]
+    # 受詞在前：「把記事本打開」「請幫我把記事本打開」→「打開記事本」
+    if (m := _SOV_RE.match(_POLITE_RE.sub("", t))):
+        t = (m.group(1) or "") + _SOV_VERB[m.group(3)] + m.group(2)
+    return t or text.strip()
+
 
 def _route(text: str) -> str | None:
+    text = _normalize(text)
+    if _NEGATION_RE.match(text) or _QUESTION_RE.search(text):
+        return None
+    for keywords, key in _MEDIA_KEYS.items():
+        if text in keywords:
+            return _press(key)
     # -1) 「用手機開 YouTube」「在電腦上搜尋 …」：先切裝置，再用剩下的句子繼續路由。
     #     剩下的句子本機處理不了時回 None 交給模型 —— 裝置已經切好，模型會看到標示。
     if (m := _DEVICE_PREFIX.match(text)):
@@ -252,15 +309,15 @@ def _route(text: str) -> str | None:
         return m
 
     # 2) 時間與日期
-    if any(k in text for k in ("幾點", "現在時間", "報時")):
+    if re.fullmatch(r"(?:請問|那|現在|目前|是|的|告訴我|跟我說)*\s*(?:幾點鐘|幾點|時間|報時)\s*(?:是幾點|是多少|了|鐘|啊)?", text):
         return f"Sir, 現在是 {_dt.datetime.now():%H 點 %M 分}。"
-    if any(k in text for k in ("今天幾號", "今天日期", "星期幾", "禮拜幾")):
+    if re.fullmatch(r"(?:請問|那|今天|今日|是|的|告訴我|跟我說)*\s*(?:幾號|日期|星期幾|禮拜幾|週幾|幾月幾號|禮拜幾號|星期幾號)\s*(?:了|啊)?", text):
         now = _dt.datetime.now()
         week = "一二三四五六日"[now.weekday()]
         return f"Sir, 今天是 {now:%Y 年 %m 月 %d 日}，星期{week}。"
 
     # 3) 網址：整句裡有網域就直接開，不必請模型幫忙認
-    if any(k in text for k in _OPEN_TRIGGERS) and (m := _URL_RE.search(text)):
+    if (any(k in text for k in _OPEN_TRIGGERS + ("進入", "前往", "連到", "連去", "上")) or _BARE_OPEN.match(text)) and (m := _URL_RE.search(text)):
         candidate = m.group(1)
         if "." in candidate and not candidate.replace(".", "").isdigit():
             return _dev("open_url", url=candidate)
@@ -287,9 +344,11 @@ def _route(text: str) -> str | None:
 
     # 4) 網頁搜尋：直接組 Google 網址開啟，比讓模型開瀏覽器再視覺定位網址列
     #    少掉整整一輪截圖 + 定位（省最多的一條規則）
-    for trigger in ("搜尋", "google一下", "查一下網路", "上網查"):
-        if text.startswith(trigger):
-            q = text[len(trigger):].strip(" ，,。")
+    core = _POLITE_RE.sub("", text)
+    _weatherish = any(k in text for k in ("天氣", "氣溫", "溫度", "下雨", "雨量"))
+    for trigger in ("搜尋", "google一下", "查一下網路", "上網查", "google", "尋找", "查", "找"):
+        if core.lower().startswith(trigger) and not (trigger in ("查", "找", "尋找") and (_weatherish or _INFO_RE.search(core))):
+            q = core[len(trigger):].strip(" ，,。")
             if q:
                 url = "https://www.google.com/search?q=" + urllib.parse.quote(q)
                 _dev("open_url", url=url)
@@ -313,8 +372,10 @@ def _route(text: str) -> str | None:
 
     # 5) 開啟資料夾 / 應用程式
     open_target = None
+    if text.startswith("顯示") and ("資料夾" in text or "目錄" in text):
+        open_target = text[2:]
     for trigger in _OPEN_TRIGGERS:
-        if trigger in text:
+        if open_target is None and trigger in text:
             open_target = text.split(trigger, 1)[1].strip()
             break
     if open_target is None and (m := _BARE_OPEN.match(text)):
@@ -336,18 +397,18 @@ def _route(text: str) -> str | None:
 
     # 6) 切換「裝置」優先於切換「視窗」：「切換到手機」「改用電腦」「控制本機」
     devs = get_devices()
-    for trigger in ("切換到", "切到", "改用", "控制", "換到", "用"):
-        if text.startswith(trigger):
-            target = text[len(trigger):].strip(" ，,。")
+    for trigger in ("切換到", "切到", "改用", "控制", "換到", "換成", "用"):
+        if core.startswith(trigger):
+            target = core[len(trigger):].strip(" ，,。")
             if devs.resolve_name(target):
                 return devs.switch(target)
     if any(k in text for k in ("有哪些裝置", "列出裝置", "現在控制誰", "控制哪台")):
         return devs.describe_all()
 
     # 6.5) 切換視窗
-    for trigger in ("切換到", "切到", "跳到", "回到"):
-        if text.startswith(trigger):
-            target = text[len(trigger):].strip(" ，,。")
+    for trigger in ("切換到", "切到", "跳到", "回到", "切去", "換到"):
+        if core.startswith(trigger):
+            target = core[len(trigger):].strip(" ，,。")
             if target:
                 return _dev("focus_window", keyword=target)
     if any(k in text for k in ("有哪些視窗", "開了什麼", "列出視窗")):
@@ -364,7 +425,7 @@ def _route(text: str) -> str | None:
 
     # 8) 媒體鍵
     for keywords, key in _MEDIA_KEYS.items():
-        if any(k in text for k in keywords):
+        if any(k in text for k in keywords) and len(text) <= 6:
             return _press(key)
 
     # 9) 鎖定螢幕
@@ -381,8 +442,8 @@ def _route(text: str) -> str | None:
 
     # 11) 剪貼簿
     if any(k in text for k in ("剪貼簿", "剪貼板")):
-        if text.startswith("複製"):
-            content = text[2:].strip()
+        if core.startswith("複製"):
+            content = core[2:].strip()
             if content:
                 return _dev("write_clipboard", text=content)
         return _dev("read_clipboard")
