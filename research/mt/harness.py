@@ -108,8 +108,9 @@ def _classify_text_result(text: str, result: str) -> Label:
         return Label("date")
     if result == "Sir, 要設定成多少？":
         return Label("home_control", "?")
-    import jarvis.router as router
+    import sys
 
+    router = sys.modules["jarvis.router"]
     if result in router._GREETINGS.values():
         return Label("greeting")
     if result.startswith("Sir, 已為您搜尋"):
@@ -119,8 +120,10 @@ def _classify_text_result(text: str, result: str) -> Label:
 
 @contextlib.contextmanager
 def _patched(rec: _Recorder):
-    import jarvis.router as router
+    import sys
+
     import jarvis.tools.downloads as dl
+    router = sys.modules["jarvis.router"] if "jarvis.router" in sys.modules else __import__("jarvis.router", fromlist=["_"])
     import jarvis.tools.home as home
     import jarvis.tools.media as media
 
@@ -148,24 +151,44 @@ def _patched(rec: _Recorder):
             p.stop()
 
 
+def _label_one(router, rec: _Recorder, text: str) -> Label:
+    rec.calls.clear()
+    try:
+        result = router._route(text.strip())
+    except Exception as e:  # 路由自己炸掉也是一種結果，研究上要記
+        return Label("error", type(e).__name__)
+    if rec.calls:
+        tool, args = rec.calls[0]
+        return Label(tool, _target_of(tool, args))
+    if result is not None:
+        return _classify_text_result(text, result)
+    try:
+        if router.is_info_query(text):
+            return Label("info")
+    except Exception as e:
+        return Label("error", type(e).__name__)
+    return Label("model")
+
+
 def route_label(text: str) -> Label:
     """一句話 → Label。順序跟 __main__._handle 一樣：本機路由 → 純問答 → 模型。"""
     import jarvis.router as router
 
     rec = _Recorder()
     with _patched(rec):
-        try:
-            result = router._route(text.strip())
-        except Exception as e:  # 路由自己炸掉也是一種結果，研究上要記
-            return Label("error", type(e).__name__)
-    if rec.calls:
-        tool, args = rec.calls[0]
-        return Label(tool, _target_of(tool, args))
-    if result is not None:
-        return _classify_text_result(text, result)
-    if router.is_info_query(text):
-        return Label("info")
-    return Label("model")
+        return _label_one(router, rec, text)
+
+
+def batch_labels(texts: list[str]) -> list[Label]:
+    """一次貼補、跑很多句（突變測試用：幾十萬次呼叫時 patch 的開銷才是瓶頸）。
+    透過 sys.modules 取 jarvis.router，所以換成突變體模組也吃得到。"""
+    import sys
+
+    import jarvis.router  # noqa: F401  確保原版已載入（之後可能被突變體替換）
+    router = sys.modules["jarvis.router"]
+    rec = _Recorder()
+    with _patched(rec):
+        return [_label_one(router, rec, t) for t in texts]
 
 
 def same_route(a: Label, b: Label) -> bool:

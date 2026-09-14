@@ -42,7 +42,10 @@ CASES = [
     ("請幫我把冷氣溫度設在 26 度", "home_control:冷氣=set=26"),
     # 不該誤觸的
     ("今天很開心", "model"),
-    ("裝潢要多少錢", "model"),
+    ("裝潢要多少錢", "info"),
+    ("不要1加1等於多少", "model"),
+    ("開心一點", "model"),
+    ("播報新聞", "model"),
     ("播放", "computer:key:playpause"),
     ("播放周杰倫的歌", "youtube_play:周杰倫"),
     ("查一下台北天氣", "weather:查台北天氣"),

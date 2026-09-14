@@ -137,11 +137,11 @@ def _press(key: str) -> str:
 
 # 「問資訊」而不是「做事」：附近美食、top 10、解釋、翻譯、建議… 這類直接由模型回答（可搜尋），
 # 顯示在手機 / 唸出來，不會去操作電腦。動作動詞在句首的一律不算。
-_ACTION_START = re.compile(r"^(?:幫我|請|用|在)?\s*(?:打開|開啟|開|關掉|關閉|關|播放|播|放|下載|安裝|裝|切換|搜尋|搜|查一下|google|截圖|鎖定|調|設|切到|跳到|回到|執行|啟動|傳|寄|輸入|打字|點)", re.I)
+_ACTION_START = re.compile(r"^(?:幫我|請|用|在)?\s*(?:打開|開啟|開(?!心|會|始|發|學)|關掉|關閉|關(?!於|係)|播放|播(?!報|客)|放(?!假|棄|學)|下載|安裝|裝(?!潢|飾|修)|切換|搜尋|搜|查一下|google|截圖|鎖定|調|設|切到|跳到|回到|執行|啟動|傳|寄|輸入|打字|點)", re.I)
 _INFO_RE = re.compile(
     r"(附近|這附近|周邊|哪裡有|哪裡可以|推薦|top\s*\d+|前\s*\d+\s*名|排行|排名|有什麼好(吃|玩|逛)|好吃的|好玩的|"
     r"什麼是|是什麼|為什麼|為何|怎麼|如何|怎樣|差別|比較(?!大聲|小聲)|解釋|介紹|說明一下|"
-    r"翻譯|意思|建議|該不該|值得|評價|好不好|多少錢|幾點開|營業時間|天氣預報|幫我想|幫我寫|給我.*(清單|名單|列表)|"
+    r"翻譯|意思|建議|該不該|值得|評價|好不好|多少錢|幾點開|營業時間|天氣預報|幫我想|幫我寫|給我.*(清單|名單|列表)|去哪|哪裡|"
     r"\?$|？$|嗎$|吧$|呢$)",
     re.I,
 )
@@ -294,6 +294,8 @@ def _pure_math(t: str) -> str | None:
 
 def _route(text: str) -> str | None:
     text = _normalize(text)
+    if _NEGATION_RE.match(text):
+        return None
     # 媒體鍵 / 報時 / 日期 / 算術：先看「剝掉問法的外圍詞後」是不是就是那件事
     if _NEXT_RE.match(text):
         return _press("nexttrack")
@@ -308,7 +310,7 @@ def _route(text: str) -> str | None:
         return f"Sir, 今天是 {now:%Y 年 %m 月 %d 日}，星期{week}。"
     if (m := _pure_math(bare)) is not None:
         return m
-    if _NEGATION_RE.match(text) or _QUESTION_RE.search(text):
+    if _QUESTION_RE.search(text):
         return None
     for keywords, key in _MEDIA_KEYS.items():
         if text in keywords:
@@ -412,7 +414,7 @@ def _route(text: str) -> str | None:
     #    少掉整整一輪截圖 + 定位（省最多的一條規則）
     core = _POLITE_RE.sub("", text)
     _weatherish = any(k in text for k in ("天氣", "氣溫", "溫度", "下雨", "雨量"))
-    for trigger in ("搜尋", "google一下", "查一下網路", "上網查", "google", "尋找", "查詢", "查查", "找找", "查", "找"):
+    for trigger in ("搜尋", "google一下", "查一下網路", "查網路", "上網查", "google", "尋找", "查詢", "查查", "找找", "查", "找"):
         if core.lower().startswith(trigger) and "剪貼" not in core and not (
             trigger not in ("google一下", "google") and _INFO_RE.search(core[len(trigger):])
         ) and not (trigger in ("查", "找", "尋找", "查詢", "查查", "找找") and _weatherish):

@@ -25,3 +25,18 @@ def test_rules_generator_produces_variants_for_each_relation():
     for rid in BY_ID:
         out = rules.generate("打開記事本", BY_ID[rid], 5)
         assert out and all(o != "打開記事本" for o in out), rid
+
+
+def test_mutation_generate_and_reduce_smoke():
+    from research.mt import mutation, reduce
+
+    src = "import re\n_R = re.compile(r\"^(?:打開|開啟)\\s*(?!心)x?\")\nK = (\"a\", \"b\")\nif 3 <= 4 and not False:\n    pass\n"
+    ms = mutation.generate(src)
+    ops = {m.op for m in ms}
+    assert {"ALT_DEL", "LOOK_DEL", "KW_DEL", "NUM", "CMP", "BOOL"} <= ops
+    assert all(m.source != src for m in ms)
+    # 縮減：3 條測試、需求 {0,1},{1},{2} → 貪婪應選 2 條且全涵蓋
+    cov = [{0, 1}, {1}, {2}]
+    assert set(reduce.kill_set(reduce.greedy(cov), cov)) == {0, 1, 2}
+    assert len(reduce.hgs(cov)) == 2 and len(reduce.irreplaceable_first(cov)) == 2
+    assert abs(reduce.apfd([0, 2, 1], cov, 3) - (1 - (1 + 1 + 2) / 9 + 1 / 6)) < 1e-9

@@ -101,6 +101,9 @@ def main() -> int:
                 # 近似句關係只對「動作」有意義：純問答 / 交給模型的種子改寫後本來就還是問答，不算錯
                 if rel.expect == "different" and seed_label.kind in _NO_NEAR_MISS_KINDS:
                     continue
+                # 模板生成器對非動作句做同義 / 換語序會拆出無意義的句子（「開心一點」→「打開心一點」）；LLM 不受此限
+                if args.gen == "rules" and rel.id in ("R1_synonym", "R3_reorder") and seed_label.kind in _NO_NEAR_MISS_KINDS:
+                    continue
                 if args.gen == "rules":
                     items = rules.generate(seed["text"], rel, args.n)
                 else:

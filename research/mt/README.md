@@ -84,6 +84,31 @@ LLM 改寫剩下的違反幾乎全是 `X→model`：句型我 regex 沒收。看
 LLM 剩下的一半是 R3 語序（「記事本幫我打開」），另一半分散在剪貼簿 / 輸入法 / 安裝的少見講法。
 `tests/test_router_golden.py` 58 條。
 
+## E3–E5：突變測試、縮減、排序（工具已完成，規則式批次的第一組數字）
+
+```bash
+python -m research.mt.mutation                 # 對 router.py 產生突變體、算 測試×突變體 矩陣（out/ 全部批次）
+python -m research.mt.reduce out/matrix_<tag>.csv --drop-trivial
+```
+
+突變運算子是針對意圖路由設計的（`mutation.py` 開頭有表）：刪 regex 的一個分支、刪 lookahead、可選群組變必要、
+關鍵字 tuple 少一個、數字 ±1、比較運算子、and/or/not。router.py 目前產 927 個突變體，跑完 20 秒。
+
+全部批次合併（2 433 條測試 = seeds + 規則式 + 四個溫度；927 個突變體；分三段跑，每段 < 3 分鐘）：
+
+| | 值 | 怎麼讀 |
+|---|---|---|
+| 突變分數 | **0.448**（殺 415 / 927） | 只有規則式批次時 0.215；LLM 句子讓可變點覆蓋率翻倍 |
+| 各來源殺掉的突變體 | seeds 156 · rules 193 · **T0 329** · T0.3 285 · T0.7 288 · T1 243 | **溫度在這裡有差**：違反數四批一樣，但 T0 的句子殺最多突變體、T1 最少——T1 的句子更常漂到 router 根本不處理的區域，對 regex 的「可變點」沒有施力 |
+| 存活 512 | ALT_DEL 355、KW_DEL 109、NUM 21… | 多在 `_INFO_RE` / `_QUESTION_RE` / `_FILLER_RE` 的大詞表：種子沒碰到的詞。下一輪種子要從這裡反推 |
+| 縮減（需求 = 突變體） | 2 433 → **160 條（6.6%）** 保留 100%；同大小隨機 **53%** | greedy 166 / HGS 161 / irreplaceable 160，幾乎一樣 |
+| 縮減（需求 = 關係×種子） | 2 433 → 222 條，保留 56–60%；同大小隨機 57% | **便宜準則 = 隨機**：「每格留一條」不知道哪條有鑑別力，在 2 433 條上也一樣 |
+| 排序 APFD | additional(mutants) **0.983** · total(relseed) 0.84 · random 0.81 · total(mutants) 0.75 · relation-first 0.70 | total 輸隨機是教科書結果（殺最多的測試彼此重複）；先跑 R5 最差，近似句是「不該觸發」，殺的突變體少 |
+| 前 10% 測試 | additional(mutants) 找到 **100%**；隨機約 43% | |
+
+LOOK_DEL 一開始 3 個全存活 → 加 5 條近似句種子（開心一點 / 播報新聞 / 放假…）→ `_BARE_OPEN` 的 lookahead 被殺；
+`_ACTION_START` 的還活著，因為它只影響 info / model 之分，需要「開心嗎」這種問句種子。**突變測試在告訴你種子缺什麼。**
+
 ## 檔案
 
 | 檔案 | 作用 |

@@ -180,6 +180,31 @@
       "id": "model_chat",
       "text": "今天很開心",
       "expect": "model"
+    },
+    {
+      "id": "nm_kaixin",
+      "text": "開心一點",
+      "expect": "model"
+    },
+    {
+      "id": "nm_kaihui",
+      "text": "開會中不要吵",
+      "expect": "model"
+    },
+    {
+      "id": "nm_bobao",
+      "text": "播報新聞",
+      "expect": "model"
+    },
+    {
+      "id": "nm_fangjia",
+      "text": "放假要去哪玩",
+      "expect": "info"
+    },
+    {
+      "id": "nm_zhuanghuang",
+      "text": "裝潢要多少錢",
+      "expect": "info"
     }
   ]
 }
