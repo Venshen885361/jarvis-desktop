@@ -108,7 +108,9 @@ def _classify_text_result(text: str, result: str) -> Label:
         return Label("date")
     if result == "Sir, 要設定成多少？":
         return Label("home_control", "?")
-    if result in ("Sir, 我在。", "Sir, 隨時待命。", "Sir, 這是我的榮幸。", "Sir, 不客氣。", "Sir, 系統運作正常。"):
+    import jarvis.router as router
+
+    if result in router._GREETINGS.values():
         return Label("greeting")
     if result.startswith("Sir, 已為您搜尋"):
         return Label("open_url", "google:" + re.sub(r"^Sir, 已為您搜尋「|」。$", "", result))
