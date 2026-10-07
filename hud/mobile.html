@@ -378,6 +378,7 @@ const Orb = Avatar;   // 登入頁用同一個引擎
   // 手機 App 的固定下載點（GitHub Actions 每次 build 覆蓋，公開 repo 不用登入）
   const APP_APK = 'https://github.com/Venshen885361/jarvis-desktop/releases/download/android-latest/JARVIS-android.apk';
   const APP_IPA = 'https://github.com/Venshen885361/jarvis-desktop/releases/download/ios-latest/JARVIS-unsigned.ipa';
+  const APP_WIN = 'https://github.com/Venshen885361/jarvis-desktop/releases/download/windows-latest/JARVIS-Setup.exe';
 
   // ---------- 畫面切換 ----------
   function showLogin(err) {
@@ -631,7 +632,7 @@ const Orb = Avatar;   // 登入頁用同一個引擎
            : card('📱', 'JARVIS 遙控 App（Android）', '就是這個畫面的 App 版：原生語音、定位、不用瀏覽器。允許未知來源後直接裝', APP_APK, '下載')) +
       card('', 'JARVIS 遙控 App（iPhone）', '未簽章 IPA，電腦用 Sideloadly + 自己的 Apple ID 安裝（免費，7 天重簽）。不想裝就用 Safari 加入主畫面', APP_IPA, '下載', true) +
       (win ? card('🖥', 'JARVIS 電腦版（Windows）', `${win.name} · ${fmt(win.size)} · 從這台 JARVIS 直接下載`, `${cfg.url}${win.url}?token=${tok}`, '下載')
-           : card('🖥', 'JARVIS 電腦版（Windows）', '桌寵 + 語音 + 操作電腦。解壓後執行 JARVIS.exe', info.releases, 'GitHub', true)) +
+           : card('🖥', 'JARVIS 電腦版（Windows）', '安裝包：桌寵 + 語音 + 操作電腦，裝好第一次啟動會要你貼 API 金鑰', APP_WIN, '下載')) +
       (agent ? card('🤖', 'JARVIS Agent（Android 被控端）', `${agent.name} · ${fmt(agent.size)} · 讓 JARVIS 操作這支手機`, `${cfg.url}${agent.url}?token=${tok}`, '下載')
              : card('🤖', 'JARVIS Agent（Android 被控端）', '讓 JARVIS 操作 Android 手機（無障礙服務）。以 Android Studio 編譯 android/ 或等 Release', info.releases, 'GitHub', true));
     $('#dlNote').innerHTML = 'Android 裝 APK 要允許「安裝未知來源的應用程式」；每次 build 若簽章不同，覆蓋安裝會被拒，先解除安裝再裝。要從這台 JARVIS 直接提供檔案：把 <code>JARVIS-android.apk</code>、<code>JARVIS-windows.zip</code>、<code>jarvis-agent.apk</code> 放到 <code>dist/downloads/</code>。';

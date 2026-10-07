@@ -16,9 +16,9 @@ from .vision import _encode
 # ---- 捏合判定參數 ----
 # 距離一律除以「手掌大小」（手腕 → 中指根部）再比較，手離鏡頭遠近都用同一套標準。
 PINCH_ON_RATIO = 0.20    # 比例低於此 → 進入捏合（開始／持續框選）
-PINCH_OFF_RATIO = 0.7   # 比例高於此 → 才算放開。中間那段是遲滯區：不改變狀態
+PINCH_OFF_RATIO = 0.65   # 比例高於此 → 才算放開。中間那段是遲滯區：不改變狀態
 PINCH_ON_FRAMES = 3      # 連續 N 幀低於 ON 才真的開始，避免手一晃就誤觸
-RELEASE_FRAMES = 6       # 連續 N 幀高於 OFF 才算放開（約 0.2 秒），單幀抖動不會斷
+RELEASE_FRAMES = 15       # 連續 N 幀高於 OFF 才算放開（約 0.2 秒），單幀抖動不會斷
 SMOOTH_ALPHA = 0.45      # 座標指數平滑；越小越穩但越遲鈍
 TIMEOUT_SECONDS = 45
 DISPLAY_SCALE = 2
@@ -53,7 +53,7 @@ def select_region_with_gesture():
         return "Sir, 無法開啟攝影機。", None
 
     hands = mp_hands.Hands(
-        max_num_hands=1,
+        max_num_hands=2,
         min_detection_confidence=0.6,
         # 追蹤門檻調低：0.7 會讓 mediapipe 在手稍微模糊時整幀放棄，等於憑空多出一次「放開」
         min_tracking_confidence=0.5,

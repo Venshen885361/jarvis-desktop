@@ -6,6 +6,10 @@
     # LLM，掃溫度（每個溫度一批；同參數第二次跑走快取）
     python -m research.mt.run --gen llm --model gemini-3.5-flash-lite --temperature 0 0.3 0.7 1.0 --n 5
 
+    # E2 非確定性底線：同參數真的再打一次 API（--rep 1、--rep 2 各一批，tag 加 _rep1 / _rep2；中斷可續跑）
+    # --seed-filter 只用原始 41 條種子（id 不以 sv_ 開頭），才跟第一次的 T0 批次可比
+    python -m research.mt.run --gen llm --temperature 0 --rep 1 --seed-filter "^(?!sv_)"
+
     # 只看違反的案例
     python -m research.mt.run --gen rules --show-violations
 
@@ -84,15 +88,19 @@ def main() -> int:
     ap.add_argument("--seeds", default=str(HERE / "seeds.json"))
     ap.add_argument("--show-violations", action="store_true")
     ap.add_argument("--no-cache", action="store_true")
+    ap.add_argument("--rep", type=int, default=0, help="同參數第幾次重跑（>0 另開快取鍵並在 tag 加 _repN）")
+    ap.add_argument("--seed-filter", default=None, help="只用 id 符合這個 regex 的種子（例：^(?!sv_) 排除 killer 種子）")
     args = ap.parse_args()
 
     seeds = json.loads(Path(args.seeds).read_text(encoding="utf-8"))["seeds"]
+    if args.seed_filter:
+        seeds = [s for s in seeds if re.search(args.seed_filter, s["id"])]
     rels = [r for r in RELATIONS if r.id in args.relations]
     temps = args.temperature if args.gen == "llm" else [None]
     OUT.mkdir(parents=True, exist_ok=True)
 
     for temp in temps:
-        tag = "rules" if temp is None else f"{args.model}_T{temp:g}"
+        tag = "rules" if temp is None else f"{args.model}_T{temp:g}" + (f"_rep{args.rep}" if args.rep else "")
         rows: list[dict] = []
         gen_fail = 0
         for seed in seeds:
@@ -108,7 +116,7 @@ def main() -> int:
                     items = rules.generate(seed["text"], rel, args.n)
                 else:
                     r = llm.generate(seed["text"], rel, args.n, model=args.model, temperature=temp,
-                                     use_cache=not args.no_cache)
+                                     use_cache=not args.no_cache, rep=args.rep)
                     items = r["items"]
                     gen_fail += 0 if r["ok"] else 1
                 seen = set()

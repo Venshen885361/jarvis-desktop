@@ -75,6 +75,26 @@ CASES = [
     ("拿鏡頭看看這是啥", "camera_search"),
     ("可以藏起來嗎", "hide"),
     ("早安", "greeting"),
+    # 第四輪（突變測試 + E2 後）：受詞在前沒有「把」、語助詞不把任務變問答、google 也走純問答、lens 觸發詞不被「找」搶走、跳到下一…不是視窗
+    ("記事本幫我打開", "open_application:記事本"),
+    ("下載資料夾幫我打開", "open_folder:下載"),
+    ("周杰倫的歌播放一下", "youtube_play:周杰倫"),
+    ("YouTube開一下", "open_application:YouTube"),
+    ("Discord，下載", "install_app:Discord"),
+    ("把晴天播", "youtube_play:晴天"),
+    ("把Chrome切換到", "focus_window:Chrome"),
+    ("python 教學幫我搜尋", "open_url:google:python 教學"),
+    ("聽廣播", "model"),                      # 「廣播」不是「播 廣」
+    ("完成安裝", "model"),                    # 「安裝 完成」不是安裝一個叫完成的程式
+    ("記事本要怎麼打開", "info"),
+    ("把桌面上的截圖整理到一個資料夾好嗎", "model"),   # 語助詞不能把任務變成問答
+    ("欸，台北 top 10 美食", "info"),
+    ("google 附近有什麼好吃的", "info"),
+    ("google python 教學", "open_url:google:python 教學"),
+    ("幫我找來源", "lens_search"),
+    ("找出處", "lens_search"),
+    ("跳到下一頁", "model"),
+    ("幫我跳下一首歌", "computer:key:nexttrack"),
 ]
 
 

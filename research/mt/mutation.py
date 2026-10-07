@@ -291,14 +291,53 @@ def merge_parts() -> int:
     return 0
 
 
+def kills_by_batch(matrix_csv: Path, tags: list[str]) -> dict[str, dict]:
+    """每個批次各自殺掉幾個突變體——**不受去重順序影響**。
+
+    load_tests 對同一句只留第一次出現的批次，所以 summarize 的 killed_by_source 偏袒排前面的批次
+    （四個溫度句子重疊約 23%，排最後的 T1 會少算一截）。這裡改成：一句話屬於「所有含這句的批次」，
+    每個批次的殺傷 = 它所有句子（含重複出現在別批的）殺的聯集。"""
+    with matrix_csv.open(encoding="utf-8") as f:
+        data = list(csv.reader(f))
+    text_kills: dict[str, set[int]] = {}
+    for r in data[1:]:
+        text_kills.setdefault(r[1], set()).update(j for j, v in enumerate(r[4:]) if v == "1")
+    seeds = json.loads((Path(__file__).resolve().parent / "seeds.json").read_text(encoding="utf-8"))["seeds"]
+    batches: dict[str, set[str]] = {
+        "seed": {s["text"] for s in seeds if not s["id"].startswith("sv_")},
+        "seed_sv": {s["text"] for s in seeds if s["id"].startswith("sv_")},
+    }
+    for tag in tags:
+        p = OUT / f"tests_{tag}.jsonl"
+        if p.is_file():
+            rows = [json.loads(line) for line in p.read_text(encoding="utf-8").splitlines() if line.strip()]
+            batches[tag] = {r["text"] for r in rows if r["valid"] and not r["violation"]}
+    out = {}
+    for tag, texts in batches.items():
+        killed: set[int] = set()
+        n = 0
+        for t in texts:
+            if t in text_kills:
+                n += 1
+                killed |= text_kills[t]
+        out[tag] = {"tests": n, "killed": len(killed)}
+    return out
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--tags", nargs="*", default=None, help="要用的批次（預設 out/ 裡全部）")
+    ap.add_argument("--by-batch", metavar="MATRIX_CSV", help="從已算好的矩陣算每批次各自的殺傷（不受去重順序影響）")
     ap.add_argument("--list", action="store_true")
     ap.add_argument("--limit", type=int, default=0, help="只跑前 N 個突變體（debug）")
     ap.add_argument("--range", type=int, nargs=2, metavar=("FROM", "TO"), help="只跑第 FROM..TO-1 個突變體（分段跑用），寫 matrix_part_FROM-TO.csv")
     ap.add_argument("--merge", action="store_true", help="把 out/matrix_part_*.csv 合併成完整矩陣並算統計")
     args = ap.parse_args()
+    if args.by_batch:
+        tags = args.tags or sorted(p.stem[len("tests_"):] for p in OUT.glob("tests_*.jsonl"))
+        for tag, d in kills_by_batch(Path(args.by_batch), tags).items():
+            print(f"{tag:36} 測試 {d['tests']:5d}  殺 {d['killed']:4d}")
+        return 0
     if args.merge:
         return merge_parts()
 

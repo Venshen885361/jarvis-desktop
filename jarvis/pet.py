@@ -32,9 +32,9 @@ from .config import settings
 
 PHI = (1 + 5**0.5) / 2
 
-MIN_SIZE, MAX_SIZE = 120, 640
+MIN_SIZE, MAX_SIZE = 120, 320
 # 講話動畫的整體強度：1.0 = 預設；嫌太安靜就調大，太誇張就調小（.env: JARVIS_PET_SPEAK_AMP）
-SPEAK_AMP = float(os.environ.get("JARVIS_PET_SPEAK_AMP", "1.6"))
+SPEAK_AMP = float(os.environ.get("JARVIS_PET_SPEAK_AMP", "1.0"))
 PREFS_PATH = Path.home() / ".jarvis_pet.json"  # 記住大小與位置，下次開在同一個地方
 
 # 狀態 → (R, G, B, 自轉速度倍率)
@@ -103,6 +103,7 @@ class DesktopPet:
         self.caption_until = 0.0
         self.rings: list[float] = []  # 講話時往外擴散的聲波圈（記錄誕生時刻）
         self.device = ""  # 目前控制的裝置名稱（非本機時顯示）
+        self.on_login = None  # __main__ 掛進來：右鍵選單「更換 API 金鑰」開登入視窗
 
         self.root = tk.Tk()
         self.root.title("J.A.R.V.I.S.")
@@ -262,6 +263,8 @@ class DesktopPet:
         menu.add_command(label="重設大小", command=lambda: self.set_size(240))
         menu.add_separator()
         menu.add_command(label="回到右下角", command=self._place_bottom_right)
+        menu.add_separator()
+        menu.add_command(label="更換 API 金鑰 / 後端…", command=lambda: self.on_login() if self.on_login else None)
         menu.add_separator()
         menu.add_command(label="隱藏桌寵，背景繼續聽  (Esc / ×)", command=self.hide)
         menu.add_command(label="完全退出 J.A.R.V.I.S.", command=self.quit)

@@ -59,13 +59,13 @@ class _LazyProvider:
     def run_turn(self, user_text: str) -> str:
         p = self.get()
         if p is None:
-            return f"Sir, 模型後端無法啟動：{self._failed}"
+            return f"Sir, 模型後端無法啟動：{self._failed}（右鍵桌寵 → 更換 API 金鑰，或 python -m jarvis --login）"
         return p.run_turn(user_text)
 
     def answer(self, user_text: str, context: str = "") -> str:
         p = self.get()
         if p is None:
-            return f"Sir, 模型後端無法啟動：{self._failed}"
+            return f"Sir, 模型後端無法啟動：{self._failed}（右鍵桌寵 → 更換 API 金鑰，或 python -m jarvis --login）"
         return p.answer(user_text, context)
 
 
@@ -126,31 +126,45 @@ def main() -> int:
         "--voice", action="store_true",
         help="搭配 --serve：這台機器的麥克風也能用（Hey Jarvis 喚醒），回覆用喇叭唸"
     )
+    parser.add_argument("--login", action="store_true", help="強制開啟登入畫面（更換 API 金鑰 / 後端）")
     args = parser.parse_args()
 
+    # CLI 覆寫同時寫進 os.environ：登入 / 設定頁改金鑰後 config.reload() 重算，這些才不會被 .env 蓋回去
+    import os as _os
+
     if args.text or args.once or args.serve:
+        _os.environ["JARVIS_TEXT_MODE"] = "1"
         object.__setattr__(settings, "text_mode", True)
     if args.provider:
+        _os.environ["JARVIS_PROVIDER"] = args.provider
         object.__setattr__(settings, "provider", args.provider)
+
+    # 本機端登入：桌寵 / HUD 模式一定要有可用的金鑰才啟動（--once 可以離線試玩、--serve 由手機設定頁處理）
+    if not args.serve and not args.once:
+        from .login import needs_login, run_login
+
+        if (args.login or needs_login()) and not run_login():
+            print("[登入] 未登入，J.A.R.V.I.S. 不啟動。再執行一次並輸入金鑰，或 python -m jarvis --login。")
+            return 1
 
     provider = _LazyProvider()
     if args.serve:
         # 手機遙控：HTTP + WS 都綁到 server_host，輸入來自 server.text_queue
         from . import server, speech
 
+        _os.environ["JARVIS_WS_HOST"] = settings.server_host
         object.__setattr__(settings, "ws_host", settings.server_host)
         start_ws_server()
         server.start(settings.server_host, settings.server_port, settings.agent_token)
         server.on_settings_changed = provider.reset
         speech.use_text_queue(server.text_queue)
         # 語音：--voice 或 JARVIS_WAKE_WORD=1 → 麥克風執行緒 + 喇叭輸出
-        import os as _os
-
         want_voice = args.voice or settings.wake_word
         if want_voice:
             from . import voice
 
             if args.voice:
+                _os.environ["JARVIS_WAKE_WORD"] = "1"
                 object.__setattr__(settings, "wake_word", True)
             if voice.start(server.text_queue):
                 speech.voice_out = _os.environ.get("JARVIS_SERVE_TTS", "1") != "0"
@@ -179,6 +193,10 @@ def main() -> int:
     from .pet import DesktopPet
 
     pet = DesktopPet()
+    # 右鍵選單「更換 API 金鑰」：開登入視窗，存好就丟掉舊 provider 重建
+    from .login import LoginWindow
+
+    pet.on_login = lambda: LoginWindow(parent=pet.root, on_done=lambda ok: provider.reset() if ok else None)
     if settings.text_mode:
         speech.use_text_queue(pet.text_queue)  # 打字改在寵物下方的輸入框
         print("[系統] 文字模式：請在桌邊寵物下方的輸入框輸入指令。")

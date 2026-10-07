@@ -140,7 +140,7 @@ def _press(key: str) -> str:
 _ACTION_START = re.compile(r"^(?:幫我|請|用|在)?\s*(?:打開|開啟|開(?!心|會|始|發|學)|關掉|關閉|關(?!於|係)|播放|播(?!報|客)|放(?!假|棄|學)|下載|安裝|裝(?!潢|飾|修)|切換|搜尋|搜|查一下|google|截圖|鎖定|調|設|切到|跳到|回到|執行|啟動|傳|寄|輸入|打字|點)", re.I)
 _INFO_RE = re.compile(
     r"(附近|這附近|周邊|哪裡有|哪裡可以|推薦|top\s*\d+|前\s*\d+\s*名|排行|排名|有什麼好(吃|玩|逛)|好吃的|好玩的|"
-    r"什麼是|是什麼|為什麼|為何|怎麼|如何|怎樣|差別|比較(?!大聲|小聲)|解釋|介紹|說明一下|"
+    r"什麼是|是什麼|為什麼|為啥|為甚麼|為何|怎麼|如何|怎樣|差別|比較(?!大聲|小聲)|解釋|介紹|說明一下|"
     r"翻譯|意思|建議|該不該|值得|評價|好不好|多少錢|幾點開|營業時間|天氣預報|幫我想|幫我寫|給我.*(清單|名單|列表)|去哪|哪裡|"
     r"\?$|？$|嗎$|吧$|呢$)",
     re.I,
@@ -151,7 +151,8 @@ _SEARCH_VERB = re.compile(r"^(?:幫我|請|麻煩)?\s*(?:搜尋|搜|查詢|查�
 
 
 def is_info_query(text: str) -> bool:
-    t = text.strip()
+    # 跟 _route 用同一套正規化：「欸，把截圖整理到資料夾好嗎」的填充詞 / 語助詞不該把一個任務變成問答
+    t = _normalize(text)
     if not t:
         return False
     # 「搜尋台北 top 10 美食」「幫我查附近有什麼好吃的」：動詞是搜尋，內容卻是要推薦 / 排行 → 直接回答比開 Google 好
@@ -159,7 +160,9 @@ def is_info_query(text: str) -> bool:
         return True
     if _ACTION_START.match(t):
         return False
-    return bool(_INFO_RE.search(t))
+    # 問資訊的線索常在句尾（呢 / 嗎 / 多少），_normalize 會剝掉；只剝掉純客氣的「好嗎 / 可以嗎」再看一次原句
+    soft = _POLITE_TAIL_RE.sub("", _FILLER_RE.sub("", _OUTER_RE.sub("", text.strip())))
+    return bool(_INFO_RE.search(t) or _INFO_RE.search(soft))
 
 
 def try_local(user_input: str) -> str | None:
@@ -202,6 +205,7 @@ _INSTALL_RE = re.compile(
     r"(?:請)?(?:幫我)?(?P<steam>(?:用|在|去|從|透過|藉由)?\s*steam\s*(?:上面|裡面|上|裡)?\s*(?:來)?)\s*(?:(?P<run>開|玩|啟動|執行)|下載並安裝|下載安裝|下載|安裝|裝)"  # 有 Steam：動詞放寬
     r"|(?:請)?(?:幫我|協助|幫忙)?(?:下載並安裝|下載安裝|下載|安裝)"                                                          # 沒 Steam：只認 下載 / 安裝
     r"|(?:請)?(?:幫我|幫忙)(?:裝|載)"                                                                                     # 「幫我裝 VLC」「幫我載 VLC」；單獨「裝」會撞「裝潢」
+    r"|裝(?=一下|\s+[A-Za-z])"                                                                                             # 「裝一下 VLC」「裝 VLC」：一下 / 英文名就是安裝的證據
     r")\s*(?:一下)?\s*(?P<q>.+?)\s*(?P<game>這款遊戲|這個遊戲|的遊戲)?\s*(?:這個程式|這個)?$",
     re.I,
 )
@@ -215,26 +219,48 @@ _PLAY_RE = re.compile(
     re.I,
 )
 
+_POLITE_TAIL_RE = re.compile(r"(?:[，,\s]*(?:好嗎|好不好|可以嗎|可不可以|行嗎|行不行|OK嗎|ok嗎|一下|謝謝|謝啦|拜託))+[。！!？?]*$")
+
+_LENS_KEYS = ("lens", "以圖搜圖", "反向搜", "反向查", "圖片搜尋", "找出處", "找來源", "用圖片", "用照片", "這張照片", "這張圖", "用圖")
+
 _DEVICE_PREFIX = re.compile(r"^(?:用|在|請用|幫我用)(手機|電腦|桌機|筆電|本機)(?:上|裡)?[，,\s]*")
 
 # ---- 正規化（蛻變測試找到的一整類錯：任何前綴 / 語助詞就讓 startswith 型規則失效）----
 # 句首填充：「欸」「那個」「嗯」「JARVIS」「對了」——說話時的口頭禪，對意圖沒有貢獻
-_FILLER_RE = re.compile(r"^(?:(?:欸|誒|嘿|喂|那個|嗯|呃|對了|哎呀|哎|唉|好啦|好的|好嗎|好了|jarvis|賈維斯)[，,、。!！\s]*)+", re.I)
+_FILLER_RE = re.compile(r"^(?:(?:欸|誒|嘿|喂|那個|嗯|呃|對了|哎呀|哎|唉|好啦|好的|好嗎|好了|趕快|快點|馬上|立刻|jarvis|賈維斯)[，,、。!！\s]*)+", re.I)
 # 外層客氣話：「麻煩」「可以」「能不能」——剝掉後留下「幫我 / 請」給各規則自己處理（_INSTALL_RE 靠「幫我裝」區分「裝潢」）
 _OUTER_RE = re.compile(r"^(?:麻煩|拜託|可以|可不可以|能不能|能否)+[，,\s]*")
 # 內層：startswith 型規則（搜尋 / 切換 / 複製）比對前再剝「幫我 / 請」
 _POLITE_RE = re.compile(r"^(?:幫我|請|替我|幫忙)+\s*")
 # 句尾語助詞：「一下」「好嗎」「謝謝」——不剝掉會黏進程式名（open_application("記事本好嗎")）
-_TAIL_RE = re.compile(r"(?:[，,\s]*(?:一下下|一下|好嗎|好不好|可以嗎|行嗎|謝謝|謝啦|拜託|好了|喔|啦|吧|呢|哦|嘛|唷|喲|啊|呀|耶|那邊))+[。！!？?]*$")
+_TAIL_RE = re.compile(r"(?:[，,\s]*(?:一下下|一下|好嗎|好不好|可以嗎|行嗎|謝謝|謝啦|拜託|好了|喔|啦|吧|呢|哦|嘛|唷|喲|啊|呀|耶|那邊|這個(?:\s*app|程式|軟體|網站)?|這首歌|這首|來聽聽|給我聽|看看))+[。！!？?]*$", re.I)
 # 動詞後面的「一下」：「搜尋一下 python」「播放一下周杰倫」——語氣，不是目標的一部分
 _MID_YIXIA_RE = re.compile(r"(搜尋|搜|播放|播|放|打開|開啟|開|關掉|關|下載|安裝|裝|查詢|查|找|幫我|幫忙|麻煩|看|聽|用|鎖定|鎖|切換|切|設定|設|調)(?:一下|個)")
 # 「我要看 YouTube」「我想聽晴天」「想裝 VLC」：意願句 = 指令；看 / 用 → 開，聽 → 播
 _DESIRE_RE = re.compile(r"^(?:我)?(?:想要|想|要|需要)\s*(看|用|聽|開|打開|裝|播|放|下載|安裝|查|找|切換到|切到|切換|切)\s*(?=\S)")
 _DESIRE_VERB = {"看": "開", "用": "開", "聽": "播", "裝": "安裝"}
 # 「把記事本打開」「把 Terraria 裝起來」：受詞在前的句型，翻回動詞在前
-_SOV_RE = re.compile(r"^((?:用|在|去|透過|藉由)\s*\S+\s*)?(?:把|將)\s*(.+?)\s*(打開|開啟|開起來|開一下|裝起來|裝好|安裝好|裝一下|鎖定起來|鎖定|鎖起來|鎖上|關掉|關閉|關上|關起來|熄掉|熄滅)$")
-_SOV_VERB = {"打開": "打開", "開啟": "開啟", "開起來": "打開", "開一下": "打開", "裝起來": "安裝", "裝好": "安裝", "安裝好": "安裝", "裝一下": "安裝",
-             "鎖定起來": "鎖定", "鎖定": "鎖定", "鎖起來": "鎖定", "鎖上": "鎖定", "關掉": "關掉", "關閉": "關掉", "關上": "關掉", "關起來": "關掉", "熄掉": "關掉", "熄滅": "關掉"}
+_SOV_RE = re.compile(r"^((?:用|在|去|透過|藉由)\s*\S+\s*)?(?:把|將)\s*(.+?)\s*(打開|開啟|開起來|開一下|裝起來|裝好|安裝好|裝一下|安裝|裝|鎖定起來|鎖定|鎖起來|鎖上|關掉|關閉|關上|關起來|熄掉|熄滅|播放|播|放|下載|搜尋|切換到|切到|開)$")
+_SOV_VERB = {"打開": "打開", "開啟": "開啟", "開起來": "打開", "開一下": "打開", "開": "開", "裝起來": "安裝", "裝好": "安裝", "安裝好": "安裝", "裝一下": "安裝", "安裝": "安裝", "裝": "安裝",
+             "鎖定起來": "鎖定", "鎖定": "鎖定", "鎖起來": "鎖定", "鎖上": "鎖定", "關掉": "關掉", "關閉": "關掉", "關上": "關掉", "關起來": "關掉", "熄掉": "關掉", "熄滅": "關掉",
+             "播放": "播放", "播": "播", "放": "播", "下載": "下載", "搜尋": "搜尋", "切換到": "切換到", "切到": "切換到"}
+# 受詞在前、沒有「把」：「記事本幫我打開」「周杰倫的歌播放一下」「Discord，下載」——蛻變測試 R3（換語序）剩下的錯幾乎全是這一類。
+# 只在整句沒有任何規則接住時才試（_route 最後的 fallback），而且動詞前要有分隔（逗號 / 幫我）或是雙字動詞，
+# 免得「聽廣播」變成「播聽廣」、「完成安裝」變成「安裝完成」。
+_OBJ_FIRST_RE = re.compile(
+    r"^(?P<obj>[^，,。]{1,25}?)"
+    r"(?:[，,\s]*(?:請幫我|請|幫我|幫忙|麻煩)+\s*(?:趕快|快點|先|馬上|立刻)?\s*"
+    r"(?P<v1>打開|開啟|播放|播|放|下載|安裝|裝|切換到|切到|切換過去|切過去|切|搜尋|鎖定|鎖上|關掉|關閉|開)"     # 有「幫我」分隔：裸動詞也行
+    r"|[，,]+\s*(?P<v2>打開|開啟|播放|播|放|下載|安裝|裝|切換到|切到|搜尋|鎖定|關掉|開)"                      # 有逗號分隔
+    r"|\s*(?:趕快|快點|先|馬上|立刻)?\s*(?P<v3>打開|開啟|播放|下載|安裝|切換到|切到|鎖定)"                    # 沒分隔：只認雙字動詞
+    r"|\s*(?:趕快|快點|先|馬上|立刻)?\s*(?P<v4>播|放|裝|搜尋|開)(?=一下))"                                # 裸動詞要有「一下」墊在後面才算
+    r"(?:一下|個|起來|過去)?$"
+)
+_OBJ_FIRST_VERB_MAP = {"切過去": "切換到", "切換過去": "切換到", "切": "切換到", "鎖上": "鎖定", "關閉": "關掉"}
+_OBJ_FIRST_STOP = re.compile(r"怎|如何|什麼|為何|為什麼|嗎|不|沒|無法|能|會|該|完成|重新|已經|正在|開始|取消|停止|自動|手動|需要|可以|請問|的方法|方式|步驟")
+_OBJ_FIRST_VERB = {"裝": "安裝", "放": "播", **_OBJ_FIRST_VERB_MAP}   # 裸「裝」要靠「幫我裝」才不會跟「裝潢」混，翻過來時直接用安裝
+# 受詞上黏著的描述詞：「YouTube 這個 App」「Chrome 這個程式」「晴天這首歌」「記事本趕快」
+_OBJ_TRIM_RE = re.compile(r"(?:[，,\s]*(?:這個\s*(?:app|程式|軟體|網站|遊戲)?|這首歌|這首|這款|瀏覽器|趕快|快點|先|馬上|立刻|一下|看看|把它|它))+$", re.I)
 # 否定 / 反問：「不要打開記事本」「我不想播晴天」——本機規則不該執行，交給模型用講的回
 _NEGATION_RE = re.compile(r"^(?:先)?(?:不要|別|不用|不必|不想|不准|不可以|我不想|我不要|我不用|千萬不要|拜託不要)")
 
@@ -268,17 +294,24 @@ def _normalize(text: str) -> str:
     # 受詞在前：「把記事本打開」「請幫我把記事本打開」→「打開記事本」
     if (m := _SOV_RE.match(_POLITE_RE.sub("", t))):
         t = (m.group(1) or "") + _SOV_VERB[m.group(3)] + m.group(2)
+    # 受詞在前、有分隔：「記事本幫我打開」「下載資料夾，打開」——分隔（幫我 / 逗號）標出了受詞邊界，可以直接翻
+    #（沒分隔的「周杰倫的歌播放一下」留到 _route 最後才試，免得搶到別的規則）
+    elif (m := _OBJ_FIRST_RE.match(t)) and (m.group("v1") or m.group("v2")):
+        obj = _OBJ_TRIM_RE.sub("", m.group("obj")).strip(" ，,。")
+        if obj and not _OBJ_FIRST_STOP.search(obj):
+            verb = m.group("v1") or m.group("v2")
+            t = _OBJ_FIRST_VERB.get(verb, verb) + obj
     return t or text.strip()
 
 
 # 「幫我看一下現在幾點」「你知道1加1等於多少嗎」——問東西時的外圍詞，剝掉後看剩下的是不是純問題
-_ASK_RE = re.compile(r"(?:幫我|請|麻煩|替我|你|想問|問一下|問|看一下|看下|看看|看|查一下|查|告訴我|跟我說|跟我講|說一下|講一下|知道|可以|到底|現在是|是|請問|那|一下|嗎|呢|啊|呀|啦|喔|[，,\s])")
+_ASK_RE = re.compile(r"(?:幫我|請|麻煩|替我|你|想問|問一下|問|看一下|看下|看看|看|查一下|查|告訴我|跟我說|跟我講|說一下|講一下|知道|可以|到底|現在是|現在|目前|今天|是|請問|那|一下|了(?!嗎|沒)|嗎|呢|啊|呀|啦|喔|[，,\s])")
 _TIME_RE = re.compile(r"(?:現在|目前)?(?:幾點鐘|幾點|時間|報時)(?:幾點|了|鐘)?")
 _DATE_RE = re.compile(r"(?:今天|今日|現在)?(?:幾號|日期|星期幾|禮拜幾|週幾|幾月幾號|禮拜幾號|星期幾號)(?:了)?")
 _NEXT_RE = re.compile(r"^(?:請)?(?:幫我)?(?:播放|播|放|跳到|切到|切換到|轉到|換到|跳|切|換|來)?\s*(下一首歌|下一首|下一曲|換一首|換首歌|換首聽|換首|跳過這首|跳過)(?:歌)?$")
 _PREV_RE = re.compile(r"^(?:請)?(?:幫我)?(?:播放|播|放|跳到|切到|切換到|轉到|換到|回到|跳|切|換)?\s*(上一首歌|上一首|上一曲|前一首)(?:歌)?$")
 _LOCK_RE = re.compile(r"^(?:請)?(?:幫我|執行|幫忙)?\s*(?:(?:鎖定|鎖)\s*(?:螢幕|畫面|電腦|屏)|(?:螢幕|畫面|電腦)\s*(?:鎖定|鎖起來|鎖上|鎖)|鎖屏|lock screen)$", re.I)
-_SWITCH_RE = re.compile(r"^(?:請)?(?:幫我)?(?:把)?(?:畫面|視窗)?\s*(?:切換|切|轉換|轉|跳|換|改)\s*(?:到|至|去|過去|回|成|用|看)?\s*(.+?)\s*(?:畫面|視窗|那邊)?$")
+_SWITCH_RE = re.compile(r"^(?:請)?(?:幫我)?(?:把)?(?:畫面|視窗)?\s*(?:切換|切|轉換|轉|跳|換|改)\s*(?:到|至|去|過去|回|成|用|看)*\s*(.+?)\s*(?:上面|上|裡)?\s*(?:畫面|視窗|那邊|好了)?$")
 _SWITCH_STOP = {"靜音", "靜音模式", "英文", "中文", "下一首", "上一首"}
 
 
@@ -292,7 +325,8 @@ def _pure_math(t: str) -> str | None:
     return m if len(rest) <= 2 else None
 
 
-def _route(text: str) -> str | None:
+def _route(text: str, _reordered: bool = False) -> str | None:
+    raw = text.strip()
     text = _normalize(text)
     if _NEGATION_RE.match(text):
         return None
@@ -381,7 +415,8 @@ def _route(text: str) -> str | None:
             content = core0[2:].strip()
             if content:
                 return _dev("write_clipboard", text=content)
-        if re.fullmatch(r"(?:請)?(?:幫我)?(?:看一下|看看|看|查一下|查|讀|唸|念)?(?:目前|現在)?(?:的)?(?:剪貼簿|剪貼板)(?:裡|內|裡面)?(?:有什麼|是什麼|內容|東西)?", text):
+        if re.fullmatch(r"(?:請)?(?:幫我)?(?:看一下|看看|看|查一下|查|讀|唸|念)?(?:目前|現在)?(?:的)?(?:剪貼簿|剪貼板)(?:裡頭|裡面|裡|內)?(?:目前|現在|到底)?"
+                    r"(?:有些|存了|裝了|放了|有|是)?(?:什麼東西|什麼|啥|內容|東西)?|(?:有什麼|有啥)在(?:剪貼簿|剪貼板)(?:裡頭|裡面|裡)?", text):
             return _dev("read_clipboard")
 
     # 3) 網址：整句裡有網域就直接開，不必請模型幫忙認
@@ -407,6 +442,8 @@ def _route(text: str) -> str | None:
         from .tools.media import youtube_play
 
         q = m.group("q").strip(" ，,。的")
+        q = re.sub(r"^(?:看看|一下|個|一首|首)\s*", "", q)
+        q = re.sub(r"^(?:音樂|歌曲|歌)\s*(?=\S)", "", q)                     # 「播音樂周杰倫的」
         q = re.sub(r"(的)?(歌|音樂|影片|MV|mv)$", "", q).strip() or m.group("q")
         return youtube_play(q, music=bool(re.search(r"music|音樂|歌", text, re.I)))
 
@@ -414,10 +451,11 @@ def _route(text: str) -> str | None:
     #    少掉整整一輪截圖 + 定位（省最多的一條規則）
     core = _POLITE_RE.sub("", text)
     _weatherish = any(k in text for k in ("天氣", "氣溫", "溫度", "下雨", "雨量"))
+    _lensish = any(k in text.lower() for k in _LENS_KEYS)
     for trigger in ("搜尋", "google一下", "查一下網路", "查網路", "上網查", "google", "尋找", "查詢", "查查", "找找", "查", "找"):
-        if core.lower().startswith(trigger) and "剪貼" not in core and not (
-            trigger not in ("google一下", "google") and _INFO_RE.search(core[len(trigger):])
-        ) and not (trigger in ("查", "找", "尋找", "查詢", "查查", "找找") and _weatherish):
+        # 「google 附近有什麼好吃的」跟「幫我查附近有什麼好吃的」要走同一條路（純問答），不分觸發詞
+        if core.lower().startswith(trigger) and "剪貼" not in core and not _INFO_RE.search(core[len(trigger):]) \
+                and not (trigger in ("查", "找", "尋找", "查詢", "查查", "找找") and (_weatherish or _lensish)):
             q = core[len(trigger):].strip(" ，,。")
             if q:
                 url = "https://www.google.com/search?q=" + urllib.parse.quote(q)
@@ -426,7 +464,7 @@ def _route(text: str) -> str | None:
 
     # 4.4) Google Lens 以圖搜圖：「用 lens 查」「反向搜尋這個」「以圖搜圖」
     #      要排在 camera_search 前面，因為兩者的觸發詞高度重疊
-    if any(k in text.lower() for k in ("lens", "以圖搜圖", "反向搜", "反向查", "圖片搜尋", "找出處", "找來源", "用圖片", "用照片", "這張照片", "這張圖", "用圖")):
+    if _lensish:
         return _dev("lens_search", use_gesture=any(k in text for k in ("框選", "手勢")))
 
     # 4.5) 鏡頭視覺搜尋：「用鏡頭查這是什麼」「拍一下幫我找哪裡買」「掃描這個」
@@ -480,7 +518,8 @@ def _route(text: str) -> str | None:
     # 6.5) 切換視窗 / 裝置（統一句型）：「切換至 Chrome」「把畫面轉到手機」「跳去 Chrome」「切過去 Chrome」
     if (m := _SWITCH_RE.match(text)):
         target = m.group(1).strip(" ，,。")
-        if target and target not in _SWITCH_STOP:
+        # 「跳到下一頁」「切到第二個」是序列動作，不是視窗名（突變測試：少了「跳」的媒體鍵句會掉到這裡）
+        if target and target not in _SWITCH_STOP and not re.match(r"(?:下一|上一|前一|第)", target) and not re.search(r"輸入法|語言", target):
             if devs.resolve_name(target):
                 return devs.switch(target)
             return _dev("focus_window", keyword=target)
@@ -508,5 +547,15 @@ def _route(text: str) -> str | None:
     # 12) 天氣
     if any(k in text for k in ("天氣", "氣溫", "溫度", "下雨", "雨量")):
         return fetch_weather(text)  # 抓不到時回 None，改交給模型
+
+    # 13) 什麼都沒接到：受詞在前的句型翻成動詞在前再試一次（只翻一次，避免無限遞迴）
+    #     用正規化前的原句比對：「YouTube開一下」的「一下」是受詞邊界的證據，_normalize 會把它剝掉
+    if not _reordered:
+        for cand in (text, _FILLER_RE.sub("", _OUTER_RE.sub("", raw))):
+            if (m := _OBJ_FIRST_RE.match(cand)) and (m.group("v3") or m.group("v4")):
+                obj = _OBJ_TRIM_RE.sub("", m.group("obj")).strip(" ，,。")
+                verb = m.group("v3") or m.group("v4")
+                if obj and not _OBJ_FIRST_STOP.search(obj) and not _ACTION_START.match(obj):
+                    return _route(_OBJ_FIRST_VERB.get(verb, verb) + obj, _reordered=True)
 
     return None

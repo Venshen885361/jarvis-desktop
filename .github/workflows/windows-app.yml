@@ -1,0 +1,68 @@
+name: windows-app
+# 在 GitHub 的 Windows runner 上：PyInstaller 打包 → Inno Setup 安裝包 → Release windows-latest
+# 固定網址：https://github.com/<owner>/<repo>/releases/download/windows-latest/JARVIS-Setup.exe
+# 沒有 code signing（要花錢買憑證）：使用者第一次執行會看到 SmartScreen，「其他資訊 → 仍要執行」。
+# 觸發：手動（Actions → windows-app → Run workflow）或推 v* 標籤（git tag v0.2.0 && git push --tags）。
+# 不跟著每次 push 跑：Windows runner 打包一次約 10 分鐘。
+on:
+  workflow_dispatch:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: 安裝相依（mediapipe 刻意不裝：+300MB，spec 也排除它）
+        shell: pwsh
+        run: |
+          python -m pip install --upgrade pip
+          $req = Get-Content requirements.txt | Where-Object { $_ -notmatch '^\s*mediapipe' }
+          $req | Set-Content req-ci.txt
+          pip install -r req-ci.txt pyinstaller openwakeword numpy
+      - name: PyInstaller → dist\JARVIS
+        shell: pwsh
+        run: python -m PyInstaller --noconfirm --clean jarvis.spec
+      - name: 冒煙測試（exe 離線指令要能跑）
+        shell: pwsh
+        env: { JARVIS_AGENT_TOKEN: ci }
+        run: |
+          # console=False 的 exe 沒有 stdout，看 log 檔
+          Start-Process -FilePath dist\JARVIS\JARVIS.exe -ArgumentList '--text','--once','現在幾點' -Wait
+          Get-Content "$env:USERPROFILE\.jarvis\jarvis.log"
+          if (-not (Select-String -Path "$env:USERPROFILE\.jarvis\jarvis.log" -Pattern "現在是")) { throw "exe 沒有回報時間" }
+      - name: Inno Setup 安裝包
+        shell: pwsh
+        run: |
+          $version = (Select-String -Path pyproject.toml -Pattern '^version\s*=\s*"([^"]+)"').Matches[0].Groups[1].Value
+          try { Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/jrsoftware/issrc/main/Files/Languages/Unofficial/ChineseTraditional.isl" -OutFile installer\ChineseTraditional.isl } catch { Write-Host "no zh-TW isl" }
+          & "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe" "/DAppVersion=$version" installer\JARVIS.iss
+          Copy-Item "dist\JARVIS-Setup-$version.exe" dist\JARVIS-Setup.exe
+          Compress-Archive -Path dist\JARVIS\* -DestinationPath dist\JARVIS-windows.zip -Force
+          Get-ChildItem dist\*.exe, dist\*.zip | Format-Table Name, Length
+      - uses: actions/upload-artifact@v4
+        with:
+          name: JARVIS-windows
+          path: |
+            dist/JARVIS-Setup.exe
+            dist/JARVIS-windows.zip
+      - name: 發佈到 Release windows-latest
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: windows-latest
+          name: JARVIS Windows 安裝包
+          body: |
+            `JARVIS-Setup.exe`：安裝包（預設只裝給目前使用者，不需要管理員）。第一次啟動會跳登入畫面要你貼 API 金鑰。
+            `JARVIS-windows.zip`：免安裝版，解壓後執行 JARVIS.exe。
+            沒有 code signing：SmartScreen 會擋一次，「其他資訊 → 仍要執行」。每次 build 覆蓋。
+          files: |
+            dist/JARVIS-Setup.exe
+            dist/JARVIS-windows.zip

@@ -50,3 +50,12 @@ def test_survivor_classification_is_backed_by_killers():
     bad, stale, rows = survivors.verify(quiet=True)
     assert bad == 0, [r for r in rows if (r[1] == "uncovered") != (r[2] == "殺") and r[1] != "harness"]
     assert stale < len(rows) + stale  # 至少有一筆還對得上
+
+
+def test_kappa():
+    from research.mt.sample import kappa
+
+    a = {"1": 1, "2": 1, "3": 0, "4": 0}
+    assert kappa(a, a) == (1.0, 4)
+    k, n = kappa(a, {"1": 1, "2": 0, "3": 0, "4": 1})
+    assert n == 4 and abs(k) < 1e-9  # 一半同意 = 純機率

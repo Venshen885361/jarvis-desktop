@@ -29,8 +29,11 @@ _SYSTEM = """你是軟體測試的資料產生器。使用者會給你一句對�
 - 只輸出 JSON 陣列（字串陣列），不要任何說明、不要 markdown 圍欄。"""
 
 
-def _cache_key(model: str, temperature: float, seed: str, relation_id: str, n: int) -> Path:
-    h = hashlib.sha1(f"{model}|{temperature}|{seed}|{relation_id}|{n}".encode()).hexdigest()[:16]
+def _cache_key(model: str, temperature: float, seed: str, relation_id: str, n: int, rep: int = 0) -> Path:
+    """rep > 0 是「同參數重跑第幾次」（E2 非確定性底線）：另開一個快取鍵，才會真的再打一次 API，
+    而且跑到一半被中斷可以接著跑（已存的不重打）。rep=0 是第一次跑的快取，鍵不變。"""
+    tail = f"|rep{rep}" if rep else ""
+    h = hashlib.sha1(f"{model}|{temperature}|{seed}|{relation_id}|{n}{tail}".encode()).hexdigest()[:16]
     return CACHE_DIR / f"{h}.json"
 
 
@@ -55,9 +58,9 @@ def _parse_array(text: str) -> list[str] | None:
 
 
 def generate(seed_text: str, relation: Relation, n: int, *, model: str, temperature: float,
-             use_cache: bool = True) -> dict:
+             use_cache: bool = True, rep: int = 0) -> dict:
     """回 {"items": [...], "ok": bool, "raw": str, "meta": {...}}。"""
-    key = _cache_key(model, temperature, seed_text, relation.id, n)
+    key = _cache_key(model, temperature, seed_text, relation.id, n, rep)
     if use_cache and key.is_file():
         return json.loads(key.read_text(encoding="utf-8"))
 
@@ -90,7 +93,7 @@ def generate(seed_text: str, relation: Relation, n: int, *, model: str, temperat
         "ok": items is not None,
         "raw": raw[:4000],
         "meta": {"model": model, "temperature": temperature, "seed": seed_text, "relation": relation.id,
-                 "n": n, "ms": int((time.time() - t0) * 1000), "ts": time.strftime("%Y-%m-%dT%H:%M:%S")},
+                 "n": n, "rep": rep, "ms": int((time.time() - t0) * 1000), "ts": time.strftime("%Y-%m-%dT%H:%M:%S")},
     }
     if use_cache:
         CACHE_DIR.mkdir(parents=True, exist_ok=True)

@@ -65,13 +65,17 @@ def verify(quiet: bool = False) -> tuple[int, int, list[tuple]]:
     """回 (判斷與執行不一致的數, router 改過而對不上的數, 每列結果)。"""
     manual = json.loads(MANUAL.read_text(encoding="utf-8"))
     entries: dict[str, dict] = manual["mutants"]
-    mutants = _mutants_by_id()
+    # 對應突變體用 (op, before, after) 而不是 id：router 一改 id 就位移；同樣的三元組出現多次時取行號最近的
+    index: dict[tuple, list[mutation.Mutant]] = {}
+    for m in _mutants_by_id().values():
+        index.setdefault((m.op, m.before, m.after), []).append(m)
     bad = stale = 0
     rows = []
     for mid, e in entries.items():
-        m = mutants.get(mid)
-        if m is None or e["before"] != m.before:
-            # router.py 改過：id 位移或那條 regex 變了。這筆先跳過，不算判斷錯（要重跑突變測試再重分類）
+        cands = index.get((e["op"], e["before"], e.get("after")), [])
+        m = min(cands, key=lambda c: abs(c.line - e["line"])) if cands else None
+        if m is None:
+            # router.py 改過，那條 regex 變了：這筆先跳過，不算判斷錯（要重跑突變測試再重分類）
             stale += 1
             if not quiet:
                 print(f"[{mid}] router.py 改過，對不上：{e['before'][:40]!r}")

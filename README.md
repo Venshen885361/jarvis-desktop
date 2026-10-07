@@ -29,9 +29,12 @@ python -m venv .venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 
-cp .env.example .env               # 填入 ANTHROPIC_API_KEY
-python -m jarvis
+python -m jarvis                   # 第一次啟動會跳出登入畫面：選後端、貼 API 金鑰、驗證通過才進桌寵
 ```
+
+登入畫面會用最便宜的呼叫（列模型）驗證金鑰，錯的當場告訴你；通過後存到 `~/.jarvis/.env`
+（或專案的 `.env`），只在這台電腦。之後要換金鑰：右鍵桌寵 →「更換 API 金鑰 / 後端」，或 `python -m jarvis --login`。
+不想用畫面的人照舊 `cp .env.example .env` 手填也行。
 
 Windows 使用者可以直接跑 `setup.bat`（建 venv、裝套件、跑一次驗證），之後用 `run.bat` 啟動。
 
@@ -46,12 +49,25 @@ powershell -ExecutionPolicy Bypass -File scripts\make-shortcut.ps1
 桌面會多一個 **J.A.R.V.I.S.** 圖示（那顆 C60），雙擊就跑、沒有黑色視窗；輸出寫在
 `%USERPROFILE%\.jarvis\jarvis.log`。想開機自動啟動，把捷徑複製到「啟動」資料夾（腳本會印路徑）。
 
-要打包成**不需要 Python 的 .exe** 給別人：
+### 安裝包（給不裝 Python 的人）
+
+固定下載網址（CI 產，每次覆蓋）：
+
+- 安裝包：https://github.com/Venshen885361/jarvis-desktop/releases/download/windows-latest/JARVIS-Setup.exe
+- 免安裝 zip：https://github.com/Venshen885361/jarvis-desktop/releases/download/windows-latest/JARVIS-windows.zip
+
+安裝包預設**只裝給目前使用者**（`%LocalAppData%\Programs\JARVIS`，不需要管理員），可勾「開機自動啟動」；
+第一次啟動跳登入畫面貼金鑰，金鑰存 `%USERPROFILE%\.jarvis\.env`，解除安裝不會刪。
+沒有 code signing，SmartScreen 會擋一次（其他資訊 → 仍要執行）。
+
+自己產安裝包：
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts\build-exe.ps1     # → dist\JARVIS\JARVIS.exe
+powershell -ExecutionPolicy Bypass -File scripts\build-installer.ps1   # PyInstaller → Inno Setup → dist\JARVIS-Setup-<版本>.exe
+powershell -ExecutionPolicy Bypass -File scripts\build-exe.ps1         # 只要 dist\JARVIS\JARVIS.exe（免安裝）
 ```
 
+CI：Actions → **windows-app** → Run workflow，或 `git tag v0.2.1 && git push --tags`。
 ⚠️ 打包版刻意不含 mediapipe（+300MB），手勢框選會回報未安裝；其他功能都在。
 
 沒有麥克風？用鍵盤模式先玩玩看：
@@ -84,7 +100,7 @@ Anthropic API 是**預付制，跟 Claude 訂閱（Pro / Max）是分開的** �
 看到 `Your credit balance is too low` 就是這個原因。
 
 想先免費試玩的話改用 Gemini：[AI Studio](https://aistudio.google.com/apikey) 拿一把免費金鑰，
-`.env` 改成 `JARVIS_PROVIDER=gemini` 加 `GEMINI_API_KEY=`。
+登入畫面選 **Gemini** 貼上去（手填 `.env` 的話是 `JARVIS_PROVIDER=gemini` 加 `GEMINI_API_KEY=`）。
 免費層涵蓋本專案預設的 `gemini-3.5-flash` 與 `gemini-3.5-flash-lite`。
 
 代價是 Gemini 沒有官方 computer-use toolset，GUI 操作靠視覺定位，多步驟任務較弱；
@@ -96,7 +112,7 @@ Anthropic API 是**預付制，跟 Claude 訂閱（Pro / Max）是分開的** �
 
 - 重新建一把 **scope 到單一 workspace** 的金鑰（最省事，不用改設定）
 - 或到 [Settings → Workspaces](https://platform.claude.com/settings/workspaces) 拿 id
-  （格式 `wrkspc_xxxxxxxx`），填進 `.env` 的 `ANTHROPIC_WORKSPACE_ID=`
+  （格式 `wrkspc_xxxxxxxx`），填進登入畫面的 Workspace ID（或 `.env` 的 `ANTHROPIC_WORKSPACE_ID=`）
 
 ---
 
@@ -230,7 +246,9 @@ Linux 額外建議安裝：`wmctrl`（非 Hyprland 環境）、`wl-clipboard` �
 ```
 jarvis/
 ├── __main__.py          進入點與主迴圈
-├── config.py            所有可調參數（讀 .env）
+├── config.py            所有可調參數（讀 .env：工作目錄 → 程式目錄 → ~/.jarvis）
+├── login.py             本機登入畫面：選後端、貼金鑰、驗證後存檔（--login 可重開）
+├── envfile.py           .env 的讀寫（設定頁 / 登入畫面共用；JARVIS_AGENT_TOKEN 刻意不可改）
 ├── router.py            本機優先路由 ← 省 token 的第一道關卡
 ├── screen.py            截圖擷取、縮放壓縮、座標換算
 ├── speech.py            STT / TTS（可退回純文字模式；支援 Vosk 離線）

@@ -22,19 +22,10 @@ echo [2/4] Installing core packages ^(first run takes a few minutes^)...
 "%VPY%" -m pip install --upgrade pip --quiet
 "%VPY%" -m pip install --quiet python-dotenv requests anthropic pillow pyautogui pyperclip websockets pygetwindow || goto :fail
 
-if not exist ".env" (
-    copy .env.example .env >nul
-    echo [!] Created .env - fill in ANTHROPIC_API_KEY before running.
-)
-
 echo [3/4] Offline check ^(no API key needed^)...
 "%VPY%" -m jarvis --text --once "現在幾點" || goto :fail
 
-echo [4/4] API check...
-"%VPY%" -m jarvis --text --once "用兩句話解釋 Svelte 5 的 runes"
-
-echo.
-echo Done. Use run.bat to start J.A.R.V.I.S.
+echo [4/4] Done. run.bat will open the login window on first start (paste your API key there).
 pause
 exit /b 0
 
