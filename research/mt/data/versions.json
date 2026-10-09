@@ -1,7 +1,7 @@
 [
  {
   "version": "v0",
-  "sha": "5065037",
+  "sha": "c060593",
   "batches": {
    "rules": {
     "tests": 1373,
@@ -9,24 +9,24 @@
     "faults": 172
    },
    "gemini-3.5-flash-lite_T0": {
-    "tests": 864,
-    "violations": 381,
-    "faults": 148
+    "tests": 964,
+    "violations": 413,
+    "faults": 164
    },
    "gemini-3.5-flash-lite_T0.3": {
-    "tests": 864,
-    "violations": 389,
-    "faults": 152
+    "tests": 964,
+    "violations": 420,
+    "faults": 170
    },
    "gemini-3.5-flash-lite_T0.7": {
-    "tests": 864,
-    "violations": 388,
-    "faults": 149
+    "tests": 964,
+    "violations": 423,
+    "faults": 165
    },
    "gemini-3.5-flash-lite_T1": {
-    "tests": 864,
-    "violations": 376,
-    "faults": 148
+    "tests": 964,
+    "violations": 407,
+    "faults": 165
    }
   },
   "seeds_ok": {
@@ -34,58 +34,16 @@
    "sv": "23/46"
   },
   "mutation": {
-   "mutants": 403,
-   "killed": 195,
-   "score": 0.484,
-   "seconds": 24
+   "mutants": 374,
+   "killed": 175,
+   "score": 0.468,
+   "seconds": 20
   },
   "note": "第一次跑蛻變測試時的 router"
  },
  {
-  "version": "v1",
-  "sha": "e4a452a",
-  "batches": {
-   "rules": {
-    "tests": 1373,
-    "violations": 293,
-    "faults": 80
-   },
-   "gemini-3.5-flash-lite_T0": {
-    "tests": 864,
-    "violations": 226,
-    "faults": 117
-   },
-   "gemini-3.5-flash-lite_T0.3": {
-    "tests": 864,
-    "violations": 230,
-    "faults": 122
-   },
-   "gemini-3.5-flash-lite_T0.7": {
-    "tests": 864,
-    "violations": 225,
-    "faults": 110
-   },
-   "gemini-3.5-flash-lite_T1": {
-    "tests": 864,
-    "violations": 212,
-    "faults": 112
-   }
-  },
-  "seeds_ok": {
-   "original": "39/41",
-   "sv": "26/46"
-  },
-  "mutation": {
-   "mutants": 489,
-   "killed": 253,
-   "score": 0.517,
-   "seconds": 30
-  },
-  "note": "第一輪：正規化、否定 / 問句守門、URL 只認 ASCII"
- },
- {
   "version": "v2",
-  "sha": "86e82d0",
+  "sha": "1352fae",
   "batches": {
    "rules": {
     "tests": 1373,
@@ -93,24 +51,24 @@
     "faults": 80
    },
    "gemini-3.5-flash-lite_T0": {
-    "tests": 864,
-    "violations": 200,
-    "faults": 107
+    "tests": 964,
+    "violations": 219,
+    "faults": 119
    },
    "gemini-3.5-flash-lite_T0.3": {
-    "tests": 864,
-    "violations": 205,
-    "faults": 112
+    "tests": 964,
+    "violations": 222,
+    "faults": 126
    },
    "gemini-3.5-flash-lite_T0.7": {
-    "tests": 864,
-    "violations": 194,
-    "faults": 100
+    "tests": 964,
+    "violations": 219,
+    "faults": 114
    },
    "gemini-3.5-flash-lite_T1": {
-    "tests": 864,
-    "violations": 193,
-    "faults": 108
+    "tests": 964,
+    "violations": 211,
+    "faults": 121
    }
   },
   "seeds_ok": {
@@ -118,16 +76,16 @@
    "sv": "28/46"
   },
   "mutation": {
-   "mutants": 630,
-   "killed": 329,
-   "score": 0.522,
-   "seconds": 55
+   "mutants": 606,
+   "killed": 314,
+   "score": 0.518,
+   "seconds": 45
   },
-  "note": "第二輪：意願句、受詞在前、平台片語；媒體鍵 / 時間只認整句"
+  "note": "第一、二輪：正規化、否定 / 問句守門、意願句、受詞在前、媒體鍵 / 時間只認整句"
  },
  {
   "version": "v3",
-  "sha": "3fae9e2",
+  "sha": "0810b4d",
   "batches": {
    "rules": {
     "tests": 1373,
@@ -135,24 +93,24 @@
     "faults": 35
    },
    "gemini-3.5-flash-lite_T0": {
-    "tests": 864,
-    "violations": 114,
-    "faults": 60
+    "tests": 964,
+    "violations": 148,
+    "faults": 78
    },
    "gemini-3.5-flash-lite_T0.3": {
-    "tests": 864,
-    "violations": 114,
-    "faults": 57
+    "tests": 964,
+    "violations": 147,
+    "faults": 76
    },
    "gemini-3.5-flash-lite_T0.7": {
-    "tests": 864,
-    "violations": 111,
-    "faults": 55
+    "tests": 964,
+    "violations": 147,
+    "faults": 72
    },
    "gemini-3.5-flash-lite_T1": {
-    "tests": 864,
-    "violations": 118,
-    "faults": 67
+    "tests": 964,
+    "violations": 149,
+    "faults": 84
    }
   },
   "seeds_ok": {
@@ -160,16 +118,16 @@
    "sv": "45/46"
   },
   "mutation": {
-   "mutants": 938,
-   "killed": 486,
-   "score": 0.518,
-   "seconds": 94
+   "mutants": 865,
+   "killed": 444,
+   "score": 0.513,
+   "seconds": 78
   },
   "note": "第三輪：鎖定 / 切換 / 家電 / 媒體鍵統一 regex、剝問法外圍詞、搜尋+問資訊走純問答"
  },
  {
   "version": "v4",
-  "sha": "a7630d9",
+  "sha": "7040c54",
   "batches": {
    "rules": {
     "tests": 1373,
@@ -177,24 +135,24 @@
     "faults": 32
    },
    "gemini-3.5-flash-lite_T0": {
-    "tests": 864,
-    "violations": 114,
-    "faults": 60
+    "tests": 964,
+    "violations": 131,
+    "faults": 70
    },
    "gemini-3.5-flash-lite_T0.3": {
-    "tests": 864,
-    "violations": 114,
-    "faults": 57
+    "tests": 964,
+    "violations": 133,
+    "faults": 69
    },
    "gemini-3.5-flash-lite_T0.7": {
-    "tests": 864,
-    "violations": 111,
-    "faults": 55
+    "tests": 964,
+    "violations": 128,
+    "faults": 69
    },
    "gemini-3.5-flash-lite_T1": {
-    "tests": 864,
-    "violations": 118,
-    "faults": 67
+    "tests": 964,
+    "violations": 134,
+    "faults": 79
    }
   },
   "seeds_ok": {
@@ -202,11 +160,53 @@
    "sv": "46/46"
   },
   "mutation": {
-   "mutants": 927,
-   "killed": 480,
-   "score": 0.518,
-   "seconds": 92
+   "mutants": 854,
+   "killed": 441,
+   "score": 0.516,
+   "seconds": 77
   },
   "note": "近似句種子後：否定守門前移、_ACTION_START lookahead"
+ },
+ {
+  "version": "v5",
+  "sha": "3f5e658",
+  "batches": {
+   "rules": {
+    "tests": 1373,
+    "violations": 7,
+    "faults": 5
+   },
+   "gemini-3.5-flash-lite_T0": {
+    "tests": 964,
+    "violations": 91,
+    "faults": 60
+   },
+   "gemini-3.5-flash-lite_T0.3": {
+    "tests": 964,
+    "violations": 94,
+    "faults": 61
+   },
+   "gemini-3.5-flash-lite_T0.7": {
+    "tests": 964,
+    "violations": 77,
+    "faults": 51
+   },
+   "gemini-3.5-flash-lite_T1": {
+    "tests": 964,
+    "violations": 94,
+    "faults": 70
+   }
+  },
+  "seeds_ok": {
+   "original": "41/41",
+   "sv": "46/46"
+  },
+  "mutation": {
+   "mutants": 966,
+   "killed": 485,
+   "score": 0.502,
+   "seconds": 124
+  },
+  "note": "第四輪：受詞在前無「把」、語助詞不變問答、google / lens 觸發一致、跳到下一…不當視窗"
  }
 ]

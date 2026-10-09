@@ -29,11 +29,13 @@ ROOT = HERE.parents[1]
 
 # 版本 = 每一輪回饋後的 router（README 的「第 N 輪」）
 DEFAULT_VERSIONS = [
-    ("v0", "5065037", "第一次跑蛻變測試時的 router"),
-    ("v1", "e4a452a", "第一輪：正規化、否定 / 問句守門、URL 只認 ASCII"),
-    ("v2", "86e82d0", "第二輪：意願句、受詞在前、平台片語；媒體鍵 / 時間只認整句"),
-    ("v3", "3fae9e2", "第三輪：鎖定 / 切換 / 家電 / 媒體鍵統一 regex、剝問法外圍詞、搜尋+問資訊走純問答"),
-    ("v4", "a7630d9", "近似句種子後：否定守門前移、_ACTION_START lookahead"),
+    # sha 是 GitHub 上 main 的 commit（本機 clone 的 sha 不同，以 router.py 內容對過：v0 規則式 706 違反、v2 278、v3 97、v4 81、v5 7）
+    # 第一輪（v1，規則式 293）沒有單獨的 commit，跟第二輪一起推上去了
+    ("v0", "c060593", "第一次跑蛻變測試時的 router"),
+    ("v2", "1352fae", "第一、二輪：正規化、否定 / 問句守門、意願句、受詞在前、媒體鍵 / 時間只認整句"),
+    ("v3", "0810b4d", "第三輪：鎖定 / 切換 / 家電 / 媒體鍵統一 regex、剝問法外圍詞、搜尋+問資訊走純問答"),
+    ("v4", "7040c54", "近似句種子後：否定守門前移、_ACTION_START lookahead"),
+    ("v5", "3f5e658", "第四輪：受詞在前無「把」、語助詞不變問答、google / lens 觸發一致、跳到下一…不當視窗"),
 ]
 DEFAULT_TAGS = ["rules", "gemini-3.5-flash-lite_T0", "gemini-3.5-flash-lite_T0.3",
                 "gemini-3.5-flash-lite_T0.7", "gemini-3.5-flash-lite_T1"]

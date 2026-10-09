@@ -59,3 +59,22 @@ def test_kappa():
     assert kappa(a, a) == (1.0, 4)
     k, n = kappa(a, {"1": 1, "2": 0, "3": 0, "4": 1})
     assert n == 4 and abs(k) < 1e-9  # 一半同意 = 純機率
+
+
+def test_subsume_dominators():
+    from research.mt.subsume import analyze, kill_vectors, minimal_score
+
+    # 3 條測試 × 4 個突變體：m0 被 t0 殺、m1 被 t0,t1 殺（被 m0 包含）、m2 跟 m0 同一群、m3 沒人殺
+    matrix = [[1, 1, 1, 0], [0, 1, 0, 0], [0, 0, 0, 0]]
+    kv = kill_vectors(matrix)
+    assert set(kv) == {0, 1, 2}
+    res = analyze(kv)
+    assert res["classes"] == 2 and res["dominator_classes"] == 1
+    assert minimal_score({0}, res["dominators"]) == 1.0 and minimal_score({1}, res["dominators"]) == 0.0
+
+
+def test_transfer_cov_drops_trivial():
+    from research.mt.transfer import cov_of
+
+    cov, n = cov_of([[1, 1, 0], [1, 0, 0]])   # 第 0 個突變體每條測試都殺（trivial）→ 丟掉
+    assert n == 1 and cov == [{0}, set()]

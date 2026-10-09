@@ -70,7 +70,10 @@ def steps(full: bool) -> list[tuple[str, list[str]]]:
          [*m, "research.mt.survivors"]),
         ("RQ5 五個歷史版本的違反數（需要 git）",
          [*m, "research.mt.versions", "--no-mutation"]),
-    ]
+        ("RQ7 突變體包含關係：dominator、最小突變分數（用第 7 步的矩陣）",
+         [*m, "research.mt.subsume", str(OUT / f"matrix_{'+'.join(tags)}.csv")]),
+    ] + ([("RQ6 跨版本可轉移性：v4 決定 → v5 評估（需要 git，兩個版本各算一次矩陣，約 4 分鐘）",
+           [*m, "research.mt.transfer", "--from", "v4=7040c54", "--to", "v5=3f5e658"])] if full else [])
 
 
 def main() -> int:
