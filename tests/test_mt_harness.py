@@ -91,3 +91,29 @@ def test_hass_template_mutants_do_not_need_hassil():
     assert ("ALT_DEL", "<open>[把|將]{name}(打開|開|開啟)[的]", "<open>[把|將]{name}(開|開啟)[的]") in outs
     assert any(after == "<open>(把|將){name}(打開|開|開啟)[的]" for _, _, after in outs)   # [a|b] → (a|b)
     assert all(before != after for _, before, after in outs)
+
+
+def test_llm_router_plumbing_without_api(monkeypatch, tmp_path):
+    # 不打 API：把 _ask 換成 regex router，驗證快取鍵、批次路由、prompt 突變體的數量與差異
+    from research.mt import llm_router, llm_router_mutation
+    from research.mt.harness import route_label
+
+    monkeypatch.setattr(llm_router, "CACHE_DIR", tmp_path)
+    calls = []
+
+    def fake_ask(prompt, text, **kw):
+        calls.append(text)
+        lab = route_label(text)
+        return {"text": text, "kind": lab.kind, "target": lab.target, "raw": "", "meta": {}}
+
+    monkeypatch.setattr(llm_router, "_ask", fake_ask)
+    labs = llm_router.batch_labels(["幫我開一下記事本", "今天很開心"], workers=2)
+    assert [str(x) for x in labs] == ["open_application:記事本", "model"]
+    assert llm_router.same_route(labs[0], llm_router.Label("open_application", " 記事本 "))
+    assert llm_router._parse('{"kind": "computer:key:nexttrack", "target": ""}') == llm_router.Label("computer:key", "nexttrack")
+    assert llm_router._parse("not json").kind == "error"
+    muts = llm_router_mutation.generate()
+    ops = {m.op for m in muts}
+    assert ops == {"INTENT_DEL", "EX_DEL", "DEF_DEL", "RULE_DEL"}
+    assert len(muts) == 3 * len(llm_router.INTENTS) + len(llm_router.RULES)
+    assert len({m.prompt for m in muts}) == len(muts) and all(m.prompt != llm_router.DEFAULT_PROMPT for m in muts)

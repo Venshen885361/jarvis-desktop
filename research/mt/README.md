@@ -487,6 +487,25 @@ HA 的 R2 / R4 違反是設計取捨（寧可不懂也不要亂做），但「�
 限制：HA 的種子是從模板展開的，不是真實使用（E9 那種缺口量不到）；LLM 生成器沒跑（Gemini 批次只有 router 有）；
 裝置清單是我固定的 9 個名稱，真實安裝的名稱衝突（「客廳燈」vs「客廳」）會多一類錯。
 
+## E11：第三個受測對象——用模型當路由器（`llm_router.py`、`llm_router_mutation.py`）
+
+router.py（regex 找關鍵字）和 Home Assistant（整句匹配）都是規則式。第三個受測對象是另一種常見做法：
+把意圖清單寫進 prompt，每句話交給 Gemini 回 `{"kind", "target"}`，標籤空間跟 harness 一樣（25 個意圖）。
+要回答的是：模型路由在 R2 / R4（禮貌語、填充詞）是不是天生就會、在 R5（近似句）是不是反而過度觸發、
+它自己的非確定性（同一句問兩次）、以及 prompt 突變（刪一個意圖 / 一條規則 / 一個例句）跟刪 regex 分支像不像。
+
+```bash
+python -m research.mt.llm_router --try "幫我開一下記事本" "音量調大是要按哪個按鈕" "那個...開 YouTube"
+python -m research.mt.llm_router --seeds research/mt/seeds.json                      # 87 條答對幾條；同句問兩次一致率
+python -m research.mt.run --subject llm --gen rules --seeds research/mt/seeds.json --tag-suffix _llmr      # 1,373 句
+python -m research.mt.run --subject llm --gen llm --temperature 0 --seed-filter "^(?!sv_)" --tag-suffix _llmr   # T0 n=5 那 964 句（讀生成快取）
+python -m research.mt.llm_router_mutation --tags rules_llmr --per-relation 20          # 80 個 prompt 突變體 × ~190 句
+python -m research.mt.reduce out/matrix_llmr.csv --drop-trivial
+python -m research.mt.subsume out/matrix_llmr.csv --mutants out/mutants_llmr.json
+```
+
+每句一次 API（flash-lite、T=0、快取在 `out/cache_llmrouter/`），全部約 4,500 次呼叫。結果待跑。
+
 ## 檔案
 
 | 檔案 | 作用 |
@@ -509,6 +528,8 @@ HA 的 R2 / R4 違反是設計取捨（寧可不懂也不要亂做），但「�
 | `seeds_usage.json` | E9：24 條真實使用指令（`~/.jarvis/profile.json` history） |
 | `hass.py` | E10：第二受測對象 Home Assistant zh-TW（hassil）的 `route_label` / `same_route`、種子展開 |
 | `hass_mutation.py` | E10：模板突變體（ALT_DEL / OPT_DEL / RULE_* / SKIP_DEL）× 測試矩陣 |
+| `llm_router.py` | E11：第三受測對象——Gemini 當路由器（prompt 列 25 個意圖，回 JSON），快取、多線、`--seeds` 一致率 |
+| `llm_router_mutation.py` | E11：prompt 突變體（INTENT_DEL / EX_DEL / DEF_DEL / RULE_DEL）× 測試矩陣 |
 | `seeds_hass.json`、`seeds_hass_sampled.json` | E10：64 條模板展開種子、1 010 條 `hassil.sample` 抽樣句 |
 | `../../tests/test_mt_harness.py` | 煙霧測試（CI 跑） |
 

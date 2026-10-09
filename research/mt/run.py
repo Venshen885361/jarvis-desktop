@@ -28,20 +28,23 @@ from pathlib import Path
 
 from . import llm, rules
 from .harness import Label
-from .harness import route_label as _jarvis_route_label
+from .harness import batch_labels as _jarvis_batch_labels
 from .harness import same_route as _jarvis_same_route
 from .relations import RELATIONS
 
-SUBJECTS = {"jarvis": (_jarvis_route_label, _jarvis_same_route)}
-
 
 def _subject(name: str):
-    """受測對象：jarvis（router.py）或 hass（Home Assistant zh-TW 模板，research/mt/hass.py）。"""
+    """受測對象：jarvis（router.py）、hass（Home Assistant zh-TW 模板）、llm（Gemini 當路由器，llm_router.py）。
+    回 (batch_labels, same_route)：一批句子一起路由（LLM 受測對象要靠這個開多線 + 快取）。"""
     if name == "hass":
         from . import hass
 
-        return hass.route_label, hass.same_route
-    return SUBJECTS["jarvis"]
+        return hass.batch_labels, hass.same_route
+    if name == "llm":
+        from . import llm_router
+
+        return llm_router.batch_labels, llm_router.same_route
+    return _jarvis_batch_labels, _jarvis_same_route
 
 HERE = Path(__file__).resolve().parent
 OUT = HERE / "out"
@@ -104,9 +107,9 @@ def main() -> int:
     ap.add_argument("--rep", type=int, default=0, help="同參數第幾次重跑（>0 另開快取鍵並在 tag 加 _repN）")
     ap.add_argument("--seed-filter", default=None, help="只用 id 符合這個 regex 的種子（例：^(?!sv_) 排除 killer 種子）")
     ap.add_argument("--tag-suffix", default="", help="輸出檔名加後綴（換種子檔時用，免得蓋掉 tests_rules.jsonl）")
-    ap.add_argument("--subject", choices=["jarvis", "hass"], default="jarvis", help="受測對象")
+    ap.add_argument("--subject", choices=["jarvis", "hass", "llm"], default="jarvis", help="受測對象")
     args = ap.parse_args()
-    route_label, same_route = _subject(args.subject)
+    batch_labels, same_route = _subject(args.subject)
 
     seeds = json.loads(Path(args.seeds).read_text(encoding="utf-8"))["seeds"]
     if args.seed_filter:
@@ -143,14 +146,18 @@ def main() -> int:
                         continue
                     seen.add(text)
                     ok, why = _valid(text, seed_label, rel.expect)
-                    got = route_label(text)
-                    same = same_route(got, seed_label)
-                    violation = (not same) if rel.expect == "same" else same
                     rows.append({
                         "seed_id": seed["id"], "seed": seed["text"], "relation": rel.id, "expect": rel.expect,
-                        "text": text, "seed_label": str(seed_label), "got": str(got),
-                        "valid": ok, "invalid_reason": why, "violation": bool(ok and violation),
+                        "text": text, "seed_label": str(seed_label), "got": "",
+                        "valid": ok, "invalid_reason": why, "violation": False,
                     })
+        # 路由整批一起做（regex 一秒幾千句；LLM 受測對象靠快取 + 多線）
+        for r, got in zip(rows, batch_labels([r["text"] for r in rows]), strict=True):
+            seed_label = _parse_label(r["seed_label"])
+            same = same_route(got, seed_label)
+            violation = (not same) if r["expect"] == "same" else same
+            r["got"] = str(got)
+            r["violation"] = bool(r["valid"] and violation)
 
         # ---- 寫檔 ----
         with (OUT / f"tests_{tag}.jsonl").open("w", encoding="utf-8") as f:
