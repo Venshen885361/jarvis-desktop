@@ -27,7 +27,7 @@ HERE = Path(__file__).resolve().parent
 OUT = HERE / "out"
 ROOT = HERE.parents[1]
 
-# 版本 = 每一輪回饋後的 router（README 的「第 N 輪」）
+# 版本 = 每一輪回饋後的 router（README 的「第 N 輪」）；v6 = 第五輪
 DEFAULT_VERSIONS = [
     # sha 是 GitHub 上 main 的 commit（本機 clone 的 sha 不同，以 router.py 內容對過：v0 規則式 706 違反、v2 278、v3 97、v4 81、v5 7）
     # 第一輪（v1，規則式 293）沒有單獨的 commit，跟第二輪一起推上去了
@@ -36,6 +36,7 @@ DEFAULT_VERSIONS = [
     ("v3", "0810b4d", "第三輪：鎖定 / 切換 / 家電 / 媒體鍵統一 regex、剝問法外圍詞、搜尋+問資訊走純問答"),
     ("v4", "7040c54", "近似句種子後：否定守門前移、_ACTION_START lookahead"),
     ("v5", "3f5e658", "第四輪：受詞在前無「把」、語助詞不變問答、google / lens 觸發一致、跳到下一…不當視窗"),
+    ("v6", "db00e03", "第五輪：n=20 六批 + 真實使用——填充詞省略號 / 禮貌語尾 / SOV 動詞尾 / 整句含指令片語的問句守門 / 取消 / 搜尋並播放"),
 ]
 DEFAULT_TAGS = ["rules", "gemini-3.5-flash-lite_T0", "gemini-3.5-flash-lite_T0.3",
                 "gemini-3.5-flash-lite_T0.7", "gemini-3.5-flash-lite_T1"]
