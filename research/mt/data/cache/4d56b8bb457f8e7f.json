@@ -1,0 +1,36 @@
+{
+ "items": [
+  "打開 Chrome",
+  "啟動 Chrome",
+  "幫我開 Chrome",
+  "把 Chrome 打開",
+  "把 Chrome 開起來",
+  "我要用 Chrome",
+  "立刻啟動 Chrome",
+  "執行 Chrome",
+  "幫我啟動 Chrome",
+  "請打開 Chrome",
+  "請幫忙開 Chrome",
+  "叫出 Chrome",
+  "啟動一下 Chrome",
+  "幫我把 Chrome 打開",
+  "開啟 Chrome 程式",
+  "我要開 Chrome",
+  "請幫我啟動 Chrome",
+  "幫忙開一下 Chrome",
+  "把 Chrome 叫出來",
+  "執行一下 Chrome"
+ ],
+ "ok": true,
+ "raw": "[\n  \"打開 Chrome\",\n  \"啟動 Chrome\",\n  \"幫我開 Chrome\",\n  \"把 Chrome 打開\",\n  \"把 Chrome 開起來\",\n  \"我要用 Chrome\",\n  \"立刻啟動 Chrome\",\n  \"執行 Chrome\",\n  \"幫我啟動 Chrome\",\n  \"請打開 Chrome\",\n  \"請幫忙開 Chrome\",\n  \"叫出 Chrome\",\n  \"啟動一下 Chrome\",\n  \"幫我把 Chrome 打開\",\n  \"開啟 Chrome 程式\",\n  \"我要開 Chrome\",\n  \"請幫我啟動 Chrome\",\n  \"幫忙開一下 Chrome\",\n  \"把 Chrome 叫出來\",\n  \"執行一下 Chrome\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開啟 Chrome",
+  "relation": "R1_synonym",
+  "n": 20,
+  "rep": 2,
+  "ms": 1335,
+  "ts": "2026-10-09T12:22:39"
+ }
+}

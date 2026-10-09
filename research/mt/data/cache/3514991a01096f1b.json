@@ -1,0 +1,36 @@
+{
+ "items": [
+  "欸用 Steam 安裝 Terraria",
+  "那個用 Steam 安裝 Terraria",
+  "嗯用 Steam 安裝 Terraria",
+  "JARVIS用 Steam 安裝 Terraria",
+  "Jarvis 幫我用 Steam 安裝 Terraria",
+  "對了用 Steam 安裝 Terraria",
+  "欸，用 Steam 安裝 Terraria",
+  "那個，用 Steam 安裝 Terraria",
+  "嗯，用 Steam 安裝 Terraria",
+  "JARVIS，用 Steam 安裝 Terraria",
+  "Jarvis 幫我，用 Steam 安裝 Terraria",
+  "對了，用 Steam 安裝 Terraria",
+  "欸！用 Steam 安裝 Terraria",
+  "那個！用 Steam 安裝 Terraria",
+  "嗯！用 Steam 安裝 Terraria",
+  "JARVIS！用 Steam 安裝 Terraria",
+  "Jarvis 幫我！用 Steam 安裝 Terraria",
+  "對了！用 Steam 安裝 Terraria",
+  "欸~用 Steam 安裝 Terraria",
+  "那個~用 Steam 安裝 Terraria"
+ ],
+ "ok": true,
+ "raw": "[\n  \"欸用 Steam 安裝 Terraria\",\n  \"那個用 Steam 安裝 Terraria\",\n  \"嗯用 Steam 安裝 Terraria\",\n  \"JARVIS用 Steam 安裝 Terraria\",\n  \"Jarvis 幫我用 Steam 安裝 Terraria\",\n  \"對了用 Steam 安裝 Terraria\",\n  \"欸，用 Steam 安裝 Terraria\",\n  \"那個，用 Steam 安裝 Terraria\",\n  \"嗯，用 Steam 安裝 Terraria\",\n  \"JARVIS，用 Steam 安裝 Terraria\",\n  \"Jarvis 幫我，用 Steam 安裝 Terraria\",\n  \"對了，用 Steam 安裝 Terraria\",\n  \"欸！用 Steam 安裝 Terraria\",\n  \"那個！用 Steam 安裝 Terraria\",\n  \"嗯！用 Steam 安裝 Terraria\",\n  \"JARVIS！用 Steam 安裝 Terraria\",\n  \"Jarvis 幫我！用 Steam 安裝 Terraria\",\n  \"對了！用 Steam 安裝 Terraria\",\n  \"欸~用 Steam 安裝 Terraria\",\n  \"那個~用 Steam 安裝 Terraria\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "用 Steam 安裝 Terraria",
+  "relation": "R4_filler",
+  "n": 20,
+  "rep": 2,
+  "ms": 1489,
+  "ts": "2026-10-09T12:25:48"
+ }
+}

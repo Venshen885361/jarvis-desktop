@@ -1,0 +1,36 @@
+{
+ "items": [
+  "用 Steam 安裝 Terraria 失敗怎麼辦",
+  "為什麼用 Steam 安裝 Terraria 會一直卡住",
+  "用 Steam 安裝 Terraria 需要多少硬碟空間",
+  "用 Steam 安裝 Terraria 的速度怎麼那麼慢",
+  "用 Steam 安裝 Terraria 顯示錯誤代碼是什麼意思",
+  "用 Steam 安裝 Terraria 之前要先下載什麼嗎",
+  "用 Steam 安裝 Terraria 可以暫停嗎",
+  "用 Steam 安裝 Terraria 需要付費嗎",
+  "用 Steam 安裝 Terraria 會有病毒嗎",
+  "用 Steam 安裝 Terraria 的教學影片在哪裡看",
+  "用 Steam 安裝 Terraria 怎麼找不到下載按鈕",
+  "用 Steam 安裝 Terraria 會跟防毒軟體衝突嗎",
+  "用 Steam 安裝 Terraria 跑到一半當機了怎麼辦",
+  "用 Steam 安裝 Terraria 完之後怎麼找不到遊戲捷徑",
+  "用 Steam 安裝 Terraria 需要綁定信用卡嗎",
+  "用 Steam 安裝 Terraria 帳號會被鎖嗎",
+  "用 Steam 安裝 Terraria 之後可以退款嗎",
+  "用 Steam 安裝 Terraria 有什麼需要注意的事項",
+  "用 Steam 安裝 Terraria 必須要網路連線嗎",
+  "用 Steam 安裝 Terraria 支援 Mac 電腦嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"用 Steam 安裝 Terraria 失敗怎麼辦\",\n  \"為什麼用 Steam 安裝 Terraria 會一直卡住\",\n  \"用 Steam 安裝 Terraria 需要多少硬碟空間\",\n  \"用 Steam 安裝 Terraria 的速度怎麼那麼慢\",\n  \"用 Steam 安裝 Terraria 顯示錯誤代碼是什麼意思\",\n  \"用 Steam 安裝 Terraria 之前要先下載什麼嗎\",\n  \"用 Steam 安裝 Terraria 可以暫停嗎\",\n  \"用 Steam 安裝 Terraria 需要付費嗎\",\n  \"用 Steam 安裝 Terraria 會有病毒嗎\",\n  \"用 Steam 安裝 Terraria 的教學影片在哪裡看\",\n  \"用 Steam 安裝 Terraria 怎麼找不到下載按鈕\",\n  \"用 Steam 安裝 Terraria 會跟防毒軟體衝突嗎\",\n  \"用 Steam 安裝 Terraria 跑到一半當機了怎麼辦\",\n  \"用 Steam 安裝 Terraria 完之後怎麼找不到遊戲捷徑\",\n  \"用 Steam 安裝 Terraria 需要綁定信用卡嗎\",\n  \"用 Steam 安裝 Terraria 帳號會被鎖嗎\",\n  \"用 Steam 安裝 Terraria 之後可以退款嗎\",\n  \"用 Steam 安裝 Terraria 有什麼需要注意的事項\",\n  \"用 Steam 安裝 Terraria 必須要網路連線嗎\",\n  \"用 Steam 安裝 Terraria 支援 Mac 電腦嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "用 Steam 安裝 Terraria",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 2060,
+  "ts": "2026-10-09T10:29:25"
+ }
+}

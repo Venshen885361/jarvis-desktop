@@ -1,0 +1,36 @@
+{
+ "items": [
+  "幫我切換到 Chrome",
+  "跳去 Chrome",
+  "轉到 Chrome",
+  "切過去 Chrome",
+  "跳到 Chrome 好了",
+  "把畫面轉到 Chrome",
+  "切換過去 Chrome",
+  "去 Chrome 那邊",
+  "打開 Chrome 視窗",
+  "顯示 Chrome",
+  "換成 Chrome",
+  "切換至 Chrome",
+  "移到 Chrome",
+  "點去 Chrome",
+  "跳槽到 Chrome",
+  "轉去 Chrome 吧",
+  "幫我轉到 Chrome",
+  "切到 Chrome 看看",
+  "前往 Chrome",
+  "開啟 Chrome"
+ ],
+ "ok": true,
+ "raw": "[\n  \"幫我切換到 Chrome\",\n  \"跳去 Chrome\",\n  \"轉到 Chrome\",\n  \"切過去 Chrome\",\n  \"跳到 Chrome 好了\",\n  \"把畫面轉到 Chrome\",\n  \"切換過去 Chrome\",\n  \"去 Chrome 那邊\",\n  \"打開 Chrome 視窗\",\n  \"顯示 Chrome\",\n  \"換成 Chrome\",\n  \"切換至 Chrome\",\n  \"移到 Chrome\",\n  \"點去 Chrome\",\n  \"跳槽到 Chrome\",\n  \"轉去 Chrome 吧\",\n  \"幫我轉到 Chrome\",\n  \"切到 Chrome 看看\",\n  \"前往 Chrome\",\n  \"開啟 Chrome\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "切換到 Chrome",
+  "relation": "R1_synonym",
+  "n": 20,
+  "rep": 2,
+  "ms": 1248,
+  "ts": "2026-10-09T14:07:54"
+ }
+}

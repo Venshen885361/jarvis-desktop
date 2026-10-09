@@ -1,0 +1,36 @@
+{
+ "items": [
+  "搜尋 python 教學的網頁怎麼都開不起來",
+  "不要搜尋 python 教學了",
+  "搜尋 python 教學是不是一定要付費",
+  "我上次搜尋 python 教學是在哪裡找到的",
+  "為什麼搜尋 python 教學會出現一堆廣告",
+  "搜尋 python 教學的正確步驟是什麼",
+  "你知道怎麼搜尋 python 教學比較快嗎",
+  "搜尋 python 教學有沒有推薦的頻道",
+  "搜尋 python 教學需要先安裝什麼軟體",
+  "誰叫你搜尋 python 教學的",
+  "搜尋 python 教學跟Ｃ語言教學差在哪裡",
+  "停止搜尋 python 教學",
+  "搜尋 python 教學會不會很難懂",
+  "我剛剛搜尋 python 教學結果連到奇怪的網站",
+  "搜尋 python 教學的歷史紀錄要怎麼刪除",
+  "不要幫我搜尋 python 教學",
+  "搜尋 python 教學有沒有繁體中文的資源",
+  "搜尋 python 教學真的能學會寫程式嗎",
+  "取消搜尋 python 教學",
+  "搜尋 python 教學的書籍哪一本比較好"
+ ],
+ "ok": true,
+ "raw": "[\n  \"搜尋 python 教學的網頁怎麼都開不起來\",\n  \"不要搜尋 python 教學了\",\n  \"搜尋 python 教學是不是一定要付費\",\n  \"我上次搜尋 python 教學是在哪裡找到的\",\n  \"為什麼搜尋 python 教學會出現一堆廣告\",\n  \"搜尋 python 教學的正確步驟是什麼\",\n  \"你知道怎麼搜尋 python 教學比較快嗎\",\n  \"搜尋 python 教學有沒有推薦的頻道\",\n  \"搜尋 python 教學需要先安裝什麼軟體\",\n  \"誰叫你搜尋 python 教學的\",\n  \"搜尋 python 教學跟Ｃ語言教學差在哪裡\",\n  \"停止搜尋 python 教學\",\n  \"搜尋 python 教學會不會很難懂\",\n  \"我剛剛搜尋 python 教學結果連到奇怪的網站\",\n  \"搜尋 python 教學的歷史紀錄要怎麼刪除\",\n  \"不要幫我搜尋 python 教學\",\n  \"搜尋 python 教學有沒有繁體中文的資源\",\n  \"搜尋 python 教學真的能學會寫程式嗎\",\n  \"取消搜尋 python 教學\",\n  \"搜尋 python 教學的書籍哪一本比較好\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 1.0,
+  "seed": "搜尋 python 教學",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 1517,
+  "ts": "2026-10-09T10:37:03"
+ }
+}

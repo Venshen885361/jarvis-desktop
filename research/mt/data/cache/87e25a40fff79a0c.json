@@ -1,0 +1,36 @@
+{
+ "items": [
+  "github點com幫我開起來",
+  "github點com連上去看一下",
+  "開一下github點com這網站",
+  "github點com這個網址幫我開",
+  "幫我把github點com打開來",
+  "瀏覽器幫我開github點com",
+  "github點com直接開一下",
+  "幫我連到github點com",
+  "github點com這個幫我點開",
+  "上github點com去幫我開",
+  "github點com幫忙打開來",
+  "開github點com這個網頁",
+  "github點com載入一下",
+  "幫我開網頁github點com",
+  "github點com現在幫我開",
+  "開啟github點com網址",
+  "github點com開起來用",
+  "幫我轉到github點com",
+  "github點com畫面幫我開",
+  "立刻幫我開github點com"
+ ],
+ "ok": true,
+ "raw": "[\n  \"github點com幫我開起來\",\n  \"github點com連上去看一下\",\n  \"開一下github點com這網站\",\n  \"github點com這個網址幫我開\",\n  \"幫我把github點com打開來\",\n  \"瀏覽器幫我開github點com\",\n  \"github點com直接開一下\",\n  \"幫我連到github點com\",\n  \"github點com這個幫我點開\",\n  \"上github點com去幫我開\",\n  \"github點com幫忙打開來\",\n  \"開github點com這個網頁\",\n  \"github點com載入一下\",\n  \"幫我開網頁github點com\",\n  \"github點com現在幫我開\",\n  \"開啟github點com網址\",\n  \"github點com開起來用\",\n  \"幫我轉到github點com\",\n  \"github點com畫面幫我開\",\n  \"立刻幫我開github點com\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "打開 github.com",
+  "relation": "R3_reorder",
+  "n": 20,
+  "rep": 0,
+  "ms": 1457,
+  "ts": "2026-10-09T10:08:23"
+ }
+}

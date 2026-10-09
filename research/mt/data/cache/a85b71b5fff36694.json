@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Chrome 幫我切過去",
+  "瀏覽器切到 Chrome 好了",
+  "Chrome 視窗切換一下",
+  "跳去 Chrome 那邊",
+  "Chrome 畫面切過來",
+  "幫我切去 Chrome 啦",
+  "Chrome 把它切換出來",
+  "切換過去 Chrome",
+  "Chrome 拿來用一下，切過去",
+  "跳轉到 Chrome",
+  "Chrome 這個切一下",
+  "切換成 Chrome 吧",
+  "Chrome 幫忙切過來",
+  "切換，目標 Chrome",
+  "Chrome 畫面開過來切過去",
+  "切換到 Chrome 瀏覽器",
+  "Chrome 幫我開成主畫面切過去",
+  "切過去 Chrome 那個",
+  "Chrome 程式切過來",
+  "切換一下，用 Chrome"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Chrome 幫我切過去\",\n  \"瀏覽器切到 Chrome 好了\",\n  \"Chrome 視窗切換一下\",\n  \"跳去 Chrome 那邊\",\n  \"Chrome 畫面切過來\",\n  \"幫我切去 Chrome 啦\",\n  \"Chrome 把它切換出來\",\n  \"切換過去 Chrome\",\n  \"Chrome 拿來用一下，切過去\",\n  \"跳轉到 Chrome\",\n  \"Chrome 這個切一下\",\n  \"切換成 Chrome 吧\",\n  \"Chrome 幫忙切過來\",\n  \"切換，目標 Chrome\",\n  \"Chrome 畫面開過來切過去\",\n  \"切換到 Chrome 瀏覽器\",\n  \"Chrome 幫我開成主畫面切過去\",\n  \"切過去 Chrome 那個\",\n  \"Chrome 程式切過來\",\n  \"切換一下，用 Chrome\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "切換到 Chrome",
+  "relation": "R3_reorder",
+  "n": 20,
+  "rep": 0,
+  "ms": 1444,
+  "ts": "2026-10-09T10:31:03"
+ }
+}

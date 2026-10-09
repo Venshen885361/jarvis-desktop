@@ -1,0 +1,36 @@
+{
+ "items": [
+  "怎麼用 github.com 這個網站",
+  "github.com 網址是多少",
+  "不要幫我打開 github.com",
+  "查詢 github.com 的相關教學",
+  "你知道 github.com 怎麼註冊嗎",
+  "github.com 突然打不開怎麼辦",
+  "誰叫你打開 github.com 的",
+  "解釋一下 github.com 是用來幹嘛的",
+  "github.com 登入畫面在哪裡",
+  "為什麼我連不上 github.com",
+  "取消打開 github.com",
+  "找一下 github.com 的客服信箱",
+  "github.com 好像當機了耶",
+  "搜尋 github.com 的替代方案",
+  "你可以幫我查 github.com 的股價嗎",
+  "不要連結到 github.com",
+  "github.com 註冊要錢嗎",
+  "誰知道 github.com 怎麼用",
+  "刪除紀錄裡的 github.com",
+  "github.com 網頁一直轉圈圈是怎樣"
+ ],
+ "ok": true,
+ "raw": "[\n  \"怎麼用 github.com 這個網站\",\n  \"github.com 網址是多少\",\n  \"不要幫我打開 github.com\",\n  \"查詢 github.com 的相關教學\",\n  \"你知道 github.com 怎麼註冊嗎\",\n  \"github.com 突然打不開怎麼辦\",\n  \"誰叫你打開 github.com 的\",\n  \"解釋一下 github.com 是用來幹嘛的\",\n  \"github.com 登入畫面在哪裡\",\n  \"為什麼我連不上 github.com\",\n  \"取消打開 github.com\",\n  \"找一下 github.com 的客服信箱\",\n  \"github.com 好像當機了耶\",\n  \"搜尋 github.com 的替代方案\",\n  \"你可以幫我查 github.com 的股價嗎\",\n  \"不要連結到 github.com\",\n  \"github.com 註冊要錢嗎\",\n  \"誰知道 github.com 怎麼用\",\n  \"刪除紀錄裡的 github.com\",\n  \"github.com 網頁一直轉圈圈是怎樣\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "打開 github.com",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 1542,
+  "ts": "2026-10-09T10:27:34"
+ }
+}

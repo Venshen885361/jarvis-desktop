@@ -1,0 +1,36 @@
+{
+ "items": [
+  "怎麼下載 Discord 的電腦版",
+  "Discord 下載到一半卡住怎麼辦",
+  "有人知道去哪裡下載 Discord 嗎",
+  "下載 Discord 會不會中毒啊",
+  "Discord 下載失敗一直出現錯誤",
+  "我手機不能下載 Discord 耶",
+  "下載 Discord 需要註冊帳號嗎",
+  "為什麼我一直無法下載 Discord",
+  "下載 Discord 速度怎麼那麼慢",
+  "去官網下載 Discord 是免費的嗎",
+  "下載 Discord 之後要怎麼安裝",
+  "平板可以下載 Discord 嗎",
+  "下載 Discord 檔案在哪裡找",
+  "我有需要下載 Discord 嗎",
+  "下載 Discord 會佔很多空間嗎",
+  "Mac 要怎麼下載 Discord",
+  "下載 Discord 竟然要錢嗎",
+  "請問下載 Discord 的安全連結是什麼",
+  "為什麼大家都在用不用下載 Discord 的版本",
+  "下載 Discord 之後要怎麼登入"
+ ],
+ "ok": true,
+ "raw": "[\n  \"怎麼下載 Discord 的電腦版\",\n  \"Discord 下載到一半卡住怎麼辦\",\n  \"有人知道去哪裡下載 Discord 嗎\",\n  \"下載 Discord 會不會中毒啊\",\n  \"Discord 下載失敗一直出現錯誤\",\n  \"我手機不能下載 Discord 耶\",\n  \"下載 Discord 需要註冊帳號嗎\",\n  \"為什麼我一直無法下載 Discord\",\n  \"下載 Discord 速度怎麼那麼慢\",\n  \"去官網下載 Discord 是免費的嗎\",\n  \"下載 Discord 之後要怎麼安裝\",\n  \"平板可以下載 Discord 嗎\",\n  \"下載 Discord 檔案在哪裡找\",\n  \"我有需要下載 Discord 嗎\",\n  \"下載 Discord 會佔很多空間嗎\",\n  \"Mac 要怎麼下載 Discord\",\n  \"下載 Discord 竟然要錢嗎\",\n  \"請問下載 Discord 的安全連結是什麼\",\n  \"為什麼大家都在用不用下載 Discord 的版本\",\n  \"下載 Discord 之後要怎麼登入\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "下載 Discord",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 1742,
+  "ts": "2026-10-09T10:09:12"
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Discord 為什麼下載不了",
+  "Discord 下載到一半當掉怎麼辦",
+  "有人叫我不要下載 Discord",
+  "Discord 桌面版下載點在哪裡",
+  "下載 Discord 速度怎麼這麼慢",
+  "Discord 自動下載更新是正常的嗎",
+  "手機下載 Discord 要錢嗎",
+  "我剛剛不小心下載到假 Discord 軟體了",
+  "Discord 下載完打不開是發生什麼事",
+  "可以幫我取消下載 Discord 嗎",
+  "Discord 語音軟體下載教學要去哪裡看",
+  "下載 Discord 檔案會不會有病毒",
+  "為什麼我的電腦不能下載 Discord",
+  "Discord 下載安裝失敗怎麼處理",
+  "下載 Discord 灌在 D 槽可以嗎",
+  "聽說下載 Discord 會佔用很多記憶體",
+  "Discord 官方下載網址是多少",
+  "下載 Discord 需要註冊帳號嗎",
+  "我看別人下載 Discord 介面跟我不一樣",
+  "下載 Discord 之後還要設定什麼"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Discord 為什麼下載不了\",\n  \"Discord 下載到一半當掉怎麼辦\",\n  \"有人叫我不要下載 Discord\",\n  \"Discord 桌面版下載點在哪裡\",\n  \"下載 Discord 速度怎麼這麼慢\",\n  \"Discord 自動下載更新是正常的嗎\",\n  \"手機下載 Discord 要錢嗎\",\n  \"我剛剛不小心下載到假 Discord 軟體了\",\n  \"Discord 下載完打不開是發生什麼事\",\n  \"可以幫我取消下載 Discord 嗎\",\n  \"Discord 語音軟體下載教學要去哪裡看\",\n  \"下載 Discord 檔案會不會有病毒\",\n  \"為什麼我的電腦不能下載 Discord\",\n  \"Discord 下載安裝失敗怎麼處理\",\n  \"下載 Discord 灌在 D 槽可以嗎\",\n  \"聽說下載 Discord 會佔用很多記憶體\",\n  \"Discord 官方下載網址是多少\",\n  \"下載 Discord 需要註冊帳號嗎\",\n  \"我看別人下載 Discord 介面跟我不一樣\",\n  \"下載 Discord 之後還要設定什麼\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "下載 Discord",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 1,
+  "ms": 2196,
+  "ts": "2026-10-09T12:12:11"
+ }
+}

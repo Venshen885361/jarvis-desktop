@@ -1,0 +1,36 @@
+{
+ "items": [
+  "欸開 YouTube",
+  "那個開 YouTube",
+  "嗯開 YouTube",
+  "JARVIS開 YouTube",
+  "Jarvis 幫我開 YouTube",
+  "對了開 YouTube",
+  "欸，開 YouTube",
+  "那個，開 YouTube",
+  "嗯，開 YouTube",
+  "JARVIS，開 YouTube",
+  "Jarvis 幫我，開 YouTube",
+  "對了，開 YouTube",
+  "欸幫我開 YouTube",
+  "那個幫我開 YouTube",
+  "嗯幫我開 YouTube",
+  "JARVIS 幫我開 YouTube",
+  "Jarvis 幫我快開 YouTube",
+  "對了幫我開 YouTube",
+  "欸～開 YouTube",
+  "那個～開 YouTube"
+ ],
+ "ok": true,
+ "raw": "[\n  \"欸開 YouTube\",\n  \"那個開 YouTube\",\n  \"嗯開 YouTube\",\n  \"JARVIS開 YouTube\",\n  \"Jarvis 幫我開 YouTube\",\n  \"對了開 YouTube\",\n  \"欸，開 YouTube\",\n  \"那個，開 YouTube\",\n  \"嗯，開 YouTube\",\n  \"JARVIS，開 YouTube\",\n  \"Jarvis 幫我，開 YouTube\",\n  \"對了，開 YouTube\",\n  \"欸幫我開 YouTube\",\n  \"那個幫我開 YouTube\",\n  \"嗯幫我開 YouTube\",\n  \"JARVIS 幫我開 YouTube\",\n  \"Jarvis 幫我快開 YouTube\",\n  \"對了幫我開 YouTube\",\n  \"欸～開 YouTube\",\n  \"那個～開 YouTube\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開 YouTube",
+  "relation": "R4_filler",
+  "n": 20,
+  "rep": 1,
+  "ms": 1455,
+  "ts": "2026-10-09T10:44:43"
+ }
+}

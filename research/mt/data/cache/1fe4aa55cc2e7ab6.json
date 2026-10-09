@@ -1,0 +1,36 @@
+{
+ "items": [
+  "欸幫我裝 VLC",
+  "那個幫我裝 VLC",
+  "嗯幫我裝 VLC",
+  "JARVIS幫我裝 VLC",
+  "Jarvis 幫我幫我裝 VLC",
+  "對了幫我裝 VLC",
+  "欸，幫我裝 VLC",
+  "那個，幫我裝 VLC",
+  "嗯，幫我裝 VLC",
+  "JARVIS，幫我裝 VLC",
+  "Jarvis 幫我，幫我裝 VLC",
+  "對了，幫我裝 VLC",
+  "欸！幫我裝 VLC",
+  "那個！幫我裝 VLC",
+  "嗯...幫我裝 VLC",
+  "JARVIS！幫我裝 VLC",
+  "Jarvis 幫我～幫我裝 VLC",
+  "對了！幫我裝 VLC",
+  "欸幫我裝一下 VLC",
+  "那個幫我裝一下 VLC"
+ ],
+ "ok": true,
+ "raw": "[\n  \"欸幫我裝 VLC\",\n  \"那個幫我裝 VLC\",\n  \"嗯幫我裝 VLC\",\n  \"JARVIS幫我裝 VLC\",\n  \"Jarvis 幫我幫我裝 VLC\",\n  \"對了幫我裝 VLC\",\n  \"欸，幫我裝 VLC\",\n  \"那個，幫我裝 VLC\",\n  \"嗯，幫我裝 VLC\",\n  \"JARVIS，幫我裝 VLC\",\n  \"Jarvis 幫我，幫我裝 VLC\",\n  \"對了，幫我裝 VLC\",\n  \"欸！幫我裝 VLC\",\n  \"那個！幫我裝 VLC\",\n  \"嗯...幫我裝 VLC\",\n  \"JARVIS！幫我裝 VLC\",\n  \"Jarvis 幫我～幫我裝 VLC\",\n  \"對了！幫我裝 VLC\",\n  \"欸幫我裝一下 VLC\",\n  \"那個幫我裝一下 VLC\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "幫我裝 VLC",
+  "relation": "R4_filler",
+  "n": 20,
+  "rep": 0,
+  "ms": 1507,
+  "ts": "2026-10-09T10:29:10"
+ }
+}

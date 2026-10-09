@@ -1,0 +1,36 @@
+{
+ "items": [
+  "搜尋 python 教學的網頁怎麼都開不起來",
+  "不要搜尋 python 教學了",
+  "為什麼搜尋 python 教學會出現一堆廣告",
+  "搜尋 python 教學有什麼推薦的網站嗎",
+  "請問搜尋 python 教學的快速鍵是什麼",
+  "誰叫你幫我搜尋 python 教學的",
+  "搜尋 python 教學會不會中毒啊",
+  "取消搜尋 python 教學這個功能",
+  "搜尋 python 教學要花錢嗎",
+  "我剛剛不是叫你搜尋 python 教學",
+  "搜尋 python 教學的結果怎麼刪除",
+  "為什麼每次搜尋 python 教學都很慢",
+  "搜尋 python 教學有沒有英文版的",
+  "不要幫我搜尋 python 教學啦",
+  "搜尋 python 教學這個指令是誰設定的",
+  "搜尋 python 教學需要登入帳號嗎",
+  "搜尋 python 教學的書去哪裡買",
+  "記憶體不足所以不能搜尋 python 教學嗎",
+  "搜尋 python 教學的影片在哪裡看",
+  "等一下再搜尋 python 教學"
+ ],
+ "ok": true,
+ "raw": "[\n  \"搜尋 python 教學的網頁怎麼都開不起來\",\n  \"不要搜尋 python 教學了\",\n  \"為什麼搜尋 python 教學會出現一堆廣告\",\n  \"搜尋 python 教學有什麼推薦的網站嗎\",\n  \"請問搜尋 python 教學的快速鍵是什麼\",\n  \"誰叫你幫我搜尋 python 教學的\",\n  \"搜尋 python 教學會不會中毒啊\",\n  \"取消搜尋 python 教學這個功能\",\n  \"搜尋 python 教學要花錢嗎\",\n  \"我剛剛不是叫你搜尋 python 教學\",\n  \"搜尋 python 教學的結果怎麼刪除\",\n  \"為什麼每次搜尋 python 教學都很慢\",\n  \"搜尋 python 教學有沒有英文版的\",\n  \"不要幫我搜尋 python 教學啦\",\n  \"搜尋 python 教學這個指令是誰設定的\",\n  \"搜尋 python 教學需要登入帳號嗎\",\n  \"搜尋 python 教學的書去哪裡買\",\n  \"記憶體不足所以不能搜尋 python 教學嗎\",\n  \"搜尋 python 教學的影片在哪裡看\",\n  \"等一下再搜尋 python 教學\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "搜尋 python 教學",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 2,
+  "ms": 1708,
+  "ts": "2026-10-09T12:26:12"
+ }
+}

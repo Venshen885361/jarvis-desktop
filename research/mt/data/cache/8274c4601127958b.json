@@ -1,0 +1,36 @@
+{
+ "items": [
+  "幫我下載一下 Discord 謝謝",
+  "麻煩請幫我下載 Discord 好嗎",
+  "可以幫我下載 Discord 喔",
+  "請幫我下載一下 Discord 啦",
+  "麻煩下載一下 Discord 可以嗎",
+  "幫我下載 Discord 謝謝啦",
+  "請幫我把 Discord 下載一下喔",
+  "可以麻煩下載一下 Discord 嗎",
+  "幫我下載 Discord 好不好",
+  "麻煩請下載 Discord 謝謝",
+  "請幫我下載 Discord 啦",
+  "可以幫我下載一下 Discord 嗎",
+  "麻煩幫我下載 Discord 喔",
+  "幫我下載一下 Discord 可以嗎",
+  "請幫我下載一下 Discord 謝謝",
+  "麻煩下載 Discord 好嗎",
+  "可以幫我把 Discord 下載一下嗎",
+  "幫我下載 Discord 啦",
+  "請麻煩幫我下載 Discord 喔",
+  "幫我下載一下 Discord 吧"
+ ],
+ "ok": true,
+ "raw": "[\n  \"幫我下載一下 Discord 謝謝\",\n  \"麻煩請幫我下載 Discord 好嗎\",\n  \"可以幫我下載 Discord 喔\",\n  \"請幫我下載一下 Discord 啦\",\n  \"麻煩下載一下 Discord 可以嗎\",\n  \"幫我下載 Discord 謝謝啦\",\n  \"請幫我把 Discord 下載一下喔\",\n  \"可以麻煩下載一下 Discord 嗎\",\n  \"幫我下載 Discord 好不好\",\n  \"麻煩請下載 Discord 謝謝\",\n  \"請幫我下載 Discord 啦\",\n  \"可以幫我下載一下 Discord 嗎\",\n  \"麻煩幫我下載 Discord 喔\",\n  \"幫我下載一下 Discord 可以嗎\",\n  \"請幫我下載一下 Discord 謝謝\",\n  \"麻煩下載 Discord 好嗎\",\n  \"可以幫我把 Discord 下載一下嗎\",\n  \"幫我下載 Discord 啦\",\n  \"請麻煩幫我下載 Discord 喔\",\n  \"幫我下載一下 Discord 吧\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "下載 Discord",
+  "relation": "R2_politeness",
+  "n": 20,
+  "rep": 0,
+  "ms": 1580,
+  "ts": "2026-10-09T10:28:39"
+ }
+}

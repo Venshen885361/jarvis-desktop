@@ -1,0 +1,36 @@
+{
+ "items": [
+  "切換到 Chrome 的方法是什麼",
+  "為什麼我切換到 Chrome 會失敗",
+  "不要切換到 Chrome 啦",
+  "Chrome 怎麼切換過去呢",
+  "切換到 Chrome 之前要先存檔嗎",
+  "我不想切換到 Chrome",
+  "切換到 Chrome 的快速鍵是什麼",
+  "你知道怎麼切換到 Chrome 嗎",
+  "切換到 Chrome 會不會很耗資源",
+  "Chrome 已經開著了還要切換到 Chrome 嗎",
+  "剛才為什麼自動切換到 Chrome 了",
+  "切換到 Chrome 之後畫面怎麼變黑了",
+  "有沒有辦法不要自動切換到 Chrome",
+  "切換到 Chrome 這個功能在哪裡設定",
+  "你可以幫我切換到 Chrome 以外的瀏覽器嗎",
+  "切換到 Chrome 的速度怎麼那麼慢",
+  "剛剛是不是有人叫你切換到 Chrome",
+  "切換到 Chrome 的指令是什麼時候改的",
+  "我剛剛不小心切換到 Chrome 了",
+  "切換到 Chrome 真的比較好用嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"切換到 Chrome 的方法是什麼\",\n  \"為什麼我切換到 Chrome 會失敗\",\n  \"不要切換到 Chrome 啦\",\n  \"Chrome 怎麼切換過去呢\",\n  \"切換到 Chrome 之前要先存檔嗎\",\n  \"我不想切換到 Chrome\",\n  \"切換到 Chrome 的快速鍵是什麼\",\n  \"你知道怎麼切換到 Chrome 嗎\",\n  \"切換到 Chrome 會不會很耗資源\",\n  \"Chrome 已經開著了還要切換到 Chrome 嗎\",\n  \"剛才為什麼自動切換到 Chrome 了\",\n  \"切換到 Chrome 之後畫面怎麼變黑了\",\n  \"有沒有辦法不要自動切換到 Chrome\",\n  \"切換到 Chrome 這個功能在哪裡設定\",\n  \"你可以幫我切換到 Chrome 以外的瀏覽器嗎\",\n  \"切換到 Chrome 的速度怎麼那麼慢\",\n  \"剛剛是不是有人叫你切換到 Chrome\",\n  \"切換到 Chrome 的指令是什麼時候改的\",\n  \"我剛剛不小心切換到 Chrome 了\",\n  \"切換到 Chrome 真的比較好用嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "切換到 Chrome",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 1879,
+  "ts": "2026-10-09T10:31:08"
+ }
+}

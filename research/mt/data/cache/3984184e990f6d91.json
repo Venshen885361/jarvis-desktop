@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Terraria 用 Steam 裝一下",
+  "安裝 Terraria 透過 Steam",
+  "用 Steam 把 Terraria 裝起來",
+  "Terraria 幫我用 Steam 安裝",
+  "透過 Steam 安裝 Terraria 啦",
+  "用 Steam 來裝 Terraria 看看",
+  "安裝 Terraria 用 Steam 就可以了",
+  "Terraria 用 Steam 下載安裝",
+  "用 Steam 把 Terraria 載下來裝",
+  "Terraria 透過 Steam 幫我裝好",
+  "用 Steam 安裝 Terraria 這個遊戲",
+  "安裝 Terraria 靠 Steam",
+  "Terraria 用 Steam 裝一下啦",
+  "透過 Steam 來安裝 Terraria 吧",
+  "用 Steam 把 Terraria 裝進去",
+  "Terraria 用 Steam 安裝看看",
+  "用 Steam 安裝 Terraria 這款遊戲",
+  "Terraria 幫我用 Steam 裝一下",
+  "透過 Steam 把 Terraria 裝起來",
+  "用 Steam 裝 Terraria 可以嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Terraria 用 Steam 裝一下\",\n  \"安裝 Terraria 透過 Steam\",\n  \"用 Steam 把 Terraria 裝起來\",\n  \"Terraria 幫我用 Steam 安裝\",\n  \"透過 Steam 安裝 Terraria 啦\",\n  \"用 Steam 來裝 Terraria 看看\",\n  \"安裝 Terraria 用 Steam 就可以了\",\n  \"Terraria 用 Steam 下載安裝\",\n  \"用 Steam 把 Terraria 載下來裝\",\n  \"Terraria 透過 Steam 幫我裝好\",\n  \"用 Steam 安裝 Terraria 這個遊戲\",\n  \"安裝 Terraria 靠 Steam\",\n  \"Terraria 用 Steam 裝一下啦\",\n  \"透過 Steam 來安裝 Terraria 吧\",\n  \"用 Steam 把 Terraria 裝進去\",\n  \"Terraria 用 Steam 安裝看看\",\n  \"用 Steam 安裝 Terraria 這款遊戲\",\n  \"Terraria 幫我用 Steam 裝一下\",\n  \"透過 Steam 把 Terraria 裝起來\",\n  \"用 Steam 裝 Terraria 可以嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.3,
+  "seed": "用 Steam 安裝 Terraria",
+  "relation": "R3_reorder",
+  "n": 20,
+  "rep": 0,
+  "ms": 1566,
+  "ts": "2026-10-09T10:18:56"
+ }
+}

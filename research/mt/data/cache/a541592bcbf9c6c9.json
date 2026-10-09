@@ -1,0 +1,36 @@
+{
+ "items": [
+  "欸打開 github.com",
+  "那個打開 github.com",
+  "嗯打開 github.com",
+  "JARVIS打開 github.com",
+  "Jarvis 幫我打開 github.com",
+  "對了打開 github.com",
+  "欸！打開 github.com",
+  "那個...打開 github.com",
+  "嗯～打開 github.com",
+  "JARVIS 幫我打開 github.com",
+  "Jarvis，打開 github.com",
+  "對了，打開 github.com",
+  "欸幫我打開 github.com",
+  "那個幫我打開 github.com",
+  "嗯，打開 github.com",
+  "JARVIS，打開 github.com",
+  "Jarvis...打開 github.com",
+  "對了！打開 github.com",
+  "欸～打開 github.com",
+  "那個...幫我打開 github.com"
+ ],
+ "ok": true,
+ "raw": "[\n  \"欸打開 github.com\",\n  \"那個打開 github.com\",\n  \"嗯打開 github.com\",\n  \"JARVIS打開 github.com\",\n  \"Jarvis 幫我打開 github.com\",\n  \"對了打開 github.com\",\n  \"欸！打開 github.com\",\n  \"那個...打開 github.com\",\n  \"嗯～打開 github.com\",\n  \"JARVIS 幫我打開 github.com\",\n  \"Jarvis，打開 github.com\",\n  \"對了，打開 github.com\",\n  \"欸幫我打開 github.com\",\n  \"那個幫我打開 github.com\",\n  \"嗯，打開 github.com\",\n  \"JARVIS，打開 github.com\",\n  \"Jarvis...打開 github.com\",\n  \"對了！打開 github.com\",\n  \"欸～打開 github.com\",\n  \"那個...幫我打開 github.com\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 1.0,
+  "seed": "打開 github.com",
+  "relation": "R4_filler",
+  "n": 20,
+  "rep": 0,
+  "ms": 1559,
+  "ts": "2026-10-09T10:35:41"
+ }
+}

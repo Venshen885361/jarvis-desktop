@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Chrome 為什麼打不開",
+  "Chrome 瀏覽器怎麼關閉",
+  "幫我移除 Chrome 捷徑",
+  "Chrome 經常自己當機怎麼辦",
+  "如何更新電腦裡的 Chrome",
+  "Chrome 裡的密碼忘記了",
+  "不要自動啟動 Chrome",
+  "Chrome 為什麼一直跳出廣告",
+  "誰把 Chrome 的歷史紀錄刪了",
+  "Chrome 的分頁可以一次全關嗎",
+  "安裝 Chrome 到底要花多久",
+  "有沒有比 Chrome 更好用的瀏覽器",
+  "Chrome 的外掛程式去哪裡下載",
+  "手機版 Chrome 怎麼清除快取",
+  "Chrome 畫面突然變全螢幕怎麼復原",
+  "我的 Chrome 首頁被不明網站綁架了",
+  "Chrome 翻譯功能怎麼突然失效",
+  "登入 Chrome 帳號會不會有安全問題",
+  "Chrome 為什麼會佔用那麼多記憶體",
+  "教我怎麼把 Chrome 設成預設瀏覽器"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Chrome 為什麼打不開\",\n  \"Chrome 瀏覽器怎麼關閉\",\n  \"幫我移除 Chrome 捷徑\",\n  \"Chrome 經常自己當機怎麼辦\",\n  \"如何更新電腦裡的 Chrome\",\n  \"Chrome 裡的密碼忘記了\",\n  \"不要自動啟動 Chrome\",\n  \"Chrome 為什麼一直跳出廣告\",\n  \"誰把 Chrome 的歷史紀錄刪了\",\n  \"Chrome 的分頁可以一次全關嗎\",\n  \"安裝 Chrome 到底要花多久\",\n  \"有沒有比 Chrome 更好用的瀏覽器\",\n  \"Chrome 的外掛程式去哪裡下載\",\n  \"手機版 Chrome 怎麼清除快取\",\n  \"Chrome 畫面突然變全螢幕怎麼復原\",\n  \"我的 Chrome 首頁被不明網站綁架了\",\n  \"Chrome 翻譯功能怎麼突然失效\",\n  \"登入 Chrome 帳號會不會有安全問題\",\n  \"Chrome 為什麼會佔用那麼多記憶體\",\n  \"教我怎麼把 Chrome 設成預設瀏覽器\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開啟 Chrome",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 2,
+  "ms": 1425,
+  "ts": "2026-10-09T12:22:55"
+ }
+}

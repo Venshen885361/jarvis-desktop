@@ -1,0 +1,36 @@
+{
+ "items": [
+  "搜尋 python 教學的網頁怎麼都開不起來",
+  "不要搜尋 python 教學了",
+  "搜尋 python 教學的按鈕在哪裡",
+  "搜尋 python 教學是不是要付費",
+  "誰叫你搜尋 python 教學的",
+  "搜尋 python 教學會不會有病毒",
+  "我想問搜尋 python 教學的快速鍵是什麼",
+  "搜尋 python 教學這個功能怎麼關掉",
+  "剛剛搜尋 python 教學的紀錄怎麼刪除",
+  "搜尋 python 教學需要登入帳號嗎",
+  "為什麼搜尋 python 教學都沒有結果",
+  "取消搜尋 python 教學",
+  "搜尋 python 教學的字體可以調大嗎",
+  "搜尋 python 教學會很耗流量嗎",
+  "幫我把搜尋 python 教學的歷史清空",
+  "搜尋 python 教學要怎麼下載影片",
+  "搜尋 python 教學有沒有英文版的",
+  "請問搜尋 python 教學可以換成其他瀏覽器嗎",
+  "我剛剛不小心搜尋 python 教學了",
+  "搜尋 python 教學的步驟可以跳過嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"搜尋 python 教學的網頁怎麼都開不起來\",\n  \"不要搜尋 python 教學了\",\n  \"搜尋 python 教學的按鈕在哪裡\",\n  \"搜尋 python 教學是不是要付費\",\n  \"誰叫你搜尋 python 教學的\",\n  \"搜尋 python 教學會不會有病毒\",\n  \"我想問搜尋 python 教學的快速鍵是什麼\",\n  \"搜尋 python 教學這個功能怎麼關掉\",\n  \"剛剛搜尋 python 教學的紀錄怎麼刪除\",\n  \"搜尋 python 教學需要登入帳號嗎\",\n  \"為什麼搜尋 python 教學都沒有結果\",\n  \"取消搜尋 python 教學\",\n  \"搜尋 python 教學的字體可以調大嗎\",\n  \"搜尋 python 教學會很耗流量嗎\",\n  \"幫我把搜尋 python 教學的歷史清空\",\n  \"搜尋 python 教學要怎麼下載影片\",\n  \"搜尋 python 教學有沒有英文版的\",\n  \"請問搜尋 python 教學可以換成其他瀏覽器嗎\",\n  \"我剛剛不小心搜尋 python 教學了\",\n  \"搜尋 python 教學的步驟可以跳過嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "搜尋 python 教學",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 1,
+  "ms": 1708,
+  "ts": "2026-10-09T12:13:14"
+ }
+}

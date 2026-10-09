@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Chrome 為什麼打不開",
+  "Chrome 瀏覽器怎麼關掉",
+  "有人會用 Chrome 下載檔案嗎",
+  "不要開啟 Chrome 啦",
+  "Chrome 的快捷鍵是什麼",
+  "怎麼解除安裝 Chrome",
+  "Chrome 常常當機怎麼辦",
+  "誰可以教我用 Chrome",
+  "Chrome 搜尋引擎怎麼改",
+  "Chrome 分頁不小心關了怎麼救",
+  "Chrome 更新要去哪裡弄",
+  "Chrome 為什麼一直跳廣告",
+  "找不到 Chrome 的圖示在哪裡",
+  "Chrome 登入帳號會怎樣嗎",
+  "Chrome 和 Edge 哪個比較好用",
+  "不要幫我開 Chrome",
+  "Chrome 歷史紀錄怎麼清掉",
+  "我的 Chrome 怎麼變英文版了",
+  "Chrome 擴充功能要去哪裡看",
+  "Chrome 灌好之後在哪裡"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Chrome 為什麼打不開\",\n  \"Chrome 瀏覽器怎麼關掉\",\n  \"有人會用 Chrome 下載檔案嗎\",\n  \"不要開啟 Chrome 啦\",\n  \"Chrome 的快捷鍵是什麼\",\n  \"怎麼解除安裝 Chrome\",\n  \"Chrome 常常當機怎麼辦\",\n  \"誰可以教我用 Chrome\",\n  \"Chrome 搜尋引擎怎麼改\",\n  \"Chrome 分頁不小心關了怎麼救\",\n  \"Chrome 更新要去哪裡弄\",\n  \"Chrome 為什麼一直跳廣告\",\n  \"找不到 Chrome 的圖示在哪裡\",\n  \"Chrome 登入帳號會怎樣嗎\",\n  \"Chrome 和 Edge 哪個比較好用\",\n  \"不要幫我開 Chrome\",\n  \"Chrome 歷史紀錄怎麼清掉\",\n  \"我的 Chrome 怎麼變英文版了\",\n  \"Chrome 擴充功能要去哪裡看\",\n  \"Chrome 灌好之後在哪裡\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.3,
+  "seed": "開啟 Chrome",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 1514,
+  "ts": "2026-10-09T10:17:18"
+ }
+}

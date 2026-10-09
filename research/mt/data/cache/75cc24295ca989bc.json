@@ -1,0 +1,36 @@
+{
+ "items": [
+  "切換到 Chrome 的按鍵是什麼",
+  "不要切換到 Chrome",
+  "Chrome 為什麼切換不過去",
+  "切換到 Chrome 的方法有哪些",
+  "可以不要自動切換到 Chrome 嗎",
+  "切換到 Chrome 之前要先存檔嗎",
+  "Chrome 瀏覽器怎麼切換到全螢幕",
+  "切換到 Chrome 會不會很耗記憶體",
+  "剛剛是不是自動切換到 Chrome 了",
+  "如何設定不要切換到 Chrome",
+  "切換到 Chrome 之後畫面就當掉了",
+  "為什麼每次按都切換到 Chrome",
+  "Chrome 分頁要怎麼切換到旁邊的那一個",
+  "切換到 Chrome 的快捷鍵失效了",
+  "可以幫我把 Chrome 切換到另一個視窗嗎",
+  "切換到 Chrome 速度會變慢嗎",
+  "安裝完更新就一直切換到 Chrome",
+  "切換到 Chrome 的功能在哪裡設定",
+  "找不到切換到 Chrome 的選項",
+  "點了這個連結會直接切換到 Chrome 嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"切換到 Chrome 的按鍵是什麼\",\n  \"不要切換到 Chrome\",\n  \"Chrome 為什麼切換不過去\",\n  \"切換到 Chrome 的方法有哪些\",\n  \"可以不要自動切換到 Chrome 嗎\",\n  \"切換到 Chrome 之前要先存檔嗎\",\n  \"Chrome 瀏覽器怎麼切換到全螢幕\",\n  \"切換到 Chrome 會不會很耗記憶體\",\n  \"剛剛是不是自動切換到 Chrome 了\",\n  \"如何設定不要切換到 Chrome\",\n  \"切換到 Chrome 之後畫面就當掉了\",\n  \"為什麼每次按都切換到 Chrome\",\n  \"Chrome 分頁要怎麼切換到旁邊的那一個\",\n  \"切換到 Chrome 的快捷鍵失效了\",\n  \"可以幫我把 Chrome 切換到另一個視窗嗎\",\n  \"切換到 Chrome 速度會變慢嗎\",\n  \"安裝完更新就一直切換到 Chrome\",\n  \"切換到 Chrome 的功能在哪裡設定\",\n  \"找不到切換到 Chrome 的選項\",\n  \"點了這個連結會直接切換到 Chrome 嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 1.0,
+  "seed": "切換到 Chrome",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 1804,
+  "ts": "2026-10-09T10:38:36"
+ }
+}

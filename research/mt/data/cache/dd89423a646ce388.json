@@ -1,0 +1,36 @@
+{
+ "items": [
+  "欸開啟 Chrome",
+  "那個開啟 Chrome",
+  "嗯開啟 Chrome",
+  "JARVIS開啟 Chrome",
+  "Jarvis 幫我開啟 Chrome",
+  "對了開啟 Chrome",
+  "欸、開啟 Chrome",
+  "那個、開啟 Chrome",
+  "嗯、開啟 Chrome",
+  "JARVIS 幫我開啟 Chrome",
+  "Jarvis開啟 Chrome",
+  "對了、開啟 Chrome",
+  "欸，開啟 Chrome",
+  "那個，開啟 Chrome",
+  "嗯，開啟 Chrome",
+  "JARVIS，開啟 Chrome",
+  "Jarvis，幫我開啟 Chrome",
+  "對了，開啟 Chrome",
+  "欸...開啟 Chrome",
+  "那個...開啟 Chrome"
+ ],
+ "ok": true,
+ "raw": "[\n  \"欸開啟 Chrome\",\n  \"那個開啟 Chrome\",\n  \"嗯開啟 Chrome\",\n  \"JARVIS開啟 Chrome\",\n  \"Jarvis 幫我開啟 Chrome\",\n  \"對了開啟 Chrome\",\n  \"欸、開啟 Chrome\",\n  \"那個、開啟 Chrome\",\n  \"嗯、開啟 Chrome\",\n  \"JARVIS 幫我開啟 Chrome\",\n  \"Jarvis開啟 Chrome\",\n  \"對了、開啟 Chrome\",\n  \"欸，開啟 Chrome\",\n  \"那個，開啟 Chrome\",\n  \"嗯，開啟 Chrome\",\n  \"JARVIS，開啟 Chrome\",\n  \"Jarvis，幫我開啟 Chrome\",\n  \"對了，開啟 Chrome\",\n  \"欸...開啟 Chrome\",\n  \"那個...開啟 Chrome\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.3,
+  "seed": "開啟 Chrome",
+  "relation": "R4_filler",
+  "n": 20,
+  "rep": 0,
+  "ms": 1039,
+  "ts": "2026-10-09T10:17:15"
+ }
+}

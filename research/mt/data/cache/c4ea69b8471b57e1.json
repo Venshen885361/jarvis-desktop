@@ -1,0 +1,36 @@
+{
+ "items": [
+  "github.com這個網站為什麼打不開",
+  "github.com是不是掛掉了怎麼一直轉圈圈",
+  "有人看得懂github.com裡面的英文教學嗎",
+  "github.com跟其他程式碼平台有什麼差別",
+  "不要幫我連上github.com",
+  "github.com這個網址怎麼拼才對",
+  "我想知道github.com是誰創辦的",
+  "誰可以教我怎麼使用github.com",
+  "github.com要怎麼註冊帳號",
+  "我的github.com密碼忘記了怎麼辦",
+  "github.com上面有什麼免費的專案嗎",
+  "為什麼我連不上github.com這個網頁",
+  "github.com今天好像有點秀逗",
+  "幫我查一下github.com的客服聯絡方式",
+  "github.com有出手機專用的App嗎",
+  "取消前往github.com",
+  "github.com的收費方案是長怎樣",
+  "你知道github.com最近有什麼更新嗎",
+  "不要開github.com給我看",
+  "github.com伺服器目前狀態正常嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"github.com這個網站為什麼打不開\",\n  \"github.com是不是掛掉了怎麼一直轉圈圈\",\n  \"有人看得懂github.com裡面的英文教學嗎\",\n  \"github.com跟其他程式碼平台有什麼差別\",\n  \"不要幫我連上github.com\",\n  \"github.com這個網址怎麼拼才對\",\n  \"我想知道github.com是誰創辦的\",\n  \"誰可以教我怎麼使用github.com\",\n  \"github.com要怎麼註冊帳號\",\n  \"我的github.com密碼忘記了怎麼辦\",\n  \"github.com上面有什麼免費的專案嗎\",\n  \"為什麼我連不上github.com這個網頁\",\n  \"github.com今天好像有點秀逗\",\n  \"幫我查一下github.com的客服聯絡方式\",\n  \"github.com有出手機專用的App嗎\",\n  \"取消前往github.com\",\n  \"github.com的收費方案是長怎樣\",\n  \"你知道github.com最近有什麼更新嗎\",\n  \"不要開github.com給我看\",\n  \"github.com伺服器目前狀態正常嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "打開 github.com",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 1969,
+  "ts": "2026-10-09T10:08:28"
+ }
+}

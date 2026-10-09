@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Chrome 幫我切過去",
+  "Chrome 轉過去好嗎",
+  "Chrome 切換一下",
+  "Chrome 拿出來用",
+  "Chrome 叫出來",
+  "Chrome 開起來看看",
+  "Chrome 換這一個",
+  "Chrome 轉去那邊",
+  "Chrome 秀一下",
+  "Chrome 幫忙切過去",
+  "Chrome 畫面轉過來",
+  "Chrome 這邊請切過去",
+  "Chrome 轉換一下好嗎",
+  "Chrome 幫我開一下",
+  "Chrome 頁面切過去",
+  "Chrome 變成這個",
+  "Chrome 馬上切過去",
+  "Chrome 畫面切換一下",
+  "Chrome 幫我秀出來",
+  "Chrome 轉到這個畫面"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Chrome 幫我切過去\",\n  \"Chrome 轉過去好嗎\",\n  \"Chrome 切換一下\",\n  \"Chrome 拿出來用\",\n  \"Chrome 叫出來\",\n  \"Chrome 開起來看看\",\n  \"Chrome 換這一個\",\n  \"Chrome 轉去那邊\",\n  \"Chrome 秀一下\",\n  \"Chrome 幫忙切過去\",\n  \"Chrome 畫面轉過來\",\n  \"Chrome 這邊請切過去\",\n  \"Chrome 轉換一下好嗎\",\n  \"Chrome 幫我開一下\",\n  \"Chrome 頁面切過去\",\n  \"Chrome 變成這個\",\n  \"Chrome 馬上切過去\",\n  \"Chrome 畫面切換一下\",\n  \"Chrome 幫我秀出來\",\n  \"Chrome 轉到這個畫面\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.3,
+  "seed": "切換到 Chrome",
+  "relation": "R3_reorder",
+  "n": 20,
+  "rep": 0,
+  "ms": 1568,
+  "ts": "2026-10-09T10:21:21"
+ }
+}

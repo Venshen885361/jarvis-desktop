@@ -1,0 +1,36 @@
+{
+ "items": [
+  "搜尋 python 教學要點進哪個網站",
+  "我python教學搜尋不到怎麼辦",
+  "不要搜尋 python 教學了",
+  "搜尋 python 教學的按鈕在哪裡",
+  "誰叫你搜尋 python 教學的",
+  "我想問搜尋 python 教學要花錢嗎",
+  "為什麼不能搜尋 python 教學",
+  "搜尋 python 教學有什麼好看的",
+  "剛才搜尋 python 教學的紀錄怎麼刪除",
+  "搜尋 python 教學需要登入帳號嗎",
+  "幫我取消搜尋 python 教學",
+  "搜尋 python 教學會不會中毒啊",
+  "可以不要自動搜尋 python 教學嗎",
+  "搜尋 python 教學的速度怎麼這麼慢",
+  "有沒有比搜尋 python 教學更好的方法",
+  "搜尋 python 教學這個功能壞掉了嗎",
+  "你上次幫我搜尋 python 教學是在哪一天",
+  "搜尋 python 教學之前要先安裝軟體嗎",
+  "大家都去哪裡搜尋 python 教學",
+  "搜尋 python 教學的結果怎麼全是英文"
+ ],
+ "ok": true,
+ "raw": "[\n  \"搜尋 python 教學要點進哪個網站\",\n  \"我python教學搜尋不到怎麼辦\",\n  \"不要搜尋 python 教學了\",\n  \"搜尋 python 教學的按鈕在哪裡\",\n  \"誰叫你搜尋 python 教學的\",\n  \"我想問搜尋 python 教學要花錢嗎\",\n  \"為什麼不能搜尋 python 教學\",\n  \"搜尋 python 教學有什麼好看的\",\n  \"剛才搜尋 python 教學的紀錄怎麼刪除\",\n  \"搜尋 python 教學需要登入帳號嗎\",\n  \"幫我取消搜尋 python 教學\",\n  \"搜尋 python 教學會不會中毒啊\",\n  \"可以不要自動搜尋 python 教學嗎\",\n  \"搜尋 python 教學的速度怎麼這麼慢\",\n  \"有沒有比搜尋 python 教學更好的方法\",\n  \"搜尋 python 教學這個功能壞掉了嗎\",\n  \"你上次幫我搜尋 python 教學是在哪一天\",\n  \"搜尋 python 教學之前要先安裝軟體嗎\",\n  \"大家都去哪裡搜尋 python 教學\",\n  \"搜尋 python 教學的結果怎麼全是英文\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "搜尋 python 教學",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 1593,
+  "ts": "2026-10-09T10:29:36"
+ }
+}

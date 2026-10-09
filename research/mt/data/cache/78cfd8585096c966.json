@@ -1,0 +1,36 @@
+{
+ "items": [
+  "欸用 YouTube 放 lofi",
+  "那個用 YouTube 放 lofi",
+  "嗯用 YouTube 放 lofi",
+  "JARVIS用 YouTube 放 lofi",
+  "Jarvis 幫我用 YouTube 放 lofi",
+  "對了用 YouTube 放 lofi",
+  "欸，用 YouTube 放 lofi",
+  "那個，用 YouTube 放 lofi",
+  "嗯，用 YouTube 放 lofi",
+  "JARVIS，用 YouTube 放 lofi",
+  "Jarvis 幫我，用 YouTube 放 lofi",
+  "對了，用 YouTube 放 lofi",
+  "欸呀用 YouTube 放 lofi",
+  "那個厚用 YouTube 放 lofi",
+  "嗯哼用 YouTube 放 lofi",
+  "JARVIS幫我用 YouTube 放 lofi",
+  "Jarvis 幫我用一下 YouTube 放 lofi",
+  "對了幫我用 YouTube 放 lofi",
+  "欸幫我用 YouTube 放 lofi",
+  "那個幫我用 YouTube 放 lofi"
+ ],
+ "ok": true,
+ "raw": "[\n  \"欸用 YouTube 放 lofi\",\n  \"那個用 YouTube 放 lofi\",\n  \"嗯用 YouTube 放 lofi\",\n  \"JARVIS用 YouTube 放 lofi\",\n  \"Jarvis 幫我用 YouTube 放 lofi\",\n  \"對了用 YouTube 放 lofi\",\n  \"欸，用 YouTube 放 lofi\",\n  \"那個，用 YouTube 放 lofi\",\n  \"嗯，用 YouTube 放 lofi\",\n  \"JARVIS，用 YouTube 放 lofi\",\n  \"Jarvis 幫我，用 YouTube 放 lofi\",\n  \"對了，用 YouTube 放 lofi\",\n  \"欸呀用 YouTube 放 lofi\",\n  \"那個厚用 YouTube 放 lofi\",\n  \"嗯哼用 YouTube 放 lofi\",\n  \"JARVIS幫我用 YouTube 放 lofi\",\n  \"Jarvis 幫我用一下 YouTube 放 lofi\",\n  \"對了幫我用 YouTube 放 lofi\",\n  \"欸幫我用 YouTube 放 lofi\",\n  \"那個幫我用 YouTube 放 lofi\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "用 YouTube 放 lofi",
+  "relation": "R4_filler",
+  "n": 20,
+  "rep": 0,
+  "ms": 1527,
+  "ts": "2026-10-09T10:28:25"
+ }
+}

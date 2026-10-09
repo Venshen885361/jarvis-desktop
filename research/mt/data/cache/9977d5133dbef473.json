@@ -1,0 +1,36 @@
+{
+ "items": [
+  "透過 Steam 下載 Terraria",
+  "用 Steam 載入 Terraria",
+  "藉由 Steam 安裝 Terraria",
+  "在 Steam 上面安裝 Terraria",
+  "用 Steam 取得 Terraria",
+  "透過 Steam 取得 Terraria",
+  "幫我用 Steam 安裝 Terraria",
+  "麻煩用 Steam 安裝 Terraria",
+  "用 Steam 把 Terraria 裝起來",
+  "利用 Steam 安裝 Terraria",
+  "透過 Steam 執行 Terraria 安裝",
+  "用 Steam 處理 Terraria 的安裝",
+  "在 Steam 內安裝 Terraria",
+  "用 Steam 來安裝 Terraria",
+  "請用 Steam 安裝 Terraria",
+  "用 Steam 下載安裝 Terraria",
+  "透過 Steam 平台安裝 Terraria",
+  "用 Steam 把 Terraria 下載安裝好",
+  "用 Steam 進行 Terraria 安裝",
+  "用 Steam 裝置安裝 Terraria"
+ ],
+ "ok": true,
+ "raw": "[\n  \"透過 Steam 下載 Terraria\",\n  \"用 Steam 載入 Terraria\",\n  \"藉由 Steam 安裝 Terraria\",\n  \"在 Steam 上面安裝 Terraria\",\n  \"用 Steam 取得 Terraria\",\n  \"透過 Steam 取得 Terraria\",\n  \"幫我用 Steam 安裝 Terraria\",\n  \"麻煩用 Steam 安裝 Terraria\",\n  \"用 Steam 把 Terraria 裝起來\",\n  \"利用 Steam 安裝 Terraria\",\n  \"透過 Steam 執行 Terraria 安裝\",\n  \"用 Steam 處理 Terraria 的安裝\",\n  \"在 Steam 內安裝 Terraria\",\n  \"用 Steam 來安裝 Terraria\",\n  \"請用 Steam 安裝 Terraria\",\n  \"用 Steam 下載安裝 Terraria\",\n  \"透過 Steam 平台安裝 Terraria\",\n  \"用 Steam 把 Terraria 下載安裝好\",\n  \"用 Steam 進行 Terraria 安裝\",\n  \"用 Steam 裝置安裝 Terraria\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "用 Steam 安裝 Terraria",
+  "relation": "R1_synonym",
+  "n": 20,
+  "rep": 0,
+  "ms": 1259,
+  "ts": "2026-10-09T10:29:15"
+ }
+}

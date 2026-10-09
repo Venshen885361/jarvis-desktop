@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Chrome 為什麼打不開",
+  "Chrome 瀏覽器怎麼關閉",
+  "有人知道怎麼解除安裝 Chrome 嗎",
+  "Chrome 經常自己當機怎麼辦",
+  "不要幫我打開 Chrome",
+  "Chrome 裡面有病毒嗎",
+  "Chrome 為什麼一直跳出廣告",
+  "教我怎麼更新 Chrome",
+  "Chrome 怎麼清除瀏覽紀錄",
+  "為什麼我的 Chrome 會變全螢幕",
+  "Chrome 搜尋引擎要怎麼改",
+  "誰可以告訴我 Chrome 的快速鍵",
+  "Chrome 的分頁不小心全部關掉了",
+  "Chrome 怎麼設定成中文",
+  "我的 Chrome 畫面怎麼變黑白的了",
+  "Chrome 為什麼跑得這麼慢",
+  "Chrome 帳號登入不進去怎麼辦",
+  "手機版的 Chrome 怎麼下載",
+  "Chrome 常常自己閃退是為什麼",
+  "找一下 Chrome 的下載資料夾在哪"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Chrome 為什麼打不開\",\n  \"Chrome 瀏覽器怎麼關閉\",\n  \"有人知道怎麼解除安裝 Chrome 嗎\",\n  \"Chrome 經常自己當機怎麼辦\",\n  \"不要幫我打開 Chrome\",\n  \"Chrome 裡面有病毒嗎\",\n  \"Chrome 為什麼一直跳出廣告\",\n  \"教我怎麼更新 Chrome\",\n  \"Chrome 怎麼清除瀏覽紀錄\",\n  \"為什麼我的 Chrome 會變全螢幕\",\n  \"Chrome 搜尋引擎要怎麼改\",\n  \"誰可以告訴我 Chrome 的快速鍵\",\n  \"Chrome 的分頁不小心全部關掉了\",\n  \"Chrome 怎麼設定成中文\",\n  \"我的 Chrome 畫面怎麼變黑白的了\",\n  \"Chrome 為什麼跑得這麼慢\",\n  \"Chrome 帳號登入不進去怎麼辦\",\n  \"手機版的 Chrome 怎麼下載\",\n  \"Chrome 常常自己閃退是為什麼\",\n  \"找一下 Chrome 的下載資料夾在哪\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開啟 Chrome",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 1497,
+  "ts": "2026-10-09T10:07:55"
+ }
+}

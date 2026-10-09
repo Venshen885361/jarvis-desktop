@@ -1,0 +1,36 @@
+{
+ "items": [
+  "欸什麼是 Tailscale",
+  "那個什麼是 Tailscale",
+  "嗯什麼是 Tailscale",
+  "JARVIS什麼是 Tailscale",
+  "Jarvis 幫我什麼是 Tailscale",
+  "對了什麼是 Tailscale",
+  "欸，什麼是 Tailscale",
+  "那個，什麼是 Tailscale",
+  "嗯，什麼是 Tailscale",
+  "JARVIS，什麼是 Tailscale",
+  "Jarvis 幫我，什麼是 Tailscale",
+  "對了，什麼是 Tailscale",
+  "欸~什麼是 Tailscale",
+  "那個~什麼是 Tailscale",
+  "嗯~什麼是 Tailscale",
+  "JARVIS~什麼是 Tailscale",
+  "Jarvis 幫我～什麼是 Tailscale",
+  "對了～什麼是 Tailscale",
+  "欸...什麼是 Tailscale",
+  "那個...什麼是 Tailscale"
+ ],
+ "ok": true,
+ "raw": "[\n  \"欸什麼是 Tailscale\",\n  \"那個什麼是 Tailscale\",\n  \"嗯什麼是 Tailscale\",\n  \"JARVIS什麼是 Tailscale\",\n  \"Jarvis 幫我什麼是 Tailscale\",\n  \"對了什麼是 Tailscale\",\n  \"欸，什麼是 Tailscale\",\n  \"那個，什麼是 Tailscale\",\n  \"嗯，什麼是 Tailscale\",\n  \"JARVIS，什麼是 Tailscale\",\n  \"Jarvis 幫我，什麼是 Tailscale\",\n  \"對了，什麼是 Tailscale\",\n  \"欸~什麼是 Tailscale\",\n  \"那個~什麼是 Tailscale\",\n  \"嗯~什麼是 Tailscale\",\n  \"JARVIS~什麼是 Tailscale\",\n  \"Jarvis 幫我～什麼是 Tailscale\",\n  \"對了～什麼是 Tailscale\",\n  \"欸...什麼是 Tailscale\",\n  \"那個...什麼是 Tailscale\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "什麼是 Tailscale",
+  "relation": "R4_filler",
+  "n": 20,
+  "rep": 0,
+  "ms": 1319,
+  "ts": "2026-10-09T10:33:29"
+ }
+}

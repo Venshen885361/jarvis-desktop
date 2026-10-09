@@ -1,0 +1,36 @@
+{
+ "items": [
+  "幫我開啟 Chrome 喔",
+  "請幫忙開啟一下 Chrome 啦",
+  "麻煩開啟 Chrome 謝謝",
+  "可以幫我開啟 Chrome 嗎",
+  "好嗎，開啟 Chrome 喔",
+  "請幫我開啟 Chrome 啦",
+  "麻煩幫我開啟一下 Chrome 謝謝",
+  "幫我開啟 Chrome 可以嗎",
+  "請開啟 Chrome 喔",
+  "麻煩開啟一下 Chrome 啦",
+  "可以幫忙開啟 Chrome 嗎",
+  "幫我把 Chrome 開啟謝謝",
+  "請幫我把 Chrome 開啟喔",
+  "麻煩幫我把 Chrome 開啟啦",
+  "可以幫我把 Chrome 開啟嗎",
+  "好嗎，幫我開啟 Chrome 謝謝",
+  "請幫我開啟一下 Chrome 喔",
+  "麻煩幫我開啟 Chrome 啦",
+  "幫我開啟 Chrome 謝謝",
+  "可以開啟 Chrome 嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"幫我開啟 Chrome 喔\",\n  \"請幫忙開啟一下 Chrome 啦\",\n  \"麻煩開啟 Chrome 謝謝\",\n  \"可以幫我開啟 Chrome 嗎\",\n  \"好嗎，開啟 Chrome 喔\",\n  \"請幫我開啟 Chrome 啦\",\n  \"麻煩幫我開啟一下 Chrome 謝謝\",\n  \"幫我開啟 Chrome 可以嗎\",\n  \"請開啟 Chrome 喔\",\n  \"麻煩開啟一下 Chrome 啦\",\n  \"可以幫忙開啟 Chrome 嗎\",\n  \"幫我把 Chrome 開啟謝謝\",\n  \"請幫我把 Chrome 開啟喔\",\n  \"麻煩幫我把 Chrome 開啟啦\",\n  \"可以幫我把 Chrome 開啟嗎\",\n  \"好嗎，幫我開啟 Chrome 謝謝\",\n  \"請幫我開啟一下 Chrome 喔\",\n  \"麻煩幫我開啟 Chrome 啦\",\n  \"幫我開啟 Chrome 謝謝\",\n  \"可以開啟 Chrome 嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開啟 Chrome",
+  "relation": "R2_politeness",
+  "n": 20,
+  "rep": 1,
+  "ms": 1380,
+  "ts": "2026-10-09T10:44:18"
+ }
+}

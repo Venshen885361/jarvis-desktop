@@ -1,0 +1,36 @@
+{
+ "items": [
+  "用 YouTube 放 lofi 的教學影片要怎麼找",
+  "為什麼用 YouTube 放 lofi 會一直卡住",
+  "不要用 YouTube 放 lofi 了啦",
+  "可以用 YouTube 放 lofi 以外的音樂嗎",
+  "哪裡可以找到不用 YouTube 放 lofi 的方法",
+  "用 YouTube 放 lofi 的音量怎麼調比較小",
+  "剛才用 YouTube 放 lofi 是誰點的",
+  "用 YouTube 放 lofi 會不會很耗網路流量",
+  "我不喜歡用 YouTube 放 lofi 這種音樂",
+  "用 YouTube 放 lofi 的那個清單叫什麼名字",
+  "可以教我怎麼用 YouTube 放 lofi 嗎",
+  "用 YouTube 放 lofi 的功能好像壞掉了",
+  "你覺得用 YouTube 放 lofi 好聽嗎",
+  "用 YouTube 放 lofi 之前要先登入帳號嗎",
+  "為什麼每次用 YouTube 放 lofi 都只有廣告",
+  "用 YouTube 放 lofi 的那個頻道還在不在",
+  "除了用 YouTube 放 lofi 還能用什麼軟體",
+  "用 YouTube 放 lofi 的捷徑怎麼設定",
+  "有人會用 YouTube 放 lofi 來讀書嗎",
+  "用 YouTube 放 lofi 的畫質可以關掉嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"用 YouTube 放 lofi 的教學影片要怎麼找\",\n  \"為什麼用 YouTube 放 lofi 會一直卡住\",\n  \"不要用 YouTube 放 lofi 了啦\",\n  \"可以用 YouTube 放 lofi 以外的音樂嗎\",\n  \"哪裡可以找到不用 YouTube 放 lofi 的方法\",\n  \"用 YouTube 放 lofi 的音量怎麼調比較小\",\n  \"剛才用 YouTube 放 lofi 是誰點的\",\n  \"用 YouTube 放 lofi 會不會很耗網路流量\",\n  \"我不喜歡用 YouTube 放 lofi 這種音樂\",\n  \"用 YouTube 放 lofi 的那個清單叫什麼名字\",\n  \"可以教我怎麼用 YouTube 放 lofi 嗎\",\n  \"用 YouTube 放 lofi 的功能好像壞掉了\",\n  \"你覺得用 YouTube 放 lofi 好聽嗎\",\n  \"用 YouTube 放 lofi 之前要先登入帳號嗎\",\n  \"為什麼每次用 YouTube 放 lofi 都只有廣告\",\n  \"用 YouTube 放 lofi 的那個頻道還在不在\",\n  \"除了用 YouTube 放 lofi 還能用什麼軟體\",\n  \"用 YouTube 放 lofi 的捷徑怎麼設定\",\n  \"有人會用 YouTube 放 lofi 來讀書嗎\",\n  \"用 YouTube 放 lofi 的畫質可以關掉嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "用 YouTube 放 lofi",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 2052,
+  "ts": "2026-10-09T10:28:30"
+ }
+}

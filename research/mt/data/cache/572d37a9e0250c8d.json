@@ -1,0 +1,36 @@
+{
+ "items": [
+  "github.com這個網站為什麼打不開",
+  "怎樣才能正常打開github.com呢",
+  "github.com是不是已經打不開了",
+  "我上次怎麼打開github.com的網頁",
+  "手機瀏覽器打不開github.com怎麼辦",
+  "幫我查一下github.com打不開的原因",
+  "为什么github.com一直打不開",
+  "github.com打不開是不是網路的問題",
+  "誰知道github.com要怎麼才打得開",
+  "電腦剛剛突然打不開github.com了",
+  "github.com這個網址到底能不能打開",
+  "我有個朋友github.com打不開要怎麼幫他",
+  "你知道github.com打不開要找誰處理嗎",
+  "github.com打不開會不會是封鎖了",
+  "好像很多人今天都打不開github.com",
+  "github.com打不開的畫面長怎樣",
+  "請問github.com打不開跟防火牆有關嗎",
+  "為什麼我輸入網址還是打不開github.com",
+  "github.com打不開時有什麼替代方案嗎",
+  "剛剛試了一下發現github.com打不開"
+ ],
+ "ok": true,
+ "raw": "[\n  \"github.com這個網站為什麼打不開\",\n  \"怎樣才能正常打開github.com呢\",\n  \"github.com是不是已經打不開了\",\n  \"我上次怎麼打開github.com的網頁\",\n  \"手機瀏覽器打不開github.com怎麼辦\",\n  \"幫我查一下github.com打不開的原因\",\n  \"为什么github.com一直打不開\",\n  \"github.com打不開是不是網路的問題\",\n  \"誰知道github.com要怎麼才打得開\",\n  \"電腦剛剛突然打不開github.com了\",\n  \"github.com這個網址到底能不能打開\",\n  \"我有個朋友github.com打不開要怎麼幫他\",\n  \"你知道github.com打不開要找誰處理嗎\",\n  \"github.com打不開會不會是封鎖了\",\n  \"好像很多人今天都打不開github.com\",\n  \"github.com打不開的畫面長怎樣\",\n  \"請問github.com打不開跟防火牆有關嗎\",\n  \"為什麼我輸入網址還是打不開github.com\",\n  \"github.com打不開時有什麼替代方案嗎\",\n  \"剛剛試了一下發現github.com打不開\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 1.0,
+  "seed": "打開 github.com",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 1999,
+  "ts": "2026-10-09T10:35:44"
+ }
+}

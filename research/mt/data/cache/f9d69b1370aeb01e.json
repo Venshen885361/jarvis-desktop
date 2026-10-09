@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Chrome 為什麼打不開",
+  "Chrome 的設定在哪裡",
+  "要怎麼解除安裝 Chrome",
+  "Chrome 常常當機怎麼辦",
+  "不要自動更新 Chrome",
+  "Chrome 分頁不小心關掉了怎麼救",
+  "Chrome 瀏覽紀錄怎麼清除",
+  "安裝 Chrome 的步驟是什麼",
+  "Chrome 捷徑圖示不見了",
+  "Chrome 變得很慢怎麼處理",
+  "可以把預設瀏覽器改成 Chrome 以外的嗎",
+  "Chrome 怎麼切換不同帳號",
+  "下載 Chrome 會中毒嗎",
+  "Chrome 外掛程式去哪裡找",
+  "怎麼把 Chrome 畫面變暗",
+  "Chrome 翻譯功能怎麼用",
+  "平板可以灌 Chrome 嗎",
+  "Chrome 搜尋引擎怎麼改成 Google",
+  "移除 Chrome 上的廣告",
+  "Chrome 記憶體吃太重怎麼解決"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Chrome 為什麼打不開\",\n  \"Chrome 的設定在哪裡\",\n  \"要怎麼解除安裝 Chrome\",\n  \"Chrome 常常當機怎麼辦\",\n  \"不要自動更新 Chrome\",\n  \"Chrome 分頁不小心關掉了怎麼救\",\n  \"Chrome 瀏覽紀錄怎麼清除\",\n  \"安裝 Chrome 的步驟是什麼\",\n  \"Chrome 捷徑圖示不見了\",\n  \"Chrome 變得很慢怎麼處理\",\n  \"可以把預設瀏覽器改成 Chrome 以外的嗎\",\n  \"Chrome 怎麼切換不同帳號\",\n  \"下載 Chrome 會中毒嗎\",\n  \"Chrome 外掛程式去哪裡找\",\n  \"怎麼把 Chrome 畫面變暗\",\n  \"Chrome 翻譯功能怎麼用\",\n  \"平板可以灌 Chrome 嗎\",\n  \"Chrome 搜尋引擎怎麼改成 Google\",\n  \"移除 Chrome 上的廣告\",\n  \"Chrome 記憶體吃太重怎麼解決\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "開啟 Chrome",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 1521,
+  "ts": "2026-10-09T10:26:40"
+ }
+}

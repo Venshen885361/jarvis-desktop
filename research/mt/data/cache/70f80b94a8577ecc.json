@@ -1,0 +1,36 @@
+{
+ "items": [
+  "切換到 Chrome 之前幫我存檔",
+  "Chrome 到底怎麼切換到全螢幕",
+  "為什麼我一直切換到 Chrome 分頁",
+  "不要切換到 Chrome 瀏覽器",
+  "切換到 Chrome 的快捷鍵是什麼",
+  "Chrome 視窗切換到別的桌面去哪了",
+  "請問切換到 Chrome 的設定在哪裡",
+  "Chrome 分頁切換到快瘋掉了",
+  "切換到 Chrome 之後就當機了怎麼辦",
+  "有沒有辦法不要自動切換到 Chrome",
+  "Chrome 這樣一直切換到背景是正常的嗎",
+  "切換到 Chrome 的按鈕按了沒反應",
+  "怎麼把 Chrome 切換到英文介面",
+  "Chrome 分頁自動切換到首頁去了",
+  "切換到 Chrome 應該要用哪一個指令",
+  "Chrome 視窗切換到最小化了",
+  "不要幫我切換到 Chrome 好嗎",
+  "Chrome 分頁切換到別的視窗去了",
+  "切換到 Chrome 之後滑鼠就失靈了",
+  "Chrome 這樣手動切換到很麻煩"
+ ],
+ "ok": true,
+ "raw": "[\n  \"切換到 Chrome 之前幫我存檔\",\n  \"Chrome 到底怎麼切換到全螢幕\",\n  \"為什麼我一直切換到 Chrome 分頁\",\n  \"不要切換到 Chrome 瀏覽器\",\n  \"切換到 Chrome 的快捷鍵是什麼\",\n  \"Chrome 視窗切換到別的桌面去哪了\",\n  \"請問切換到 Chrome 的設定在哪裡\",\n  \"Chrome 分頁切換到快瘋掉了\",\n  \"切換到 Chrome 之後就當機了怎麼辦\",\n  \"有沒有辦法不要自動切換到 Chrome\",\n  \"Chrome 這樣一直切換到背景是正常的嗎\",\n  \"切換到 Chrome 的按鈕按了沒反應\",\n  \"怎麼把 Chrome 切換到英文介面\",\n  \"Chrome 分頁自動切換到首頁去了\",\n  \"切換到 Chrome 應該要用哪一個指令\",\n  \"Chrome 視窗切換到最小化了\",\n  \"不要幫我切換到 Chrome 好嗎\",\n  \"Chrome 分頁切換到別的視窗去了\",\n  \"切換到 Chrome 之後滑鼠就失靈了\",\n  \"Chrome 這樣手動切換到很麻煩\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "切換到 Chrome",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 2,
+  "ms": 2196,
+  "ts": "2026-10-09T14:08:05"
+ }
+}

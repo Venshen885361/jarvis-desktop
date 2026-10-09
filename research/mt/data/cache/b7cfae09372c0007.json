@@ -1,0 +1,36 @@
+{
+ "items": [
+  "切換到 Chrome 之前幫我存一下檔",
+  "Chrome 怎麼切換到英文介面",
+  "我剛剛不是叫你切換到 Chrome",
+  "不要切換到 Chrome 啦",
+  "切換到 Chrome 的快捷鍵是什麼",
+  "為什麼 Chrome 會自動切換到全螢幕",
+  "切換到 Chrome 會不會很耗記憶體",
+  "Chrome 分頁要怎麼切換到旁邊的視窗",
+  "切換到 Chrome 之後網頁就當掉了",
+  "你可以教我怎麼切換到 Chrome 嗎",
+  "Chrome 的設定在哪裡可以切換到深色模式",
+  "切換到 Chrome 好像比 Edge 慢",
+  "剛才不小心切換到 Chrome 了",
+  "切換到 Chrome 的步驟是什麼",
+  "有沒有辦法不要讓系統自動切換到 Chrome",
+  "Chrome 這樣切換到別的頁面會不會卡",
+  "切換到 Chrome 以前要先登出嗎",
+  "Chrome 的帳號要怎麼切換到另一個",
+  "切換到 Chrome 的那個按鈕在哪裡",
+  "我不想切換到 Chrome 幫我開 Firefox"
+ ],
+ "ok": true,
+ "raw": "[\n  \"切換到 Chrome 之前幫我存一下檔\",\n  \"Chrome 怎麼切換到英文介面\",\n  \"我剛剛不是叫你切換到 Chrome\",\n  \"不要切換到 Chrome 啦\",\n  \"切換到 Chrome 的快捷鍵是什麼\",\n  \"為什麼 Chrome 會自動切換到全螢幕\",\n  \"切換到 Chrome 會不會很耗記憶體\",\n  \"Chrome 分頁要怎麼切換到旁邊的視窗\",\n  \"切換到 Chrome 之後網頁就當掉了\",\n  \"你可以教我怎麼切換到 Chrome 嗎\",\n  \"Chrome 的設定在哪裡可以切換到深色模式\",\n  \"切換到 Chrome 好像比 Edge 慢\",\n  \"剛才不小心切換到 Chrome 了\",\n  \"切換到 Chrome 的步驟是什麼\",\n  \"有沒有辦法不要讓系統自動切換到 Chrome\",\n  \"Chrome 這樣切換到別的頁面會不會卡\",\n  \"切換到 Chrome 以前要先登出嗎\",\n  \"Chrome 的帳號要怎麼切換到另一個\",\n  \"切換到 Chrome 的那個按鈕在哪裡\",\n  \"我不想切換到 Chrome 幫我開 Firefox\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.3,
+  "seed": "切換到 Chrome",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 1914,
+  "ts": "2026-10-09T10:21:26"
+ }
+}

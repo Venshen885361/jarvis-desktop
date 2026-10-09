@@ -1,0 +1,36 @@
+{
+ "items": [
+  "怎麼下載 Discord 的電腦版",
+  "下載 Discord 速度太慢怎麼辦",
+  "Discord 為什麼下載失敗",
+  "找不到下載 Discord 的按鈕在哪",
+  "不要下載 Discord 啦",
+  "下載 Discord 需要付費嗎",
+  "手機版下載 Discord 的教學",
+  "下載 Discord 會不會中毒啊",
+  "取消下載 Discord",
+  "下載 Discord 跑到一半停住",
+  "誰叫你下載 Discord 的",
+  "下載 Discord 之後要怎麼註冊",
+  "有沒有人跟我一樣下載 Discord 失敗",
+  "下載 Discord 的官方網站是哪個",
+  "不要幫我下載 Discord",
+  "下載 Discord 需要多少容量",
+  "下載 Discord 要等多久",
+  "下載 Discord 出現錯誤代碼",
+  "教我怎麼安全下載 Discord",
+  "下載 Discord 竟然要更新系統"
+ ],
+ "ok": true,
+ "raw": "[\n  \"怎麼下載 Discord 的電腦版\",\n  \"下載 Discord 速度太慢怎麼辦\",\n  \"Discord 為什麼下載失敗\",\n  \"找不到下載 Discord 的按鈕在哪\",\n  \"不要下載 Discord 啦\",\n  \"下載 Discord 需要付費嗎\",\n  \"手機版下載 Discord 的教學\",\n  \"下載 Discord 會不會中毒啊\",\n  \"取消下載 Discord\",\n  \"下載 Discord 跑到一半停住\",\n  \"誰叫你下載 Discord 的\",\n  \"下載 Discord 之後要怎麼註冊\",\n  \"有沒有人跟我一樣下載 Discord 失敗\",\n  \"下載 Discord 的官方網站是哪個\",\n  \"不要幫我下載 Discord\",\n  \"下載 Discord 需要多少容量\",\n  \"下載 Discord 要等多久\",\n  \"下載 Discord 出現錯誤代碼\",\n  \"教我怎麼安全下載 Discord\",\n  \"下載 Discord 竟然要更新系統\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "下載 Discord",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 1523,
+  "ts": "2026-10-09T10:28:52"
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "items": [
+  "YouTube 怎麼打不開了",
+  "YouTube 的客服電話是多少",
+  "不要開 YouTube 啦",
+  "YouTube 怎麼唸才對",
+  "誰可以教我 YouTube 怎麼用",
+  "YouTube 畫面一直轉圈圈怎麼辦",
+  "我覺得 YouTube 越來越難用了",
+  "YouTube 裡面的影片可以下載嗎",
+  "為什麼 YouTube 會一直閃退",
+  "YouTube 搜尋記錄怎麼刪除",
+  "幫我找 YouTube 的替代軟體",
+  "YouTube 訂閱頻道在哪裡看",
+  "有人知道 YouTube 怎麼改密碼嗎",
+  "YouTube 影片沒有聲音是為什麼",
+  "我想取消 YouTube 進階版",
+  "YouTube 帳號被登出了怎麼辦",
+  "為什麼我的 YouTube 不能留言",
+  "YouTube 廣告怎麼那麼多",
+  "我覺得 YouTube 的介面很醜",
+  "YouTube 音樂背景播放會收費嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"YouTube 怎麼打不開了\",\n  \"YouTube 的客服電話是多少\",\n  \"不要開 YouTube 啦\",\n  \"YouTube 怎麼唸才對\",\n  \"誰可以教我 YouTube 怎麼用\",\n  \"YouTube 畫面一直轉圈圈怎麼辦\",\n  \"我覺得 YouTube 越來越難用了\",\n  \"YouTube 裡面的影片可以下載嗎\",\n  \"為什麼 YouTube 會一直閃退\",\n  \"YouTube 搜尋記錄怎麼刪除\",\n  \"幫我找 YouTube 的替代軟體\",\n  \"YouTube 訂閱頻道在哪裡看\",\n  \"有人知道 YouTube 怎麼改密碼嗎\",\n  \"YouTube 影片沒有聲音是為什麼\",\n  \"我想取消 YouTube 進階版\",\n  \"YouTube 帳號被登出了怎麼辦\",\n  \"為什麼我的 YouTube 不能留言\",\n  \"YouTube 廣告怎麼那麼多\",\n  \"我覺得 YouTube 的介面很醜\",\n  \"YouTube 音樂背景播放會收費嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開 YouTube",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 2,
+  "ms": 1734,
+  "ts": "2026-10-09T12:23:15"
+ }
+}

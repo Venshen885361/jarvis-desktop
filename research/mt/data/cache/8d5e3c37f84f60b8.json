@@ -1,0 +1,36 @@
+{
+ "items": [
+  "YouTube的開法是什麼",
+  "怎麼把YouTube關掉",
+  "YouTube打不開欸怎麼辦",
+  "YouTube開頭的音樂叫什麼",
+  "你幫我查YouTube為什麼開不起來",
+  "我上次看YouTube歷史紀錄在哪",
+  "YouTube有辦法不要開通知嗎",
+  "誰知道YouTube怎麼開子母畫面",
+  "不要打開YouTube啦",
+  "YouTube開箱影片好好看",
+  "YouTube開頭動畫好懷念",
+  "為什麼YouTube一直自動打開",
+  "YouTube開麥拉是什麼意思",
+  "可以教我怎麼下載YouTube影片嗎",
+  "YouTube開會員比較好嗎",
+  "幫我找YouTube開箱評測",
+  "YouTube開台實況主要怎麼當",
+  "你看過YouTube開箱嗎",
+  "YouTube開頭曲是哪一首",
+  "別開YouTube了啦"
+ ],
+ "ok": true,
+ "raw": "[\n  \"YouTube的開法是什麼\",\n  \"怎麼把YouTube關掉\",\n  \"YouTube打不開欸怎麼辦\",\n  \"YouTube開頭的音樂叫什麼\",\n  \"你幫我查YouTube為什麼開不起來\",\n  \"我上次看YouTube歷史紀錄在哪\",\n  \"YouTube有辦法不要開通知嗎\",\n  \"誰知道YouTube怎麼開子母畫面\",\n  \"不要打開YouTube啦\",\n  \"YouTube開箱影片好好看\",\n  \"YouTube開頭動畫好懷念\",\n  \"為什麼YouTube一直自動打開\",\n  \"YouTube開麥拉是什麼意思\",\n  \"可以教我怎麼下載YouTube影片嗎\",\n  \"YouTube開會員比較好嗎\",\n  \"幫我找YouTube開箱評測\",\n  \"YouTube開台實況主要怎麼當\",\n  \"你看過YouTube開箱嗎\",\n  \"YouTube開頭曲是哪一首\",\n  \"別開YouTube了啦\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.3,
+  "seed": "開 YouTube",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 1840,
+  "ts": "2026-10-09T10:17:29"
+ }
+}

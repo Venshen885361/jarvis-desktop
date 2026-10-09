@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Chrome 為什麼打不開",
+  "Chrome 瀏覽器怎麼關閉",
+  "Chrome 的快捷鍵是什麼",
+  "可以教我怎麼解除安裝 Chrome 嗎",
+  "Chrome 一直當機要怎麼處理",
+  "我的 Chrome 怎麼畫面全黑",
+  "不要打開 Chrome 啦",
+  "幫我搜尋 Chrome 的官方下載點",
+  "Chrome 搜尋引擎要怎麼改預設的",
+  "你知道怎麼清除 Chrome 的瀏覽紀錄嗎",
+  "Chrome 更新之後變超慢的",
+  "如何把 Chrome 的首頁換掉",
+  "Chrome 為什麼一直跳出廣告",
+  "可以幫我把 Chrome 縮小嗎",
+  "怎樣才能讓 Chrome 開啟速度變快",
+  "Chrome 分頁不小心關掉了怎麼復原",
+  "幫我找一下 Chrome 的設定在哪裡",
+  "為什麼我的 Chrome 不能用外掛",
+  "Chrome 密碼要怎麼備份",
+  "你看得出這個 Chrome 頁面是什麼嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Chrome 為什麼打不開\",\n  \"Chrome 瀏覽器怎麼關閉\",\n  \"Chrome 的快捷鍵是什麼\",\n  \"可以教我怎麼解除安裝 Chrome 嗎\",\n  \"Chrome 一直當機要怎麼處理\",\n  \"我的 Chrome 怎麼畫面全黑\",\n  \"不要打開 Chrome 啦\",\n  \"幫我搜尋 Chrome 的官方下載點\",\n  \"Chrome 搜尋引擎要怎麼改預設的\",\n  \"你知道怎麼清除 Chrome 的瀏覽紀錄嗎\",\n  \"Chrome 更新之後變超慢的\",\n  \"如何把 Chrome 的首頁換掉\",\n  \"Chrome 為什麼一直跳出廣告\",\n  \"可以幫我把 Chrome 縮小嗎\",\n  \"怎樣才能讓 Chrome 開啟速度變快\",\n  \"Chrome 分頁不小心關掉了怎麼復原\",\n  \"幫我找一下 Chrome 的設定在哪裡\",\n  \"為什麼我的 Chrome 不能用外掛\",\n  \"Chrome 密碼要怎麼備份\",\n  \"你看得出這個 Chrome 頁面是什麼嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 1.0,
+  "seed": "開啟 Chrome",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 1616,
+  "ts": "2026-10-09T10:35:10"
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "items": [
+  "請幫我開 YouTube 謝謝",
+  "麻煩開一下 YouTube 喔",
+  "可以幫我開 YouTube 嗎",
+  "幫我開 YouTube 好嗎",
+  "請開一下 YouTube 啦",
+  "麻煩幫我開 YouTube 謝謝",
+  "好啦幫我開 YouTube 喔",
+  "請幫我開一下 YouTube 可以嗎",
+  "麻煩開 YouTube 好嗎",
+  "幫我開一下 YouTube 謝謝",
+  "請開 YouTube 啦",
+  "可以幫我開一下 YouTube 喔",
+  "麻煩幫我開一下 YouTube 啦",
+  "幫我開 YouTube 喔",
+  "請幫我開 YouTube 可以嗎",
+  "麻煩開一下 YouTube 謝謝",
+  "可以開 YouTube 嗎",
+  "幫我開一下 YouTube 好嗎",
+  "請開一下 YouTube 喔",
+  "麻煩幫我開 YouTube 啦"
+ ],
+ "ok": true,
+ "raw": "[\n  \"請幫我開 YouTube 謝謝\",\n  \"麻煩開一下 YouTube 喔\",\n  \"可以幫我開 YouTube 嗎\",\n  \"幫我開 YouTube 好嗎\",\n  \"請開一下 YouTube 啦\",\n  \"麻煩幫我開 YouTube 謝謝\",\n  \"好啦幫我開 YouTube 喔\",\n  \"請幫我開一下 YouTube 可以嗎\",\n  \"麻煩開 YouTube 好嗎\",\n  \"幫我開一下 YouTube 謝謝\",\n  \"請開 YouTube 啦\",\n  \"可以幫我開一下 YouTube 喔\",\n  \"麻煩幫我開一下 YouTube 啦\",\n  \"幫我開 YouTube 喔\",\n  \"請幫我開 YouTube 可以嗎\",\n  \"麻煩開一下 YouTube 謝謝\",\n  \"可以開 YouTube 嗎\",\n  \"幫我開一下 YouTube 好嗎\",\n  \"請開一下 YouTube 喔\",\n  \"麻煩幫我開 YouTube 啦\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "開 YouTube",
+  "relation": "R2_politeness",
+  "n": 20,
+  "rep": 0,
+  "ms": 1343,
+  "ts": "2026-10-09T10:26:47"
+ }
+}

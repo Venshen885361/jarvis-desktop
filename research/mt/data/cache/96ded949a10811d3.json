@@ -1,0 +1,36 @@
+{
+ "items": [
+  "啟動 github.com",
+  "幫我打開 github.com",
+  "開啟 github.com",
+  "幫我啟動 github.com",
+  "進入 github.com",
+  "幫我進入 github.com",
+  "執行 github.com",
+  "幫我執行 github.com",
+  "連到 github.com",
+  "幫我連到 github.com",
+  "造訪 github.com",
+  "幫我造訪 github.com",
+  "前往 github.com",
+  "幫我前往 github.com",
+  "打開一下 github.com",
+  "開啟一下 github.com",
+  "啟動一下 github.com",
+  "幫我開 github.com",
+  "把 github.com 打開",
+  "把 github.com 開起來"
+ ],
+ "ok": true,
+ "raw": "[\n  \"啟動 github.com\",\n  \"幫我打開 github.com\",\n  \"開啟 github.com\",\n  \"幫我啟動 github.com\",\n  \"進入 github.com\",\n  \"幫我進入 github.com\",\n  \"執行 github.com\",\n  \"幫我執行 github.com\",\n  \"連到 github.com\",\n  \"幫我連到 github.com\",\n  \"造訪 github.com\",\n  \"幫我造訪 github.com\",\n  \"前往 github.com\",\n  \"幫我前往 github.com\",\n  \"打開一下 github.com\",\n  \"開啟一下 github.com\",\n  \"啟動一下 github.com\",\n  \"幫我開 github.com\",\n  \"把 github.com 打開\",\n  \"把 github.com 開起來\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "打開 github.com",
+  "relation": "R1_synonym",
+  "n": 20,
+  "rep": 0,
+  "ms": 1384,
+  "ts": "2026-10-09T10:08:19"
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "items": [
+  "請幫我切換到 Chrome 喔",
+  "麻煩切換到 Chrome 一下啦",
+  "可以幫我切換到 Chrome 嗎",
+  "切換到 Chrome 謝謝",
+  "好嗎，幫我切換到 Chrome 喔",
+  "請切換到 Chrome 啦",
+  "麻煩切換到 Chrome 可以嗎",
+  "幫我切換到 Chrome 謝謝啦",
+  "切換到 Chrome 一下好嗎",
+  "請幫我切換到 Chrome 啦",
+  "麻煩幫我切換到 Chrome 喔",
+  "切換到 Chrome 可以嗎謝謝",
+  "幫我切換到 Chrome 一下喔",
+  "請切換到 Chrome 謝謝",
+  "好嗎，切換到 Chrome 啦",
+  "麻煩切換到 Chrome 謝謝你喔",
+  "可以切換到 Chrome 一下嗎",
+  "幫我切換到 Chrome 啦",
+  "請幫我切換到 Chrome 可以嗎",
+  "切換到 Chrome 麻煩一下囉"
+ ],
+ "ok": true,
+ "raw": "[\n  \"請幫我切換到 Chrome 喔\",\n  \"麻煩切換到 Chrome 一下啦\",\n  \"可以幫我切換到 Chrome 嗎\",\n  \"切換到 Chrome 謝謝\",\n  \"好嗎，幫我切換到 Chrome 喔\",\n  \"請切換到 Chrome 啦\",\n  \"麻煩切換到 Chrome 可以嗎\",\n  \"幫我切換到 Chrome 謝謝啦\",\n  \"切換到 Chrome 一下好嗎\",\n  \"請幫我切換到 Chrome 啦\",\n  \"麻煩幫我切換到 Chrome 喔\",\n  \"切換到 Chrome 可以嗎謝謝\",\n  \"幫我切換到 Chrome 一下喔\",\n  \"請切換到 Chrome 謝謝\",\n  \"好嗎，切換到 Chrome 啦\",\n  \"麻煩切換到 Chrome 謝謝你喔\",\n  \"可以切換到 Chrome 一下嗎\",\n  \"幫我切換到 Chrome 啦\",\n  \"請幫我切換到 Chrome 可以嗎\",\n  \"切換到 Chrome 麻煩一下囉\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "切換到 Chrome",
+  "relation": "R2_politeness",
+  "n": 20,
+  "rep": 0,
+  "ms": 1526,
+  "ts": "2026-10-09T10:11:36"
+ }
+}

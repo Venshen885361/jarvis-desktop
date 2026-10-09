@@ -1,0 +1,36 @@
+{
+ "items": [
+  "請幫我用 Steam 安裝 Terraria 啦",
+  "麻煩用 Steam 安裝一下 Terraria 謝謝",
+  "幫我用 Steam 安裝 Terraria 好嗎",
+  "可以幫我用 Steam 安裝 Terraria 嗎",
+  "用 Steam 安裝一下 Terraria 拜託",
+  "請用 Steam 安裝 Terraria 喔",
+  "麻煩幫我用 Steam 安裝 Terraria 啦",
+  "用 Steam 安裝 Terraria 可以嗎",
+  "幫我用 Steam 把 Terraria 裝一下好嗎",
+  "請幫忙用 Steam 安裝 Terraria 謝謝",
+  "麻煩用 Steam 把 Terraria 裝起來可以嗎",
+  "幫我用 Steam 安裝 Terraria 喔",
+  "請用 Steam 安裝一下 Terraria 拜託",
+  "可以麻煩用 Steam 安裝 Terraria 嗎",
+  "用 Steam 安裝 Terraria 謝謝啦",
+  "幫我用 Steam 安裝 Terraria 趕快好嗎",
+  "請幫我用 Steam 裝一下 Terraria 謝謝",
+  "麻煩用 Steam 安裝 Terraria 喔",
+  "可以幫我用 Steam 把 Terraria 裝好嗎",
+  "用 Steam 安裝 Terraria 可以啦"
+ ],
+ "ok": true,
+ "raw": "[\n  \"請幫我用 Steam 安裝 Terraria 啦\",\n  \"麻煩用 Steam 安裝一下 Terraria 謝謝\",\n  \"幫我用 Steam 安裝 Terraria 好嗎\",\n  \"可以幫我用 Steam 安裝 Terraria 嗎\",\n  \"用 Steam 安裝一下 Terraria 拜託\",\n  \"請用 Steam 安裝 Terraria 喔\",\n  \"麻煩幫我用 Steam 安裝 Terraria 啦\",\n  \"用 Steam 安裝 Terraria 可以嗎\",\n  \"幫我用 Steam 把 Terraria 裝一下好嗎\",\n  \"請幫忙用 Steam 安裝 Terraria 謝謝\",\n  \"麻煩用 Steam 把 Terraria 裝起來可以嗎\",\n  \"幫我用 Steam 安裝 Terraria 喔\",\n  \"請用 Steam 安裝一下 Terraria 拜託\",\n  \"可以麻煩用 Steam 安裝 Terraria 嗎\",\n  \"用 Steam 安裝 Terraria 謝謝啦\",\n  \"幫我用 Steam 安裝 Terraria 趕快好嗎\",\n  \"請幫我用 Steam 裝一下 Terraria 謝謝\",\n  \"麻煩用 Steam 安裝 Terraria 喔\",\n  \"可以幫我用 Steam 把 Terraria 裝好嗎\",\n  \"用 Steam 安裝 Terraria 可以啦\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.3,
+  "seed": "用 Steam 安裝 Terraria",
+  "relation": "R2_politeness",
+  "n": 20,
+  "rep": 0,
+  "ms": 1735,
+  "ts": "2026-10-09T10:18:54"
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "items": [
+  "麻煩幫我搜尋一下 python 教學，謝謝喔",
+  "請幫我找 python 教學啦，可以嗎",
+  "幫我搜尋 python 教學好嗎，拜託",
+  "麻煩請幫我查一下 python 教學，謝謝",
+  "幫我找一下 python 教學好不好，拜託啦",
+  "請幫我搜尋 python 教學，可以嗎",
+  "麻煩幫我找 python 教學，謝謝喔",
+  "幫我查一下 python 教學啦，拜託",
+  "請幫忙搜尋 python 教學好嗎，謝謝",
+  "麻煩幫我搜尋 python 教學可以嗎",
+  "幫我找 python 教學喔，拜託啦",
+  "請幫我看一下 python 教學啦，謝謝",
+  "麻煩請幫我找 python 教學好嗎",
+  "幫我搜尋一下 python 教學，拜託",
+  "請幫我搜尋 python 教學喔，可以嗎",
+  "麻煩幫我查 python 教學，謝謝啦",
+  "幫我找 python 教學可以嗎，拜託",
+  "請幫忙找一下 python 教學好嗎",
+  "麻煩幫我搜尋 python 教學啦，謝謝",
+  "幫我查 python 教學好嗎，拜託喔"
+ ],
+ "ok": true,
+ "raw": "[\n  \"麻煩幫我搜尋一下 python 教學，謝謝喔\",\n  \"請幫我找 python 教學啦，可以嗎\",\n  \"幫我搜尋 python 教學好嗎，拜託\",\n  \"麻煩請幫我查一下 python 教學，謝謝\",\n  \"幫我找一下 python 教學好不好，拜託啦\",\n  \"請幫我搜尋 python 教學，可以嗎\",\n  \"麻煩幫我找 python 教學，謝謝喔\",\n  \"幫我查一下 python 教學啦，拜託\",\n  \"請幫忙搜尋 python 教學好嗎，謝謝\",\n  \"麻煩幫我搜尋 python 教學可以嗎\",\n  \"幫我找 python 教學喔，拜託啦\",\n  \"請幫我看一下 python 教學啦，謝謝\",\n  \"麻煩請幫我找 python 教學好嗎\",\n  \"幫我搜尋一下 python 教學，拜託\",\n  \"請幫我搜尋 python 教學喔，可以嗎\",\n  \"麻煩幫我查 python 教學，謝謝啦\",\n  \"幫我找 python 教學可以嗎，拜託\",\n  \"請幫忙找一下 python 教學好嗎\",\n  \"麻煩幫我搜尋 python 教學啦，謝謝\",\n  \"幫我查 python 教學好嗎，拜託喔\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "搜尋 python 教學",
+  "relation": "R2_politeness",
+  "n": 20,
+  "rep": 0,
+  "ms": 1495,
+  "ts": "2026-10-09T10:29:29"
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Discord 怎麼下載才對",
+  "下載 Discord 需要多少容量",
+  "為什麼 Discord 下載不了",
+  "Discord 下載速度好慢喔",
+  "不要下載 Discord 啦",
+  "下載 Discord 會中毒嗎",
+  "有人知道 Discord 去哪裡下載嗎",
+  "Discord 桌面版下載失敗怎麼辦",
+  "下載 Discord 的官方網站是哪個",
+  "手機可以下載 Discord 嗎",
+  "下載 Discord 要錢嗎",
+  "Discord 下載完打不開欸",
+  "幫我查 Discord 下載教學",
+  "下載 Discord 檔案在哪裡找",
+  "Mac 要怎麼下載 Discord",
+  "下載 Discord 真的很麻煩",
+  "更新 Discord 跟下載有一樣嗎",
+  "Discord 下載畫面卡住不動了",
+  "取消下載 Discord 好了",
+  "請問下載 Discord 之後要怎麼註冊"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Discord 怎麼下載才對\",\n  \"下載 Discord 需要多少容量\",\n  \"為什麼 Discord 下載不了\",\n  \"Discord 下載速度好慢喔\",\n  \"不要下載 Discord 啦\",\n  \"下載 Discord 會中毒嗎\",\n  \"有人知道 Discord 去哪裡下載嗎\",\n  \"Discord 桌面版下載失敗怎麼辦\",\n  \"下載 Discord 的官方網站是哪個\",\n  \"手機可以下載 Discord 嗎\",\n  \"下載 Discord 要錢嗎\",\n  \"Discord 下載完打不開欸\",\n  \"幫我查 Discord 下載教學\",\n  \"下載 Discord 檔案在哪裡找\",\n  \"Mac 要怎麼下載 Discord\",\n  \"下載 Discord 真的很麻煩\",\n  \"更新 Discord 跟下載有一樣嗎\",\n  \"Discord 下載畫面卡住不動了\",\n  \"取消下載 Discord 好了\",\n  \"請問下載 Discord 之後要怎麼註冊\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 1.0,
+  "seed": "下載 Discord",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 1354,
+  "ts": "2026-10-09T10:36:29"
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "items": [
+  "github.com這個網站為什麼打不開",
+  "github.com被封鎖了嗎怎麼開不起來",
+  "有人知道github.com的網址嗎",
+  "github.com跟其他程式碼代管差在哪",
+  "怎樣才能正常瀏覽github.com",
+  "我的瀏覽器為什麼進不去github.com",
+  "github.com要怎麼搜尋開源專案",
+  "github.com這個網頁是在幹嘛的",
+  "github.com好像掛掉了欸",
+  "誰可以教我怎麼使用github.com",
+  "github.com今天一直連不上線",
+  "為什麼github.com載入那麼慢",
+  "大家都在哪裡看github.com的教學",
+  "github.com註冊帳號要錢嗎",
+  "github.com介面改版後怎麼用",
+  "要怎麼把專案上傳到github.com",
+  "github.com上面有什麼好玩的東西",
+  "幫我查一下github.com的客服信箱",
+  "github.com的伺服器是不是故障了",
+  "為什麼我一直收不到github.com的驗證信"
+ ],
+ "ok": true,
+ "raw": "[\n  \"github.com這個網站為什麼打不開\",\n  \"github.com被封鎖了嗎怎麼開不起來\",\n  \"有人知道github.com的網址嗎\",\n  \"github.com跟其他程式碼代管差在哪\",\n  \"怎樣才能正常瀏覽github.com\",\n  \"我的瀏覽器為什麼進不去github.com\",\n  \"github.com要怎麼搜尋開源專案\",\n  \"github.com這個網頁是在幹嘛的\",\n  \"github.com好像掛掉了欸\",\n  \"誰可以教我怎麼使用github.com\",\n  \"github.com今天一直連不上線\",\n  \"為什麼github.com載入那麼慢\",\n  \"大家都在哪裡看github.com的教學\",\n  \"github.com註冊帳號要錢嗎\",\n  \"github.com介面改版後怎麼用\",\n  \"要怎麼把專案上傳到github.com\",\n  \"github.com上面有什麼好玩的東西\",\n  \"幫我查一下github.com的客服信箱\",\n  \"github.com的伺服器是不是故障了\",\n  \"為什麼我一直收不到github.com的驗證信\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.3,
+  "seed": "打開 github.com",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 1843,
+  "ts": "2026-10-09T10:17:52"
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "items": [
+  "YouTube的網址是多少",
+  "YouTube怎麼突然打不開了",
+  "有人會用YouTube剪片嗎",
+  "YouTube為什麼一直轉圈圈",
+  "今天YouTube伺服器是不是掛了",
+  "教我怎麼下載YouTube的影片",
+  "我的YouTube帳號被登出了",
+  "YouTube Premium怎麼取消訂閱",
+  "怎麼把YouTube影片轉成音樂",
+  "YouTube的廣告越來越多了一直跳",
+  "幫我查一下YouTube創辦人是誰",
+  "為什麼YouTube影片沒有聲音",
+  "手機看YouTube變得很耗電",
+  "YouTube兒童版要怎麼設定",
+  "我覺得YouTube的介面改得很難用",
+  "YouTube直播的延遲怎麼那麼久",
+  "有人知道YouTube上熱門影片是什麼嗎",
+  "電腦版的YouTube一直當機",
+  "怎麼檢舉YouTube上面的不當影片",
+  "為什麼YouTube畫質最高只能選720p"
+ ],
+ "ok": true,
+ "raw": "[\n  \"YouTube的網址是多少\",\n  \"YouTube怎麼突然打不開了\",\n  \"有人會用YouTube剪片嗎\",\n  \"YouTube為什麼一直轉圈圈\",\n  \"今天YouTube伺服器是不是掛了\",\n  \"教我怎麼下載YouTube的影片\",\n  \"我的YouTube帳號被登出了\",\n  \"YouTube Premium怎麼取消訂閱\",\n  \"怎麼把YouTube影片轉成音樂\",\n  \"YouTube的廣告越來越多了一直跳\",\n  \"幫我查一下YouTube創辦人是誰\",\n  \"為什麼YouTube影片沒有聲音\",\n  \"手機看YouTube變得很耗電\",\n  \"YouTube兒童版要怎麼設定\",\n  \"我覺得YouTube的介面改得很難用\",\n  \"YouTube直播的延遲怎麼那麼久\",\n  \"有人知道YouTube上熱門影片是什麼嗎\",\n  \"電腦版的YouTube一直當機\",\n  \"怎麼檢舉YouTube上面的不當影片\",\n  \"為什麼YouTube畫質最高只能選720p\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 1.0,
+  "seed": "開 YouTube",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 1572,
+  "ts": "2026-10-09T10:35:21"
+ }
+}

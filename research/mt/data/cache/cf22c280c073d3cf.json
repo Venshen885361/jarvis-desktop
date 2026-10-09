@@ -1,0 +1,36 @@
+{
+ "items": [
+  "請幫我查一下什麼是 Tailscale 謝謝",
+  "麻煩告訴我什麼是 Tailscale 喔",
+  "什麼是 Tailscale 可以跟我說一下嗎",
+  "好想知道什麼是 Tailscale 幫我解答好嗎",
+  "請幫我解釋一下什麼是 Tailscale 謝謝啦",
+  "麻煩幫我找一下什麼是 Tailscale 可以嗎",
+  "什麼是 Tailscale 講給我聽一下好嗎",
+  "請跟我說一下什麼是 Tailscale 謝謝",
+  "幫我查看看什麼是 Tailscale 拜託啦",
+  "麻煩解答一下什麼是 Tailscale 可以嗎",
+  "什麼是 Tailscale 跟我說明一下好嗎",
+  "請幫我找一下什麼是 Tailscale 謝謝喔",
+  "幫我看一下什麼是 Tailscale 拜託",
+  "麻煩告訴我什麼是 Tailscale 謝謝啦",
+  "什麼是 Tailscale 可以幫我查一下嗎",
+  "請跟我解釋什麼是 Tailscale 好嗎",
+  "幫我說明一下什麼是 Tailscale 謝謝",
+  "麻煩找一下什麼是 Tailscale 可以嗎",
+  "什麼是 Tailscale 講一下好嗎",
+  "請幫我查閱什麼是 Tailscale 謝謝喔"
+ ],
+ "ok": true,
+ "raw": "[\n  \"請幫我查一下什麼是 Tailscale 謝謝\",\n  \"麻煩告訴我什麼是 Tailscale 喔\",\n  \"什麼是 Tailscale 可以跟我說一下嗎\",\n  \"好想知道什麼是 Tailscale 幫我解答好嗎\",\n  \"請幫我解釋一下什麼是 Tailscale 謝謝啦\",\n  \"麻煩幫我找一下什麼是 Tailscale 可以嗎\",\n  \"什麼是 Tailscale 講給我聽一下好嗎\",\n  \"請跟我說一下什麼是 Tailscale 謝謝\",\n  \"幫我查看看什麼是 Tailscale 拜託啦\",\n  \"麻煩解答一下什麼是 Tailscale 可以嗎\",\n  \"什麼是 Tailscale 跟我說明一下好嗎\",\n  \"請幫我找一下什麼是 Tailscale 謝謝喔\",\n  \"幫我看一下什麼是 Tailscale 拜託\",\n  \"麻煩告訴我什麼是 Tailscale 謝謝啦\",\n  \"什麼是 Tailscale 可以幫我查一下嗎\",\n  \"請跟我解釋什麼是 Tailscale 好嗎\",\n  \"幫我說明一下什麼是 Tailscale 謝謝\",\n  \"麻煩找一下什麼是 Tailscale 可以嗎\",\n  \"什麼是 Tailscale 講一下好嗎\",\n  \"請幫我查閱什麼是 Tailscale 謝謝喔\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "什麼是 Tailscale",
+  "relation": "R2_politeness",
+  "n": 20,
+  "rep": 1,
+  "ms": 1575,
+  "ts": "2026-10-09T12:19:49"
+ }
+}

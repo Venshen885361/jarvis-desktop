@@ -1,0 +1,36 @@
+{
+ "items": [
+  "用 YouTube 放 lofi 的教學影片要怎麼找",
+  "為什麼用 YouTube 放 lofi 會一直卡住",
+  "不要用 YouTube 放 lofi 了啦",
+  "有人會用 YouTube 放 lofi 唸書嗎",
+  "用 YouTube 放 lofi 到底要搜尋什麼關鍵字",
+  "我剛剛不是叫你用 YouTube 放 lofi",
+  "可以用別的軟體代替用 YouTube 放 lofi 嗎",
+  "用 YouTube 放 lofi 的音質會不會很差",
+  "平常我都怎麼用 YouTube 放 lofi 的啊",
+  "誰會想用 YouTube 放 lofi 睡覺啦",
+  "用 YouTube 放 lofi 這個功能什麼時候才能用",
+  "你覺得用 YouTube 放 lofi 真的有用嗎",
+  "教我怎麼用 YouTube 放 lofi 好不好",
+  "用 YouTube 放 lofi 會不會很耗網路流量",
+  "剛剛是不是有人用 YouTube 放 lofi",
+  "為什麼我沒辦法用 YouTube 放 lofi",
+  "用 YouTube 放 lofi 的捷徑在哪裡",
+  "不要再用 YouTube 放 lofi 這種音樂了",
+  "用 YouTube 放 lofi 需要訂閱高級版嗎",
+  "你能不能不要再用 YouTube 放 lofi 了"
+ ],
+ "ok": true,
+ "raw": "[\n  \"用 YouTube 放 lofi 的教學影片要怎麼找\",\n  \"為什麼用 YouTube 放 lofi 會一直卡住\",\n  \"不要用 YouTube 放 lofi 了啦\",\n  \"有人會用 YouTube 放 lofi 唸書嗎\",\n  \"用 YouTube 放 lofi 到底要搜尋什麼關鍵字\",\n  \"我剛剛不是叫你用 YouTube 放 lofi\",\n  \"可以用別的軟體代替用 YouTube 放 lofi 嗎\",\n  \"用 YouTube 放 lofi 的音質會不會很差\",\n  \"平常我都怎麼用 YouTube 放 lofi 的啊\",\n  \"誰會想用 YouTube 放 lofi 睡覺啦\",\n  \"用 YouTube 放 lofi 這個功能什麼時候才能用\",\n  \"你覺得用 YouTube 放 lofi 真的有用嗎\",\n  \"教我怎麼用 YouTube 放 lofi 好不好\",\n  \"用 YouTube 放 lofi 會不會很耗網路流量\",\n  \"剛剛是不是有人用 YouTube 放 lofi\",\n  \"為什麼我沒辦法用 YouTube 放 lofi\",\n  \"用 YouTube 放 lofi 的捷徑在哪裡\",\n  \"不要再用 YouTube 放 lofi 這種音樂了\",\n  \"用 YouTube 放 lofi 需要訂閱高級版嗎\",\n  \"你能不能不要再用 YouTube 放 lofi 了\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "用 YouTube 放 lofi",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 1559,
+  "ts": "2026-10-09T10:09:01"
+ }
+}

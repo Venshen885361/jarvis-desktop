@@ -1,0 +1,36 @@
+{
+ "items": [
+  "請幫我開啟 Chrome 喔",
+  "麻煩幫我打開 Chrome 一下啦",
+  "可以幫我開啟 Chrome 嗎",
+  "幫我把 Chrome 開起來謝謝",
+  "請幫忙開啟一下 Chrome 啦",
+  "麻煩開一下 Chrome 可以嗎",
+  "幫我開啟 Chrome 謝謝喔",
+  "請幫我把 Chrome 打開好嗎",
+  "麻煩幫我啟動 Chrome 啦",
+  "可以幫我開一下 Chrome 嗎",
+  "幫我開啟 Chrome 一下謝謝",
+  "請幫我執行 Chrome 好嗎",
+  "麻煩幫我開 Chrome 喔",
+  "可以幫我把 Chrome 打開嗎",
+  "幫我開啟 Chrome 啦謝謝",
+  "請幫我把 Chrome 叫出來好嗎",
+  "麻煩幫我開啟一下 Chrome 喔",
+  "可以幫我啟動 Chrome 嗎",
+  "幫我開一下 Chrome 謝謝啦",
+  "請幫忙把 Chrome 打開好嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"請幫我開啟 Chrome 喔\",\n  \"麻煩幫我打開 Chrome 一下啦\",\n  \"可以幫我開啟 Chrome 嗎\",\n  \"幫我把 Chrome 開起來謝謝\",\n  \"請幫忙開啟一下 Chrome 啦\",\n  \"麻煩開一下 Chrome 可以嗎\",\n  \"幫我開啟 Chrome 謝謝喔\",\n  \"請幫我把 Chrome 打開好嗎\",\n  \"麻煩幫我啟動 Chrome 啦\",\n  \"可以幫我開一下 Chrome 嗎\",\n  \"幫我開啟 Chrome 一下謝謝\",\n  \"請幫我執行 Chrome 好嗎\",\n  \"麻煩幫我開 Chrome 喔\",\n  \"可以幫我把 Chrome 打開嗎\",\n  \"幫我開啟 Chrome 啦謝謝\",\n  \"請幫我把 Chrome 叫出來好嗎\",\n  \"麻煩幫我開啟一下 Chrome 喔\",\n  \"可以幫我啟動 Chrome 嗎\",\n  \"幫我開一下 Chrome 謝謝啦\",\n  \"請幫忙把 Chrome 打開好嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "開啟 Chrome",
+  "relation": "R2_politeness",
+  "n": 20,
+  "rep": 0,
+  "ms": 1715,
+  "ts": "2026-10-09T10:26:29"
+ }
+}

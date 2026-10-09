@@ -1,0 +1,36 @@
+{
+ "items": [
+  "用 Steam 安裝 Terraria 失敗怎麼辦",
+  "為什麼用 Steam 安裝 Terraria 會一直卡住",
+  "用 Steam 安裝 Terraria 的速度怎麼那麼慢",
+  "不用 Steam 可以安裝 Terraria 嗎",
+  "用 Steam 安裝 Terraria 需要多少容量",
+  "用 Steam 安裝 Terraria 出現錯誤代碼是什麼意思",
+  "有沒有人用 Steam 安裝 Terraria 遇到閃退的",
+  "用 Steam 安裝 Terraria 的完整教學在哪裡看",
+  "我的電腦用 Steam 安裝 Terraria 會不會跑不動",
+  "用 Steam 安裝 Terraria 之後找不到捷徑怎麼辦",
+  "不要用 Steam 安裝 Terraria 還有什麼其他方法",
+  "用 Steam 安裝 Terraria 畫面一直黑屏是怎樣",
+  "用 Steam 安裝 Terraria 需不需要先買遊戲",
+  "用 Steam 安裝 Terraria 跑到一半當機了怎麼辦",
+  "用 Steam 安裝 Terraria 竟然要更新很久",
+  "幫我看看為什麼用 Steam 安裝 Terraria 會這樣",
+  "用 Steam 安裝 Terraria 需要登入帳號嗎",
+  "用 Steam 安裝 Terraria 遊戲檔案放在哪裡",
+  "用 Steam 安裝 Terraria 完可以立刻玩嗎",
+  "用 Steam 安裝 Terraria 怎麼會下載不下來"
+ ],
+ "ok": true,
+ "raw": "[\n  \"用 Steam 安裝 Terraria 失敗怎麼辦\",\n  \"為什麼用 Steam 安裝 Terraria 會一直卡住\",\n  \"用 Steam 安裝 Terraria 的速度怎麼那麼慢\",\n  \"不用 Steam 可以安裝 Terraria 嗎\",\n  \"用 Steam 安裝 Terraria 需要多少容量\",\n  \"用 Steam 安裝 Terraria 出現錯誤代碼是什麼意思\",\n  \"有沒有人用 Steam 安裝 Terraria 遇到閃退的\",\n  \"用 Steam 安裝 Terraria 的完整教學在哪裡看\",\n  \"我的電腦用 Steam 安裝 Terraria 會不會跑不動\",\n  \"用 Steam 安裝 Terraria 之後找不到捷徑怎麼辦\",\n  \"不要用 Steam 安裝 Terraria 還有什麼其他方法\",\n  \"用 Steam 安裝 Terraria 畫面一直黑屏是怎樣\",\n  \"用 Steam 安裝 Terraria 需不需要先買遊戲\",\n  \"用 Steam 安裝 Terraria 跑到一半當機了怎麼辦\",\n  \"用 Steam 安裝 Terraria 竟然要更新很久\",\n  \"幫我看看為什麼用 Steam 安裝 Terraria 會這樣\",\n  \"用 Steam 安裝 Terraria 需要登入帳號嗎\",\n  \"用 Steam 安裝 Terraria 遊戲檔案放在哪裡\",\n  \"用 Steam 安裝 Terraria 完可以立刻玩嗎\",\n  \"用 Steam 安裝 Terraria 怎麼會下載不下來\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.3,
+  "seed": "用 Steam 安裝 Terraria",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 2026,
+  "ts": "2026-10-09T10:19:01"
+ }
+}

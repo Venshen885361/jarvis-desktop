@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Chrome 幫我切過去",
+  "Chrome 換過去一下",
+  "Chrome 把它切換過來",
+  "Chrome 畫面跳過去",
+  "Chrome 轉到那邊去",
+  "Chrome 幫我切過來",
+  "Chrome 畫面切過去",
+  "Chrome 轉過去一下",
+  "Chrome 幫我開過去",
+  "Chrome 換過去那邊",
+  "Chrome 把它切換過去",
+  "Chrome 畫面轉過去",
+  "Chrome 幫我轉過去",
+  "Chrome 切換到那邊",
+  "Chrome 幫我切換過去",
+  "Chrome 畫面換過去",
+  "Chrome 轉過去看",
+  "Chrome 幫我跳過去",
+  "Chrome 換個視窗過去",
+  "Chrome 把它轉過去"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Chrome 幫我切過去\",\n  \"Chrome 換過去一下\",\n  \"Chrome 把它切換過來\",\n  \"Chrome 畫面跳過去\",\n  \"Chrome 轉到那邊去\",\n  \"Chrome 幫我切過來\",\n  \"Chrome 畫面切過去\",\n  \"Chrome 轉過去一下\",\n  \"Chrome 幫我開過去\",\n  \"Chrome 換過去那邊\",\n  \"Chrome 把它切換過去\",\n  \"Chrome 畫面轉過去\",\n  \"Chrome 幫我轉過去\",\n  \"Chrome 切換到那邊\",\n  \"Chrome 幫我切換過去\",\n  \"Chrome 畫面換過去\",\n  \"Chrome 轉過去看\",\n  \"Chrome 幫我跳過去\",\n  \"Chrome 換個視窗過去\",\n  \"Chrome 把它轉過去\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "切換到 Chrome",
+  "relation": "R3_reorder",
+  "n": 20,
+  "rep": 0,
+  "ms": 1326,
+  "ts": "2026-10-09T10:11:40"
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Chrome 到底要怎麼開啟",
+  "我不想開啟 Chrome",
+  "有人知道怎麼開啟 Chrome 嗎",
+  "開啟 Chrome 的快速鍵是什麼",
+  "為什麼我的 Chrome 開啟不了",
+  "開啟 Chrome 會中毒嗎",
+  "不要開啟 Chrome 啦",
+  "每次開啟 Chrome 都會當機",
+  "開啟 Chrome 真的很慢",
+  "你可以幫我關閉 Chrome 不是開啟",
+  "怎麼把開啟 Chrome 的權限拿掉",
+  "開啟 Chrome 之後要按哪裡",
+  "Chrome 開啟失敗怎麼辦",
+  "誰叫你開啟 Chrome 的",
+  "開啟 Chrome 的設定在哪裡",
+  "Chrome 自動開啟很煩",
+  "以前開啟 Chrome 沒這麼久",
+  "開啟 Chrome 會有紀錄嗎",
+  "我要問的是怎麼安裝 Chrome 不是開啟",
+  "Chrome 這樣一直開啟是正常的嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Chrome 到底要怎麼開啟\",\n  \"我不想開啟 Chrome\",\n  \"有人知道怎麼開啟 Chrome 嗎\",\n  \"開啟 Chrome 的快速鍵是什麼\",\n  \"為什麼我的 Chrome 開啟不了\",\n  \"開啟 Chrome 會中毒嗎\",\n  \"不要開啟 Chrome 啦\",\n  \"每次開啟 Chrome 都會當機\",\n  \"開啟 Chrome 真的很慢\",\n  \"你可以幫我關閉 Chrome 不是開啟\",\n  \"怎麼把開啟 Chrome 的權限拿掉\",\n  \"開啟 Chrome 之後要按哪裡\",\n  \"Chrome 開啟失敗怎麼辦\",\n  \"誰叫你開啟 Chrome 的\",\n  \"開啟 Chrome 的設定在哪裡\",\n  \"Chrome 自動開啟很煩\",\n  \"以前開啟 Chrome 沒這麼久\",\n  \"開啟 Chrome 會有紀錄嗎\",\n  \"我要問的是怎麼安裝 Chrome 不是開啟\",\n  \"Chrome 這樣一直開啟是正常的嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開啟 Chrome",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 1,
+  "ms": 1429,
+  "ts": "2026-10-09T10:44:29"
+ }
+}

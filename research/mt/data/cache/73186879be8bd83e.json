@@ -1,0 +1,36 @@
+{
+ "items": [
+  "搜尋 python 教學的網頁怎麼都開不起來",
+  "不要搜尋 python 教學了",
+  "我想問搜尋 python 教學有什麼好方法",
+  "搜尋 python 教學的按鈕在哪裡",
+  "為什麼搜尋 python 教學會跑出奇怪的結果",
+  "誰叫你幫我搜尋 python 教學的",
+  "搜尋 python 教學要付費嗎",
+  "搜尋 python 教學的歷史紀錄怎麼刪掉",
+  "取消搜尋 python 教學",
+  "搜尋 python 教學有沒有英文版的",
+  "搜尋 python 教學這個功能好難用",
+  "我剛剛不是叫你搜尋 python 教學",
+  "搜尋 python 教學會不會中毒啊",
+  "搜尋 python 教學的步驟是什麼",
+  "不要再幫我搜尋 python 教學了啦",
+  "搜尋 python 教學可以過濾廣告嗎",
+  "誰知道怎麼搜尋 python 教學比較快",
+  "搜尋 python 教學的結果怎麼存起來",
+  "放棄搜尋 python 教學",
+  "搜尋 python 教學需要登入帳號嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"搜尋 python 教學的網頁怎麼都開不起來\",\n  \"不要搜尋 python 教學了\",\n  \"我想問搜尋 python 教學有什麼好方法\",\n  \"搜尋 python 教學的按鈕在哪裡\",\n  \"為什麼搜尋 python 教學會跑出奇怪的結果\",\n  \"誰叫你幫我搜尋 python 教學的\",\n  \"搜尋 python 教學要付費嗎\",\n  \"搜尋 python 教學的歷史紀錄怎麼刪掉\",\n  \"取消搜尋 python 教學\",\n  \"搜尋 python 教學有沒有英文版的\",\n  \"搜尋 python 教學這個功能好難用\",\n  \"我剛剛不是叫你搜尋 python 教學\",\n  \"搜尋 python 教學會不會中毒啊\",\n  \"搜尋 python 教學的步驟是什麼\",\n  \"不要再幫我搜尋 python 教學了啦\",\n  \"搜尋 python 教學可以過濾廣告嗎\",\n  \"誰知道怎麼搜尋 python 教學比較快\",\n  \"搜尋 python 教學的結果怎麼存起來\",\n  \"放棄搜尋 python 教學\",\n  \"搜尋 python 教學需要登入帳號嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.3,
+  "seed": "搜尋 python 教學",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 1802,
+  "ts": "2026-10-09T10:19:13"
+ }
+}

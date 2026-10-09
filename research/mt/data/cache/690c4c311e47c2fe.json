@@ -1,0 +1,15 @@
+{
+ "items": [],
+ "ok": false,
+ "raw": "__ERROR__ RemoteProtocolError: Server disconnected without sending a response.",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "打開 github.com",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 1,
+  "ms": 5132524,
+  "ts": "2026-10-09T12:10:46"
+ }
+}

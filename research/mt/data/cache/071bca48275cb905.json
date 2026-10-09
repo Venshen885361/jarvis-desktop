@@ -1,0 +1,36 @@
+{
+ "items": [
+  "幫我找 python 教學",
+  "尋找 python 教學",
+  "查一下 python 教學",
+  "找一下 python 教學",
+  "幫我搜尋 python 教學",
+  "我要看 python 教學",
+  "我想找 python 教學",
+  "幫我查 python 教學",
+  "替我搜尋 python 教學",
+  "找 python 教學給我",
+  "幫我找一下 python 教學",
+  "我想查 python 教學",
+  "尋找一下 python 教學",
+  "幫我找看 python 教學",
+  "替我找 python 教學",
+  "幫我找找 python 教學",
+  "幫忙找 python 教學",
+  "查詢 python 教學",
+  "幫我查詢 python 教學",
+  "找 python 教學"
+ ],
+ "ok": true,
+ "raw": "[\n  \"幫我找 python 教學\",\n  \"尋找 python 教學\",\n  \"查一下 python 教學\",\n  \"找一下 python 教學\",\n  \"幫我搜尋 python 教學\",\n  \"我要看 python 教學\",\n  \"我想找 python 教學\",\n  \"幫我查 python 教學\",\n  \"替我搜尋 python 教學\",\n  \"找 python 教學給我\",\n  \"幫我找一下 python 教學\",\n  \"我想查 python 教學\",\n  \"尋找一下 python 教學\",\n  \"幫我找看 python 教學\",\n  \"替我找 python 教學\",\n  \"幫我找找 python 教學\",\n  \"幫忙找 python 教學\",\n  \"查詢 python 教學\",\n  \"幫我查詢 python 教學\",\n  \"找 python 教學\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.3,
+  "seed": "搜尋 python 教學",
+  "relation": "R1_synonym",
+  "n": 20,
+  "rep": 0,
+  "ms": 1271,
+  "ts": "2026-10-09T10:19:04"
+ }
+}

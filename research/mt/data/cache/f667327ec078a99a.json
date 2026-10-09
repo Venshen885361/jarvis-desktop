@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Steam 裡面 Terraria 要怎麼安裝",
+  "Terraria 在 Steam 安裝失敗了怎麼辦",
+  "我可以用 Steam 找到 Terraria 的安裝檔嗎",
+  "為什麼 Steam 裝不了 Terraria",
+  "不要用 Steam 安裝 Terraria",
+  "Steam 顯示 Terraria 安裝中但沒動",
+  "有沒有人用 Steam 安裝 Terraria 成功的",
+  "Steam 安裝 Terraria 會很慢嗎",
+  "Terraria 在 Steam 的安裝路徑在哪裡",
+  "可以取消 Steam 安裝 Terraria 嗎",
+  "Steam 安裝 Terraria 出現錯誤代碼",
+  "除了 Steam 還有哪裡能安裝 Terraria",
+  "幫我查 Terraria 在 Steam 的安裝容量",
+  "Steam 幫我把 Terraria 解除安裝",
+  "為什麼我的 Steam 不能安裝 Terraria",
+  "Terraria 安裝完怎麼在 Steam 啟動",
+  "Steam 買了 Terraria 之後怎麼安裝",
+  "用 Steam 更新 Terraria 而不是安裝",
+  "Steam 安裝 Terraria 卡在百分之零",
+  "哪裡看 Steam 安裝 Terraria 的進度"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Steam 裡面 Terraria 要怎麼安裝\",\n  \"Terraria 在 Steam 安裝失敗了怎麼辦\",\n  \"我可以用 Steam 找到 Terraria 的安裝檔嗎\",\n  \"為什麼 Steam 裝不了 Terraria\",\n  \"不要用 Steam 安裝 Terraria\",\n  \"Steam 顯示 Terraria 安裝中但沒動\",\n  \"有沒有人用 Steam 安裝 Terraria 成功的\",\n  \"Steam 安裝 Terraria 會很慢嗎\",\n  \"Terraria 在 Steam 的安裝路徑在哪裡\",\n  \"可以取消 Steam 安裝 Terraria 嗎\",\n  \"Steam 安裝 Terraria 出現錯誤代碼\",\n  \"除了 Steam 還有哪裡能安裝 Terraria\",\n  \"幫我查 Terraria 在 Steam 的安裝容量\",\n  \"Steam 幫我把 Terraria 解除安裝\",\n  \"為什麼我的 Steam 不能安裝 Terraria\",\n  \"Terraria 安裝完怎麼在 Steam 啟動\",\n  \"Steam 買了 Terraria 之後怎麼安裝\",\n  \"用 Steam 更新 Terraria 而不是安裝\",\n  \"Steam 安裝 Terraria 卡在百分之零\",\n  \"哪裡看 Steam 安裝 Terraria 的進度\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "用 Steam 安裝 Terraria",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 1,
+  "ms": 1796,
+  "ts": "2026-10-09T12:12:54"
+ }
+}

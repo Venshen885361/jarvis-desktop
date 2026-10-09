@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Chrome 幫我開一下",
+  "Chrome 打開來",
+  "把 Chrome 打開吧",
+  "Chrome 點開一下",
+  "幫忙開一下 Chrome",
+  "Chrome 啟動啦",
+  "把 Chrome 叫出來",
+  "Chrome 畫面開起來",
+  "用 Chrome 瀏覽器開一下",
+  "Chrome 幫忙點開",
+  "Chrome 捷徑開一下",
+  "把 Chrome 程式打開",
+  "Chrome 運行起來",
+  "Chrome 隨便開一下",
+  "Chrome 快點打開",
+  "把 Chrome 介面叫出來",
+  "Chrome 啟動一下",
+  "Chrome 視窗打開",
+  "趕快幫我開 Chrome",
+  "Chrome 程式執行一下"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Chrome 幫我開一下\",\n  \"Chrome 打開來\",\n  \"把 Chrome 打開吧\",\n  \"Chrome 點開一下\",\n  \"幫忙開一下 Chrome\",\n  \"Chrome 啟動啦\",\n  \"把 Chrome 叫出來\",\n  \"Chrome 畫面開起來\",\n  \"用 Chrome 瀏覽器開一下\",\n  \"Chrome 幫忙點開\",\n  \"Chrome 捷徑開一下\",\n  \"把 Chrome 程式打開\",\n  \"Chrome 運行起來\",\n  \"Chrome 隨便開一下\",\n  \"Chrome 快點打開\",\n  \"把 Chrome 介面叫出來\",\n  \"Chrome 啟動一下\",\n  \"Chrome 視窗打開\",\n  \"趕快幫我開 Chrome\",\n  \"Chrome 程式執行一下\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.3,
+  "seed": "開啟 Chrome",
+  "relation": "R3_reorder",
+  "n": 20,
+  "rep": 0,
+  "ms": 1369,
+  "ts": "2026-10-09T10:17:13"
+ }
+}

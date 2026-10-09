@@ -1,0 +1,36 @@
+{
+ "items": [
+  "YouTube的網址是多少",
+  "YouTube突然打不開怎麼辦",
+  "怎麼把YouTube從手機刪掉",
+  "為什麼YouTube一直轉圈圈",
+  "有人知道YouTube的客服電話嗎",
+  "YouTube上面這首歌叫什麼名字",
+  "誰可以教我怎麼下載YouTube影片",
+  "YouTube帳號被登出了解決方法",
+  "不要自動播放YouTube好不好",
+  "YouTube Premium一個月多少錢",
+  "我的YouTube怎麼沒有子母畫面",
+  "哪裡可以回報YouTube的bug",
+  "怎麼清除YouTube的搜尋紀錄",
+  "YouTube影片一直廣告好煩",
+  "有沒有不用看廣告的YouTube替代品",
+  "YouTube直播要怎麼開起高畫質",
+  "為什麼YouTube不能留言了",
+  "怎麼把YouTube的黑暗模式打開",
+  "搜尋YouTube上的熱門發燒影片",
+  "快幫我查YouTube今天當機嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"YouTube的網址是多少\",\n  \"YouTube突然打不開怎麼辦\",\n  \"怎麼把YouTube從手機刪掉\",\n  \"為什麼YouTube一直轉圈圈\",\n  \"有人知道YouTube的客服電話嗎\",\n  \"YouTube上面這首歌叫什麼名字\",\n  \"誰可以教我怎麼下載YouTube影片\",\n  \"YouTube帳號被登出了解決方法\",\n  \"不要自動播放YouTube好不好\",\n  \"YouTube Premium一個月多少錢\",\n  \"我的YouTube怎麼沒有子母畫面\",\n  \"哪裡可以回報YouTube的bug\",\n  \"怎麼清除YouTube的搜尋紀錄\",\n  \"YouTube影片一直廣告好煩\",\n  \"有沒有不用看廣告的YouTube替代品\",\n  \"YouTube直播要怎麼開起高畫質\",\n  \"為什麼YouTube不能留言了\",\n  \"怎麼把YouTube的黑暗模式打開\",\n  \"搜尋YouTube上的熱門發燒影片\",\n  \"快幫我查YouTube今天當機嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開 YouTube",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 1667,
+  "ts": "2026-10-09T10:08:06"
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "items": [
+  "切換到 Chrome 的方法是什麼",
+  "Chrome 怎麼切換到全螢幕",
+  "不要切換到 Chrome 啦",
+  "切換到 Chrome 以前的畫面怎麼弄",
+  "為什麼切換到 Chrome 會一直當機",
+  "Chrome 分頁要怎麼切換到另一個視窗",
+  "你有辦法不要自動切換到 Chrome 嗎",
+  "切換到 Chrome 的快捷鍵是什麼",
+  "Chrome 剛才切換到哪裡去了",
+  "切換到 Chrome 之後滑鼠就沒反應了",
+  "誰叫你切換到 Chrome 的",
+  "Chrome 標籤頁怎麼快速切換到最前面",
+  "切換到 Chrome 速度可以快一點嗎",
+  "找不到切換到 Chrome 的按鈕在哪",
+  "Chrome 視窗剛才被我切換到背景去了",
+  "可以教我怎麼切換到 Chrome 嗎",
+  "切換到 Chrome 會不會很耗記憶體",
+  "為什麼剛剛會突然切換到 Chrome",
+  "Chrome 怎麼切換到無痕模式",
+  "切換到 Chrome 的設定要去哪裡找"
+ ],
+ "ok": true,
+ "raw": "[\n  \"切換到 Chrome 的方法是什麼\",\n  \"Chrome 怎麼切換到全螢幕\",\n  \"不要切換到 Chrome 啦\",\n  \"切換到 Chrome 以前的畫面怎麼弄\",\n  \"為什麼切換到 Chrome 會一直當機\",\n  \"Chrome 分頁要怎麼切換到另一個視窗\",\n  \"你有辦法不要自動切換到 Chrome 嗎\",\n  \"切換到 Chrome 的快捷鍵是什麼\",\n  \"Chrome 剛才切換到哪裡去了\",\n  \"切換到 Chrome 之後滑鼠就沒反應了\",\n  \"誰叫你切換到 Chrome 的\",\n  \"Chrome 標籤頁怎麼快速切換到最前面\",\n  \"切換到 Chrome 速度可以快一點嗎\",\n  \"找不到切換到 Chrome 的按鈕在哪\",\n  \"Chrome 視窗剛才被我切換到背景去了\",\n  \"可以教我怎麼切換到 Chrome 嗎\",\n  \"切換到 Chrome 會不會很耗記憶體\",\n  \"為什麼剛剛會突然切換到 Chrome\",\n  \"Chrome 怎麼切換到無痕模式\",\n  \"切換到 Chrome 的設定要去哪裡找\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "切換到 Chrome",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 0,
+  "ms": 1954,
+  "ts": "2026-10-09T10:11:46"
+ }
+}

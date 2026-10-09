@@ -1,0 +1,36 @@
+{
+ "items": [
+  "欸切換到 Chrome",
+  "那個切換到 Chrome",
+  "嗯切換到 Chrome",
+  "JARVIS切換到 Chrome",
+  "Jarvis 幫我切換到 Chrome",
+  "對了切換到 Chrome",
+  "欸，切換到 Chrome",
+  "那個，切換到 Chrome",
+  "嗯，切換到 Chrome",
+  "JARVIS，切換到 Chrome",
+  "Jarvis 幫我，切換到 Chrome",
+  "對了，切換到 Chrome",
+  "欸拜託切換到 Chrome",
+  "那個麻煩切換到 Chrome",
+  "嗯我想切換到 Chrome",
+  "JARVIS 執行切換到 Chrome",
+  "Jarvis 幫我一下切換到 Chrome",
+  "對了幫我切換到 Chrome",
+  "欸快點切換到 Chrome",
+  "那個幫忙切換到 Chrome"
+ ],
+ "ok": true,
+ "raw": "[\n  \"欸切換到 Chrome\",\n  \"那個切換到 Chrome\",\n  \"嗯切換到 Chrome\",\n  \"JARVIS切換到 Chrome\",\n  \"Jarvis 幫我切換到 Chrome\",\n  \"對了切換到 Chrome\",\n  \"欸，切換到 Chrome\",\n  \"那個，切換到 Chrome\",\n  \"嗯，切換到 Chrome\",\n  \"JARVIS，切換到 Chrome\",\n  \"Jarvis 幫我，切換到 Chrome\",\n  \"對了，切換到 Chrome\",\n  \"欸拜託切換到 Chrome\",\n  \"那個麻煩切換到 Chrome\",\n  \"嗯我想切換到 Chrome\",\n  \"JARVIS 執行切換到 Chrome\",\n  \"Jarvis 幫我一下切換到 Chrome\",\n  \"對了幫我切換到 Chrome\",\n  \"欸快點切換到 Chrome\",\n  \"那個幫忙切換到 Chrome\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.3,
+  "seed": "切換到 Chrome",
+  "relation": "R4_filler",
+  "n": 20,
+  "rep": 0,
+  "ms": 1209,
+  "ts": "2026-10-09T10:21:23"
+ }
+}

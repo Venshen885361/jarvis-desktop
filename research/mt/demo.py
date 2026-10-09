@@ -4,7 +4,7 @@
     python -m research.mt.demo --full     # 完整版：全部 927 個突變體 + E7 + E10（裝了 hassil 才跑），約 20 分鐘
     python -m research.mt.demo --list     # 只列出會跑哪些步驟
 
-資料：research/mt/data/ 是 2026-09-14 那次實驗的快照（生成的測試句、LLM 的 API 快取、人工標記、
+資料：research/mt/data/ 是實驗的快照（生成的測試句、LLM 的 API 快取 2,364 筆含 n=20 六批、人工標記、
 各版本結果）。第一次跑會複製到 research/mt/out/（out/ 不進 git）。有快取，所以 `--gen llm`
 不會真的打 Gemini；想重新生成才需要 GEMINI_API_KEY 和 --no-cache。
 """
@@ -58,6 +58,14 @@ def steps(full: bool) -> list[tuple[str, list[str]]]:
          [*m, "research.mt.run", "--gen", "llm", "--temperature", "0", "--rep", "2", "--seed-filter", ORIG]),
         ("RQ2 批次比較：句子 / 錯集合 Jaccard",
          [*m, "research.mt.compare", *LLM, "gemini-3.5-flash-lite_T0_rep1", "gemini-3.5-flash-lite_T0_rep2"]),
+        ("RQ2 放大 n=20：四個溫度（讀快取，六批 23,000 句）",
+         [*m, "research.mt.run", "--gen", "llm", "--temperature", "0", "0.3", "0.7", "1.0", "--n", "20", "--seed-filter", ORIG]),
+        ("RQ2 放大 n=20：T=0 重跑第 1 次（讀快取）",
+         [*m, "research.mt.run", "--gen", "llm", "--temperature", "0", "--n", "20", "--rep", "1", "--seed-filter", ORIG]),
+        ("RQ2 放大 n=20：T=0 重跑第 2 次（讀快取）",
+         [*m, "research.mt.run", "--gen", "llm", "--temperature", "0", "--n", "20", "--rep", "2", "--seed-filter", ORIG]),
+        ("RQ2 放大 n=20：批次比較",
+         [*m, "research.mt.compare", *[t + "_n20" for t in LLM], "gemini-3.5-flash-lite_T0_rep1_n20", "gemini-3.5-flash-lite_T0_rep2_n20"]),
         ("RQ1 E1 人工標記 → 各生成器 precision",
          [*m, "research.mt.sample", "--score", str(OUT / "e1_label_claude.csv")]),
         ("RQ3 突變測試：測試 × 突變體矩陣" + ("（全部 927）" if full else "（前 200 個，--full 跑全部）"),
@@ -72,7 +80,7 @@ def steps(full: bool) -> list[tuple[str, list[str]]]:
          [*m, "research.mt.run", "--gen", "rules", "--seeds", str(HERE / "seeds_usage.json"), "--tag-suffix", "_usage", "--show-violations"]),
         ("RQ5 五個歷史版本的違反數（需要 git）",
          [*m, "research.mt.versions", "--no-mutation"]),
-        ("RQ7 突變體包含關係：dominator、最小突變分數（用第 7 步的矩陣）",
+        ("RQ7 突變體包含關係：dominator、最小突變分數（用突變測試那一步的矩陣）",
          [*m, "research.mt.subsume", str(OUT / f"matrix_{'+'.join(tags)}.csv")]),
     ] + ([("RQ6 跨版本可轉移性：v4 決定 → v5 評估（需要 git，兩個版本各算一次矩陣，約 4 分鐘）",
            [*m, "research.mt.transfer", "--from", "v4=7040c54", "--to", "v5=3f5e658"])] if full else []) + (_hass_steps(m) if full else [])

@@ -1,0 +1,36 @@
+{
+ "items": [
+  "幫我下載 Discord",
+  "安裝 Discord",
+  "下載一下 Discord",
+  "幫我裝 Discord",
+  "把 Discord 下載起來",
+  "我要下載 Discord",
+  "下載 Discord 這個軟體",
+  "幫我抓一下 Discord",
+  "下載 Discord 程式",
+  "去下載 Discord",
+  "幫忙下載 Discord",
+  "下載 Discord 吧",
+  "幫我下載安裝 Discord",
+  "下載 Discord 囉",
+  "抓 Discord",
+  "幫我載 Discord",
+  "下載 Discord 的主程式",
+  "幫我取得 Discord",
+  "我要安裝 Discord",
+  "下載 Discord 應用程式"
+ ],
+ "ok": true,
+ "raw": "[\n  \"幫我下載 Discord\",\n  \"安裝 Discord\",\n  \"下載一下 Discord\",\n  \"幫我裝 Discord\",\n  \"把 Discord 下載起來\",\n  \"我要下載 Discord\",\n  \"下載 Discord 這個軟體\",\n  \"幫我抓一下 Discord\",\n  \"下載 Discord 程式\",\n  \"去下載 Discord\",\n  \"幫忙下載 Discord\",\n  \"下載 Discord 吧\",\n  \"幫我下載安裝 Discord\",\n  \"下載 Discord 囉\",\n  \"抓 Discord\",\n  \"幫我載 Discord\",\n  \"下載 Discord 的主程式\",\n  \"幫我取得 Discord\",\n  \"我要安裝 Discord\",\n  \"下載 Discord 應用程式\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "下載 Discord",
+  "relation": "R1_synonym",
+  "n": 20,
+  "rep": 0,
+  "ms": 1087,
+  "ts": "2026-10-09T10:28:34"
+ }
+}

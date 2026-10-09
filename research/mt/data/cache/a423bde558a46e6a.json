@@ -1,0 +1,36 @@
+{
+ "items": [
+  "怎麼把 github 網址寄給別人",
+  "github 網址是多少啊",
+  "為什麼打不開 github",
+  "github 伺服器是不是掛了",
+  "github 註冊帳號教學在哪裡",
+  "我的 github 密碼忘記了怎麼辦",
+  "不要打開 github",
+  "github 介面怎麼變成中文的",
+  "什麼是 github 呢",
+  "github 常用指令有哪些",
+  "可以幫我查 github 的客服電話嗎",
+  "誰知道 github 怎麼用",
+  "github 網頁版登入不上去",
+  "教我怎麼在 github 建立專案",
+  "github 怎麼刪除 repository",
+  "為什麼今天一直連不上 github",
+  "github 搜尋功能壞了嗎",
+  "有人會用 github 嗎",
+  "github 怎麼備份程式碼",
+  "不要連到 github 去"
+ ],
+ "ok": true,
+ "raw": "[\n  \"怎麼把 github 網址寄給別人\",\n  \"github 網址是多少啊\",\n  \"為什麼打不開 github\",\n  \"github 伺服器是不是掛了\",\n  \"github 註冊帳號教學在哪裡\",\n  \"我的 github 密碼忘記了怎麼辦\",\n  \"不要打開 github\",\n  \"github 介面怎麼變成中文的\",\n  \"什麼是 github 呢\",\n  \"github 常用指令有哪些\",\n  \"可以幫我查 github 的客服電話嗎\",\n  \"誰知道 github 怎麼用\",\n  \"github 網頁版登入不上去\",\n  \"教我怎麼在 github 建立專案\",\n  \"github 怎麼刪除 repository\",\n  \"為什麼今天一直連不上 github\",\n  \"github 搜尋功能壞了嗎\",\n  \"有人會用 github 嗎\",\n  \"github 怎麼備份程式碼\",\n  \"不要連到 github 去\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "打開 github.com",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 2,
+  "ms": 1487,
+  "ts": "2026-10-09T12:23:54"
+ }
+}
