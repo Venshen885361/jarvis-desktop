@@ -1,0 +1,20 @@
+{
+ "items": [
+  "欸用 YouTube 放 lofi",
+  "那個用 YouTube 放 lofi",
+  "嗯用 YouTube 放 lofi",
+  "JARVIS用 YouTube 放 lofi",
+  "Jarvis 幫我用 YouTube 放 lofi"
+ ],
+ "ok": true,
+ "raw": "[\n  \"欸用 YouTube 放 lofi\",\n  \"那個用 YouTube 放 lofi\",\n  \"嗯用 YouTube 放 lofi\",\n  \"JARVIS用 YouTube 放 lofi\",\n  \"Jarvis 幫我用 YouTube 放 lofi\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "用 YouTube 放 lofi",
+  "relation": "R4_filler",
+  "n": 5,
+  "ms": 871,
+  "ts": "2026-09-14T20:27:47"
+ }
+}

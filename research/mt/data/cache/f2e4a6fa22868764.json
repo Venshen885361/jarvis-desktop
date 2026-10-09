@@ -1,0 +1,20 @@
+{
+ "items": [
+  "欸，音量調大",
+  "那個，音量調大",
+  "嗯，音量調大",
+  "JARVIS，音量調大",
+  "Jarvis 幫我，音量調大"
+ ],
+ "ok": true,
+ "raw": "[\n  \"欸，音量調大\",\n  \"那個，音量調大\",\n  \"嗯，音量調大\",\n  \"JARVIS，音量調大\",\n  \"Jarvis 幫我，音量調大\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "音量調大",
+  "relation": "R4_filler",
+  "n": 5,
+  "ms": 808,
+  "ts": "2026-09-14T20:29:42"
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "items": [
+  "幫我切換到 Chrome",
+  "轉去 Chrome 吧",
+  "跳轉到 Chrome",
+  "開啟 Chrome 視窗",
+  "切換過去 Chrome"
+ ],
+ "ok": true,
+ "raw": "[\n  \"幫我切換到 Chrome\",\n  \"轉去 Chrome 吧\",\n  \"跳轉到 Chrome\",\n  \"開啟 Chrome 視窗\",\n  \"切換過去 Chrome\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "切換到 Chrome",
+  "relation": "R1_synonym",
+  "n": 5,
+  "rep": 2,
+  "ms": 1135,
+  "ts": "2026-09-15T00:32:25"
+ }
+}

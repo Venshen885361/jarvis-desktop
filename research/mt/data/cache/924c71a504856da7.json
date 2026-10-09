@@ -1,0 +1,21 @@
+{
+ "items": [
+  "怎麼打不開 github 網站",
+  "github 網址是不是打不開",
+  "有人會打開 github.com 的教學嗎",
+  "不要幫我打開 github.com",
+  "為什麼 github.com 永遠打不開"
+ ],
+ "ok": true,
+ "raw": "[\n  \"怎麼打不開 github 網站\",\n  \"github 網址是不是打不開\",\n  \"有人會打開 github.com 的教學嗎\",\n  \"不要幫我打開 github.com\",\n  \"為什麼 github.com 永遠打不開\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "打開 github.com",
+  "relation": "R5_near_miss",
+  "n": 5,
+  "rep": 2,
+  "ms": 964,
+  "ts": "2026-09-15T00:30:22"
+ }
+}

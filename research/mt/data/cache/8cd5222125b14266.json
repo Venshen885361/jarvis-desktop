@@ -1,0 +1,20 @@
+{
+ "items": [
+  "python 教學幫我找一下",
+  "幫我查 python 教學",
+  "python 教學查一下",
+  "找一下 python 教學",
+  "幫我搜尋 python 教學"
+ ],
+ "ok": true,
+ "raw": "[\n  \"python 教學幫我找一下\",\n  \"幫我查 python 教學\",\n  \"python 教學查一下\",\n  \"找一下 python 教學\",\n  \"幫我搜尋 python 教學\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "搜尋 python 教學",
+  "relation": "R3_reorder",
+  "n": 5,
+  "ms": 886,
+  "ts": "2026-09-14T21:19:17"
+ }
+}

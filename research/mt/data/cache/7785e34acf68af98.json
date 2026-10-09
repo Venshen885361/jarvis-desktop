@@ -1,0 +1,21 @@
+{
+ "items": [
+  "麻煩請幫我裝一下 VLC 謝謝",
+  "可以幫我裝一下 VLC 嗎",
+  "幫我裝一下 VLC 好嗎",
+  "請幫我裝一下 VLC 啦",
+  "麻煩幫我裝 VLC 喔"
+ ],
+ "ok": true,
+ "raw": "[\n  \"麻煩請幫我裝一下 VLC 謝謝\",\n  \"可以幫我裝一下 VLC 嗎\",\n  \"幫我裝一下 VLC 好嗎\",\n  \"請幫我裝一下 VLC 啦\",\n  \"麻煩幫我裝 VLC 喔\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "幫我裝 VLC",
+  "relation": "R2_politeness",
+  "n": 5,
+  "rep": 1,
+  "ms": 889,
+  "ts": "2026-09-15T00:25:25"
+ }
+}

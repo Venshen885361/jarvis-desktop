@@ -1,0 +1,21 @@
+{
+ "items": [
+  "欸，切換到 Chrome",
+  "那個，切換到 Chrome",
+  "嗯，切換到 Chrome",
+  "JARVIS，切換到 Chrome",
+  "對了，切換到 Chrome"
+ ],
+ "ok": true,
+ "raw": "[\n  \"欸，切換到 Chrome\",\n  \"那個，切換到 Chrome\",\n  \"嗯，切換到 Chrome\",\n  \"JARVIS，切換到 Chrome\",\n  \"對了，切換到 Chrome\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "切換到 Chrome",
+  "relation": "R4_filler",
+  "n": 5,
+  "rep": 1,
+  "ms": 770,
+  "ts": "2026-09-15T00:26:55"
+ }
+}

@@ -1,0 +1,233 @@
+{
+  "reduction": [
+    {
+      "criterion": "mutants",
+      "strategy": "greedy",
+      "size": 202,
+      "size_ratio": 0.06020864381520119,
+      "kill_retained": 1.0
+    },
+    {
+      "criterion": "mutants",
+      "strategy": "random(size=202)",
+      "size": 202,
+      "size_ratio": 0.06020864381520119,
+      "kill_retained": 0.541701244813278,
+      "kill_retained_sd": 0.018271008906887275
+    },
+    {
+      "criterion": "mutants",
+      "strategy": "hgs",
+      "size": 196,
+      "size_ratio": 0.058420268256333834,
+      "kill_retained": 1.0
+    },
+    {
+      "criterion": "mutants",
+      "strategy": "random(size=196)",
+      "size": 196,
+      "size_ratio": 0.058420268256333834,
+      "kill_retained": 0.5365836791147994,
+      "kill_retained_sd": 0.019138808923976913
+    },
+    {
+      "criterion": "mutants",
+      "strategy": "irreplaceable",
+      "size": 196,
+      "size_ratio": 0.058420268256333834,
+      "kill_retained": 1.0
+    },
+    {
+      "criterion": "mutants",
+      "strategy": "random(size=196)",
+      "size": 196,
+      "size_ratio": 0.058420268256333834,
+      "kill_retained": 0.5349930843706777,
+      "kill_retained_sd": 0.01732278870259003
+    },
+    {
+      "criterion": "relseed",
+      "strategy": "greedy",
+      "size": 420,
+      "size_ratio": 0.12518628912071536,
+      "kill_retained": 0.6037344398340249
+    },
+    {
+      "criterion": "relseed",
+      "strategy": "random(size=420)",
+      "size": 420,
+      "size_ratio": 0.12518628912071536,
+      "kill_retained": 0.6646611341632088,
+      "kill_retained_sd": 0.01951004320101326
+    },
+    {
+      "criterion": "relseed",
+      "strategy": "hgs",
+      "size": 420,
+      "size_ratio": 0.12518628912071536,
+      "kill_retained": 0.6721991701244814
+    },
+    {
+      "criterion": "relseed",
+      "strategy": "random(size=420)",
+      "size": 420,
+      "size_ratio": 0.12518628912071536,
+      "kill_retained": 0.666597510373444,
+      "kill_retained_sd": 0.017662495626947806
+    },
+    {
+      "criterion": "relseed",
+      "strategy": "irreplaceable",
+      "size": 420,
+      "size_ratio": 0.12518628912071536,
+      "kill_retained": 0.6037344398340249
+    },
+    {
+      "criterion": "relseed",
+      "strategy": "random(size=420)",
+      "size": 420,
+      "size_ratio": 0.12518628912071536,
+      "kill_retained": 0.6667358229598893,
+      "kill_retained_sd": 0.020366381587224532
+    }
+  ],
+  "prioritization": [
+    {
+      "strategy": "total(mutants)",
+      "apfd": 0.728622047974473
+    },
+    {
+      "strategy": "additional(mutants)",
+      "apfd": 0.9845613470945082
+    },
+    {
+      "strategy": "total(relseed)",
+      "apfd": 0.7437286269950715
+    },
+    {
+      "strategy": "additional(relseed)",
+      "apfd": 0.7830475354181224
+    },
+    {
+      "strategy": "relation-first",
+      "apfd": 0.6935273419866305
+    },
+    {
+      "strategy": "random",
+      "apfd": 0.8361574454840219,
+      "apfd_sd": 0.008620159457930513
+    }
+  ],
+  "curve": {
+    "total(mutants)": [
+      [
+        0.05,
+        0.349
+      ],
+      [
+        0.1,
+        0.396
+      ],
+      [
+        0.25,
+        0.629
+      ],
+      [
+        0.5,
+        0.766
+      ],
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "additional(mutants)": [
+      [
+        0.05,
+        0.932
+      ],
+      [
+        0.1,
+        1.0
+      ],
+      [
+        0.25,
+        1.0
+      ],
+      [
+        0.5,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "total(relseed)": [
+      [
+        0.05,
+        0.541
+      ],
+      [
+        0.1,
+        0.558
+      ],
+      [
+        0.25,
+        0.581
+      ],
+      [
+        0.5,
+        0.753
+      ],
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "additional(relseed)": [
+      [
+        0.05,
+        0.523
+      ],
+      [
+        0.1,
+        0.533
+      ],
+      [
+        0.25,
+        0.672
+      ],
+      [
+        0.5,
+        0.78
+      ],
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "relation-first": [
+      [
+        0.05,
+        0.228
+      ],
+      [
+        0.1,
+        0.259
+      ],
+      [
+        0.25,
+        0.34
+      ],
+      [
+        0.5,
+        0.838
+      ],
+      [
+        1.0,
+        1.0
+      ]
+    ]
+  }
+}

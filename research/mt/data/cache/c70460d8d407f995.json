@@ -1,0 +1,20 @@
+{
+ "items": [
+  "幫我打開 github.com 謝謝",
+  "麻煩請幫我打開一下 github.com 喔",
+  "請打開 github.com 可以嗎",
+  "好嗎，幫我打開 github.com 啦",
+  "麻煩打開一下 github.com 謝謝"
+ ],
+ "ok": true,
+ "raw": "[\n  \"幫我打開 github.com 謝謝\",\n  \"麻煩請幫我打開一下 github.com 喔\",\n  \"請打開 github.com 可以嗎\",\n  \"好嗎，幫我打開 github.com 啦\",\n  \"麻煩打開一下 github.com 謝謝\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "打開 github.com",
+  "relation": "R2_politeness",
+  "n": 5,
+  "ms": 935,
+  "ts": "2026-09-14T20:27:07"
+ }
+}

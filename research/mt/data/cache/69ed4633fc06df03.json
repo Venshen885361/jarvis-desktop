@@ -1,0 +1,21 @@
+{
+ "items": [
+  "請幫我切換到 Chrome 喔",
+  "麻煩切換到 Chrome 一下啦",
+  "可以幫我切換到 Chrome 嗎",
+  "切換到 Chrome 謝謝",
+  "好啦請幫我切換到 Chrome"
+ ],
+ "ok": true,
+ "raw": "[\n  \"請幫我切換到 Chrome 喔\",\n  \"麻煩切換到 Chrome 一下啦\",\n  \"可以幫我切換到 Chrome 嗎\",\n  \"切換到 Chrome 謝謝\",\n  \"好啦請幫我切換到 Chrome\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "切換到 Chrome",
+  "relation": "R2_politeness",
+  "n": 5,
+  "rep": 2,
+  "ms": 864,
+  "ts": "2026-09-15T00:32:26"
+ }
+}

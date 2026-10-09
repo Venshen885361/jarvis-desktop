@@ -1,0 +1,20 @@
+{
+ "items": [
+  "怎麼用 Steam 安裝 Terraria 啦",
+  "用 Steam 安裝 Terraria 的速度怎麼那麼慢",
+  "用 Steam 安裝 Terraria 失敗了一直跳錯誤",
+  "有人知道用 Steam 安裝 Terraria 要花多久時間嗎",
+  "為什麼我用 Steam 安裝 Terraria 會卡在九十九趴"
+ ],
+ "ok": true,
+ "raw": "[\n  \"怎麼用 Steam 安裝 Terraria 啦\",\n  \"用 Steam 安裝 Terraria 的速度怎麼那麼慢\",\n  \"用 Steam 安裝 Terraria 失敗了一直跳錯誤\",\n  \"有人知道用 Steam 安裝 Terraria 要花多久時間嗎\",\n  \"為什麼我用 Steam 安裝 Terraria 會卡在九十九趴\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "用 Steam 安裝 Terraria",
+  "relation": "R5_near_miss",
+  "n": 5,
+  "ms": 1297,
+  "ts": "2026-09-14T20:43:30"
+ }
+}

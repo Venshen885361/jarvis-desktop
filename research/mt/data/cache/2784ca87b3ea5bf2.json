@@ -1,0 +1,20 @@
+{
+ "items": [
+  "怎麼用 Steam 安裝 Terraria 教學",
+  "用 Steam 安裝 Terraria 失敗怎麼辦",
+  "不要用 Steam 安裝 Terraria 了",
+  "用 Steam 安裝 Terraria 要花多少錢",
+  "有人用 Steam 安裝 Terraria 遇到錯誤嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"怎麼用 Steam 安裝 Terraria 教學\",\n  \"用 Steam 安裝 Terraria 失敗怎麼辦\",\n  \"不要用 Steam 安裝 Terraria 了\",\n  \"用 Steam 安裝 Terraria 要花多少錢\",\n  \"有人用 Steam 安裝 Terraria 遇到錯誤嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "用 Steam 安裝 Terraria",
+  "relation": "R5_near_miss",
+  "n": 5,
+  "ms": 836,
+  "ts": "2026-09-14T20:28:35"
+ }
+}

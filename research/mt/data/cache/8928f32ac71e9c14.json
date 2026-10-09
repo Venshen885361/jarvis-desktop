@@ -1,0 +1,20 @@
+{
+ "items": [
+  "幫我查一下 什麼是 Tailscale",
+  "Tailscale 是什麼意思",
+  "解釋一下 什麼是 Tailscale",
+  "我想知道 什麼是 Tailscale",
+  "講一下 什麼是 Tailscale"
+ ],
+ "ok": true,
+ "raw": "[\n  \"幫我查一下 什麼是 Tailscale\",\n  \"Tailscale 是什麼意思\",\n  \"解釋一下 什麼是 Tailscale\",\n  \"我想知道 什麼是 Tailscale\",\n  \"講一下 什麼是 Tailscale\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 1.0,
+  "seed": "什麼是 Tailscale",
+  "relation": "R1_synonym",
+  "n": 5,
+  "ms": 950,
+  "ts": "2026-09-14T20:51:54"
+ }
+}

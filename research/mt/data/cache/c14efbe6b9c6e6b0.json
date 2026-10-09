@@ -1,0 +1,21 @@
+{
+ "items": [
+  "Terraria 用 Steam 裝一下",
+  "用 Steam 把 Terraria 裝起來",
+  "Terraria 幫我用 Steam 安裝",
+  "用 Steam 裝 Terraria 看看",
+  "Terraria 透過 Steam 來安裝"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Terraria 用 Steam 裝一下\",\n  \"用 Steam 把 Terraria 裝起來\",\n  \"Terraria 幫我用 Steam 安裝\",\n  \"用 Steam 裝 Terraria 看看\",\n  \"Terraria 透過 Steam 來安裝\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "用 Steam 安裝 Terraria",
+  "relation": "R3_reorder",
+  "n": 5,
+  "rep": 1,
+  "ms": 914,
+  "ts": "2026-09-15T00:25:36"
+ }
+}

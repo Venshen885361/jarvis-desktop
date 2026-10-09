@@ -1,0 +1,20 @@
+{
+ "items": [
+  "YouTube 怎麼唸",
+  "不要打開 YouTube",
+  "YouTube 為什麼不能看",
+  "幫我查 YouTube 的客服電話",
+  "YouTube 影片跑不出來怎麼辦"
+ ],
+ "ok": true,
+ "raw": "[\n  \"YouTube 怎麼唸\",\n  \"不要打開 YouTube\",\n  \"YouTube 為什麼不能看\",\n  \"幫我查 YouTube 的客服電話\",\n  \"YouTube 影片跑不出來怎麼辦\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "開 YouTube",
+  "relation": "R5_near_miss",
+  "n": 5,
+  "ms": 822,
+  "ts": "2026-09-14T20:42:21"
+ }
+}

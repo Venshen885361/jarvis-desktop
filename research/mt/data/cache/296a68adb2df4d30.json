@@ -1,0 +1,20 @@
+{
+ "items": [
+  "用 YouTube 放 lofi 的教學影片要怎麼找",
+  "為什麼我用 YouTube 放 lofi 會一直斷掉",
+  "不要用 YouTube 放 lofi 了，換播流行歌",
+  "你知道怎麼用 YouTube 放 lofi 嗎",
+  "用 YouTube 放 lofi 的功能好像壞掉了"
+ ],
+ "ok": true,
+ "raw": "[\n  \"用 YouTube 放 lofi 的教學影片要怎麼找\",\n  \"為什麼我用 YouTube 放 lofi 會一直斷掉\",\n  \"不要用 YouTube 放 lofi 了，換播流行歌\",\n  \"你知道怎麼用 YouTube 放 lofi 嗎\",\n  \"用 YouTube 放 lofi 的功能好像壞掉了\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.3,
+  "seed": "用 YouTube 放 lofi",
+  "relation": "R5_near_miss",
+  "n": 5,
+  "ms": 1003,
+  "ts": "2026-09-14T20:36:35"
+ }
+}

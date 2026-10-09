@@ -1,0 +1,20 @@
+{
+ "items": [
+  "啟動 github.com",
+  "開啟 github.com",
+  "幫我開 github.com",
+  "執行 github.com",
+  "連到 github.com"
+ ],
+ "ok": true,
+ "raw": "[\n  \"啟動 github.com\",\n  \"開啟 github.com\",\n  \"幫我開 github.com\",\n  \"執行 github.com\",\n  \"連到 github.com\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.3,
+  "seed": "打開 github.com",
+  "relation": "R1_synonym",
+  "n": 5,
+  "ms": 897,
+  "ts": "2026-09-14T20:35:38"
+ }
+}

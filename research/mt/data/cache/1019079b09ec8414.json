@@ -1,0 +1,21 @@
+{
+ "items": [
+  "幫我下載 VLC",
+  "安裝一下 VLC",
+  "麻煩幫我裝 VLC",
+  "我要裝 VLC",
+  "幫忙下載安裝 VLC"
+ ],
+ "ok": true,
+ "raw": "[\n  \"幫我下載 VLC\",\n  \"安裝一下 VLC\",\n  \"麻煩幫我裝 VLC\",\n  \"我要裝 VLC\",\n  \"幫忙下載安裝 VLC\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "幫我裝 VLC",
+  "relation": "R1_synonym",
+  "n": 5,
+  "rep": 1,
+  "ms": 872,
+  "ts": "2026-09-15T00:25:23"
+ }
+}

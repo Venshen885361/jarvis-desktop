@@ -1,0 +1,21 @@
+{
+ "items": [
+  "怎麼開 YouTube 的字幕比較好",
+  "YouTube 頻道要怎麼開比較快",
+  "我 YouTube 畫面打不開怎麼辦",
+  "不要自動幫我開 YouTube",
+  "YouTube 廣告太多是開了什麼設定嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"怎麼開 YouTube 的字幕比較好\",\n  \"YouTube 頻道要怎麼開比較快\",\n  \"我 YouTube 畫面打不開怎麼辦\",\n  \"不要自動幫我開 YouTube\",\n  \"YouTube 廣告太多是開了什麼設定嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開 YouTube",
+  "relation": "R5_near_miss",
+  "n": 5,
+  "rep": 1,
+  "ms": 974,
+  "ts": "2026-09-15T00:24:29"
+ }
+}

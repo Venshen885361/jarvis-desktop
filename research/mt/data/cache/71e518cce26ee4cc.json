@@ -1,0 +1,20 @@
+{
+ "items": [
+  "欸，以圖搜圖",
+  "那個，以圖搜圖",
+  "嗯，以圖搜圖",
+  "JARVIS，以圖搜圖",
+  "Jarvis 幫我，以圖搜圖"
+ ],
+ "ok": true,
+ "raw": "[\n  \"欸，以圖搜圖\",\n  \"那個，以圖搜圖\",\n  \"嗯，以圖搜圖\",\n  \"JARVIS，以圖搜圖\",\n  \"Jarvis 幫我，以圖搜圖\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "以圖搜圖",
+  "relation": "R4_filler",
+  "n": 5,
+  "ms": 1304,
+  "ts": "2026-09-14T20:45:51"
+ }
+}

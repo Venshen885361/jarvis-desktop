@@ -1,0 +1,20 @@
+{
+ "items": [
+  "Chrome 幫我開一下",
+  "Chrome 把它打開",
+  "把 Chrome 打開吧",
+  "幫我把 Chrome 點開",
+  "Chrome 啟動一下"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Chrome 幫我開一下\",\n  \"Chrome 把它打開\",\n  \"把 Chrome 打開吧\",\n  \"幫我把 Chrome 點開\",\n  \"Chrome 啟動一下\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開啟 Chrome",
+  "relation": "R3_reorder",
+  "n": 5,
+  "ms": 1061,
+  "ts": "2026-09-14T20:26:40"
+ }
+}

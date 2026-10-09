@@ -1,0 +1,20 @@
+{
+ "items": [
+  "麻煩一下用 YouTube 放 lofi 謝謝",
+  "請幫我用 YouTube 放 lofi 可以嗎",
+  "幫我用 YouTube 放 lofi 好嗎",
+  "麻煩用 YouTube 放 lofi 喔",
+  "請用 YouTube 放 lofi 啦"
+ ],
+ "ok": true,
+ "raw": "[\n  \"麻煩一下用 YouTube 放 lofi 謝謝\",\n  \"請幫我用 YouTube 放 lofi 可以嗎\",\n  \"幫我用 YouTube 放 lofi 好嗎\",\n  \"麻煩用 YouTube 放 lofi 喔\",\n  \"請用 YouTube 放 lofi 啦\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 1.0,
+  "seed": "用 YouTube 放 lofi",
+  "relation": "R2_politeness",
+  "n": 5,
+  "ms": 886,
+  "ts": "2026-09-14T20:48:18"
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "items": [
+  "怎麼把 Chrome 移除掉",
+  "Chrome 為什麼一直當機",
+  "Chrome 的更新在哪裡下載",
+  "不要幫我開 Chrome",
+  "Chrome 快捷鍵怎麼設定"
+ ],
+ "ok": true,
+ "raw": "[\n  \"怎麼把 Chrome 移除掉\",\n  \"Chrome 為什麼一直當機\",\n  \"Chrome 的更新在哪裡下載\",\n  \"不要幫我開 Chrome\",\n  \"Chrome 快捷鍵怎麼設定\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 1.0,
+  "seed": "開啟 Chrome",
+  "relation": "R5_near_miss",
+  "n": 5,
+  "ms": 876,
+  "ts": "2026-09-14T20:47:30"
+ }
+}

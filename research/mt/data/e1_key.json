@@ -1,0 +1,3602 @@
+{
+ "e1-0001": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "model_chat",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0002": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "play_artist",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "youtube_play:周杰倫",
+  "violation": false
+ },
+ "e1-0003": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "model_task",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0004": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "time",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "time",
+  "violation": false
+ },
+ "e1-0005": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_folder",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "open_folder:下載",
+  "violation": false
+ },
+ "e1-0006": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "open_yt",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0007": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_chrome",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0008": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "open_url",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "open_url:github.com",
+  "violation": false
+ },
+ "e1-0009": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "info_food",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0010": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "info_top10",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0011": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0559",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "computer:key:prevtrack",
+  "violation": false
+ },
+ "e1-0012": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "date",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0013": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0885",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "camera_search",
+  "violation": false
+ },
+ "e1-0014": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0300",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_application:記事本",
+  "violation": false
+ },
+ "e1-0015": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0559",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "computer:key:prevtrack",
+  "violation": false
+ },
+ "e1-0016": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "home_off",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "home_control:客廳燈=off",
+  "violation": false
+ },
+ "e1-0017": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "search",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0018": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "model_chat",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "info",
+  "violation": true
+ },
+ "e1-0019": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "camera",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "camera_search",
+  "violation": false
+ },
+ "e1-0020": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0592",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "lock_screen",
+  "violation": false
+ },
+ "e1-0021": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "hide",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "hide",
+  "violation": false
+ },
+ "e1-0022": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "lens",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "lens_search",
+  "violation": false
+ },
+ "e1-0023": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "volume_mute",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "set_volume:mute",
+  "violation": false
+ },
+ "e1-0024": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "model_chat",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0025": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "open_yt",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0026": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "install_app",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "install_app:Discord",
+  "violation": false
+ },
+ "e1-0027": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0085",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0028": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_folder",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "install_app:資料夾打開",
+  "violation": true
+ },
+ "e1-0029": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "next_track",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0030": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0558",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "computer:key:prevtrack",
+  "violation": false
+ },
+ "e1-0031": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "home_set",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0032": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "next_track",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "computer:key:nexttrack",
+  "violation": false
+ },
+ "e1-0033": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0567",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0034": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0567",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "computer:key:prevtrack",
+  "violation": false
+ },
+ "e1-0035": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "lock",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "lock_screen",
+  "violation": false
+ },
+ "e1-0036": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "install_app",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "install_app:Discord",
+  "violation": false
+ },
+ "e1-0037": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "open_yt",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "open_application:YouTube",
+  "violation": false
+ },
+ "e1-0038": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0259",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "device_switch:電腦",
+  "violation": false
+ },
+ "e1-0039": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "play_artist",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "youtube_play:周杰倫的歌之前的那首叫什麼",
+  "violation": false
+ },
+ "e1-0040": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0809",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0041": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_chrome",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "open_application:Chrome",
+  "violation": false
+ },
+ "e1-0042": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "time",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0043": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_yt",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0044": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "device_phone",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "device_switch:手機",
+  "violation": false
+ },
+ "e1-0045": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0085",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "home_control:空調=on",
+  "violation": false
+ },
+ "e1-0046": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "nm_bobao",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0047": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "home_off",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0048": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "home_set",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "home_control:冷氣=set=26",
+  "violation": false
+ },
+ "e1-0049": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_folder",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_folder:下載",
+  "violation": false
+ },
+ "e1-0050": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "install_app",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0051": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0885",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0052": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "play_yt",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0053": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0921",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "switch_input_method:toggle_lang",
+  "violation": false
+ },
+ "e1-0054": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "open_notepad",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_application:記事本",
+  "violation": false
+ },
+ "e1-0055": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "volume_up",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "set_volume:up",
+  "violation": false
+ },
+ "e1-0056": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "window",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "focus_window:Chrome",
+  "violation": false
+ },
+ "e1-0057": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_chrome",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0058": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0086",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "home_control:暖氣=on",
+  "violation": false
+ },
+ "e1-0059": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "open_yt",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "open_application:YouTube",
+  "violation": false
+ },
+ "e1-0060": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "play_yt",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "youtube_play:lofi",
+  "violation": false
+ },
+ "e1-0061": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "volume_mute",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "set_volume:mute",
+  "violation": false
+ },
+ "e1-0062": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "open_folder",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_folder:下載",
+  "violation": false
+ },
+ "e1-0063": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "device_phone",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "device_switch:手機",
+  "violation": false
+ },
+ "e1-0064": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "search",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0065": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0143",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0066": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "install_app",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "install_app:Discord",
+  "violation": false
+ },
+ "e1-0067": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "play_song",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0068": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "open_url",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0069": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "home_on",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0070": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "date",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "date",
+  "violation": false
+ },
+ "e1-0071": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "info_top10",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0072": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "ime_en",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "switch_input_method:english",
+  "violation": false
+ },
+ "e1-0073": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0300",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0074": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0651",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "set_volume:up",
+  "violation": false
+ },
+ "e1-0075": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "time",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "time",
+  "violation": false
+ },
+ "e1-0076": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_notepad",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_application:記事本",
+  "violation": false
+ },
+ "e1-0077": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0086",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0078": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "model_task",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0079": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "lens",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "lens_search",
+  "violation": false
+ },
+ "e1-0080": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0093",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "home_control:捲門=on",
+  "violation": false
+ },
+ "e1-0081": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_url",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "open_url:github.com",
+  "violation": false
+ },
+ "e1-0082": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_notepad",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_application:記事本",
+  "violation": false
+ },
+ "e1-0083": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "install_app",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0084": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "next_track",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0085": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "model_chat",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "info",
+  "violation": true
+ },
+ "e1-0086": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "home_on",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "home_control:冷氣=on",
+  "violation": false
+ },
+ "e1-0087": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "open_notepad",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0088": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_notepad",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "open_application:記事本",
+  "violation": false
+ },
+ "e1-0089": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0269",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "time",
+  "violation": false
+ },
+ "e1-0090": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "device_phone",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0091": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "steam_game",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "install_steam_game:Terraria",
+  "violation": false
+ },
+ "e1-0092": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "time",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "time",
+  "violation": false
+ },
+ "e1-0093": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "model_task",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0094": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0365",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "focus_window:Chrome",
+  "violation": false
+ },
+ "e1-0095": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "math",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "math",
+  "violation": false
+ },
+ "e1-0096": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_chrome",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_application:Chrome",
+  "violation": false
+ },
+ "e1-0097": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0921",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0098": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "steam_game",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "install_steam_game:Terraria",
+  "violation": false
+ },
+ "e1-0099": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "steam_game",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0100": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "math",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "math",
+  "violation": false
+ },
+ "e1-0101": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "open_chrome",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "open_application:Chrome",
+  "violation": false
+ },
+ "e1-0102": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "info_why",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0103": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0096",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "home_control:除濕機=on",
+  "violation": false
+ },
+ "e1-0104": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "greeting",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0105": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0701",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "download_file:www.example.com/a.zip",
+  "violation": false
+ },
+ "e1-0106": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0143",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "home_control:客廳燈=off",
+  "violation": false
+ },
+ "e1-0107": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "open_folder",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0108": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "play_artist",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "youtube_play:周杰倫",
+  "violation": false
+ },
+ "e1-0109": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "ime_en",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0110": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "install_vlc",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0111": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "hide",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "hide",
+  "violation": false
+ },
+ "e1-0112": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_chrome",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "open_application:Chrome",
+  "violation": false
+ },
+ "e1-0113": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0559",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "computer:key:prevtrack",
+  "violation": false
+ },
+ "e1-0114": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "camera",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "camera_search",
+  "violation": false
+ },
+ "e1-0115": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0541",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "computer:key:nexttrack",
+  "violation": false
+ },
+ "e1-0116": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "open_url",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_url:github.com",
+  "violation": false
+ },
+ "e1-0117": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "install_app",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0118": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0701",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0119": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "open_chrome",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0120": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_notepad",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_application:記事本",
+  "violation": false
+ },
+ "e1-0121": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "install_app",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "install_app:Discord",
+  "violation": false
+ },
+ "e1-0122": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "time",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0123": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "hide",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "hide",
+  "violation": false
+ },
+ "e1-0124": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0096",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0125": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "hide",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "hide",
+  "violation": false
+ },
+ "e1-0126": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_notepad",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_application:記事本",
+  "violation": false
+ },
+ "e1-0127": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0558",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "computer:key:prevtrack",
+  "violation": false
+ },
+ "e1-0128": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "search",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0129": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0267",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "time",
+  "violation": false
+ },
+ "e1-0130": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "search",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_url:google:python 教學",
+  "violation": false
+ },
+ "e1-0131": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0239",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "youtube_play:lofi",
+  "violation": false
+ },
+ "e1-0132": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "play_song",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0133": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "search",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_url:google:python 教學",
+  "violation": false
+ },
+ "e1-0134": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "camera",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "camera_search",
+  "violation": false
+ },
+ "e1-0135": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "info_food",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0136": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "next_track",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "computer:key:nexttrack",
+  "violation": false
+ },
+ "e1-0137": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "next_track",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0138": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "time",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0139": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "lens",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0140": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0267",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0141": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0093",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "home_control:捲門=on",
+  "violation": false
+ },
+ "e1-0142": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "window",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "focus_window:Chrome",
+  "violation": false
+ },
+ "e1-0143": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "math",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "math",
+  "violation": false
+ },
+ "e1-0144": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "install_vlc",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0145": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "home_on",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0146": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0086",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "home_control:暖氣=on",
+  "violation": false
+ },
+ "e1-0147": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0269",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "time",
+  "violation": false
+ },
+ "e1-0148": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "home_off",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0149": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "ime_en",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "switch_input_method:english",
+  "violation": false
+ },
+ "e1-0150": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "play_song",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "youtube_play:晴天",
+  "violation": false
+ },
+ "e1-0151": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "lock",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "lock_screen",
+  "violation": false
+ },
+ "e1-0152": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0914",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0153": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0652",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0154": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0085",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "home_control:空調=on",
+  "violation": false
+ },
+ "e1-0155": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "home_set",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "home_control:冷氣=set=26",
+  "violation": false
+ },
+ "e1-0156": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0558",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "computer:key:playpause",
+  "violation": true
+ },
+ "e1-0157": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "time",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "time",
+  "violation": false
+ },
+ "e1-0158": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0267",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0159": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "search",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "open_url:google:python 教學",
+  "violation": false
+ },
+ "e1-0160": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0559",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "computer:key:prevtrack",
+  "violation": false
+ },
+ "e1-0161": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0259",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "device_switch:電腦",
+  "violation": false
+ },
+ "e1-0162": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "ime_en",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "switch_input_method:english",
+  "violation": false
+ },
+ "e1-0163": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0156",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "home_control:客廳燈=set=50",
+  "violation": false
+ },
+ "e1-0164": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "open_url",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "open_url:github.com",
+  "violation": false
+ },
+ "e1-0165": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "open_url",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "open_url:github.com",
+  "violation": false
+ },
+ "e1-0166": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "lens",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "lens_search",
+  "violation": false
+ },
+ "e1-0167": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "install_vlc",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "install_app:VLC",
+  "violation": false
+ },
+ "e1-0168": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "open_yt",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "open_application:YouTube",
+  "violation": false
+ },
+ "e1-0169": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "volume_mute",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0170": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "search",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0171": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "home_off",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "home_control:客廳燈=off",
+  "violation": false
+ },
+ "e1-0172": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "ime_en",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "switch_input_method:english",
+  "violation": false
+ },
+ "e1-0173": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "install_app",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "install_app:Discord",
+  "violation": false
+ },
+ "e1-0174": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "home_off",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "home_control:客廳燈=off",
+  "violation": false
+ },
+ "e1-0175": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "clipboard",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "read_clipboard",
+  "violation": false
+ },
+ "e1-0176": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_folder",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_folder:下載",
+  "violation": false
+ },
+ "e1-0177": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "device_phone",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "device_switch:手機",
+  "violation": false
+ },
+ "e1-0178": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "home_on",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "home_control:冷氣=on",
+  "violation": false
+ },
+ "e1-0179": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "window",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "focus_window:Chrome",
+  "violation": false
+ },
+ "e1-0180": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0300",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0181": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "time",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "time",
+  "violation": false
+ },
+ "e1-0182": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "play_song",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "youtube_play:晴天",
+  "violation": false
+ },
+ "e1-0183": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "install_vlc",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "install_app:VLC",
+  "violation": false
+ },
+ "e1-0184": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0820",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0185": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "nm_bobao",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0186": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "time",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "time",
+  "violation": false
+ },
+ "e1-0187": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "steam_game",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "install_steam_game:Terraria 拜託幫我",
+  "violation": true
+ },
+ "e1-0188": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "open_folder",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "open_folder:下載",
+  "violation": false
+ },
+ "e1-0189": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "math",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0190": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "open_url",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0191": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0422",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0192": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "model_task",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0193": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0365",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "focus_window:Chrome",
+  "violation": false
+ },
+ "e1-0194": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_url",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "open_url:github.com",
+  "violation": false
+ },
+ "e1-0195": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "open_chrome",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_application:Chrome",
+  "violation": false
+ },
+ "e1-0196": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "info_food",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0197": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0259",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0198": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "nm_kaihui",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0199": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "play_artist",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0200": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_chrome",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "open_application:Chrome",
+  "violation": false
+ },
+ "e1-0201": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "model_task",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0202": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0093",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "home_control:捲門=on",
+  "violation": false
+ },
+ "e1-0203": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0096",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0204": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "model_chat",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0205": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "steam_game",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "install_steam_game:Terraria",
+  "violation": false
+ },
+ "e1-0206": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "lens",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "lens_search",
+  "violation": false
+ },
+ "e1-0207": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "home_set",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0208": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "lock",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0209": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "math",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0210": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "lens",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0211": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "open_chrome",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0212": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0085",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0213": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "open_notepad",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0214": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "open_notepad",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_application:記事本",
+  "violation": false
+ },
+ "e1-0215": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0143",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0216": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "info_why",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0217": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "play_yt",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "youtube_play:lofi",
+  "violation": false
+ },
+ "e1-0218": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "play_artist",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "youtube_play:周杰倫",
+  "violation": false
+ },
+ "e1-0219": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "model_task",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0220": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "info_top10",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0221": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0086",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "home_control:暖氣=on",
+  "violation": false
+ },
+ "e1-0222": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "ime_en",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "focus_window:英文輸入法",
+  "violation": true
+ },
+ "e1-0223": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "open_chrome",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "open_application:Chrome",
+  "violation": false
+ },
+ "e1-0224": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0135",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0225": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "hide",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0226": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "open_yt",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "open_application:YouTube",
+  "violation": false
+ },
+ "e1-0227": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "info_food",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0228": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_chrome",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_application:Chrome",
+  "violation": false
+ },
+ "e1-0229": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "model_chat",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "info",
+  "violation": true
+ },
+ "e1-0230": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "camera",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0231": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "info_food",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0232": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0085",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "home_control:空調=on",
+  "violation": false
+ },
+ "e1-0233": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_url",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "open_url:github.com",
+  "violation": false
+ },
+ "e1-0234": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "model_chat",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0235": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "play_song",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0236": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "nm_bobao",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0237": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "play_song",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "youtube_play:晴天",
+  "violation": false
+ },
+ "e1-0238": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_url",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_url:github.com",
+  "violation": false
+ },
+ "e1-0239": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "open_chrome",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0240": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "lens",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0241": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "play_song",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "youtube_play:晴天",
+  "violation": false
+ },
+ "e1-0242": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0269",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "time",
+  "violation": false
+ },
+ "e1-0243": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "info_what",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0244": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "model_chat",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0245": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "play_artist",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0246": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_chrome",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "open_application:Chrome",
+  "violation": false
+ },
+ "e1-0247": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "install_app",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0248": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "time",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0249": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "search",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "open_url:google:python 教學",
+  "violation": false
+ },
+ "e1-0250": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "info_top10",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0251": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0652",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0252": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_url",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0253": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "home_off",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0254": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "install_vlc",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0255": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0085",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "home_control:空調=on",
+  "violation": false
+ },
+ "e1-0256": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "install_app",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "install_app:Discord",
+  "violation": false
+ },
+ "e1-0257": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0085",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_application:空調",
+  "violation": true
+ },
+ "e1-0258": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "home_off",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0259": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "home_off",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0260": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0096",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "home_control:除濕機=on",
+  "violation": false
+ },
+ "e1-0261": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "lock",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "lock_screen",
+  "violation": false
+ },
+ "e1-0262": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "open_folder",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "open_folder:下載",
+  "violation": false
+ },
+ "e1-0263": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "play_song",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0264": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0567",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "computer:key:prevtrack",
+  "violation": false
+ },
+ "e1-0265": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "window",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0266": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "home_on",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0267": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "info_food",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0268": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0567",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0269": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0652",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0270": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0573",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0271": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "window",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "focus_window:Chrome",
+  "violation": false
+ },
+ "e1-0272": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "home_on",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0273": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0096",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "home_control:除濕機=on",
+  "violation": false
+ },
+ "e1-0274": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "steam_game",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0275": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0135",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "home_control:冷氣=set=3",
+  "violation": false
+ },
+ "e1-0276": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0923",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "weather:現在氣溫幾度",
+  "violation": false
+ },
+ "e1-0277": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "play_song",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0278": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "play_artist",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "youtube_play:周杰倫",
+  "violation": false
+ },
+ "e1-0279": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "greeting",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "greeting",
+  "violation": false
+ },
+ "e1-0280": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "search",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0281": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_chrome",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "open_application:Chrome",
+  "violation": false
+ },
+ "e1-0282": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_chrome",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0283": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "volume_mute",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "set_volume:mute",
+  "violation": false
+ },
+ "e1-0284": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "play_artist",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "youtube_play:周杰倫",
+  "violation": false
+ },
+ "e1-0285": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "volume_mute",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "set_volume:mute",
+  "violation": false
+ },
+ "e1-0286": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_url",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "open_url:github.com",
+  "violation": false
+ },
+ "e1-0287": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "model_task",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0288": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0338",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0289": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0652",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0290": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "steam_game",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0291": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_yt",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0292": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0093",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "home_control:捲門=on",
+  "violation": false
+ },
+ "e1-0293": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "next_track",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "computer:key:nexttrack",
+  "violation": false
+ },
+ "e1-0294": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "device_phone",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0295": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "window",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0296": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0239",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "youtube_play:lofi",
+  "violation": false
+ },
+ "e1-0297": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "date",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "date",
+  "violation": false
+ },
+ "e1-0298": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0338",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0299": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "home_on",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0300": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "play_artist",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "youtube_play:周杰倫",
+  "violation": false
+ },
+ "e1-0301": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "play_artist",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "youtube_play:周杰倫",
+  "violation": false
+ },
+ "e1-0302": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "play_song",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0303": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0300",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_application:記事本",
+  "violation": false
+ },
+ "e1-0304": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "hide",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "hide",
+  "violation": false
+ },
+ "e1-0305": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "ime_en",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "switch_input_method:english",
+  "violation": false
+ },
+ "e1-0306": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "time",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "time",
+  "violation": false
+ },
+ "e1-0307": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "steam_game",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0308": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "play_artist",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0309": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0086",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "home_control:暖氣=on",
+  "violation": false
+ },
+ "e1-0310": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "home_set",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "home_control:冷氣=set=26",
+  "violation": false
+ },
+ "e1-0311": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0701",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "download_file:www.example.com/a.zip",
+  "violation": false
+ },
+ "e1-0312": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0269",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "time",
+  "violation": false
+ },
+ "e1-0313": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0085",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "home_control:空調=on",
+  "violation": false
+ },
+ "e1-0314": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0096",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "home_control:除濕機=on",
+  "violation": false
+ },
+ "e1-0315": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "install_app",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "install_app:Discord",
+  "violation": false
+ },
+ "e1-0316": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "device_phone",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0317": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0558",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "computer:key:prevtrack",
+  "violation": false
+ },
+ "e1-0318": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_yt",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_application:YouTube",
+  "violation": false
+ },
+ "e1-0319": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "info_why",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0320": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "play_song",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "youtube_play:晴天",
+  "violation": false
+ },
+ "e1-0321": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "lock",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0322": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "greeting",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "greeting",
+  "violation": false
+ },
+ "e1-0323": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "lock",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "lock_screen",
+  "violation": false
+ },
+ "e1-0324": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "date",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "date",
+  "violation": false
+ },
+ "e1-0325": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_url",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_url:github.com",
+  "violation": false
+ },
+ "e1-0326": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "open_url",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "open_url:github.com",
+  "violation": false
+ },
+ "e1-0327": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "search",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "open_url:google:python 教學",
+  "violation": false
+ },
+ "e1-0328": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "home_off",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "home_control:客廳燈=off",
+  "violation": false
+ },
+ "e1-0329": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "home_on",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "home_control:冷氣=on",
+  "violation": false
+ },
+ "e1-0330": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_chrome",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0331": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "open_yt",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0332": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "next_track",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "computer:key:nexttrack",
+  "violation": false
+ },
+ "e1-0333": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "camera",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "camera_search",
+  "violation": false
+ },
+ "e1-0334": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0051",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0335": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "open_url",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "open_url:github.com",
+  "violation": false
+ },
+ "e1-0336": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "info_food",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0337": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "search",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "open_url:google:python 教學",
+  "violation": false
+ },
+ "e1-0338": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "device_phone",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0339": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0422",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0340": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "home_set",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "home_control:冷氣=set=26",
+  "violation": false
+ },
+ "e1-0341": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "greeting",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "greeting",
+  "violation": false
+ },
+ "e1-0342": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "home_off",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0343": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "time",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "time",
+  "violation": false
+ },
+ "e1-0344": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "open_url",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "open_url:github.com",
+  "violation": false
+ },
+ "e1-0345": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "lens",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "lens_search",
+  "violation": false
+ },
+ "e1-0346": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "play_song",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "youtube_play:晴天這首",
+  "violation": true
+ },
+ "e1-0347": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0239",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "youtube_play:lofi",
+  "violation": false
+ },
+ "e1-0348": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "nm_fangjia",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0349": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "search",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_url:google:python 教學",
+  "violation": false
+ },
+ "e1-0350": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0921",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0351": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "window",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "focus_window:Chrome",
+  "violation": false
+ },
+ "e1-0352": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "clipboard",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0353": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "info_food",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0354": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "next_track",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "computer:key:nexttrack",
+  "violation": false
+ },
+ "e1-0355": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0541",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "computer:key:nexttrack",
+  "violation": false
+ },
+ "e1-0356": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "play_song",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0357": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "open_notepad",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "open_application:記事本",
+  "violation": false
+ },
+ "e1-0358": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "greeting",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "greeting",
+  "violation": false
+ },
+ "e1-0359": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "model_task",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0360": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "window",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "focus_window:Chrome",
+  "violation": false
+ },
+ "e1-0361": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "play_song",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_url:google:晴天",
+  "violation": true
+ },
+ "e1-0362": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "install_vlc",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "install_app:VLC",
+  "violation": false
+ },
+ "e1-0363": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0086",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "home_control:暖氣=on",
+  "violation": false
+ },
+ "e1-0364": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "open_notepad",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "open_application:記事本",
+  "violation": false
+ },
+ "e1-0365": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "lock",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "lock_screen",
+  "violation": false
+ },
+ "e1-0366": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "play_artist",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "youtube_play:周杰倫",
+  "violation": false
+ },
+ "e1-0367": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "volume_up",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "set_volume:up",
+  "violation": false
+ },
+ "e1-0368": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "play_yt",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "youtube_play:lofi",
+  "violation": false
+ },
+ "e1-0369": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "open_chrome",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0370": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0143",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0371": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "date",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "date",
+  "violation": false
+ },
+ "e1-0372": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_folder",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "install_app:資料夾，打開",
+  "violation": true
+ },
+ "e1-0373": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "open_yt",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0374": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "install_vlc",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0375": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "clipboard",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "read_clipboard",
+  "violation": false
+ },
+ "e1-0376": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "open_yt",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "open_application:YouTube",
+  "violation": false
+ },
+ "e1-0377": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "open_folder",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0378": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "search",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "open_url:google:python 教學",
+  "violation": false
+ },
+ "e1-0379": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "play_artist",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "youtube_play:周杰倫",
+  "violation": false
+ },
+ "e1-0380": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "install_vlc",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0381": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "hide",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0382": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "volume_up",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "set_volume:up",
+  "violation": false
+ },
+ "e1-0383": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "time",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0384": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "search",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "open_url:google:python 教學",
+  "violation": false
+ },
+ "e1-0385": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "math",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "math",
+  "violation": false
+ },
+ "e1-0386": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "play_yt",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0387": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "lock",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "model",
+  "violation": true
+ },
+ "e1-0388": {
+  "tag": "gemini-3.5-flash-lite_T1",
+  "gen": "llm",
+  "seed_id": "clipboard",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0389": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0652",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0390": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0559",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "computer:key:prevtrack",
+  "violation": false
+ },
+ "e1-0391": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0063",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "info",
+  "violation": false
+ },
+ "e1-0392": {
+  "tag": "gemini-3.5-flash-lite_T0.3",
+  "gen": "llm",
+  "seed_id": "open_url",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "open_url:github.com",
+  "violation": false
+ },
+ "e1-0393": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "play_artist",
+  "relation": "R1_synonym",
+  "expect": "same",
+  "got": "youtube_play:周杰倫",
+  "violation": false
+ },
+ "e1-0394": {
+  "tag": "rules",
+  "gen": "rules",
+  "seed_id": "sv_m0143",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0395": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "home_on",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "home_control:冷氣=on",
+  "violation": false
+ },
+ "e1-0396": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "clipboard",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "read_clipboard",
+  "violation": false
+ },
+ "e1-0397": {
+  "tag": "gemini-3.5-flash-lite_T0.7",
+  "gen": "llm",
+  "seed_id": "search",
+  "relation": "R2_politeness",
+  "expect": "same",
+  "got": "open_url:google:python 教學",
+  "violation": false
+ },
+ "e1-0398": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "clipboard",
+  "relation": "R5_near_miss",
+  "expect": "different",
+  "got": "model",
+  "violation": false
+ },
+ "e1-0399": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "lens",
+  "relation": "R4_filler",
+  "expect": "same",
+  "got": "lens_search",
+  "violation": false
+ },
+ "e1-0400": {
+  "tag": "gemini-3.5-flash-lite_T0",
+  "gen": "llm",
+  "seed_id": "info_what",
+  "relation": "R3_reorder",
+  "expect": "same",
+  "got": "info",
+  "violation": false
+ }
+}

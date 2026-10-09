@@ -1,0 +1,21 @@
+{
+ "items": [
+  "欸開啟 Chrome",
+  "那個開啟 Chrome",
+  "嗯開啟 Chrome",
+  "JARVIS開啟 Chrome",
+  "Jarvis 幫我開啟 Chrome"
+ ],
+ "ok": true,
+ "raw": "[\n  \"欸開啟 Chrome\",\n  \"那個開啟 Chrome\",\n  \"嗯開啟 Chrome\",\n  \"JARVIS開啟 Chrome\",\n  \"Jarvis 幫我開啟 Chrome\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開啟 Chrome",
+  "relation": "R4_filler",
+  "n": 5,
+  "rep": 2,
+  "ms": 1043,
+  "ts": "2026-09-15T00:29:55"
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "items": [
+  "怎麼把 Chrome 移除掉",
+  "Chrome 為什麼一直閃退打不開",
+  "不要幫我開 Chrome 啦",
+  "Chrome 更新失敗要怎麼處理",
+  "找一下 Chrome 的安裝教學"
+ ],
+ "ok": true,
+ "raw": "[\n  \"怎麼把 Chrome 移除掉\",\n  \"Chrome 為什麼一直閃退打不開\",\n  \"不要幫我開 Chrome 啦\",\n  \"Chrome 更新失敗要怎麼處理\",\n  \"找一下 Chrome 的安裝教學\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開啟 Chrome",
+  "relation": "R5_near_miss",
+  "n": 5,
+  "rep": 1,
+  "ms": 1084,
+  "ts": "2026-09-15T00:24:21"
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "items": [
+  "幫我開啟 Chrome 謝謝",
+  "麻煩請開啟一下 Chrome 啦",
+  "可以幫我開啟 Chrome 嗎",
+  "請幫我把 Chrome 開啟喔",
+  "開啟 Chrome 好嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"幫我開啟 Chrome 謝謝\",\n  \"麻煩請開啟一下 Chrome 啦\",\n  \"可以幫我開啟 Chrome 嗎\",\n  \"請幫我把 Chrome 開啟喔\",\n  \"開啟 Chrome 好嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "開啟 Chrome",
+  "relation": "R2_politeness",
+  "n": 5,
+  "ms": 877,
+  "ts": "2026-09-14T20:42:07"
+ }
+}

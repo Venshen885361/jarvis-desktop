@@ -1,0 +1,20 @@
+{
+ "items": [
+  "VLC怎麼裝才好",
+  "幫我解除安裝VLC",
+  "有人會裝VLC嗎",
+  "為什麼VLC裝不起來",
+  "不要幫我裝VLC"
+ ],
+ "ok": true,
+ "raw": "[\n  \"VLC怎麼裝才好\",\n  \"幫我解除安裝VLC\",\n  \"有人會裝VLC嗎\",\n  \"為什麼VLC裝不起來\",\n  \"不要幫我裝VLC\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "幫我裝 VLC",
+  "relation": "R5_near_miss",
+  "n": 5,
+  "ms": 925,
+  "ts": "2026-09-14T20:43:21"
+ }
+}

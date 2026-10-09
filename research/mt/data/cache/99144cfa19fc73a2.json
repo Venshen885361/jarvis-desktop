@@ -1,0 +1,21 @@
+{
+ "items": [
+  "幫我下載 Discord",
+  "安裝一下 Discord",
+  "下載 Discord 好了",
+  "去下載 Discord",
+  "我要下載 Discord"
+ ],
+ "ok": true,
+ "raw": "[\n  \"幫我下載 Discord\",\n  \"安裝一下 Discord\",\n  \"下載 Discord 好了\",\n  \"去下載 Discord\",\n  \"我要下載 Discord\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "下載 Discord",
+  "relation": "R1_synonym",
+  "n": 5,
+  "rep": 1,
+  "ms": 1201,
+  "ts": "2026-09-15T00:25:15"
+ }
+}

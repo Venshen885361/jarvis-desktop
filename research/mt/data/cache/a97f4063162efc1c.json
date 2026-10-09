@@ -1,0 +1,20 @@
+{
+ "items": [
+  "啟動 YouTube",
+  "幫我開 YouTube",
+  "開啟 YouTube",
+  "我要看 YouTube",
+  "執行 YouTube"
+ ],
+ "ok": true,
+ "raw": "[\n  \"啟動 YouTube\",\n  \"幫我開 YouTube\",\n  \"開啟 YouTube\",\n  \"我要看 YouTube\",\n  \"執行 YouTube\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開 YouTube",
+  "relation": "R1_synonym",
+  "n": 5,
+  "ms": 808,
+  "ts": "2026-09-14T20:26:47"
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "items": [
+  "怎麼打不開 github 網站",
+  "github 網頁版打不開是為什麼",
+  "github 點了打不開怎麼辦",
+  "一直打不開 github 是不是壞了",
+  "為什麼我都打不開 github 的頁面"
+ ],
+ "ok": true,
+ "raw": "[\n  \"怎麼打不開 github 網站\",\n  \"github 網頁版打不開是為什麼\",\n  \"github 點了打不開怎麼辦\",\n  \"一直打不開 github 是不是壞了\",\n  \"為什麼我都打不開 github 的頁面\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.3,
+  "seed": "打開 github.com",
+  "relation": "R5_near_miss",
+  "n": 5,
+  "ms": 960,
+  "ts": "2026-09-14T20:35:50"
+ }
+}

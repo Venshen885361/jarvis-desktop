@@ -1,0 +1,20 @@
+{
+ "items": [
+  "Discord 怎麼下載那麼慢",
+  "下載 Discord 會不會中毒啊",
+  "Discord 下載到一半失敗了怎麼辦",
+  "去哪裡下載 Discord 比較安全",
+  "不要下載 Discord 了直接用網頁版就好"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Discord 怎麼下載那麼慢\",\n  \"下載 Discord 會不會中毒啊\",\n  \"Discord 下載到一半失敗了怎麼辦\",\n  \"去哪裡下載 Discord 比較安全\",\n  \"不要下載 Discord 了直接用網頁版就好\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 1.0,
+  "seed": "下載 Discord",
+  "relation": "R5_near_miss",
+  "n": 5,
+  "ms": 883,
+  "ts": "2026-09-14T20:48:32"
+ }
+}

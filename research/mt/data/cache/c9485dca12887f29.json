@@ -1,0 +1,21 @@
+{
+ "items": [
+  "搜尋台北 top 10 美食",
+  "幫我找台北 top 10 美食",
+  "台北 top 10 美食有哪些",
+  "查詢台北 top 10 美食",
+  "顯示台北 top 10 美食"
+ ],
+ "ok": true,
+ "raw": "[\n  \"搜尋台北 top 10 美食\",\n  \"幫我找台北 top 10 美食\",\n  \"台北 top 10 美食有哪些\",\n  \"查詢台北 top 10 美食\",\n  \"顯示台北 top 10 美食\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "台北 top 10 美食",
+  "relation": "R1_synonym",
+  "n": 5,
+  "rep": 2,
+  "ms": 787,
+  "ts": "2026-09-15T00:34:02"
+ }
+}

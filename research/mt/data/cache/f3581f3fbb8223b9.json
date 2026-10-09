@@ -1,0 +1,21 @@
+{
+ "items": [
+  "嗨",
+  "哈囉",
+  "安安",
+  "嘿",
+  "早安"
+ ],
+ "ok": true,
+ "raw": "[\n  \"嗨\",\n  \"哈囉\",\n  \"安安\",\n  \"嘿\",\n  \"早安\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "你好",
+  "relation": "R1_synonym",
+  "n": 5,
+  "rep": 2,
+  "ms": 813,
+  "ts": "2026-09-15T00:33:49"
+ }
+}

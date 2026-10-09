@@ -1,0 +1,21 @@
+{
+ "items": [
+  "麻煩幫我下載一下 Discord 謝謝",
+  "請幫我下載 Discord 好嗎",
+  "可以幫我下載一下 Discord 喔",
+  "幫我下載 Discord 啦 謝謝",
+  "麻煩請幫我下載 Discord 可以嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"麻煩幫我下載一下 Discord 謝謝\",\n  \"請幫我下載 Discord 好嗎\",\n  \"可以幫我下載一下 Discord 喔\",\n  \"幫我下載 Discord 啦 謝謝\",\n  \"麻煩請幫我下載 Discord 可以嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "下載 Discord",
+  "relation": "R2_politeness",
+  "n": 5,
+  "rep": 1,
+  "ms": 1063,
+  "ts": "2026-09-15T00:25:16"
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "items": [
+  "搜尋 python 教學的網頁怎麼都開不起來",
+  "搜尋 python 教學是不是要付費啊",
+  "不要搜尋 python 教學了換找別的",
+  "為什麼搜尋 python 教學會出現一堆英文",
+  "幫我查誰說搜尋 python 教學很簡單的"
+ ],
+ "ok": true,
+ "raw": "[\n  \"搜尋 python 教學的網頁怎麼都開不起來\",\n  \"搜尋 python 教學是不是要付費啊\",\n  \"不要搜尋 python 教學了換找別的\",\n  \"為什麼搜尋 python 教學會出現一堆英文\",\n  \"幫我查誰說搜尋 python 教學很簡單的\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "搜尋 python 教學",
+  "relation": "R5_near_miss",
+  "n": 5,
+  "ms": 1102,
+  "ts": "2026-09-14T21:19:21"
+ }
+}

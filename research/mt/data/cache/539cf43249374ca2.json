@@ -1,0 +1,20 @@
+{
+ "items": [
+  "loki 幫我用 YouTube 播",
+  "YouTube 拿來播 lofi 看看",
+  "用 YouTube 聽 lofi 可以嗎",
+  "播 lofi 啦，用 YouTube 就好",
+  "YouTube 放 lofi 給我聽"
+ ],
+ "ok": true,
+ "raw": "[\n  \"loki 幫我用 YouTube 播\",\n  \"YouTube 拿來播 lofi 看看\",\n  \"用 YouTube 聽 lofi 可以嗎\",\n  \"播 lofi 啦，用 YouTube 就好\",\n  \"YouTube 放 lofi 給我聽\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 1.0,
+  "seed": "用 YouTube 放 lofi",
+  "relation": "R3_reorder",
+  "n": 5,
+  "ms": 1139,
+  "ts": "2026-09-14T20:48:20"
+ }
+}

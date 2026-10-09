@@ -1,0 +1,21 @@
+{
+ "items": [
+  "欸什麼是 Tailscale",
+  "那個什麼是 Tailscale",
+  "嗯什麼是 Tailscale",
+  "JARVIS什麼是 Tailscale",
+  "對了什麼是 Tailscale"
+ ],
+ "ok": true,
+ "raw": "[\n  \"欸什麼是 Tailscale\",\n  \"那個什麼是 Tailscale\",\n  \"嗯什麼是 Tailscale\",\n  \"JARVIS什麼是 Tailscale\",\n  \"對了什麼是 Tailscale\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "什麼是 Tailscale",
+  "relation": "R4_filler",
+  "n": 5,
+  "rep": 2,
+  "ms": 798,
+  "ts": "2026-09-15T00:34:15"
+ }
+}

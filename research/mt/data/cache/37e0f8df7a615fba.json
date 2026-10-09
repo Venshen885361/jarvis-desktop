@@ -1,0 +1,20 @@
+{
+ "items": [
+  "欸用 Steam 安裝 Terraria",
+  "那個用 Steam 安裝 Terraria",
+  "嗯用 Steam 安裝 Terraria",
+  "JARVIS用 Steam 安裝 Terraria",
+  "對了用 Steam 安裝 Terraria"
+ ],
+ "ok": true,
+ "raw": "[\n  \"欸用 Steam 安裝 Terraria\",\n  \"那個用 Steam 安裝 Terraria\",\n  \"嗯用 Steam 安裝 Terraria\",\n  \"JARVIS用 Steam 安裝 Terraria\",\n  \"對了用 Steam 安裝 Terraria\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.3,
+  "seed": "用 Steam 安裝 Terraria",
+  "relation": "R4_filler",
+  "n": 5,
+  "ms": 1016,
+  "ts": "2026-09-14T20:37:15"
+ }
+}

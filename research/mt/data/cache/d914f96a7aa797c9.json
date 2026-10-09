@@ -1,0 +1,21 @@
+{
+ "items": [
+  "欸台北 top 10 美食",
+  "那個台北 top 10 美食",
+  "嗯台北 top 10 美食",
+  "JARVIS台北 top 10 美食",
+  "對了台北 top 10 美食"
+ ],
+ "ok": true,
+ "raw": "[\n  \"欸台北 top 10 美食\",\n  \"那個台北 top 10 美食\",\n  \"嗯台北 top 10 美食\",\n  \"JARVIS台北 top 10 美食\",\n  \"對了台北 top 10 美食\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "台北 top 10 美食",
+  "relation": "R4_filler",
+  "n": 5,
+  "rep": 1,
+  "ms": 878,
+  "ts": "2026-09-15T00:28:33"
+ }
+}

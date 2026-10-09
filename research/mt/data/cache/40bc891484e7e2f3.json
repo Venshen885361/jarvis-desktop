@@ -1,0 +1,21 @@
+{
+ "items": [
+  "打開 Chrome",
+  "啟動 Chrome",
+  "幫我開 Chrome",
+  "執行 Chrome",
+  "叫出 Chrome"
+ ],
+ "ok": true,
+ "raw": "[\n  \"打開 Chrome\",\n  \"啟動 Chrome\",\n  \"幫我開 Chrome\",\n  \"執行 Chrome\",\n  \"叫出 Chrome\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開啟 Chrome",
+  "relation": "R1_synonym",
+  "n": 5,
+  "rep": 2,
+  "ms": 785,
+  "ts": "2026-09-15T00:29:50"
+ }
+}

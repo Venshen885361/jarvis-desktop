@@ -1,0 +1,20 @@
+{
+ "items": [
+  "YouTube 怎麼唸啊",
+  "不要開 YouTube 啦",
+  "YouTube 影片跑不出來怎麼辦",
+  "幫我查 YouTube 的客服電話",
+  "YouTube 帳號被登出了怎麼處理"
+ ],
+ "ok": true,
+ "raw": "[\n  \"YouTube 怎麼唸啊\",\n  \"不要開 YouTube 啦\",\n  \"YouTube 影片跑不出來怎麼辦\",\n  \"幫我查 YouTube 的客服電話\",\n  \"YouTube 帳號被登出了怎麼處理\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 1.0,
+  "seed": "開 YouTube",
+  "relation": "R5_near_miss",
+  "n": 5,
+  "ms": 1084,
+  "ts": "2026-09-14T20:47:39"
+ }
+}

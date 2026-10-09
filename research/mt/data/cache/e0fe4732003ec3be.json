@@ -1,0 +1,21 @@
+{
+ "items": [
+  "怎麼下載 Discord 的教學影片",
+  "Discord 下載到一半一直失敗怎麼辦",
+  "不要下載 Discord 這個軟體",
+  "Discord 是在哪裡下載的啊",
+  "為什麼我的電腦不能下載 Discord"
+ ],
+ "ok": true,
+ "raw": "[\n  \"怎麼下載 Discord 的教學影片\",\n  \"Discord 下載到一半一直失敗怎麼辦\",\n  \"不要下載 Discord 這個軟體\",\n  \"Discord 是在哪裡下載的啊\",\n  \"為什麼我的電腦不能下載 Discord\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "下載 Discord",
+  "relation": "R5_near_miss",
+  "n": 5,
+  "rep": 2,
+  "ms": 951,
+  "ts": "2026-09-15T00:30:56"
+ }
+}

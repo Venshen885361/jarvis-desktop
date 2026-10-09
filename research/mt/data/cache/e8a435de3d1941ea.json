@@ -1,0 +1,20 @@
+{
+ "items": [
+  "怎麼打不開 github.com 呢",
+  "github.com 為什麼會打不開",
+  "不要打開 github.com 啦",
+  "有人知道 github.com 打不開怎麼辦嗎",
+  "誰可以告訴我 github.com 打不開的原因"
+ ],
+ "ok": true,
+ "raw": "[\n  \"怎麼打不開 github.com 呢\",\n  \"github.com 為什麼會打不開\",\n  \"不要打開 github.com 啦\",\n  \"有人知道 github.com 打不開怎麼辦嗎\",\n  \"誰可以告訴我 github.com 打不開的原因\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "打開 github.com",
+  "relation": "R5_near_miss",
+  "n": 5,
+  "ms": 999,
+  "ts": "2026-09-14T20:27:12"
+ }
+}

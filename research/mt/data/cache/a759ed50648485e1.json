@@ -1,0 +1,20 @@
+{
+ "items": [
+  "麻煩幫我用 Steam 安裝 Terraria 啦",
+  "請幫我用 Steam 安裝一下 Terraria 好嗎",
+  "用 Steam 安裝 Terraria 可以嗎謝謝",
+  "幫我用 Steam 安裝 Terraria 喔",
+  "麻煩請用 Steam 安裝一下 Terraria 啦"
+ ],
+ "ok": true,
+ "raw": "[\n  \"麻煩幫我用 Steam 安裝 Terraria 啦\",\n  \"請幫我用 Steam 安裝一下 Terraria 好嗎\",\n  \"用 Steam 安裝 Terraria 可以嗎謝謝\",\n  \"幫我用 Steam 安裝 Terraria 喔\",\n  \"麻煩請用 Steam 安裝一下 Terraria 啦\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 1.0,
+  "seed": "用 Steam 安裝 Terraria",
+  "relation": "R2_politeness",
+  "n": 5,
+  "ms": 937,
+  "ts": "2026-09-14T20:48:44"
+ }
+}

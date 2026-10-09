@@ -1,0 +1,20 @@
+{
+ "items": [
+  "用 YouTube 播 lofi",
+  "在 YouTube 搜尋 lofi",
+  "幫我用 YouTube 播 lofi",
+  "開啟 YouTube 播放 lofi",
+  "透過 YouTube 放 lofi"
+ ],
+ "ok": true,
+ "raw": "[\n  \"用 YouTube 播 lofi\",\n  \"在 YouTube 搜尋 lofi\",\n  \"幫我用 YouTube 播 lofi\",\n  \"開啟 YouTube 播放 lofi\",\n  \"透過 YouTube 放 lofi\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.3,
+  "seed": "用 YouTube 放 lofi",
+  "relation": "R1_synonym",
+  "n": 5,
+  "ms": 941,
+  "ts": "2026-09-14T20:36:23"
+ }
+}

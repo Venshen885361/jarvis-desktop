@@ -1,0 +1,21 @@
+{
+ "items": [
+  "請幫我查一下什麼是 Tailscale 喔",
+  "麻煩告訴我什麼是 Tailscale 可以嗎",
+  "什麼是 Tailscale 呢，幫我解釋一下好嗎",
+  "請教一下什麼是 Tailscale 謝謝",
+  "好想知道什麼是 Tailscale 喔，麻煩講一下啦"
+ ],
+ "ok": true,
+ "raw": "[\n  \"請幫我查一下什麼是 Tailscale 喔\",\n  \"麻煩告訴我什麼是 Tailscale 可以嗎\",\n  \"什麼是 Tailscale 呢，幫我解釋一下好嗎\",\n  \"請教一下什麼是 Tailscale 謝謝\",\n  \"好想知道什麼是 Tailscale 喔，麻煩講一下啦\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "什麼是 Tailscale",
+  "relation": "R2_politeness",
+  "n": 5,
+  "rep": 2,
+  "ms": 978,
+  "ts": "2026-09-15T00:34:11"
+ }
+}

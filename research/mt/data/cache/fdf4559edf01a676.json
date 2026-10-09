@@ -1,0 +1,20 @@
+{
+ "items": [
+  "欸開 YouTube",
+  "那個開 YouTube",
+  "嗯開 YouTube",
+  "JARVIS開 YouTube",
+  "Jarvis 幫我開 YouTube"
+ ],
+ "ok": true,
+ "raw": "[\n  \"欸開 YouTube\",\n  \"那個開 YouTube\",\n  \"嗯開 YouTube\",\n  \"JARVIS開 YouTube\",\n  \"Jarvis 幫我開 YouTube\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開 YouTube",
+  "relation": "R4_filler",
+  "n": 5,
+  "ms": 1095,
+  "ts": "2026-09-14T20:26:53"
+ }
+}

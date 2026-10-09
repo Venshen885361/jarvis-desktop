@@ -1,0 +1,20 @@
+{
+ "items": [
+  "欸打開 github.com",
+  "那個打開 github.com",
+  "嗯打開 github.com",
+  "Jarvis 幫我打開 github.com",
+  "對了打開 github.com"
+ ],
+ "ok": true,
+ "raw": "[\n  \"欸打開 github.com\",\n  \"那個打開 github.com\",\n  \"嗯打開 github.com\",\n  \"Jarvis 幫我打開 github.com\",\n  \"對了打開 github.com\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 1.0,
+  "seed": "打開 github.com",
+  "relation": "R4_filler",
+  "n": 5,
+  "ms": 900,
+  "ts": "2026-09-14T20:47:55"
+ }
+}

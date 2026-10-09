@@ -1,0 +1,20 @@
+{
+ "items": [
+  "Tailscale 這個軟體該怎麼唸",
+  "Tailscale 有沒有免費的版本可以用",
+  "幫我查一下 Tailscale 帳號要怎麼註冊",
+  "Tailscale 和其他 VPN 比起來好用嗎",
+  "為什麼我的 Tailscale 一直連不上"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Tailscale 這個軟體該怎麼唸\",\n  \"Tailscale 有沒有免費的版本可以用\",\n  \"幫我查一下 Tailscale 帳號要怎麼註冊\",\n  \"Tailscale 和其他 VPN 比起來好用嗎\",\n  \"為什麼我的 Tailscale 一直連不上\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "什麼是 Tailscale",
+  "relation": "R5_near_miss",
+  "n": 5,
+  "ms": 888,
+  "ts": "2026-09-14T20:46:46"
+ }
+}

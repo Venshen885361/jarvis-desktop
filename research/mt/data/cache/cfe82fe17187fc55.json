@@ -1,0 +1,20 @@
+{
+ "items": [
+  "Chrome 為什麼一直閃退",
+  "Chrome 瀏覽器怎麼解除安裝",
+  "不要自動更新 Chrome",
+  "有人會用 Chrome 擋廣告嗎",
+  "Chrome 書籤不見了怎麼辦"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Chrome 為什麼一直閃退\",\n  \"Chrome 瀏覽器怎麼解除安裝\",\n  \"不要自動更新 Chrome\",\n  \"有人會用 Chrome 擋廣告嗎\",\n  \"Chrome 書籤不見了怎麼辦\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.3,
+  "seed": "開啟 Chrome",
+  "relation": "R5_near_miss",
+  "n": 5,
+  "ms": 1258,
+  "ts": "2026-09-14T20:35:06"
+ }
+}

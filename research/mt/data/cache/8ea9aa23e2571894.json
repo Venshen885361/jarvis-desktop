@@ -1,0 +1,20 @@
+{
+ "items": [
+  "幫我搜尋一下 python 教學，謝謝",
+  "麻煩請幫我找 python 教學喔",
+  "可以幫我搜尋 python 教學嗎",
+  "請幫我查一下 python 教學啦",
+  "幫忙搜尋一下 python 教學好嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"幫我搜尋一下 python 教學，謝謝\",\n  \"麻煩請幫我找 python 教學喔\",\n  \"可以幫我搜尋 python 教學嗎\",\n  \"請幫我查一下 python 教學啦\",\n  \"幫忙搜尋一下 python 教學好嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "搜尋 python 教學",
+  "relation": "R2_politeness",
+  "n": 5,
+  "ms": 1247,
+  "ts": "2026-09-14T21:19:41"
+ }
+}

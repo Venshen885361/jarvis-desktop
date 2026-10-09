@@ -1,0 +1,20 @@
+{
+ "items": [
+  "欸今天星期幾",
+  "那個今天星期幾",
+  "嗯今天星期幾",
+  "JARVIS今天星期幾",
+  "Jarvis 幫我今天星期幾"
+ ],
+ "ok": true,
+ "raw": "[\n  \"欸今天星期幾\",\n  \"那個今天星期幾\",\n  \"嗯今天星期幾\",\n  \"JARVIS今天星期幾\",\n  \"Jarvis 幫我今天星期幾\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.7,
+  "seed": "今天星期幾",
+  "relation": "R4_filler",
+  "n": 5,
+  "ms": 911,
+  "ts": "2026-09-14T20:43:54"
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "items": [
+  "幫我解除安裝 VLC",
+  "VLC 怎麼安裝才對",
+  "不要幫我裝 VLC 播放器",
+  "請問 VLC 安裝檔在哪裡下載",
+  "幫我看看為什麼 VLC 裝不起來"
+ ],
+ "ok": true,
+ "raw": "[\n  \"幫我解除安裝 VLC\",\n  \"VLC 怎麼安裝才對\",\n  \"不要幫我裝 VLC 播放器\",\n  \"請問 VLC 安裝檔在哪裡下載\",\n  \"幫我看看為什麼 VLC 裝不起來\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "幫我裝 VLC",
+  "relation": "R5_near_miss",
+  "n": 5,
+  "ms": 1331,
+  "ts": "2026-09-14T20:28:20"
+ }
+}

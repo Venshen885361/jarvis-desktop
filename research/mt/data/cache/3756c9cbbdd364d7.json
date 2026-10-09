@@ -1,0 +1,21 @@
+{
+ "items": [
+  "怎麼把 YouTube 關掉",
+  "YouTube 點進去畫面全黑怎麼辦",
+  "不要跳出 YouTube 的通知了",
+  "YouTube 這首歌的名字是什麼",
+  "幫我找 YouTube 的客服信箱"
+ ],
+ "ok": true,
+ "raw": "[\n  \"怎麼把 YouTube 關掉\",\n  \"YouTube 點進去畫面全黑怎麼辦\",\n  \"不要跳出 YouTube 的通知了\",\n  \"YouTube 這首歌的名字是什麼\",\n  \"幫我找 YouTube 的客服信箱\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開 YouTube",
+  "relation": "R5_near_miss",
+  "n": 5,
+  "rep": 2,
+  "ms": 957,
+  "ts": "2026-09-15T00:30:05"
+ }
+}
