@@ -63,10 +63,11 @@ def main() -> int:
     ap.add_argument("--runs", type=int, default=30)
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--ops", nargs="*", help="只用這些運算子的突變體（例：ALT_DEL KW_DEL CMP），看縮減 / 排序的結論變不變")
+    ap.add_argument("--mutants", default=None, help="突變體說明檔（預設 out/mutants.json；第二受測對象用 out/mutants_hass.json）")
     a = ap.parse_args()
     tests, mutants, matrix = reduce.load_matrix(Path(a.matrix))
-    meta = {m["id"]: m for m in json.loads((mutation.OUT / "mutants.json").read_text(encoding="utf-8"))} \
-        if (mutation.OUT / "mutants.json").is_file() else {}
+    mpath = Path(a.mutants) if a.mutants else mutation.OUT / "mutants.json"
+    meta = {m["id"]: m for m in json.loads(mpath.read_text(encoding="utf-8"))} if mpath.is_file() else {}
     if a.ops:
         keep = [j for j, mid in enumerate(mutants) if meta.get(mid, {}).get("op") in set(a.ops)]
         mutants = [mutants[j] for j in keep]

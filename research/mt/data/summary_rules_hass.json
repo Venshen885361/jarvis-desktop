@@ -1,0 +1,55 @@
+{
+  "tag": "rules_hass",
+  "gen": "rules",
+  "model": null,
+  "temperature": null,
+  "n_per_pair": 5,
+  "gen_failures": 0,
+  "relations": {
+    "R1_synonym": {
+      "generated": 13,
+      "valid": 13,
+      "violations": 7,
+      "valid_rate": 1.0,
+      "violation_rate": 0.538,
+      "distinct2": 0.323
+    },
+    "R2_politeness": {
+      "generated": 320,
+      "valid": 320,
+      "violations": 260,
+      "valid_rate": 1.0,
+      "violation_rate": 0.812,
+      "distinct2": 0.143
+    },
+    "R3_reorder": {
+      "generated": 12,
+      "valid": 12,
+      "violations": 9,
+      "valid_rate": 1.0,
+      "violation_rate": 0.75,
+      "distinct2": 0.371
+    },
+    "R4_filler": {
+      "generated": 320,
+      "valid": 320,
+      "violations": 320,
+      "valid_rate": 1.0,
+      "violation_rate": 1.0,
+      "distinct2": 0.121
+    },
+    "R5_near_miss": {
+      "generated": 320,
+      "valid": 320,
+      "violations": 0,
+      "valid_rate": 1.0,
+      "violation_rate": 0.0,
+      "distinct2": 0.126
+    }
+  },
+  "total": {
+    "generated": 985,
+    "valid": 985,
+    "violations": 596
+  }
+}

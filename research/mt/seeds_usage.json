@@ -1,0 +1,156 @@
+{
+  "_doc": "第三批種子：使用者實際對 JARVIS 講過的指令（~/.jarvis/profile.json 的 history，2026-10-09 匯出，41 條不重複、83 次使用）。只留中文的 24 條；11 條英文（Open insta / Play rickroll on yt / Can u shut down the laptop…）router 一律交給模型，另記成發現。expect 是「應該」的路由；跟現行路由不同的在 note 註明，那些就是真實使用才找到的錯。uses = 使用次數。",
+  "seeds": [
+    {
+      "id": "use_food",
+      "text": "幫我看看附近有什麼好吃的",
+      "expect": "info",
+      "uses": 18
+    },
+    {
+      "id": "use_devices",
+      "text": "有哪些裝置",
+      "expect": "device_list",
+      "uses": 10
+    },
+    {
+      "id": "use_pc_yt",
+      "text": "用電腦開 YouTube",
+      "expect": "device_switch:電腦",
+      "uses": 8,
+      "note": "harness 只記第一個出口（切換裝置），之後才開 YouTube"
+    },
+    {
+      "id": "use_yt_rick",
+      "text": "用YouTube播放瑞克搖",
+      "expect": "youtube_play:瑞克搖",
+      "uses": 4
+    },
+    {
+      "id": "use_search_play",
+      "text": "搜尋瑞克搖並播放",
+      "expect": "youtube_play:瑞克搖",
+      "uses": 3,
+      "note": "現行路由給 open_url:google:瑞克搖並播放 — 真實使用找到的錯：「搜尋 X 並播放」是手機頁的功能，router 沒收"
+    },
+    {
+      "id": "use_ac_off",
+      "text": "關冷氣",
+      "expect": "home_control:冷氣=off",
+      "uses": 2
+    },
+    {
+      "id": "use_weather",
+      "text": "今天天氣",
+      "expect": "weather:今天天氣",
+      "uses": 1
+    },
+    {
+      "id": "use_open_yt",
+      "text": "打開youtube",
+      "expect": "open_application:youtube",
+      "uses": 1
+    },
+    {
+      "id": "use_dl_spotify_desk",
+      "text": "下載Spotify於桌面",
+      "expect": "install_app:Spotify",
+      "uses": 1,
+      "note": "現行路由把「於桌面」黏進目標 — 真實使用找到的錯"
+    },
+    {
+      "id": "use_dl_spotify",
+      "text": "下載Spotify",
+      "expect": "install_app:Spotify",
+      "uses": 1
+    },
+    {
+      "id": "use_frame_what",
+      "text": "框選東西看看這是什麼",
+      "expect": "camera_search",
+      "uses": 1
+    },
+    {
+      "id": "use_lock",
+      "text": "鎖定螢幕",
+      "expect": "lock_screen",
+      "uses": 1
+    },
+    {
+      "id": "use_screen_on",
+      "text": "開啟螢幕",
+      "expect": "model",
+      "uses": 1,
+      "note": "現行路由給 open_application:螢幕 — 真實使用找到的錯：沒有叫「螢幕」的程式"
+    },
+    {
+      "id": "use_cam_what",
+      "text": "打開鏡頭幫我看看這是什麼",
+      "expect": "camera_search",
+      "uses": 1
+    },
+    {
+      "id": "use_cam_what2",
+      "text": "打開鏡頭看看是啥",
+      "expect": "camera_search",
+      "uses": 1
+    },
+    {
+      "id": "use_play_perfect",
+      "text": "播放perfect",
+      "expect": "youtube_play:perfect",
+      "uses": 1
+    },
+    {
+      "id": "use_switch_pc",
+      "text": "切換到電腦",
+      "expect": "device_switch:電腦",
+      "uses": 1
+    },
+    {
+      "id": "use_frame_go",
+      "text": "我要到框選東西",
+      "expect": "camera_search",
+      "uses": 1
+    },
+    {
+      "id": "use_enter_again",
+      "text": "再按一下enter",
+      "expect": "model",
+      "uses": 2,
+      "note": "按鍵交給模型（router 沒有按鍵工具）"
+    },
+    {
+      "id": "use_enter_twice",
+      "text": "按兩下enter",
+      "expect": "model",
+      "uses": 1
+    },
+    {
+      "id": "use_close_edge",
+      "text": "關閉edge",
+      "expect": "model",
+      "uses": 1,
+      "note": "沒有關程式的工具，交給模型"
+    },
+    {
+      "id": "use_capture_what",
+      "text": "截取看看這是什麼",
+      "expect": "camera_search",
+      "uses": 1,
+      "note": "現行路由給 info — 「截取」是截圖看畫面的意思，應走視覺"
+    },
+    {
+      "id": "use_happy",
+      "text": "今天很開心",
+      "expect": "model",
+      "uses": 1
+    },
+    {
+      "id": "use_bobao",
+      "text": "播報",
+      "expect": "model",
+      "uses": 1
+    }
+  ]
+}

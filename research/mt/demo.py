@@ -1,7 +1,7 @@
 """一鍵重現：把報告裡的每個數字從 checked-in 的資料重新算一遍（不需要 API 金鑰）。
 
     python -m research.mt.demo            # 快速版：約 1–2 分鐘（突變測試只跑前 200 個突變體）
-    python -m research.mt.demo --full     # 完整版：全部 927 個突變體，約 6–10 分鐘
+    python -m research.mt.demo --full     # 完整版：全部 927 個突變體 + E7 + E10（裝了 hassil 才跑），約 20 分鐘
     python -m research.mt.demo --list     # 只列出會跑哪些步驟
 
 資料：research/mt/data/ 是 2026-09-14 那次實驗的快照（生成的測試句、LLM 的 API 快取、人工標記、
@@ -68,12 +68,33 @@ def steps(full: bool) -> list[tuple[str, list[str]]]:
          [*m, "research.mt.reduce", str(OUT / f"matrix_{'+'.join(tags)}.csv"), "--drop-trivial"]),
         ("E3 存活突變體的人工分類：每個 killer 真的跑一次",
          [*m, "research.mt.survivors"]),
+        ("RQ8 真實使用紀錄當種子（24 條，4 條現行路由就錯）",
+         [*m, "research.mt.run", "--gen", "rules", "--seeds", str(HERE / "seeds_usage.json"), "--tag-suffix", "_usage", "--show-violations"]),
         ("RQ5 五個歷史版本的違反數（需要 git）",
          [*m, "research.mt.versions", "--no-mutation"]),
         ("RQ7 突變體包含關係：dominator、最小突變分數（用第 7 步的矩陣）",
          [*m, "research.mt.subsume", str(OUT / f"matrix_{'+'.join(tags)}.csv")]),
     ] + ([("RQ6 跨版本可轉移性：v4 決定 → v5 評估（需要 git，兩個版本各算一次矩陣，約 4 分鐘）",
-           [*m, "research.mt.transfer", "--from", "v4=7040c54", "--to", "v5=3f5e658"])] if full else [])
+           [*m, "research.mt.transfer", "--from", "v4=7040c54", "--to", "v5=3f5e658"])] if full else []) + (_hass_steps(m) if full else [])
+
+
+def _hass_steps(m: list[str]) -> list[tuple[str, list[str]]]:
+    """RQ9 第二受測對象（Home Assistant zh-TW）：要 `pip install hassil home-assistant-intents`，沒裝就跳過。"""
+    try:
+        import hassil  # noqa: F401
+        import home_assistant_intents  # noqa: F401
+    except ImportError:
+        print("[skip] RQ9 需要 hassil + home-assistant-intents（pip install hassil home-assistant-intents）")
+        return []
+    hm = OUT / "matrix_hass_sampled.csv"
+    return [
+        ("RQ9 第二受測對象：規則式生成器 × Home Assistant zh-TW（985 句）",
+         [*m, "research.mt.run", "--subject", "hass", "--gen", "rules", "--seeds", str(HERE / "seeds_hass.json"), "--tag-suffix", "_hass"]),
+        ("RQ9 模板突變體 × 1 454 條測試（約 8 分鐘）",
+         [*m, "research.mt.hass_mutation", "--seed-files", "seeds_hass.json", "seeds_hass_sampled.json", "--out-tag", "hass_sampled"]),
+        ("RQ9 縮減與排序", [*m, "research.mt.reduce", str(hm), "--drop-trivial"]),
+        ("RQ9 包含關係", [*m, "research.mt.subsume", str(hm), "--mutants", str(OUT / "mutants_hass.json")]),
+    ]
 
 
 def main() -> int:

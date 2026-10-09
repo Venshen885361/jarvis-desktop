@@ -1,0 +1,389 @@
+{
+  "_doc": "第二受測對象 Home Assistant zh-TW 意圖（home-assistant-intents）。種子由每個意圖的前 2 條模板自動展開（分支取第一個、可選丟掉、slot 填固定值），expect 是原版的辨識結果。",
+  "seeds": [
+    {
+      "id": "HassBroadcast_0",
+      "text": "廣播吃飯了",
+      "expect": "HassBroadcast:message=吃飯了",
+      "template": "(廣播|通知)[大家][說]{message}"
+    },
+    {
+      "id": "HassCancelAllTimers_0",
+      "text": "取消客廳所有計時器",
+      "expect": "HassCancelAllTimers:客廳",
+      "template": "<timer_cancel>{area}[的](所有|全部)[的]<timer>"
+    },
+    {
+      "id": "HassCancelAllTimers_1",
+      "text": "取消所有計時器",
+      "expect": "HassCancelAllTimers",
+      "template": "<timer_cancel>(所有|全部)[的]<timer>"
+    },
+    {
+      "id": "HassCancelTimer_0",
+      "text": "取消客廳計時器",
+      "expect": "HassCancelTimer:客廳",
+      "template": "<timer_cancel>{area}[的]<timer>"
+    },
+    {
+      "id": "HassCancelTimer_1",
+      "text": "取消計時器",
+      "expect": "HassCancelTimer",
+      "template": "<timer_cancel>[我的]<timer>"
+    },
+    {
+      "id": "HassClimateGetTemperature_0",
+      "text": "客廳溫度",
+      "expect": "HassClimateGetTemperature:客廳",
+      "template": "{area}[的]<temp>[<how_many_is>]"
+    },
+    {
+      "id": "HassClimateGetTemperature_1",
+      "text": "溫度",
+      "expect": "HassClimateGetTemperature:客廳",
+      "template": "[現在]<temp>[<how_many_is>]"
+    },
+    {
+      "id": "HassClimateSetTemperature_0",
+      "text": "客廳26度",
+      "expect": "HassClimateSetTemperature:客廳|temperature=26.0",
+      "template": "[把|將]{area}[的][<temp>][<set_to>]{temperature}度"
+    },
+    {
+      "id": "HassClimateSetTemperature_1",
+      "text": "一樓26度",
+      "expect": "HassClimateSetTemperature:一樓|temperature=26.0",
+      "template": "[把|將]{floor}[的][<temp>][<set_to>]{temperature}度"
+    },
+    {
+      "id": "HassDecreaseTimer_0",
+      "text": "客廳計時器減1小時",
+      "expect": "HassDecreaseTimer:客廳|hours=1.0",
+      "template": "[幫|給|把|將][我的]{area}[的]<timer>(減|減少|縮短){timer_hours:hours}[個]小時"
+    },
+    {
+      "id": "HassDecreaseTimer_1",
+      "text": "客廳計時器減1小時5分鐘",
+      "expect": "HassDecreaseTimer:客廳|hours=1.0,minutes=5.0",
+      "template": "[幫|給|把|將][我的]{area}[的]<timer>(減|減少|縮短){timer_hours:hours}[個]小時[又]{timer_minutes:minutes}分鐘"
+    },
+    {
+      "id": "HassFanSetSpeed_0",
+      "text": "客廳風扇設為60",
+      "expect": "HassFanSetSpeed:客廳|percentage=60.0",
+      "template": "[把|將]{area}[的](風扇|電扇|吊扇)[的][轉速|速度]<set_to>[百分之]{fan_speed:percentage}[ ][%|趴]"
+    },
+    {
+      "id": "HassFanSetSpeed_1",
+      "text": "風扇設為60",
+      "expect": "HassFanSetSpeed:客廳|percentage=60.0",
+      "template": "[把|將][這裡|這邊][的](風扇|電扇|吊扇)[的][轉速|速度]<set_to>[百分之]{fan_speed:percentage}[ ][%|趴]"
+    },
+    {
+      "id": "HassGetCurrentDate_0",
+      "text": "今天幾月幾號",
+      "expect": "HassGetCurrentDate",
+      "template": "今天[是](幾月幾號|幾號)"
+    },
+    {
+      "id": "HassGetCurrentTime_0",
+      "text": "現在幾點",
+      "expect": "HassGetCurrentTime",
+      "template": "現在幾點[鐘][了]"
+    },
+    {
+      "id": "HassGetState_0",
+      "text": "遮陽棚是開啟",
+      "expect": "HassGetState:awning|state=open",
+      "template": "[(有|有沒有|有任何)]{cover_classes:device_class}是{cover_states:state}[的][嗎]"
+    },
+    {
+      "id": "HassGetState_1",
+      "text": "全部遮陽棚開啟",
+      "expect": "HassGetState:awning|state=open",
+      "template": "<all>{cover_classes:device_class}[(都是|是|是不是)]{cover_states:state}[的][嗎]"
+    },
+    {
+      "id": "HassGetWeather_0",
+      "text": "天氣如何",
+      "expect": "HassGetWeather",
+      "template": "[現在|今天][外面]天氣(如何|怎麼樣|怎樣|好嗎)"
+    },
+    {
+      "id": "HassIncreaseTimer_0",
+      "text": "客廳計時器加1小時",
+      "expect": "HassIncreaseTimer:客廳|hours=1.0",
+      "template": "[幫|給|把|將][我的]{area}[的]<timer>(加|增加|延長){timer_hours:hours}[個]小時"
+    },
+    {
+      "id": "HassIncreaseTimer_1",
+      "text": "客廳計時器加5分鐘",
+      "expect": "HassIncreaseTimer:客廳|minutes=5.0",
+      "template": "[幫|給|把|將][我的]{area}[的]<timer>(加|增加|延長){timer_minutes:minutes}分鐘"
+    },
+    {
+      "id": "HassLawnMowerDock_0",
+      "text": "停止除草",
+      "expect": "HassLawnMowerDock",
+      "template": "停止(除草|割草)"
+    },
+    {
+      "id": "HassLawnMowerStartMowing_0",
+      "text": "開始除草",
+      "expect": "HassLawnMowerStartMowing",
+      "template": "開始(除草|割草)"
+    },
+    {
+      "id": "HassLightSet_0",
+      "text": "客廳設為50",
+      "expect": "HassLightSet:客廳/light|brightness=50.0",
+      "template": "[把|將]{area}[(照明|燈光)][亮度]<set_to>[百分之]{brightness}[ ][%|趴]"
+    },
+    {
+      "id": "HassLightSet_1",
+      "text": "客廳白色",
+      "expect": "HassLightSet:客廳/light|color=white",
+      "template": "[把|將]{area}[(照明|燈光)][(顏色|色溫)][<set_to>]{color}"
+    },
+    {
+      "id": "HassMediaNext_0",
+      "text": "客廳下一首",
+      "expect": "HassMediaNext:客廳",
+      "template": "{area}[播放|切到|跳到]下一(首|集|台|個)[歌|歌曲]"
+    },
+    {
+      "id": "HassMediaNext_1",
+      "text": "下一首",
+      "expect": "HassMediaNext:客廳",
+      "template": "[播放|切到|跳到]下一(首|集|台|個)[歌|歌曲]"
+    },
+    {
+      "id": "HassMediaPause_0",
+      "text": "暫停客廳音樂",
+      "expect": "HassMediaPause:客廳",
+      "template": "暫停{area}[的](音樂|節目|媒體播放器)"
+    },
+    {
+      "id": "HassMediaPause_1",
+      "text": "暫停",
+      "expect": "HassMediaPause:客廳",
+      "template": "暫停[播放]"
+    },
+    {
+      "id": "HassMediaPlayerMute_0",
+      "text": "靜音",
+      "expect": "HassMediaPlayerMute:客廳",
+      "template": "靜音"
+    },
+    {
+      "id": "HassMediaPlayerUnmute_0",
+      "text": "取消靜音",
+      "expect": "HassMediaPlayerUnmute:客廳",
+      "template": "(取消|解除)靜音"
+    },
+    {
+      "id": "HassMediaPrevious_0",
+      "text": "客廳上一首",
+      "expect": "HassMediaPrevious:客廳",
+      "template": "{area}[播放|切到|跳到]上一(首|集|台|個)[歌|歌曲]"
+    },
+    {
+      "id": "HassMediaPrevious_1",
+      "text": "上一首",
+      "expect": "HassMediaPrevious:客廳",
+      "template": "[播放|切到|跳到]上一(首|集|台|個)[歌|歌曲]"
+    },
+    {
+      "id": "HassMediaSearchAndPlay_0",
+      "text": "客廳播周杰倫的歌手",
+      "expect": "HassMediaSearchAndPlay:客廳|media_class=artist,search_query=周杰倫",
+      "template": "[在|到]{area}播[放]{search_query}的{media_class}"
+    },
+    {
+      "id": "HassMediaSearchAndPlay_1",
+      "text": "客廳播周杰倫",
+      "expect": "HassMediaSearchAndPlay:客廳|search_query=周杰倫",
+      "template": "[在|到]{area}播[放]{search_query}"
+    },
+    {
+      "id": "HassMediaUnpause_0",
+      "text": "繼續播放客廳音樂",
+      "expect": "HassMediaUnpause:客廳",
+      "template": "(繼續|恢復)播放{area}[的](音樂|節目|媒體播放器)"
+    },
+    {
+      "id": "HassMediaUnpause_1",
+      "text": "繼續播放",
+      "expect": "HassMediaUnpause:客廳",
+      "template": "(繼續|恢復)播放"
+    },
+    {
+      "id": "HassNevermind_0",
+      "text": "沒事",
+      "expect": "HassNevermind",
+      "template": "沒事[了]"
+    },
+    {
+      "id": "HassPauseTimer_0",
+      "text": "暫停客廳計時器",
+      "expect": "HassPauseTimer:客廳",
+      "template": "暫停{area}[的]<timer>"
+    },
+    {
+      "id": "HassPauseTimer_1",
+      "text": "暫停計時器",
+      "expect": "HassPauseTimer",
+      "template": "暫停[我的]<timer>"
+    },
+    {
+      "id": "HassRespond_0",
+      "text": "你好",
+      "expect": "HassRespond",
+      "template": "(你好|哈囉|嗨)"
+    },
+    {
+      "id": "HassRespond_1",
+      "text": "你會一直聽嗎",
+      "expect": "HassRespond",
+      "template": "你(會|是)[不會|不是]一直[在](聽|錄音)嗎"
+    },
+    {
+      "id": "HassSetPosition_0",
+      "text": "客廳遮陽棚設為50",
+      "expect": "HassSetPosition:客廳/awning|position=50.0",
+      "template": "[把|將]{area}[的]{cover_classes:device_class}[的][位置]<set_to>[百分之]{position}[ ][%|趴]"
+    },
+    {
+      "id": "HassSetPosition_1",
+      "text": "遮陽棚設為50",
+      "expect": "HassSetPosition:客廳/awning|position=50.0",
+      "template": "[把|將][這裡|這邊][的]{cover_classes:device_class}[的][位置]<set_to>[百分之]{position}[ ][%|趴]"
+    },
+    {
+      "id": "HassSetVolume_0",
+      "text": "客廳音量設為30",
+      "expect": "HassSetVolume:客廳|volume_level=30.0",
+      "template": "[把|將]{area}[的]音量<set_to>[百分之]{volume:volume_level}[ ][%|趴]"
+    },
+    {
+      "id": "HassSetVolume_1",
+      "text": "音量設為30",
+      "expect": "HassSetVolume:客廳|volume_level=30.0",
+      "template": "[把|將]音量<set_to>[百分之]{volume:volume_level}[ ][%|趴]"
+    },
+    {
+      "id": "HassSetVolumeRelative_0",
+      "text": "客廳音量調大",
+      "expect": "HassSetVolumeRelative:客廳|volume_step=up",
+      "template": "[把|將]{area}[的]音量{volume_step}"
+    },
+    {
+      "id": "HassSetVolumeRelative_1",
+      "text": "音量調大",
+      "expect": "HassSetVolumeRelative:客廳|volume_step=up",
+      "template": "[把|將]音量{volume_step}"
+    },
+    {
+      "id": "HassShoppingListAddItem_0",
+      "text": "牛奶加到購物清單",
+      "expect": "HassShoppingListAddItem:item=牛奶",
+      "template": "[把|將]{shopping_list_item:item}(加到|加入|放到|放進)[我的]購物清單"
+    },
+    {
+      "id": "HassShoppingListCompleteItem_0",
+      "text": "購物清單上牛奶勾選",
+      "expect": "HassShoppingListCompleteItem:item=牛奶",
+      "template": "[把|將]購物清單(上|中|裡)[的]{shopping_list_item:item}(勾選|劃掉|標記為完成)"
+    },
+    {
+      "id": "HassStartTimer_0",
+      "text": "1小時關燈",
+      "expect": "HassStartTimer:conversation_command=關燈,hours=1.0",
+      "template": "[在|等|過|倒數|計時]{timer_hours:hours}[個]小時[後|之後]{timer_command:conversation_command}"
+    },
+    {
+      "id": "HassStartTimer_1",
+      "text": "1小時5分鐘關燈",
+      "expect": "HassStartTimer:conversation_command=5分鐘關燈,hours=1.0",
+      "template": "[在|等|過|倒數|計時]{timer_hours:hours}[個]小時[又]{timer_minutes:minutes}分鐘[後|之後]{timer_command:conversation_command}"
+    },
+    {
+      "id": "HassTimerStatus_0",
+      "text": "客廳計時器狀態",
+      "expect": "HassTimerStatus:客廳",
+      "template": "{area}[的]<timer>[的]狀態"
+    },
+    {
+      "id": "HassTimerStatus_1",
+      "text": "計時器狀態",
+      "expect": "HassTimerStatus",
+      "template": "<timer>[的]狀態"
+    },
+    {
+      "id": "HassTurnOff_0",
+      "text": "關客廳遮陽棚",
+      "expect": "HassTurnOff:客廳/awning",
+      "template": "<close>{area}[的]{cover_classes:device_class}"
+    },
+    {
+      "id": "HassTurnOff_1",
+      "text": "關客廳燈",
+      "expect": "HassTurnOff:客廳/light",
+      "template": "<turn_off>{area}[的][<all>]<light>"
+    },
+    {
+      "id": "HassTurnOn_0",
+      "text": "打開客廳遮陽棚",
+      "expect": "HassTurnOn:客廳/awning",
+      "template": "<open>{area}[的]{cover_classes:device_class}"
+    },
+    {
+      "id": "HassTurnOn_1",
+      "text": "打開客廳燈",
+      "expect": "HassTurnOn:客廳/light",
+      "template": "<turn_on>{area}[的][<all>]<light>"
+    },
+    {
+      "id": "HassUnpauseTimer_0",
+      "text": "繼續客廳計時器",
+      "expect": "HassUnpauseTimer:客廳",
+      "template": "(繼續|恢復){area}[的]<timer>"
+    },
+    {
+      "id": "HassUnpauseTimer_1",
+      "text": "繼續計時器",
+      "expect": "HassUnpauseTimer",
+      "template": "(繼續|恢復)[我的]<timer>"
+    },
+    {
+      "id": "HassVacuumCleanArea_0",
+      "text": "打掃客廳",
+      "expect": "HassVacuumCleanArea:客廳",
+      "template": "(打掃|清掃)[一下]{area}"
+    },
+    {
+      "id": "HassVacuumCleanArea_1",
+      "text": "打掃這裡",
+      "expect": "HassVacuumCleanArea:客廳",
+      "template": "(打掃|清掃)[一下](這裡|這邊)"
+    },
+    {
+      "id": "HassVacuumReturnToBase_0",
+      "text": "客廳的掃地機器人回充電座",
+      "expect": "HassVacuumReturnToBase:客廳",
+      "template": "[讓|叫]{area}的(掃地機器人|掃地機|吸塵器)(回充電座|回去充電|返回充電座)"
+    },
+    {
+      "id": "HassVacuumStart_0",
+      "text": "啟動客廳的掃地機器人",
+      "expect": "HassVacuumStart:客廳",
+      "template": "(啟動|開始){area}的(掃地機器人|掃地機|吸塵器)"
+    },
+    {
+      "id": "HassVacuumStart_1",
+      "text": "打掃一樓",
+      "expect": "HassVacuumStart:一樓",
+      "template": "(打掃|清掃)[一下]{floor}"
+    }
+  ]
+}

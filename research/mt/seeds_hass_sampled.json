@@ -1,0 +1,5055 @@
+{
+ "_doc": "用 hassil.sample 從 zh-TW 模板隨機展開（每個意圖最多 40 句，range slot 固定 26，不含 wildcard 模板），expect 為原版辨識結果且意圖正確者。",
+ "seeds": [
+  {
+   "id": "HassCancelAllTimers_s0",
+   "text": "刪除廚房的全部的倒數計時器",
+   "expect": "HassCancelAllTimers:廚房"
+  },
+  {
+   "id": "HassCancelAllTimers_s1",
+   "text": "刪除浴室的全部倒數計時器",
+   "expect": "HassCancelAllTimers:浴室"
+  },
+  {
+   "id": "HassCancelAllTimers_s2",
+   "text": "取消房間的全部的計時器",
+   "expect": "HassCancelAllTimers:房間"
+  },
+  {
+   "id": "HassCancelAllTimers_s3",
+   "text": "停止浴室的全部的計時器",
+   "expect": "HassCancelAllTimers:浴室"
+  },
+  {
+   "id": "HassCancelAllTimers_s4",
+   "text": "停止所有客廳的倒數計時器",
+   "expect": "HassCancelAllTimers:客廳"
+  },
+  {
+   "id": "HassCancelAllTimers_s5",
+   "text": "取消所有書房的計時器",
+   "expect": "HassCancelAllTimers:書房"
+  },
+  {
+   "id": "HassCancelAllTimers_s6",
+   "text": "刪除廚房全部倒數計時器",
+   "expect": "HassCancelAllTimers:廚房"
+  },
+  {
+   "id": "HassCancelAllTimers_s7",
+   "text": "停止書房所有倒數計時器",
+   "expect": "HassCancelAllTimers:書房"
+  },
+  {
+   "id": "HassCancelAllTimers_s8",
+   "text": "取消所有廚房的計時器",
+   "expect": "HassCancelAllTimers:廚房"
+  },
+  {
+   "id": "HassCancelAllTimers_s9",
+   "text": "刪除房間的全部倒數計時器",
+   "expect": "HassCancelAllTimers:房間"
+  },
+  {
+   "id": "HassCancelAllTimers_s10",
+   "text": "刪除全部書房的計時器",
+   "expect": "HassCancelAllTimers:書房"
+  },
+  {
+   "id": "HassCancelAllTimers_s11",
+   "text": "停止房間全部倒數計時器",
+   "expect": "HassCancelAllTimers:房間"
+  },
+  {
+   "id": "HassCancelAllTimers_s12",
+   "text": "取消全部書房的計時器",
+   "expect": "HassCancelAllTimers:書房"
+  },
+  {
+   "id": "HassCancelAllTimers_s13",
+   "text": "取消書房的全部倒數計時器",
+   "expect": "HassCancelAllTimers:書房"
+  },
+  {
+   "id": "HassCancelAllTimers_s14",
+   "text": "停止書房的所有的計時器",
+   "expect": "HassCancelAllTimers:書房"
+  },
+  {
+   "id": "HassCancelAllTimers_s15",
+   "text": "取消浴室的所有的計時器",
+   "expect": "HassCancelAllTimers:浴室"
+  },
+  {
+   "id": "HassCancelAllTimers_s16",
+   "text": "刪除所有的計時器",
+   "expect": "HassCancelAllTimers"
+  },
+  {
+   "id": "HassCancelAllTimers_s17",
+   "text": "停止浴室的所有的計時器",
+   "expect": "HassCancelAllTimers:浴室"
+  },
+  {
+   "id": "HassCancelAllTimers_s18",
+   "text": "停止全部房間的計時器",
+   "expect": "HassCancelAllTimers:房間"
+  },
+  {
+   "id": "HassCancelAllTimers_s19",
+   "text": "停止所有的計時器",
+   "expect": "HassCancelAllTimers"
+  },
+  {
+   "id": "HassCancelAllTimers_s20",
+   "text": "取消書房所有倒數計時器",
+   "expect": "HassCancelAllTimers:書房"
+  },
+  {
+   "id": "HassCancelAllTimers_s21",
+   "text": "停止書房全部計時器",
+   "expect": "HassCancelAllTimers:書房"
+  },
+  {
+   "id": "HassCancelAllTimers_s22",
+   "text": "取消浴室的所有計時器",
+   "expect": "HassCancelAllTimers:浴室"
+  },
+  {
+   "id": "HassCancelAllTimers_s23",
+   "text": "取消廚房的全部的倒數計時器",
+   "expect": "HassCancelAllTimers:廚房"
+  },
+  {
+   "id": "HassCancelAllTimers_s24",
+   "text": "刪除客廳所有的倒數計時器",
+   "expect": "HassCancelAllTimers:客廳"
+  },
+  {
+   "id": "HassCancelAllTimers_s25",
+   "text": "取消所有客廳的倒數計時器",
+   "expect": "HassCancelAllTimers:客廳"
+  },
+  {
+   "id": "HassCancelAllTimers_s26",
+   "text": "刪除所有浴室的計時器",
+   "expect": "HassCancelAllTimers:浴室"
+  },
+  {
+   "id": "HassCancelAllTimers_s27",
+   "text": "取消浴室的所有倒數計時器",
+   "expect": "HassCancelAllTimers:浴室"
+  },
+  {
+   "id": "HassCancelAllTimers_s28",
+   "text": "刪除房間的全部的倒數計時器",
+   "expect": "HassCancelAllTimers:房間"
+  },
+  {
+   "id": "HassCancelAllTimers_s29",
+   "text": "刪除浴室全部計時器",
+   "expect": "HassCancelAllTimers:浴室"
+  },
+  {
+   "id": "HassCancelAllTimers_s30",
+   "text": "刪除客廳的所有的倒數計時器",
+   "expect": "HassCancelAllTimers:客廳"
+  },
+  {
+   "id": "HassCancelAllTimers_s31",
+   "text": "停止全部的計時器",
+   "expect": "HassCancelAllTimers"
+  },
+  {
+   "id": "HassCancelAllTimers_s32",
+   "text": "停止房間所有的計時器",
+   "expect": "HassCancelAllTimers:房間"
+  },
+  {
+   "id": "HassCancelAllTimers_s33",
+   "text": "刪除所有房間的計時器",
+   "expect": "HassCancelAllTimers:房間"
+  },
+  {
+   "id": "HassCancelAllTimers_s34",
+   "text": "刪除書房的所有計時器",
+   "expect": "HassCancelAllTimers:書房"
+  },
+  {
+   "id": "HassCancelAllTimers_s35",
+   "text": "停止所有浴室的計時器",
+   "expect": "HassCancelAllTimers:浴室"
+  },
+  {
+   "id": "HassCancelAllTimers_s36",
+   "text": "停止浴室的全部的倒數計時器",
+   "expect": "HassCancelAllTimers:浴室"
+  },
+  {
+   "id": "HassCancelAllTimers_s37",
+   "text": "取消房間全部倒數計時器",
+   "expect": "HassCancelAllTimers:房間"
+  },
+  {
+   "id": "HassCancelAllTimers_s38",
+   "text": "刪除所有客廳的計時器",
+   "expect": "HassCancelAllTimers:客廳"
+  },
+  {
+   "id": "HassCancelAllTimers_s39",
+   "text": "取消客廳的全部倒數計時器",
+   "expect": "HassCancelAllTimers:客廳"
+  },
+  {
+   "id": "HassCancelTimer_s0",
+   "text": "停止客廳倒數計時器",
+   "expect": "HassCancelTimer:客廳"
+  },
+  {
+   "id": "HassCancelTimer_s1",
+   "text": "取消那個26秒的計時器",
+   "expect": "HassCancelTimer:那個26秒"
+  },
+  {
+   "id": "HassCancelTimer_s2",
+   "text": "停止我的26秒鐘倒數計時器",
+   "expect": "HassCancelTimer:26秒鐘倒數"
+  },
+  {
+   "id": "HassCancelTimer_s3",
+   "text": "停止那個26小時計時器",
+   "expect": "HassCancelTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassCancelTimer_s4",
+   "text": "取消那個26秒鐘的倒數計時器",
+   "expect": "HassCancelTimer:那個26秒鐘"
+  },
+  {
+   "id": "HassCancelTimer_s5",
+   "text": "停止那個26秒倒數計時器",
+   "expect": "HassCancelTimer:那個26秒倒數"
+  },
+  {
+   "id": "HassCancelTimer_s6",
+   "text": "取消26秒的計時器",
+   "expect": "HassCancelTimer:26秒"
+  },
+  {
+   "id": "HassCancelTimer_s7",
+   "text": "刪除那個26分鐘倒數計時器",
+   "expect": "HassCancelTimer:start_minutes=26.0"
+  },
+  {
+   "id": "HassCancelTimer_s8",
+   "text": "停止我的26分鐘的計時器",
+   "expect": "HassCancelTimer:start_minutes=26.0"
+  },
+  {
+   "id": "HassCancelTimer_s9",
+   "text": "取消客廳的計時器",
+   "expect": "HassCancelTimer:客廳"
+  },
+  {
+   "id": "HassCancelTimer_s10",
+   "text": "停止那個26分鐘的計時器",
+   "expect": "HassCancelTimer:start_minutes=26.0"
+  },
+  {
+   "id": "HassCancelTimer_s11",
+   "text": "刪除那個26小時計時器",
+   "expect": "HassCancelTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassCancelTimer_s12",
+   "text": "刪除26秒鐘計時器",
+   "expect": "HassCancelTimer:26秒鐘"
+  },
+  {
+   "id": "HassCancelTimer_s13",
+   "text": "停止26秒鐘計時器",
+   "expect": "HassCancelTimer:26秒鐘"
+  },
+  {
+   "id": "HassCancelTimer_s14",
+   "text": "取消我的26小時的倒數計時器",
+   "expect": "HassCancelTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassCancelTimer_s15",
+   "text": "取消計時器",
+   "expect": "HassCancelTimer"
+  },
+  {
+   "id": "HassCancelTimer_s16",
+   "text": "取消那個26秒計時器",
+   "expect": "HassCancelTimer:那個26秒"
+  },
+  {
+   "id": "HassCancelTimer_s17",
+   "text": "取消我的26個小時倒數計時器",
+   "expect": "HassCancelTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassCancelTimer_s18",
+   "text": "取消那個26秒鐘的計時器",
+   "expect": "HassCancelTimer:那個26秒鐘"
+  },
+  {
+   "id": "HassCancelTimer_s19",
+   "text": "刪除我的26秒鐘計時器",
+   "expect": "HassCancelTimer:26秒鐘"
+  },
+  {
+   "id": "HassCancelTimer_s20",
+   "text": "取消書房的計時器",
+   "expect": "HassCancelTimer:書房"
+  },
+  {
+   "id": "HassCancelTimer_s21",
+   "text": "刪除廚房的計時器",
+   "expect": "HassCancelTimer:廚房"
+  },
+  {
+   "id": "HassCancelTimer_s22",
+   "text": "取消那個26分鐘的倒數計時器",
+   "expect": "HassCancelTimer:start_minutes=26.0"
+  },
+  {
+   "id": "HassCancelTimer_s23",
+   "text": "刪除書房的計時器",
+   "expect": "HassCancelTimer:書房"
+  },
+  {
+   "id": "HassCancelTimer_s24",
+   "text": "取消我的倒數計時器",
+   "expect": "HassCancelTimer"
+  },
+  {
+   "id": "HassCancelTimer_s25",
+   "text": "停止那個26秒鐘的倒數計時器",
+   "expect": "HassCancelTimer:那個26秒鐘"
+  },
+  {
+   "id": "HassCancelTimer_s26",
+   "text": "停止書房的計時器",
+   "expect": "HassCancelTimer:書房"
+  },
+  {
+   "id": "HassCancelTimer_s27",
+   "text": "停止26秒計時器",
+   "expect": "HassCancelTimer:26秒"
+  },
+  {
+   "id": "HassCancelTimer_s28",
+   "text": "刪除26個小時倒數計時器",
+   "expect": "HassCancelTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassCancelTimer_s29",
+   "text": "停止26個小時計時器",
+   "expect": "HassCancelTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassCancelTimer_s30",
+   "text": "刪除26秒倒數計時器",
+   "expect": "HassCancelTimer:26秒倒數"
+  },
+  {
+   "id": "HassCancelTimer_s31",
+   "text": "停止客廳的計時器",
+   "expect": "HassCancelTimer:客廳"
+  },
+  {
+   "id": "HassCancelTimer_s32",
+   "text": "取消我的26個小時的倒數計時器",
+   "expect": "HassCancelTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassCancelTimer_s33",
+   "text": "刪除我的26個小時計時器",
+   "expect": "HassCancelTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassCancelTimer_s34",
+   "text": "刪除那個26小時的倒數計時器",
+   "expect": "HassCancelTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassCancelTimer_s35",
+   "text": "停止房間倒數計時器",
+   "expect": "HassCancelTimer:房間"
+  },
+  {
+   "id": "HassCancelTimer_s36",
+   "text": "取消那個26小時的倒數計時器",
+   "expect": "HassCancelTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassCancelTimer_s37",
+   "text": "刪除26小時的倒數計時器",
+   "expect": "HassCancelTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassCancelTimer_s38",
+   "text": "取消那個26個小時計時器",
+   "expect": "HassCancelTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassCancelTimer_s39",
+   "text": "刪除那個26秒的倒數計時器",
+   "expect": "HassCancelTimer:那個26秒"
+  },
+  {
+   "id": "HassClimateGetTemperature_s0",
+   "text": "現在房間這裡多少度",
+   "expect": "HassClimateGetTemperature:房間"
+  },
+  {
+   "id": "HassClimateGetTemperature_s1",
+   "text": "現在客廳這裡有多熱",
+   "expect": "HassClimateGetTemperature:客廳"
+  },
+  {
+   "id": "HassClimateGetTemperature_s2",
+   "text": "房間這邊幾度",
+   "expect": "HassClimateGetTemperature:房間"
+  },
+  {
+   "id": "HassClimateGetTemperature_s3",
+   "text": "書房目前有幾度",
+   "expect": "HassClimateGetTemperature:書房"
+  },
+  {
+   "id": "HassClimateGetTemperature_s4",
+   "text": "現在浴室那裡有幾度",
+   "expect": "HassClimateGetTemperature:浴室"
+  },
+  {
+   "id": "HassClimateGetTemperature_s5",
+   "text": "現在房間這邊有多熱",
+   "expect": "HassClimateGetTemperature:房間"
+  },
+  {
+   "id": "HassClimateGetTemperature_s6",
+   "text": "現在房間這裡有多熱",
+   "expect": "HassClimateGetTemperature:房間"
+  },
+  {
+   "id": "HassClimateGetTemperature_s7",
+   "text": "客廳那裡多少度",
+   "expect": "HassClimateGetTemperature:客廳"
+  },
+  {
+   "id": "HassClimateGetTemperature_s8",
+   "text": "書房那裡多少度",
+   "expect": "HassClimateGetTemperature:書房"
+  },
+  {
+   "id": "HassClimateGetTemperature_s9",
+   "text": "現在客廳那裡幾度",
+   "expect": "HassClimateGetTemperature:客廳"
+  },
+  {
+   "id": "HassClimateGetTemperature_s10",
+   "text": "現在房間那裡有多冷",
+   "expect": "HassClimateGetTemperature:房間"
+  },
+  {
+   "id": "HassClimateGetTemperature_s11",
+   "text": "廚房有多少度",
+   "expect": "HassClimateGetTemperature:廚房"
+  },
+  {
+   "id": "HassClimateGetTemperature_s12",
+   "text": "房間這裡幾度",
+   "expect": "HassClimateGetTemperature:房間"
+  },
+  {
+   "id": "HassClimateGetTemperature_s13",
+   "text": "現在客廳那邊多熱",
+   "expect": "HassClimateGetTemperature:客廳"
+  },
+  {
+   "id": "HassClimateGetTemperature_s14",
+   "text": "現在書房這裡多少度",
+   "expect": "HassClimateGetTemperature:書房"
+  },
+  {
+   "id": "HassClimateGetTemperature_s15",
+   "text": "客廳這邊有幾度",
+   "expect": "HassClimateGetTemperature:客廳"
+  },
+  {
+   "id": "HassClimateGetTemperature_s16",
+   "text": "現在廚房那邊幾度",
+   "expect": "HassClimateGetTemperature:廚房"
+  },
+  {
+   "id": "HassClimateGetTemperature_s17",
+   "text": "現在廚房有幾度",
+   "expect": "HassClimateGetTemperature:廚房"
+  },
+  {
+   "id": "HassClimateGetTemperature_s18",
+   "text": "現在廚房那邊多少度",
+   "expect": "HassClimateGetTemperature:廚房"
+  },
+  {
+   "id": "HassClimateGetTemperature_s19",
+   "text": "廚房的溫度是多少",
+   "expect": "HassClimateGetTemperature:廚房"
+  },
+  {
+   "id": "HassClimateGetTemperature_s20",
+   "text": "現在房間那邊有多冷",
+   "expect": "HassClimateGetTemperature:房間"
+  },
+  {
+   "id": "HassClimateGetTemperature_s21",
+   "text": "現在廚房有多熱",
+   "expect": "HassClimateGetTemperature:廚房"
+  },
+  {
+   "id": "HassClimateGetTemperature_s22",
+   "text": "現在書房那邊有多少度",
+   "expect": "HassClimateGetTemperature:書房"
+  },
+  {
+   "id": "HassClimateGetTemperature_s23",
+   "text": "客廳現在多少度",
+   "expect": "HassClimateGetTemperature:客廳"
+  },
+  {
+   "id": "HassClimateGetTemperature_s24",
+   "text": "書房的溫度",
+   "expect": "HassClimateGetTemperature:書房"
+  },
+  {
+   "id": "HassClimateGetTemperature_s25",
+   "text": "現在客廳那裡有多少度",
+   "expect": "HassClimateGetTemperature:客廳"
+  },
+  {
+   "id": "HassClimateGetTemperature_s26",
+   "text": "現在浴室那裡多冷",
+   "expect": "HassClimateGetTemperature:浴室"
+  },
+  {
+   "id": "HassClimateGetTemperature_s27",
+   "text": "客廳那裡多冷",
+   "expect": "HassClimateGetTemperature:客廳"
+  },
+  {
+   "id": "HassClimateGetTemperature_s28",
+   "text": "現在房間那裡幾度",
+   "expect": "HassClimateGetTemperature:房間"
+  },
+  {
+   "id": "HassClimateGetTemperature_s29",
+   "text": "現在房間有幾度",
+   "expect": "HassClimateGetTemperature:房間"
+  },
+  {
+   "id": "HassClimateGetTemperature_s30",
+   "text": "廚房的溫度",
+   "expect": "HassClimateGetTemperature:廚房"
+  },
+  {
+   "id": "HassClimateGetTemperature_s31",
+   "text": "現在客廳這裡有多少度",
+   "expect": "HassClimateGetTemperature:客廳"
+  },
+  {
+   "id": "HassClimateGetTemperature_s32",
+   "text": "現在浴室多熱",
+   "expect": "HassClimateGetTemperature:浴室"
+  },
+  {
+   "id": "HassClimateGetTemperature_s33",
+   "text": "現在浴室這邊有多冷",
+   "expect": "HassClimateGetTemperature:浴室"
+  },
+  {
+   "id": "HassClimateGetTemperature_s34",
+   "text": "浴室這裡有幾度",
+   "expect": "HassClimateGetTemperature:浴室"
+  },
+  {
+   "id": "HassClimateGetTemperature_s35",
+   "text": "現在書房這裡有多冷",
+   "expect": "HassClimateGetTemperature:書房"
+  },
+  {
+   "id": "HassClimateGetTemperature_s36",
+   "text": "浴室目前有幾度",
+   "expect": "HassClimateGetTemperature:浴室"
+  },
+  {
+   "id": "HassClimateGetTemperature_s37",
+   "text": "客廳這裡有多少度",
+   "expect": "HassClimateGetTemperature:客廳"
+  },
+  {
+   "id": "HassClimateGetTemperature_s38",
+   "text": "浴室現在多少度",
+   "expect": "HassClimateGetTemperature:浴室"
+  },
+  {
+   "id": "HassClimateGetTemperature_s39",
+   "text": "現在書房這裡有幾度",
+   "expect": "HassClimateGetTemperature:書房"
+  },
+  {
+   "id": "HassClimateSetTemperature_s0",
+   "text": "把房間的溫度設置成26度",
+   "expect": "HassClimateSetTemperature:房間|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s1",
+   "text": "把浴室的變更成26度",
+   "expect": "HassClimateSetTemperature:浴室|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s2",
+   "text": "把浴室的溫度設到26度",
+   "expect": "HassClimateSetTemperature:浴室|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s3",
+   "text": "把廚房的溫度調成26度",
+   "expect": "HassClimateSetTemperature:廚房|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s4",
+   "text": "把廚房變更到26度",
+   "expect": "HassClimateSetTemperature:廚房|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s5",
+   "text": "把房間的調至26度",
+   "expect": "HassClimateSetTemperature:房間|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s6",
+   "text": "把廚房的設定到26度",
+   "expect": "HassClimateSetTemperature:廚房|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s7",
+   "text": "把廚房溫度設成26度",
+   "expect": "HassClimateSetTemperature:廚房|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s8",
+   "text": "把浴室的調到26度",
+   "expect": "HassClimateSetTemperature:浴室|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s9",
+   "text": "把浴室的設至26度",
+   "expect": "HassClimateSetTemperature:浴室|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s10",
+   "text": "把浴室溫度設置為26度",
+   "expect": "HassClimateSetTemperature:浴室|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s11",
+   "text": "把房間設定至26度",
+   "expect": "HassClimateSetTemperature:房間|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s12",
+   "text": "把客廳的調整到26度",
+   "expect": "HassClimateSetTemperature:客廳|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s13",
+   "text": "把房間溫度調整為26度",
+   "expect": "HassClimateSetTemperature:房間|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s14",
+   "text": "把浴室的溫度調到26度",
+   "expect": "HassClimateSetTemperature:浴室|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s15",
+   "text": "把客廳溫度設置到26度",
+   "expect": "HassClimateSetTemperature:客廳|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s16",
+   "text": "把廚房的26度",
+   "expect": "HassClimateSetTemperature:廚房|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s17",
+   "text": "把浴室的溫度設為26度",
+   "expect": "HassClimateSetTemperature:浴室|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s18",
+   "text": "把浴室的溫度變更成26度",
+   "expect": "HassClimateSetTemperature:浴室|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s19",
+   "text": "把房間溫度變更到26度",
+   "expect": "HassClimateSetTemperature:房間|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s20",
+   "text": "把客廳變更成26度",
+   "expect": "HassClimateSetTemperature:客廳|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s21",
+   "text": "把房間的溫度26度",
+   "expect": "HassClimateSetTemperature:房間|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s22",
+   "text": "把客廳的溫度設置為26度",
+   "expect": "HassClimateSetTemperature:客廳|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s23",
+   "text": "把浴室溫度26度",
+   "expect": "HassClimateSetTemperature:浴室|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s24",
+   "text": "把房間的調到26度",
+   "expect": "HassClimateSetTemperature:房間|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s25",
+   "text": "把浴室溫度設置至26度",
+   "expect": "HassClimateSetTemperature:浴室|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s26",
+   "text": "把房間的溫度調為26度",
+   "expect": "HassClimateSetTemperature:房間|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s27",
+   "text": "把房間調至26度",
+   "expect": "HassClimateSetTemperature:房間|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s28",
+   "text": "把客廳調為26度",
+   "expect": "HassClimateSetTemperature:客廳|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s29",
+   "text": "把房間溫度變更為26度",
+   "expect": "HassClimateSetTemperature:房間|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s30",
+   "text": "把廚房的溫度調整成26度",
+   "expect": "HassClimateSetTemperature:廚房|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s31",
+   "text": "把客廳的設定成26度",
+   "expect": "HassClimateSetTemperature:客廳|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s32",
+   "text": "把客廳溫度設到26度",
+   "expect": "HassClimateSetTemperature:客廳|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s33",
+   "text": "把客廳溫度26度",
+   "expect": "HassClimateSetTemperature:客廳|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s34",
+   "text": "把浴室溫度設定至26度",
+   "expect": "HassClimateSetTemperature:浴室|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s35",
+   "text": "把客廳的溫度變更至26度",
+   "expect": "HassClimateSetTemperature:客廳|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s36",
+   "text": "把廚房調整成26度",
+   "expect": "HassClimateSetTemperature:廚房|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s37",
+   "text": "把浴室的溫度26度",
+   "expect": "HassClimateSetTemperature:浴室|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s38",
+   "text": "把廚房溫度變更至26度",
+   "expect": "HassClimateSetTemperature:廚房|temperature=26.0"
+  },
+  {
+   "id": "HassClimateSetTemperature_s39",
+   "text": "把浴室的溫度設置為26度",
+   "expect": "HassClimateSetTemperature:浴室|temperature=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s0",
+   "text": "給我的書房計時器減26個小時",
+   "expect": "HassDecreaseTimer:書房|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s1",
+   "text": "幫我的房間計時器減26小時",
+   "expect": "HassDecreaseTimer:房間|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s2",
+   "text": "幫我的客廳計時器減26小時",
+   "expect": "HassDecreaseTimer:客廳|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s3",
+   "text": "幫我的廚房計時器減少26小時",
+   "expect": "HassDecreaseTimer:廚房|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s4",
+   "text": "給我的浴室計時器減26小時",
+   "expect": "HassDecreaseTimer:浴室|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s5",
+   "text": "幫我的書房的計時器減26個小時",
+   "expect": "HassDecreaseTimer:書房|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s6",
+   "text": "給我的廚房倒數計時器縮短26個小時",
+   "expect": "HassDecreaseTimer:廚房|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s7",
+   "text": "給我的廚房的倒數計時器減26個小時",
+   "expect": "HassDecreaseTimer:廚房|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s8",
+   "text": "幫我的廚房計時器減26小時",
+   "expect": "HassDecreaseTimer:廚房|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s9",
+   "text": "幫浴室的倒數計時器減少26個小時",
+   "expect": "HassDecreaseTimer:浴室|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s10",
+   "text": "幫我的房間倒數計時器縮短26個小時",
+   "expect": "HassDecreaseTimer:房間|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s11",
+   "text": "幫廚房倒數計時器減少26小時",
+   "expect": "HassDecreaseTimer:廚房|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s12",
+   "text": "幫我的廚房的倒數計時器縮短26小時",
+   "expect": "HassDecreaseTimer:廚房|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s13",
+   "text": "幫我的客廳倒數計時器減26個小時",
+   "expect": "HassDecreaseTimer:客廳|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s14",
+   "text": "幫我的客廳的倒數計時器縮短26小時",
+   "expect": "HassDecreaseTimer:客廳|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s15",
+   "text": "幫我的書房的計時器減少26小時",
+   "expect": "HassDecreaseTimer:書房|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s16",
+   "text": "幫我的浴室倒數計時器縮短26個小時",
+   "expect": "HassDecreaseTimer:浴室|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s17",
+   "text": "給客廳的倒數計時器減26小時",
+   "expect": "HassDecreaseTimer:客廳|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s18",
+   "text": "給我的客廳的計時器縮短26小時",
+   "expect": "HassDecreaseTimer:客廳|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s19",
+   "text": "幫我的書房的倒數計時器縮短26小時",
+   "expect": "HassDecreaseTimer:書房|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s20",
+   "text": "給客廳計時器減26個小時",
+   "expect": "HassDecreaseTimer:客廳|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s21",
+   "text": "幫我的房間的倒數計時器減26小時",
+   "expect": "HassDecreaseTimer:房間|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s22",
+   "text": "給我的書房的倒數計時器縮短26小時",
+   "expect": "HassDecreaseTimer:書房|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s23",
+   "text": "給我的房間計時器減少26個小時",
+   "expect": "HassDecreaseTimer:房間|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s24",
+   "text": "幫書房的計時器減26小時",
+   "expect": "HassDecreaseTimer:書房|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s25",
+   "text": "給我的浴室的計時器縮短26小時",
+   "expect": "HassDecreaseTimer:浴室|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s26",
+   "text": "幫我的廚房的計時器減少26小時",
+   "expect": "HassDecreaseTimer:廚房|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s27",
+   "text": "幫客廳計時器減26小時",
+   "expect": "HassDecreaseTimer:客廳|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s28",
+   "text": "幫我的房間的倒數計時器縮短26小時",
+   "expect": "HassDecreaseTimer:房間|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s29",
+   "text": "幫我的書房計時器縮短26小時",
+   "expect": "HassDecreaseTimer:書房|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s30",
+   "text": "幫我的房間計時器減26個小時",
+   "expect": "HassDecreaseTimer:房間|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s31",
+   "text": "給我的浴室倒數計時器減26小時",
+   "expect": "HassDecreaseTimer:浴室|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s32",
+   "text": "幫房間的倒數計時器縮短26個小時",
+   "expect": "HassDecreaseTimer:房間|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s33",
+   "text": "幫廚房的倒數計時器縮短26小時",
+   "expect": "HassDecreaseTimer:廚房|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s34",
+   "text": "幫書房的倒數計時器減26小時",
+   "expect": "HassDecreaseTimer:書房|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s35",
+   "text": "幫我的浴室倒數計時器減少26個小時",
+   "expect": "HassDecreaseTimer:浴室|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s36",
+   "text": "給我的客廳計時器縮短26小時",
+   "expect": "HassDecreaseTimer:客廳|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s37",
+   "text": "幫書房倒數計時器縮短26小時",
+   "expect": "HassDecreaseTimer:書房|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s38",
+   "text": "幫我的客廳倒數計時器減少26個小時",
+   "expect": "HassDecreaseTimer:客廳|hours=26.0"
+  },
+  {
+   "id": "HassDecreaseTimer_s39",
+   "text": "給我的廚房計時器縮短26小時",
+   "expect": "HassDecreaseTimer:廚房|hours=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s0",
+   "text": "把客廳的風扇的轉速設定為百分之26趴",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s1",
+   "text": "把客廳的風扇的速度設定到26",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s2",
+   "text": "把客廳的風扇的轉速調整為26趴",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s3",
+   "text": "把客廳的風扇的轉速設置為26%",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s4",
+   "text": "把客廳的風扇的轉速設置至百分之26%",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s5",
+   "text": "把客廳的風扇的轉速調至百分之26趴",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s6",
+   "text": "把客廳的風扇的速度設定至百分之26趴",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s7",
+   "text": "把客廳的風扇的轉速變更為百分之26%",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s8",
+   "text": "把客廳的風扇的速度設為百分之26趴",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s9",
+   "text": "把客廳的風扇的轉速設定至百分之26趴",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s10",
+   "text": "把客廳的風扇的速度設定到26趴",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s11",
+   "text": "把客廳的風扇的速度設定為26趴",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s12",
+   "text": "把客廳的風扇的轉速設置為26趴",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s13",
+   "text": "把客廳的風扇的轉速設成百分之26",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s14",
+   "text": "把客廳的風扇的速度設定為26",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s15",
+   "text": "把客廳的風扇的轉速設定成26趴",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s16",
+   "text": "把客廳的風扇的轉速設定成26",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s17",
+   "text": "把客廳的風扇的轉速調成26%",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s18",
+   "text": "把客廳的風扇的轉速變更成26%",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s19",
+   "text": "把客廳的風扇的轉速設置成26趴",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s20",
+   "text": "把客廳的風扇的轉速設定到百分之26%",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s21",
+   "text": "把客廳的風扇的速度設到百分之26",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s22",
+   "text": "把客廳的風扇的轉速調整成26",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s23",
+   "text": "把客廳的風扇的速度設定為百分之26",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s24",
+   "text": "把客廳的風扇的轉速設定至百分之26",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s25",
+   "text": "把客廳的風扇的轉速設為26%",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s26",
+   "text": "把客廳的風扇的速度設置為百分之26趴",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s27",
+   "text": "把客廳的風扇的轉速調整到百分之26",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s28",
+   "text": "把客廳的風扇的速度設置為百分之26%",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s29",
+   "text": "把客廳的風扇的轉速變更到26趴",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s30",
+   "text": "把客廳的風扇的轉速調到百分之26趴",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s31",
+   "text": "把客廳的風扇的速度設至26趴",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s32",
+   "text": "把客廳的風扇的速度設置為26%",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s33",
+   "text": "把客廳的風扇的轉速調整為26%",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s34",
+   "text": "把客廳的風扇的速度設定成百分之26趴",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s35",
+   "text": "把客廳的風扇的轉速設定成26%",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s36",
+   "text": "把客廳的風扇的轉速變更至26",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s37",
+   "text": "把客廳的風扇的速度設定到百分之26趴",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s38",
+   "text": "把客廳的風扇的轉速調整至26%",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassFanSetSpeed_s39",
+   "text": "把客廳的風扇的轉速設至百分之26",
+   "expect": "HassFanSetSpeed:客廳|percentage=26.0"
+  },
+  {
+   "id": "HassGetCurrentDate_s0",
+   "text": "今天的日期",
+   "expect": "HassGetCurrentDate"
+  },
+  {
+   "id": "HassGetCurrentDate_s1",
+   "text": "今天日期",
+   "expect": "HassGetCurrentDate"
+  },
+  {
+   "id": "HassGetCurrentDate_s2",
+   "text": "今天是幾月幾號",
+   "expect": "HassGetCurrentDate"
+  },
+  {
+   "id": "HassGetCurrentDate_s3",
+   "text": "今天的日期是多少",
+   "expect": "HassGetCurrentDate"
+  },
+  {
+   "id": "HassGetCurrentDate_s4",
+   "text": "今天幾月幾號",
+   "expect": "HassGetCurrentDate"
+  },
+  {
+   "id": "HassGetCurrentDate_s5",
+   "text": "今天日期是多少",
+   "expect": "HassGetCurrentDate"
+  },
+  {
+   "id": "HassGetCurrentDate_s6",
+   "text": "今天幾號",
+   "expect": "HassGetCurrentDate"
+  },
+  {
+   "id": "HassGetCurrentDate_s7",
+   "text": "今天是幾號",
+   "expect": "HassGetCurrentDate"
+  },
+  {
+   "id": "HassGetCurrentTime_s0",
+   "text": "現在的時間是幾點",
+   "expect": "HassGetCurrentTime"
+  },
+  {
+   "id": "HassGetCurrentTime_s1",
+   "text": "的時間是幾點",
+   "expect": "HassGetCurrentTime"
+  },
+  {
+   "id": "HassGetCurrentTime_s2",
+   "text": "現在的時間是多少",
+   "expect": "HassGetCurrentTime"
+  },
+  {
+   "id": "HassGetCurrentTime_s3",
+   "text": "時間是幾點",
+   "expect": "HassGetCurrentTime"
+  },
+  {
+   "id": "HassGetCurrentTime_s4",
+   "text": "現在幾點了",
+   "expect": "HassGetCurrentTime"
+  },
+  {
+   "id": "HassGetCurrentTime_s5",
+   "text": "的時間是多少",
+   "expect": "HassGetCurrentTime"
+  },
+  {
+   "id": "HassGetCurrentTime_s6",
+   "text": "現在時間是幾點",
+   "expect": "HassGetCurrentTime"
+  },
+  {
+   "id": "HassGetCurrentTime_s7",
+   "text": "現在幾點",
+   "expect": "HassGetCurrentTime"
+  },
+  {
+   "id": "HassGetCurrentTime_s8",
+   "text": "時間是多少",
+   "expect": "HassGetCurrentTime"
+  },
+  {
+   "id": "HassGetCurrentTime_s9",
+   "text": "現在時間是多少",
+   "expect": "HassGetCurrentTime"
+  },
+  {
+   "id": "HassGetCurrentTime_s10",
+   "text": "現在幾點鐘了",
+   "expect": "HassGetCurrentTime"
+  },
+  {
+   "id": "HassGetCurrentTime_s11",
+   "text": "現在幾點鐘",
+   "expect": "HassGetCurrentTime"
+  },
+  {
+   "id": "HassGetState_s0",
+   "text": "有窗簾是打開中的嗎",
+   "expect": "HassGetState:blind|state=opening"
+  },
+  {
+   "id": "HassGetState_s1",
+   "text": "有遮雨棚是開著的嗎",
+   "expect": "HassGetState:awning|state=open"
+  },
+  {
+   "id": "HassGetState_s2",
+   "text": "有雨棚是開啟的",
+   "expect": "HassGetState:awning|state=open"
+  },
+  {
+   "id": "HassGetState_s3",
+   "text": "有遮陽棚是正關上的",
+   "expect": "HassGetState:awning|state=closing"
+  },
+  {
+   "id": "HassGetState_s4",
+   "text": "有遮雨棚是關著的嗎",
+   "expect": "HassGetState:awning|state=closed"
+  },
+  {
+   "id": "HassGetState_s5",
+   "text": "有遮雨棚是關上的的嗎",
+   "expect": "HassGetState:awning|state=closed"
+  },
+  {
+   "id": "HassGetState_s6",
+   "text": "有窗簾是正在關閉嗎",
+   "expect": "HassGetState:blind|state=closing"
+  },
+  {
+   "id": "HassGetState_s7",
+   "text": "有雨棚是正在打開的",
+   "expect": "HassGetState:awning|state=opening"
+  },
+  {
+   "id": "HassGetState_s8",
+   "text": "有雨棚是關閉的的",
+   "expect": "HassGetState:awning|state=closed"
+  },
+  {
+   "id": "HassGetState_s9",
+   "text": "有窗簾是關著的嗎",
+   "expect": "HassGetState:blind|state=closed"
+  },
+  {
+   "id": "HassGetState_s10",
+   "text": "有雨棚是關的嗎",
+   "expect": "HassGetState:awning|state=closed"
+  },
+  {
+   "id": "HassGetState_s11",
+   "text": "有遮陽棚是開著嗎",
+   "expect": "HassGetState:awning|state=open"
+  },
+  {
+   "id": "HassGetState_s12",
+   "text": "有雨棚是關著的的",
+   "expect": "HassGetState:awning|state=closed"
+  },
+  {
+   "id": "HassGetState_s13",
+   "text": "有雨棚是關嗎",
+   "expect": "HassGetState:awning|state=closed"
+  },
+  {
+   "id": "HassGetState_s14",
+   "text": "有遮陽棚是開",
+   "expect": "HassGetState:awning|state=open"
+  },
+  {
+   "id": "HassGetState_s15",
+   "text": "有遮雨棚是開啟的的嗎",
+   "expect": "HassGetState:awning|state=open"
+  },
+  {
+   "id": "HassGetState_s16",
+   "text": "有雨棚是正在打開的嗎",
+   "expect": "HassGetState:awning|state=opening"
+  },
+  {
+   "id": "HassGetState_s17",
+   "text": "有遮陽棚是關上的嗎",
+   "expect": "HassGetState:awning|state=closed"
+  },
+  {
+   "id": "HassGetState_s18",
+   "text": "有遮雨棚是開啟中的嗎",
+   "expect": "HassGetState:awning|state=opening"
+  },
+  {
+   "id": "HassGetState_s19",
+   "text": "有遮陽棚是正關上的嗎",
+   "expect": "HassGetState:awning|state=closing"
+  },
+  {
+   "id": "HassGetState_s20",
+   "text": "有窗簾是開的的嗎",
+   "expect": "HassGetState:blind|state=open"
+  },
+  {
+   "id": "HassGetState_s21",
+   "text": "有雨棚是正關上的",
+   "expect": "HassGetState:awning|state=closing"
+  },
+  {
+   "id": "HassGetState_s22",
+   "text": "有窗簾是關上",
+   "expect": "HassGetState:blind|state=closed"
+  },
+  {
+   "id": "HassGetState_s23",
+   "text": "有窗簾是正在開啟的",
+   "expect": "HassGetState:blind|state=opening"
+  },
+  {
+   "id": "HassGetState_s24",
+   "text": "有遮陽棚是開啟的的嗎",
+   "expect": "HassGetState:awning|state=open"
+  },
+  {
+   "id": "HassGetState_s25",
+   "text": "有遮陽棚是開的的",
+   "expect": "HassGetState:awning|state=open"
+  },
+  {
+   "id": "HassGetState_s26",
+   "text": "有窗簾是開啟的的",
+   "expect": "HassGetState:blind|state=open"
+  },
+  {
+   "id": "HassGetState_s27",
+   "text": "有遮雨棚是正關上嗎",
+   "expect": "HassGetState:awning|state=closing"
+  },
+  {
+   "id": "HassGetState_s28",
+   "text": "有遮雨棚是正在關閉",
+   "expect": "HassGetState:awning|state=closing"
+  },
+  {
+   "id": "HassGetState_s29",
+   "text": "有雨棚是關閉中",
+   "expect": "HassGetState:awning|state=closing"
+  },
+  {
+   "id": "HassGetState_s30",
+   "text": "有遮陽棚是關閉的的",
+   "expect": "HassGetState:awning|state=closed"
+  },
+  {
+   "id": "HassGetState_s31",
+   "text": "有遮雨棚是開著的的嗎",
+   "expect": "HassGetState:awning|state=open"
+  },
+  {
+   "id": "HassGetState_s32",
+   "text": "有窗簾是關閉嗎",
+   "expect": "HassGetState:blind|state=closed"
+  },
+  {
+   "id": "HassGetState_s33",
+   "text": "有窗簾是正在關閉的嗎",
+   "expect": "HassGetState:blind|state=closing"
+  },
+  {
+   "id": "HassGetState_s34",
+   "text": "有遮陽棚是關的的嗎",
+   "expect": "HassGetState:awning|state=closed"
+  },
+  {
+   "id": "HassGetState_s35",
+   "text": "有遮陽棚是正打開嗎",
+   "expect": "HassGetState:awning|state=opening"
+  },
+  {
+   "id": "HassGetState_s36",
+   "text": "有遮陽棚是打開的的",
+   "expect": "HassGetState:awning|state=open"
+  },
+  {
+   "id": "HassGetState_s37",
+   "text": "有雨棚是關的",
+   "expect": "HassGetState:awning|state=closed"
+  },
+  {
+   "id": "HassGetState_s38",
+   "text": "有遮雨棚是正在關上的",
+   "expect": "HassGetState:awning|state=closing"
+  },
+  {
+   "id": "HassGetState_s39",
+   "text": "有遮陽棚是開啟的的",
+   "expect": "HassGetState:awning|state=open"
+  },
+  {
+   "id": "HassGetWeather_s0",
+   "text": "現在外面天氣好嗎",
+   "expect": "HassGetWeather"
+  },
+  {
+   "id": "HassGetWeather_s1",
+   "text": "現在外面天氣如何",
+   "expect": "HassGetWeather"
+  },
+  {
+   "id": "HassGetWeather_s2",
+   "text": "今天天氣",
+   "expect": "HassGetWeather"
+  },
+  {
+   "id": "HassGetWeather_s3",
+   "text": "天氣好嗎",
+   "expect": "HassGetWeather"
+  },
+  {
+   "id": "HassGetWeather_s4",
+   "text": "今天天氣如何",
+   "expect": "HassGetWeather"
+  },
+  {
+   "id": "HassGetWeather_s5",
+   "text": "今天外面天氣怎樣",
+   "expect": "HassGetWeather"
+  },
+  {
+   "id": "HassGetWeather_s6",
+   "text": "現在外面天氣怎樣",
+   "expect": "HassGetWeather"
+  },
+  {
+   "id": "HassGetWeather_s7",
+   "text": "今天天氣怎樣",
+   "expect": "HassGetWeather"
+  },
+  {
+   "id": "HassGetWeather_s8",
+   "text": "外面天氣怎麼樣",
+   "expect": "HassGetWeather"
+  },
+  {
+   "id": "HassGetWeather_s9",
+   "text": "外面天氣好嗎",
+   "expect": "HassGetWeather"
+  },
+  {
+   "id": "HassGetWeather_s10",
+   "text": "現在天氣怎麼樣",
+   "expect": "HassGetWeather"
+  },
+  {
+   "id": "HassIncreaseTimer_s0",
+   "text": "幫我的書房的倒數計時器增加26小時",
+   "expect": "HassIncreaseTimer:書房|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s1",
+   "text": "給我的書房計時器加26個小時",
+   "expect": "HassIncreaseTimer:書房|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s2",
+   "text": "幫客廳計時器加26個小時",
+   "expect": "HassIncreaseTimer:客廳|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s3",
+   "text": "給我的房間倒數計時器增加26小時",
+   "expect": "HassIncreaseTimer:房間|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s4",
+   "text": "幫房間計時器延長26小時",
+   "expect": "HassIncreaseTimer:房間|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s5",
+   "text": "幫廚房倒數計時器加26小時",
+   "expect": "HassIncreaseTimer:廚房|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s6",
+   "text": "給我的廚房的計時器增加26個小時",
+   "expect": "HassIncreaseTimer:廚房|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s7",
+   "text": "幫我的客廳倒數計時器增加26小時",
+   "expect": "HassIncreaseTimer:客廳|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s8",
+   "text": "給客廳倒數計時器延長26小時",
+   "expect": "HassIncreaseTimer:客廳|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s9",
+   "text": "給我的書房倒數計時器延長26小時",
+   "expect": "HassIncreaseTimer:書房|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s10",
+   "text": "給我的廚房倒數計時器延長26小時",
+   "expect": "HassIncreaseTimer:廚房|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s11",
+   "text": "給我的浴室倒數計時器延長26小時",
+   "expect": "HassIncreaseTimer:浴室|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s12",
+   "text": "給我的客廳計時器加26小時",
+   "expect": "HassIncreaseTimer:客廳|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s13",
+   "text": "給客廳的計時器延長26個小時",
+   "expect": "HassIncreaseTimer:客廳|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s14",
+   "text": "給我的浴室計時器延長26小時",
+   "expect": "HassIncreaseTimer:浴室|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s15",
+   "text": "幫書房倒數計時器加26個小時",
+   "expect": "HassIncreaseTimer:書房|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s16",
+   "text": "給我的浴室計時器增加26小時",
+   "expect": "HassIncreaseTimer:浴室|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s17",
+   "text": "幫書房的倒數計時器加26個小時",
+   "expect": "HassIncreaseTimer:書房|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s18",
+   "text": "幫廚房倒數計時器延長26個小時",
+   "expect": "HassIncreaseTimer:廚房|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s19",
+   "text": "給我的房間的倒數計時器延長26小時",
+   "expect": "HassIncreaseTimer:房間|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s20",
+   "text": "幫我的浴室倒數計時器加26小時",
+   "expect": "HassIncreaseTimer:浴室|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s21",
+   "text": "幫我的書房的倒數計時器延長26個小時",
+   "expect": "HassIncreaseTimer:書房|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s22",
+   "text": "幫浴室的計時器加26個小時",
+   "expect": "HassIncreaseTimer:浴室|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s23",
+   "text": "給我的廚房計時器加26個小時",
+   "expect": "HassIncreaseTimer:廚房|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s24",
+   "text": "幫房間的計時器延長26小時",
+   "expect": "HassIncreaseTimer:房間|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s25",
+   "text": "幫我的客廳的計時器延長26個小時",
+   "expect": "HassIncreaseTimer:客廳|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s26",
+   "text": "幫我的廚房倒數計時器延長26個小時",
+   "expect": "HassIncreaseTimer:廚房|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s27",
+   "text": "幫我的浴室的計時器延長26小時",
+   "expect": "HassIncreaseTimer:浴室|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s28",
+   "text": "幫客廳倒數計時器加26個小時",
+   "expect": "HassIncreaseTimer:客廳|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s29",
+   "text": "幫廚房的計時器增加26個小時",
+   "expect": "HassIncreaseTimer:廚房|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s30",
+   "text": "幫廚房的計時器延長26個小時",
+   "expect": "HassIncreaseTimer:廚房|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s31",
+   "text": "幫廚房倒數計時器增加26個小時",
+   "expect": "HassIncreaseTimer:廚房|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s32",
+   "text": "給客廳的倒數計時器加26小時",
+   "expect": "HassIncreaseTimer:客廳|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s33",
+   "text": "幫我的房間倒數計時器延長26小時",
+   "expect": "HassIncreaseTimer:房間|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s34",
+   "text": "幫廚房的計時器延長26小時",
+   "expect": "HassIncreaseTimer:廚房|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s35",
+   "text": "給房間計時器增加26小時",
+   "expect": "HassIncreaseTimer:房間|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s36",
+   "text": "給我的浴室的計時器延長26小時",
+   "expect": "HassIncreaseTimer:浴室|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s37",
+   "text": "幫我的客廳倒數計時器加26個小時",
+   "expect": "HassIncreaseTimer:客廳|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s38",
+   "text": "幫我的浴室的倒數計時器延長26小時",
+   "expect": "HassIncreaseTimer:浴室|hours=26.0"
+  },
+  {
+   "id": "HassIncreaseTimer_s39",
+   "text": "幫我的浴室的計時器延長26個小時",
+   "expect": "HassIncreaseTimer:浴室|hours=26.0"
+  },
+  {
+   "id": "HassLawnMowerStartMowing_s0",
+   "text": "開始割草",
+   "expect": "HassLawnMowerStartMowing"
+  },
+  {
+   "id": "HassLawnMowerStartMowing_s1",
+   "text": "開始除草",
+   "expect": "HassLawnMowerStartMowing"
+  },
+  {
+   "id": "HassLightSet_s0",
+   "text": "把客廳照明亮度變更到百分之26趴",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s1",
+   "text": "把客廳照明亮度調整為26",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s2",
+   "text": "把客廳照明亮度設置成26",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s3",
+   "text": "把客廳照明亮度設置為26",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s4",
+   "text": "把客廳照明設至百分之26",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s5",
+   "text": "把客廳照明亮度設到26趴",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s6",
+   "text": "把客廳照明亮度設置到百分之26趴",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s7",
+   "text": "把客廳照明設成26%",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s8",
+   "text": "把客廳照明亮度設定成百分之26趴",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s9",
+   "text": "把客廳照明亮度設定為百分之26",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s10",
+   "text": "把客廳照明亮度設置為百分之26",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s11",
+   "text": "把客廳照明亮度調整至26%",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s12",
+   "text": "把客廳照明亮度調整為百分之26%",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s13",
+   "text": "把客廳照明亮度調至百分之26",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s14",
+   "text": "把客廳照明亮度變更至百分之26趴",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s15",
+   "text": "把客廳照明亮度設定成百分之26",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s16",
+   "text": "把客廳照明設定至26",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s17",
+   "text": "把客廳照明設到百分之26",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s18",
+   "text": "把客廳照明亮度變更為26趴",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s19",
+   "text": "把客廳照明設置為百分之26%",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s20",
+   "text": "把客廳照明設為百分之26%",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s21",
+   "text": "把客廳照明亮度調整到百分之26趴",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s22",
+   "text": "把客廳照明設至百分之26趴",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s23",
+   "text": "把客廳照明設定到百分之26%",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s24",
+   "text": "把客廳照明亮度調整成百分之26%",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s25",
+   "text": "把客廳照明亮度變更成百分之26趴",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s26",
+   "text": "把客廳照明亮度變更到百分之26%",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s27",
+   "text": "把客廳照明設定為26",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s28",
+   "text": "把客廳照明亮度調到26趴",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s29",
+   "text": "把客廳照明設置到百分之26",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s30",
+   "text": "把客廳照明設定為26%",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s31",
+   "text": "把客廳照明設至百分之26%",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s32",
+   "text": "把客廳照明亮度設置為26%",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s33",
+   "text": "把客廳照明亮度變更至百分之26%",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s34",
+   "text": "把客廳照明設成百分之26%",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s35",
+   "text": "把客廳照明亮度設置到百分之26",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s36",
+   "text": "把客廳照明亮度設為百分之26",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s37",
+   "text": "把客廳照明亮度調成26%",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s38",
+   "text": "把客廳照明亮度調到26%",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassLightSet_s39",
+   "text": "把客廳照明設定為26趴",
+   "expect": "HassLightSet:客廳/light|brightness=26.0"
+  },
+  {
+   "id": "HassMediaNext_s0",
+   "text": "客廳切到下一台歌",
+   "expect": "HassMediaNext:客廳"
+  },
+  {
+   "id": "HassMediaNext_s1",
+   "text": "播放房間的下一集歌曲",
+   "expect": "HassMediaNext:房間"
+  },
+  {
+   "id": "HassMediaNext_s2",
+   "text": "房間跳到下一集歌",
+   "expect": "HassMediaNext:房間"
+  },
+  {
+   "id": "HassMediaNext_s3",
+   "text": "廚房跳到下一個",
+   "expect": "HassMediaNext:廚房"
+  },
+  {
+   "id": "HassMediaNext_s4",
+   "text": "播放廚房下一台",
+   "expect": "HassMediaNext:廚房"
+  },
+  {
+   "id": "HassMediaNext_s5",
+   "text": "房間跳到下一台歌曲",
+   "expect": "HassMediaNext:房間"
+  },
+  {
+   "id": "HassMediaNext_s6",
+   "text": "書房播放下一首",
+   "expect": "HassMediaNext:書房"
+  },
+  {
+   "id": "HassMediaNext_s7",
+   "text": "播放廚房的下一個歌曲",
+   "expect": "HassMediaNext:廚房"
+  },
+  {
+   "id": "HassMediaNext_s8",
+   "text": "浴室播放下一台歌",
+   "expect": "HassMediaNext:浴室"
+  },
+  {
+   "id": "HassMediaNext_s9",
+   "text": "切到客廳的下一台歌曲",
+   "expect": "HassMediaNext:客廳"
+  },
+  {
+   "id": "HassMediaNext_s10",
+   "text": "切到客廳的下一首歌曲",
+   "expect": "HassMediaNext:客廳"
+  },
+  {
+   "id": "HassMediaNext_s11",
+   "text": "播放客廳的下一首歌",
+   "expect": "HassMediaNext:客廳"
+  },
+  {
+   "id": "HassMediaNext_s12",
+   "text": "客廳跳到下一個歌",
+   "expect": "HassMediaNext:客廳"
+  },
+  {
+   "id": "HassMediaNext_s13",
+   "text": "客廳下一台歌曲",
+   "expect": "HassMediaNext:客廳"
+  },
+  {
+   "id": "HassMediaNext_s14",
+   "text": "播放房間的下一首歌",
+   "expect": "HassMediaNext:房間"
+  },
+  {
+   "id": "HassMediaNext_s15",
+   "text": "客廳切到下一台",
+   "expect": "HassMediaNext:客廳"
+  },
+  {
+   "id": "HassMediaNext_s16",
+   "text": "廚房切到下一台歌曲",
+   "expect": "HassMediaNext:廚房"
+  },
+  {
+   "id": "HassMediaNext_s17",
+   "text": "房間切到下一台歌",
+   "expect": "HassMediaNext:房間"
+  },
+  {
+   "id": "HassMediaNext_s18",
+   "text": "浴室播放下一個歌",
+   "expect": "HassMediaNext:浴室"
+  },
+  {
+   "id": "HassMediaNext_s19",
+   "text": "客廳播放下一台歌曲",
+   "expect": "HassMediaNext:客廳"
+  },
+  {
+   "id": "HassMediaNext_s20",
+   "text": "切到房間的下一集歌曲",
+   "expect": "HassMediaNext:房間"
+  },
+  {
+   "id": "HassMediaNext_s21",
+   "text": "書房下一首歌曲",
+   "expect": "HassMediaNext:書房"
+  },
+  {
+   "id": "HassMediaNext_s22",
+   "text": "浴室跳到下一首歌曲",
+   "expect": "HassMediaNext:浴室"
+  },
+  {
+   "id": "HassMediaNext_s23",
+   "text": "房間跳到下一個歌曲",
+   "expect": "HassMediaNext:房間"
+  },
+  {
+   "id": "HassMediaNext_s24",
+   "text": "房間跳到下一集歌曲",
+   "expect": "HassMediaNext:房間"
+  },
+  {
+   "id": "HassMediaNext_s25",
+   "text": "播放浴室下一個",
+   "expect": "HassMediaNext:浴室"
+  },
+  {
+   "id": "HassMediaNext_s26",
+   "text": "書房下一台歌曲",
+   "expect": "HassMediaNext:書房"
+  },
+  {
+   "id": "HassMediaNext_s27",
+   "text": "浴室下一個歌曲",
+   "expect": "HassMediaNext:浴室"
+  },
+  {
+   "id": "HassMediaNext_s28",
+   "text": "播放客廳下一台歌",
+   "expect": "HassMediaNext:客廳"
+  },
+  {
+   "id": "HassMediaNext_s29",
+   "text": "書房播放下一集歌",
+   "expect": "HassMediaNext:書房"
+  },
+  {
+   "id": "HassMediaNext_s30",
+   "text": "播放房間的下一台歌曲",
+   "expect": "HassMediaNext:房間"
+  },
+  {
+   "id": "HassMediaNext_s31",
+   "text": "播放客廳下一集",
+   "expect": "HassMediaNext:客廳"
+  },
+  {
+   "id": "HassMediaNext_s32",
+   "text": "客廳切到下一集",
+   "expect": "HassMediaNext:客廳"
+  },
+  {
+   "id": "HassMediaNext_s33",
+   "text": "播放廚房的下一集",
+   "expect": "HassMediaNext:廚房"
+  },
+  {
+   "id": "HassMediaNext_s34",
+   "text": "客廳下一個歌曲",
+   "expect": "HassMediaNext:客廳"
+  },
+  {
+   "id": "HassMediaNext_s35",
+   "text": "播放書房的下一個",
+   "expect": "HassMediaNext:書房"
+  },
+  {
+   "id": "HassMediaNext_s36",
+   "text": "播放房間的下一首歌曲",
+   "expect": "HassMediaNext:房間"
+  },
+  {
+   "id": "HassMediaNext_s37",
+   "text": "播放廚房下一台歌曲",
+   "expect": "HassMediaNext:廚房"
+  },
+  {
+   "id": "HassMediaNext_s38",
+   "text": "客廳下一集歌",
+   "expect": "HassMediaNext:客廳"
+  },
+  {
+   "id": "HassMediaNext_s39",
+   "text": "切到客廳下一個歌曲",
+   "expect": "HassMediaNext:客廳"
+  },
+  {
+   "id": "HassMediaPause_s0",
+   "text": "將房間的節目暫停",
+   "expect": "HassMediaPause:房間"
+  },
+  {
+   "id": "HassMediaPause_s1",
+   "text": "將書房媒體播放器暫停播放",
+   "expect": "HassMediaPause:書房"
+  },
+  {
+   "id": "HassMediaPause_s2",
+   "text": "書房的音樂暫停播放",
+   "expect": "HassMediaPause:書房"
+  },
+  {
+   "id": "HassMediaPause_s3",
+   "text": "將廚房的媒體播放器暫停",
+   "expect": "HassMediaPause:廚房"
+  },
+  {
+   "id": "HassMediaPause_s4",
+   "text": "暫停房間節目",
+   "expect": "HassMediaPause:房間"
+  },
+  {
+   "id": "HassMediaPause_s5",
+   "text": "暫停客廳的音樂",
+   "expect": "HassMediaPause:客廳"
+  },
+  {
+   "id": "HassMediaPause_s6",
+   "text": "將客廳的節目暫停",
+   "expect": "HassMediaPause:客廳"
+  },
+  {
+   "id": "HassMediaPause_s7",
+   "text": "客廳的媒體播放器暫停播放",
+   "expect": "HassMediaPause:客廳"
+  },
+  {
+   "id": "HassMediaPause_s8",
+   "text": "將浴室的媒體播放器暫停播放",
+   "expect": "HassMediaPause:浴室"
+  },
+  {
+   "id": "HassMediaPause_s9",
+   "text": "房間節目暫停播放",
+   "expect": "HassMediaPause:房間"
+  },
+  {
+   "id": "HassMediaPause_s10",
+   "text": "把客廳的節目暫停",
+   "expect": "HassMediaPause:客廳"
+  },
+  {
+   "id": "HassMediaPause_s11",
+   "text": "將浴室節目暫停播放",
+   "expect": "HassMediaPause:浴室"
+  },
+  {
+   "id": "HassMediaPause_s12",
+   "text": "客廳的媒體播放器暫停",
+   "expect": "HassMediaPause:客廳"
+  },
+  {
+   "id": "HassMediaPause_s13",
+   "text": "書房媒體播放器暫停播放",
+   "expect": "HassMediaPause:書房"
+  },
+  {
+   "id": "HassMediaPause_s14",
+   "text": "浴室媒體播放器暫停播放",
+   "expect": "HassMediaPause:浴室"
+  },
+  {
+   "id": "HassMediaPause_s15",
+   "text": "把客廳的音樂暫停",
+   "expect": "HassMediaPause:客廳"
+  },
+  {
+   "id": "HassMediaPause_s16",
+   "text": "把書房的媒體播放器暫停",
+   "expect": "HassMediaPause:書房"
+  },
+  {
+   "id": "HassMediaPause_s17",
+   "text": "把廚房媒體播放器暫停",
+   "expect": "HassMediaPause:廚房"
+  },
+  {
+   "id": "HassMediaPause_s18",
+   "text": "將廚房節目暫停播放",
+   "expect": "HassMediaPause:廚房"
+  },
+  {
+   "id": "HassMediaPause_s19",
+   "text": "將書房節目暫停播放",
+   "expect": "HassMediaPause:書房"
+  },
+  {
+   "id": "HassMediaPause_s20",
+   "text": "房間節目暫停",
+   "expect": "HassMediaPause:房間"
+  },
+  {
+   "id": "HassMediaPause_s21",
+   "text": "暫停書房節目",
+   "expect": "HassMediaPause:書房"
+  },
+  {
+   "id": "HassMediaPause_s22",
+   "text": "暫停浴室的音樂",
+   "expect": "HassMediaPause:浴室"
+  },
+  {
+   "id": "HassMediaPause_s23",
+   "text": "把浴室音樂暫停播放",
+   "expect": "HassMediaPause:浴室"
+  },
+  {
+   "id": "HassMediaPause_s24",
+   "text": "把客廳媒體播放器暫停",
+   "expect": "HassMediaPause:客廳"
+  },
+  {
+   "id": "HassMediaPause_s25",
+   "text": "把浴室媒體播放器暫停",
+   "expect": "HassMediaPause:浴室"
+  },
+  {
+   "id": "HassMediaPause_s26",
+   "text": "廚房音樂暫停播放",
+   "expect": "HassMediaPause:廚房"
+  },
+  {
+   "id": "HassMediaPause_s27",
+   "text": "暫停播放",
+   "expect": "HassMediaPause:客廳"
+  },
+  {
+   "id": "HassMediaPause_s28",
+   "text": "浴室媒體播放器暫停",
+   "expect": "HassMediaPause:浴室"
+  },
+  {
+   "id": "HassMediaPause_s29",
+   "text": "暫停書房的音樂",
+   "expect": "HassMediaPause:書房"
+  },
+  {
+   "id": "HassMediaPause_s30",
+   "text": "把房間節目暫停",
+   "expect": "HassMediaPause:房間"
+  },
+  {
+   "id": "HassMediaPlayerMute_s0",
+   "text": "把音樂靜音",
+   "expect": "HassMediaPlayerMute:客廳"
+  },
+  {
+   "id": "HassMediaPlayerMute_s1",
+   "text": "把節目靜音",
+   "expect": "HassMediaPlayerMute:客廳"
+  },
+  {
+   "id": "HassMediaPlayerMute_s2",
+   "text": "節目靜音",
+   "expect": "HassMediaPlayerMute:客廳"
+  },
+  {
+   "id": "HassMediaPlayerMute_s3",
+   "text": "音樂調成靜音",
+   "expect": "HassMediaPlayerMute:客廳"
+  },
+  {
+   "id": "HassMediaPlayerMute_s4",
+   "text": "將音樂調成靜音",
+   "expect": "HassMediaPlayerMute:客廳"
+  },
+  {
+   "id": "HassMediaPlayerMute_s5",
+   "text": "把節目調成靜音",
+   "expect": "HassMediaPlayerMute:客廳"
+  },
+  {
+   "id": "HassMediaPlayerMute_s6",
+   "text": "媒體播放器靜音",
+   "expect": "HassMediaPlayerMute:客廳"
+  },
+  {
+   "id": "HassMediaPlayerMute_s7",
+   "text": "將音樂靜音",
+   "expect": "HassMediaPlayerMute:客廳"
+  },
+  {
+   "id": "HassMediaPlayerMute_s8",
+   "text": "將媒體播放器靜音",
+   "expect": "HassMediaPlayerMute:客廳"
+  },
+  {
+   "id": "HassMediaPlayerUnmute_s0",
+   "text": "將音樂解除靜音",
+   "expect": "HassMediaPlayerUnmute:客廳"
+  },
+  {
+   "id": "HassMediaPlayerUnmute_s1",
+   "text": "把節目解除靜音",
+   "expect": "HassMediaPlayerUnmute:客廳"
+  },
+  {
+   "id": "HassMediaPlayerUnmute_s2",
+   "text": "把音樂解除靜音",
+   "expect": "HassMediaPlayerUnmute:客廳"
+  },
+  {
+   "id": "HassMediaPlayerUnmute_s3",
+   "text": "將節目解除靜音",
+   "expect": "HassMediaPlayerUnmute:客廳"
+  },
+  {
+   "id": "HassMediaPlayerUnmute_s4",
+   "text": "音樂取消靜音",
+   "expect": "HassMediaPlayerUnmute:客廳"
+  },
+  {
+   "id": "HassMediaPlayerUnmute_s5",
+   "text": "媒體播放器取消靜音",
+   "expect": "HassMediaPlayerUnmute:客廳"
+  },
+  {
+   "id": "HassMediaPlayerUnmute_s6",
+   "text": "將節目取消靜音",
+   "expect": "HassMediaPlayerUnmute:客廳"
+  },
+  {
+   "id": "HassMediaPlayerUnmute_s7",
+   "text": "將媒體播放器解除靜音",
+   "expect": "HassMediaPlayerUnmute:客廳"
+  },
+  {
+   "id": "HassMediaPlayerUnmute_s8",
+   "text": "將音樂取消靜音",
+   "expect": "HassMediaPlayerUnmute:客廳"
+  },
+  {
+   "id": "HassMediaPlayerUnmute_s9",
+   "text": "將媒體播放器取消靜音",
+   "expect": "HassMediaPlayerUnmute:客廳"
+  },
+  {
+   "id": "HassMediaPlayerUnmute_s10",
+   "text": "媒體播放器解除靜音",
+   "expect": "HassMediaPlayerUnmute:客廳"
+  },
+  {
+   "id": "HassMediaPrevious_s0",
+   "text": "客廳切到上一集歌",
+   "expect": "HassMediaPrevious:客廳"
+  },
+  {
+   "id": "HassMediaPrevious_s1",
+   "text": "播放客廳上一首",
+   "expect": "HassMediaPrevious:客廳"
+  },
+  {
+   "id": "HassMediaPrevious_s2",
+   "text": "浴室切到上一個歌曲",
+   "expect": "HassMediaPrevious:浴室"
+  },
+  {
+   "id": "HassMediaPrevious_s3",
+   "text": "切到客廳的上一個歌",
+   "expect": "HassMediaPrevious:客廳"
+  },
+  {
+   "id": "HassMediaPrevious_s4",
+   "text": "廚房跳到上一個歌",
+   "expect": "HassMediaPrevious:廚房"
+  },
+  {
+   "id": "HassMediaPrevious_s5",
+   "text": "客廳上一集歌曲",
+   "expect": "HassMediaPrevious:客廳"
+  },
+  {
+   "id": "HassMediaPrevious_s6",
+   "text": "浴室上一首歌",
+   "expect": "HassMediaPrevious:浴室"
+  },
+  {
+   "id": "HassMediaPrevious_s7",
+   "text": "客廳上一首歌",
+   "expect": "HassMediaPrevious:客廳"
+  },
+  {
+   "id": "HassMediaPrevious_s8",
+   "text": "房間切到上一首",
+   "expect": "HassMediaPrevious:房間"
+  },
+  {
+   "id": "HassMediaPrevious_s9",
+   "text": "浴室上一集歌",
+   "expect": "HassMediaPrevious:浴室"
+  },
+  {
+   "id": "HassMediaPrevious_s10",
+   "text": "播放書房上一台歌",
+   "expect": "HassMediaPrevious:書房"
+  },
+  {
+   "id": "HassMediaPrevious_s11",
+   "text": "浴室跳到上一台",
+   "expect": "HassMediaPrevious:浴室"
+  },
+  {
+   "id": "HassMediaPrevious_s12",
+   "text": "浴室跳到上一個歌曲",
+   "expect": "HassMediaPrevious:浴室"
+  },
+  {
+   "id": "HassMediaPrevious_s13",
+   "text": "房間上一台歌曲",
+   "expect": "HassMediaPrevious:房間"
+  },
+  {
+   "id": "HassMediaPrevious_s14",
+   "text": "客廳播放上一集",
+   "expect": "HassMediaPrevious:客廳"
+  },
+  {
+   "id": "HassMediaPrevious_s15",
+   "text": "廚房切到上一個歌曲",
+   "expect": "HassMediaPrevious:廚房"
+  },
+  {
+   "id": "HassMediaPrevious_s16",
+   "text": "浴室上一台歌曲",
+   "expect": "HassMediaPrevious:浴室"
+  },
+  {
+   "id": "HassMediaPrevious_s17",
+   "text": "播放廚房上一集",
+   "expect": "HassMediaPrevious:廚房"
+  },
+  {
+   "id": "HassMediaPrevious_s18",
+   "text": "房間跳到上一首歌曲",
+   "expect": "HassMediaPrevious:房間"
+  },
+  {
+   "id": "HassMediaPrevious_s19",
+   "text": "廚房播放上一個歌曲",
+   "expect": "HassMediaPrevious:廚房"
+  },
+  {
+   "id": "HassMediaPrevious_s20",
+   "text": "客廳播放上一首歌曲",
+   "expect": "HassMediaPrevious:客廳"
+  },
+  {
+   "id": "HassMediaPrevious_s21",
+   "text": "廚房播放上一台",
+   "expect": "HassMediaPrevious:廚房"
+  },
+  {
+   "id": "HassMediaPrevious_s22",
+   "text": "播放書房的上一首歌曲",
+   "expect": "HassMediaPrevious:書房"
+  },
+  {
+   "id": "HassMediaPrevious_s23",
+   "text": "播放書房的上一台",
+   "expect": "HassMediaPrevious:書房"
+  },
+  {
+   "id": "HassMediaPrevious_s24",
+   "text": "切到客廳上一首",
+   "expect": "HassMediaPrevious:客廳"
+  },
+  {
+   "id": "HassMediaPrevious_s25",
+   "text": "房間切到上一集歌",
+   "expect": "HassMediaPrevious:房間"
+  },
+  {
+   "id": "HassMediaPrevious_s26",
+   "text": "切到客廳上一個歌曲",
+   "expect": "HassMediaPrevious:客廳"
+  },
+  {
+   "id": "HassMediaPrevious_s27",
+   "text": "客廳播放上一集歌",
+   "expect": "HassMediaPrevious:客廳"
+  },
+  {
+   "id": "HassMediaPrevious_s28",
+   "text": "浴室播放上一台歌",
+   "expect": "HassMediaPrevious:浴室"
+  },
+  {
+   "id": "HassMediaPrevious_s29",
+   "text": "浴室上一台",
+   "expect": "HassMediaPrevious:浴室"
+  },
+  {
+   "id": "HassMediaPrevious_s30",
+   "text": "播放書房上一集",
+   "expect": "HassMediaPrevious:書房"
+  },
+  {
+   "id": "HassMediaPrevious_s31",
+   "text": "客廳切到上一首歌",
+   "expect": "HassMediaPrevious:客廳"
+  },
+  {
+   "id": "HassMediaPrevious_s32",
+   "text": "播放廚房上一個歌",
+   "expect": "HassMediaPrevious:廚房"
+  },
+  {
+   "id": "HassMediaPrevious_s33",
+   "text": "廚房切到上一個",
+   "expect": "HassMediaPrevious:廚房"
+  },
+  {
+   "id": "HassMediaPrevious_s34",
+   "text": "房間跳到上一首歌",
+   "expect": "HassMediaPrevious:房間"
+  },
+  {
+   "id": "HassMediaPrevious_s35",
+   "text": "房間上一個",
+   "expect": "HassMediaPrevious:房間"
+  },
+  {
+   "id": "HassMediaPrevious_s36",
+   "text": "書房上一集歌曲",
+   "expect": "HassMediaPrevious:書房"
+  },
+  {
+   "id": "HassMediaPrevious_s37",
+   "text": "房間播放上一個歌",
+   "expect": "HassMediaPrevious:房間"
+  },
+  {
+   "id": "HassMediaPrevious_s38",
+   "text": "播放客廳的上一集歌曲",
+   "expect": "HassMediaPrevious:客廳"
+  },
+  {
+   "id": "HassMediaPrevious_s39",
+   "text": "切到客廳的上一首",
+   "expect": "HassMediaPrevious:客廳"
+  },
+  {
+   "id": "HassMediaUnpause_s0",
+   "text": "讓客廳音樂繼續播放",
+   "expect": "HassMediaUnpause:客廳"
+  },
+  {
+   "id": "HassMediaUnpause_s1",
+   "text": "恢復播放客廳音樂",
+   "expect": "HassMediaUnpause:客廳"
+  },
+  {
+   "id": "HassMediaUnpause_s2",
+   "text": "繼續播放房間的節目",
+   "expect": "HassMediaUnpause:房間"
+  },
+  {
+   "id": "HassMediaUnpause_s3",
+   "text": "恢復播放浴室媒體播放器",
+   "expect": "HassMediaUnpause:浴室"
+  },
+  {
+   "id": "HassMediaUnpause_s4",
+   "text": "讓廚房節目繼續播放",
+   "expect": "HassMediaUnpause:廚房"
+  },
+  {
+   "id": "HassMediaUnpause_s5",
+   "text": "讓廚房的音樂繼續",
+   "expect": "HassMediaUnpause:廚房"
+  },
+  {
+   "id": "HassMediaUnpause_s6",
+   "text": "客廳的音樂繼續",
+   "expect": "HassMediaUnpause:客廳"
+  },
+  {
+   "id": "HassMediaUnpause_s7",
+   "text": "讓房間的節目繼續播放",
+   "expect": "HassMediaUnpause:房間"
+  },
+  {
+   "id": "HassMediaUnpause_s8",
+   "text": "讓房間的節目繼續",
+   "expect": "HassMediaUnpause:房間"
+  },
+  {
+   "id": "HassMediaUnpause_s9",
+   "text": "房間節目繼續",
+   "expect": "HassMediaUnpause:房間"
+  },
+  {
+   "id": "HassMediaUnpause_s10",
+   "text": "浴室音樂繼續播放",
+   "expect": "HassMediaUnpause:浴室"
+  },
+  {
+   "id": "HassMediaUnpause_s11",
+   "text": "讓房間媒體播放器繼續",
+   "expect": "HassMediaUnpause:房間"
+  },
+  {
+   "id": "HassMediaUnpause_s12",
+   "text": "恢復播放廚房媒體播放器",
+   "expect": "HassMediaUnpause:廚房"
+  },
+  {
+   "id": "HassMediaUnpause_s13",
+   "text": "廚房音樂繼續",
+   "expect": "HassMediaUnpause:廚房"
+  },
+  {
+   "id": "HassMediaUnpause_s14",
+   "text": "繼續播放浴室的媒體播放器",
+   "expect": "HassMediaUnpause:浴室"
+  },
+  {
+   "id": "HassMediaUnpause_s15",
+   "text": "繼續播放書房的媒體播放器",
+   "expect": "HassMediaUnpause:書房"
+  },
+  {
+   "id": "HassMediaUnpause_s16",
+   "text": "房間的媒體播放器繼續播放",
+   "expect": "HassMediaUnpause:房間"
+  },
+  {
+   "id": "HassMediaUnpause_s17",
+   "text": "廚房的媒體播放器繼續播放",
+   "expect": "HassMediaUnpause:廚房"
+  },
+  {
+   "id": "HassMediaUnpause_s18",
+   "text": "讓房間音樂繼續播放",
+   "expect": "HassMediaUnpause:房間"
+  },
+  {
+   "id": "HassMediaUnpause_s19",
+   "text": "恢復播放房間節目",
+   "expect": "HassMediaUnpause:房間"
+  },
+  {
+   "id": "HassMediaUnpause_s20",
+   "text": "讓浴室的音樂繼續播放",
+   "expect": "HassMediaUnpause:浴室"
+  },
+  {
+   "id": "HassMediaUnpause_s21",
+   "text": "恢復播放房間的節目",
+   "expect": "HassMediaUnpause:房間"
+  },
+  {
+   "id": "HassMediaUnpause_s22",
+   "text": "恢復播放客廳的媒體播放器",
+   "expect": "HassMediaUnpause:客廳"
+  },
+  {
+   "id": "HassMediaUnpause_s23",
+   "text": "恢復播放書房音樂",
+   "expect": "HassMediaUnpause:書房"
+  },
+  {
+   "id": "HassMediaUnpause_s24",
+   "text": "讓房間節目繼續播放",
+   "expect": "HassMediaUnpause:房間"
+  },
+  {
+   "id": "HassMediaUnpause_s25",
+   "text": "客廳媒體播放器繼續播放",
+   "expect": "HassMediaUnpause:客廳"
+  },
+  {
+   "id": "HassMediaUnpause_s26",
+   "text": "讓客廳的節目繼續播放",
+   "expect": "HassMediaUnpause:客廳"
+  },
+  {
+   "id": "HassMediaUnpause_s27",
+   "text": "讓客廳的音樂繼續播放",
+   "expect": "HassMediaUnpause:客廳"
+  },
+  {
+   "id": "HassMediaUnpause_s28",
+   "text": "讓廚房媒體播放器繼續",
+   "expect": "HassMediaUnpause:廚房"
+  },
+  {
+   "id": "HassMediaUnpause_s29",
+   "text": "讓浴室媒體播放器繼續",
+   "expect": "HassMediaUnpause:浴室"
+  },
+  {
+   "id": "HassMediaUnpause_s30",
+   "text": "書房的音樂繼續",
+   "expect": "HassMediaUnpause:書房"
+  },
+  {
+   "id": "HassMediaUnpause_s31",
+   "text": "繼續播放房間媒體播放器",
+   "expect": "HassMediaUnpause:房間"
+  },
+  {
+   "id": "HassMediaUnpause_s32",
+   "text": "廚房節目繼續",
+   "expect": "HassMediaUnpause:廚房"
+  },
+  {
+   "id": "HassMediaUnpause_s33",
+   "text": "繼續播放客廳媒體播放器",
+   "expect": "HassMediaUnpause:客廳"
+  },
+  {
+   "id": "HassNevermind_s0",
+   "text": "閉嘴",
+   "expect": "HassNevermind"
+  },
+  {
+   "id": "HassNevermind_s1",
+   "text": "沒事了",
+   "expect": "HassNevermind"
+  },
+  {
+   "id": "HassNevermind_s2",
+   "text": "取消",
+   "expect": "HassNevermind"
+  },
+  {
+   "id": "HassNevermind_s3",
+   "text": "再見",
+   "expect": "HassNevermind"
+  },
+  {
+   "id": "HassNevermind_s4",
+   "text": "沒事",
+   "expect": "HassNevermind"
+  },
+  {
+   "id": "HassNevermind_s5",
+   "text": "算了吧",
+   "expect": "HassNevermind"
+  },
+  {
+   "id": "HassNevermind_s6",
+   "text": "沒關係",
+   "expect": "HassNevermind"
+  },
+  {
+   "id": "HassNevermind_s7",
+   "text": "算了",
+   "expect": "HassNevermind"
+  },
+  {
+   "id": "HassPauseTimer_s0",
+   "text": "暫停書房計時器",
+   "expect": "HassPauseTimer:書房"
+  },
+  {
+   "id": "HassPauseTimer_s1",
+   "text": "暫停我的26秒倒數計時器",
+   "expect": "HassPauseTimer:26秒倒數"
+  },
+  {
+   "id": "HassPauseTimer_s2",
+   "text": "暫停我的26分鐘計時器",
+   "expect": "HassPauseTimer:start_minutes=26.0"
+  },
+  {
+   "id": "HassPauseTimer_s3",
+   "text": "暫停我的26小時計時器",
+   "expect": "HassPauseTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassPauseTimer_s4",
+   "text": "暫停26小時的倒數計時器",
+   "expect": "HassPauseTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassPauseTimer_s5",
+   "text": "暫停廚房計時器",
+   "expect": "HassPauseTimer:廚房"
+  },
+  {
+   "id": "HassPauseTimer_s6",
+   "text": "暫停那個26小時倒數計時器",
+   "expect": "HassPauseTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassPauseTimer_s7",
+   "text": "暫停26分鐘的計時器",
+   "expect": "HassPauseTimer:start_minutes=26.0"
+  },
+  {
+   "id": "HassPauseTimer_s8",
+   "text": "暫停26小時倒數計時器",
+   "expect": "HassPauseTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassPauseTimer_s9",
+   "text": "暫停那個26秒倒數計時器",
+   "expect": "HassPauseTimer:那個26秒倒數"
+  },
+  {
+   "id": "HassPauseTimer_s10",
+   "text": "暫停房間倒數計時器",
+   "expect": "HassPauseTimer:房間"
+  },
+  {
+   "id": "HassPauseTimer_s11",
+   "text": "暫停那個26分鐘的計時器",
+   "expect": "HassPauseTimer:start_minutes=26.0"
+  },
+  {
+   "id": "HassPauseTimer_s12",
+   "text": "暫停我的26分鐘的計時器",
+   "expect": "HassPauseTimer:start_minutes=26.0"
+  },
+  {
+   "id": "HassPauseTimer_s13",
+   "text": "暫停客廳的倒數計時器",
+   "expect": "HassPauseTimer:客廳"
+  },
+  {
+   "id": "HassPauseTimer_s14",
+   "text": "暫停我的26分鐘的倒數計時器",
+   "expect": "HassPauseTimer:start_minutes=26.0"
+  },
+  {
+   "id": "HassPauseTimer_s15",
+   "text": "暫停26個小時的倒數計時器",
+   "expect": "HassPauseTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassPauseTimer_s16",
+   "text": "暫停26秒鐘的計時器",
+   "expect": "HassPauseTimer:26秒鐘"
+  },
+  {
+   "id": "HassPauseTimer_s17",
+   "text": "暫停那個26個小時計時器",
+   "expect": "HassPauseTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassPauseTimer_s18",
+   "text": "暫停26秒計時器",
+   "expect": "HassPauseTimer:26秒"
+  },
+  {
+   "id": "HassPauseTimer_s19",
+   "text": "暫停我的26小時的倒數計時器",
+   "expect": "HassPauseTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassPauseTimer_s20",
+   "text": "暫停那個26秒鐘的計時器",
+   "expect": "HassPauseTimer:那個26秒鐘"
+  },
+  {
+   "id": "HassPauseTimer_s21",
+   "text": "暫停房間的倒數計時器",
+   "expect": "HassPauseTimer:房間"
+  },
+  {
+   "id": "HassPauseTimer_s22",
+   "text": "暫停那個26秒鐘倒數計時器",
+   "expect": "HassPauseTimer:那個26秒鐘倒數"
+  },
+  {
+   "id": "HassPauseTimer_s23",
+   "text": "暫停廚房倒數計時器",
+   "expect": "HassPauseTimer:廚房"
+  },
+  {
+   "id": "HassPauseTimer_s24",
+   "text": "暫停那個26分鐘計時器",
+   "expect": "HassPauseTimer:start_minutes=26.0"
+  },
+  {
+   "id": "HassPauseTimer_s25",
+   "text": "暫停房間計時器",
+   "expect": "HassPauseTimer:房間"
+  },
+  {
+   "id": "HassPauseTimer_s26",
+   "text": "暫停書房的倒數計時器",
+   "expect": "HassPauseTimer:書房"
+  },
+  {
+   "id": "HassPauseTimer_s27",
+   "text": "暫停我的26秒的倒數計時器",
+   "expect": "HassPauseTimer:26秒"
+  },
+  {
+   "id": "HassPauseTimer_s28",
+   "text": "暫停我的26個小時倒數計時器",
+   "expect": "HassPauseTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassPauseTimer_s29",
+   "text": "暫停26秒的計時器",
+   "expect": "HassPauseTimer:26秒"
+  },
+  {
+   "id": "HassPauseTimer_s30",
+   "text": "暫停26小時的計時器",
+   "expect": "HassPauseTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassPauseTimer_s31",
+   "text": "暫停廚房的倒數計時器",
+   "expect": "HassPauseTimer:廚房"
+  },
+  {
+   "id": "HassPauseTimer_s32",
+   "text": "暫停26分鐘倒數計時器",
+   "expect": "HassPauseTimer:start_minutes=26.0"
+  },
+  {
+   "id": "HassPauseTimer_s33",
+   "text": "暫停我的26秒鐘的倒數計時器",
+   "expect": "HassPauseTimer:26秒鐘"
+  },
+  {
+   "id": "HassPauseTimer_s34",
+   "text": "暫停那個26小時的計時器",
+   "expect": "HassPauseTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassPauseTimer_s35",
+   "text": "暫停那個26個小時的倒數計時器",
+   "expect": "HassPauseTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassPauseTimer_s36",
+   "text": "暫停那個26秒鐘的倒數計時器",
+   "expect": "HassPauseTimer:那個26秒鐘"
+  },
+  {
+   "id": "HassPauseTimer_s37",
+   "text": "暫停那個26秒計時器",
+   "expect": "HassPauseTimer:那個26秒"
+  },
+  {
+   "id": "HassPauseTimer_s38",
+   "text": "暫停那個26個小時倒數計時器",
+   "expect": "HassPauseTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassPauseTimer_s39",
+   "text": "暫停那個26秒的倒數計時器",
+   "expect": "HassPauseTimer:那個26秒"
+  },
+  {
+   "id": "HassRespond_s0",
+   "text": "你是不會一直在聽嗎",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s1",
+   "text": "我的資料會傳到哪",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s2",
+   "text": "你是不是一直聽嗎",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s3",
+   "text": "我的資料傳到哪裡",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s4",
+   "text": "你會不是一直聽嗎",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s5",
+   "text": "你是不是一直錄音嗎",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s6",
+   "text": "你是誰製作的",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s7",
+   "text": "你會不會一直聽嗎",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s8",
+   "text": "我的資料會送到哪裡",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s9",
+   "text": "你會一直聽嗎",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s10",
+   "text": "你是不會一直錄音嗎",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s11",
+   "text": "你好",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s12",
+   "text": "我的資料會傳到哪邊",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s13",
+   "text": "我可以說什麼",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s14",
+   "text": "我的資料傳到哪邊",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s15",
+   "text": "你會不會一直錄音嗎",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s16",
+   "text": "我能說什麼",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s17",
+   "text": "你會不會一直在聽嗎",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s18",
+   "text": "你是一直在錄音嗎",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s19",
+   "text": "你是不是一直在錄音嗎",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s20",
+   "text": "我的資料會送到哪",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s21",
+   "text": "你是不會一直聽嗎",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s22",
+   "text": "你是不是一直在聽嗎",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s23",
+   "text": "你會不會一直在錄音嗎",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s24",
+   "text": "我的資料送到哪裡",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s25",
+   "text": "你是誰做的",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s26",
+   "text": "嗨",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s27",
+   "text": "你是一直錄音嗎",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s28",
+   "text": "你會不是一直在聽嗎",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s29",
+   "text": "你會一直在錄音嗎",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s30",
+   "text": "你會不是一直在錄音嗎",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s31",
+   "text": "你會不是一直錄音嗎",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s32",
+   "text": "我的資料會送到哪邊",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s33",
+   "text": "哈囉",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s34",
+   "text": "我可以問什麼",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s35",
+   "text": "你會一直錄音嗎",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s36",
+   "text": "你是誰創造的",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s37",
+   "text": "你是一直聽嗎",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s38",
+   "text": "你會一直在聽嗎",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassRespond_s39",
+   "text": "我能問什麼",
+   "expect": "HassRespond"
+  },
+  {
+   "id": "HassSetPosition_s0",
+   "text": "把客廳的遮陽棚的位置變更成百分之26",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s1",
+   "text": "把客廳的遮陽棚的設為26趴",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s2",
+   "text": "把客廳的遮陽棚的設定成百分之26趴",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s3",
+   "text": "把客廳的遮陽棚的位置調整為26",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s4",
+   "text": "把客廳的遮陽棚的位置調整成26",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s5",
+   "text": "把客廳的遮陽棚的位置設定為百分之26",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s6",
+   "text": "把客廳的遮陽棚的設定至26",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s7",
+   "text": "把客廳的遮陽棚的位置設置成26趴",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s8",
+   "text": "把客廳的遮陽棚的位置調至百分之26%",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s9",
+   "text": "把客廳的遮陽棚的位置調為百分之26%",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s10",
+   "text": "把客廳的遮陽棚的設定為26趴",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s11",
+   "text": "把客廳的遮陽棚的位置設置為百分之26",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s12",
+   "text": "把客廳的遮陽棚的設到百分之26",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s13",
+   "text": "把客廳的遮陽棚的位置設至26%",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s14",
+   "text": "把客廳的遮陽棚的位置設到26%",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s15",
+   "text": "把客廳的遮陽棚的位置設至百分之26%",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s16",
+   "text": "把客廳的遮陽棚的位置設置至百分之26趴",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s17",
+   "text": "把客廳的遮陽棚的位置調到百分之26%",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s18",
+   "text": "把客廳的遮陽棚的位置變更成26趴",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s19",
+   "text": "把客廳的遮陽棚的位置調成26%",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s20",
+   "text": "把客廳的遮陽棚的位置設定到百分之26%",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s21",
+   "text": "把客廳的遮陽棚的位置變更成26%",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s22",
+   "text": "把客廳的遮陽棚的位置設置成26%",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s23",
+   "text": "把客廳的遮陽棚的位置設定成26",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s24",
+   "text": "把客廳的遮陽棚的位置設成26",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s25",
+   "text": "把客廳的遮陽棚的位置調整到26趴",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s26",
+   "text": "把客廳的遮陽棚的位置調為百分之26",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s27",
+   "text": "把客廳的遮陽棚的設置為百分之26",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s28",
+   "text": "把客廳的遮陽棚的位置變更成百分之26趴",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s29",
+   "text": "把客廳的遮陽棚的位置設定到26趴",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s30",
+   "text": "把客廳的遮陽棚的設為百分之26",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s31",
+   "text": "把客廳的遮陽棚的設定至26趴",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s32",
+   "text": "把客廳的遮陽棚的設成26趴",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s33",
+   "text": "把客廳的遮陽棚的位置設置為26",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s34",
+   "text": "把客廳的遮陽棚的設定成百分之26",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s35",
+   "text": "把客廳的遮陽棚的設置為26%",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s36",
+   "text": "把客廳的遮陽棚的位置調整到26%",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s37",
+   "text": "把客廳的遮陽棚的設至百分之26%",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s38",
+   "text": "把客廳的遮陽棚的位置變更至百分之26趴",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetPosition_s39",
+   "text": "把客廳的遮陽棚的位置調整到百分之26趴",
+   "expect": "HassSetPosition:客廳/awning|position=26.0"
+  },
+  {
+   "id": "HassSetVolume_s0",
+   "text": "把客廳音量設定至26%",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s1",
+   "text": "把客廳音量設置到百分之26趴",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s2",
+   "text": "把客廳的音量設置至26",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s3",
+   "text": "把客廳的音量調為百分之26",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s4",
+   "text": "把客廳的音量調整成26",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s5",
+   "text": "把客廳的音量調至26",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s6",
+   "text": "把客廳音量設為百分之26趴",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s7",
+   "text": "把客廳音量設成26趴",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s8",
+   "text": "把客廳的音量設定到26",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s9",
+   "text": "把客廳的音量設定成26趴",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s10",
+   "text": "把客廳的音量設定到百分之26趴",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s11",
+   "text": "把客廳音量設定到26趴",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s12",
+   "text": "把客廳的音量設定到百分之26%",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s13",
+   "text": "把客廳的音量調整為百分之26趴",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s14",
+   "text": "把客廳的音量調整到百分之26%",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s15",
+   "text": "把客廳音量設到百分之26趴",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s16",
+   "text": "把客廳的音量調整至26",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s17",
+   "text": "把客廳音量設置為百分之26%",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s18",
+   "text": "把客廳的音量變更至26",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s19",
+   "text": "把客廳音量設定為26%",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s20",
+   "text": "把客廳的音量調為26趴",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s21",
+   "text": "把客廳的音量調至百分之26%",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s22",
+   "text": "把客廳音量設成26",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s23",
+   "text": "把客廳的音量變更為百分之26趴",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s24",
+   "text": "把客廳的音量調整到26趴",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s25",
+   "text": "把客廳的音量設置到百分之26趴",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s26",
+   "text": "把客廳的音量變更為百分之26",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s27",
+   "text": "把客廳的音量變更為26",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s28",
+   "text": "把客廳的音量變更到百分之26",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s29",
+   "text": "把客廳的音量調到26%",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s30",
+   "text": "把客廳的音量變更到百分之26%",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s31",
+   "text": "把客廳音量設至26趴",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s32",
+   "text": "把客廳的音量設成26%",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s33",
+   "text": "把客廳音量設置為26趴",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s34",
+   "text": "把客廳音量設定成百分之26%",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s35",
+   "text": "把客廳的音量設定成百分之26%",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s36",
+   "text": "把客廳音量設定為百分之26",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s37",
+   "text": "把客廳的音量設成百分之26趴",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s38",
+   "text": "把客廳音量設成26%",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolume_s39",
+   "text": "把客廳音量設定到百分之26趴",
+   "expect": "HassSetVolume:客廳|volume_level=26.0"
+  },
+  {
+   "id": "HassSetVolumeRelative_s0",
+   "text": "把客廳的音量調小一些",
+   "expect": "HassSetVolumeRelative:客廳|volume_step=down"
+  },
+  {
+   "id": "HassSetVolumeRelative_s1",
+   "text": "把浴室音量調小一些",
+   "expect": "HassSetVolumeRelative:浴室|volume_step=down"
+  },
+  {
+   "id": "HassSetVolumeRelative_s2",
+   "text": "將客廳的音量調大一些",
+   "expect": "HassSetVolumeRelative:客廳|volume_step=up"
+  },
+  {
+   "id": "HassSetVolumeRelative_s3",
+   "text": "把書房的音量變大",
+   "expect": "HassSetVolumeRelative:書房|volume_step=up"
+  },
+  {
+   "id": "HassSetVolumeRelative_s4",
+   "text": "把客廳的音量調高",
+   "expect": "HassSetVolumeRelative:客廳|volume_step=up"
+  },
+  {
+   "id": "HassSetVolumeRelative_s5",
+   "text": "將客廳音量調高",
+   "expect": "HassSetVolumeRelative:客廳|volume_step=up"
+  },
+  {
+   "id": "HassSetVolumeRelative_s6",
+   "text": "把客廳音量大聲一些",
+   "expect": "HassSetVolumeRelative:客廳|volume_step=up"
+  },
+  {
+   "id": "HassSetVolumeRelative_s7",
+   "text": "將廚房的音量調低一點",
+   "expect": "HassSetVolumeRelative:廚房|volume_step=down"
+  },
+  {
+   "id": "HassSetVolumeRelative_s8",
+   "text": "把客廳音量調低",
+   "expect": "HassSetVolumeRelative:客廳|volume_step=down"
+  },
+  {
+   "id": "HassSetVolumeRelative_s9",
+   "text": "將廚房音量變小一些",
+   "expect": "HassSetVolumeRelative:廚房|volume_step=down"
+  },
+  {
+   "id": "HassSetVolumeRelative_s10",
+   "text": "將廚房的音量變大一點",
+   "expect": "HassSetVolumeRelative:廚房|volume_step=up"
+  },
+  {
+   "id": "HassSetVolumeRelative_s11",
+   "text": "把書房的音量大聲一些",
+   "expect": "HassSetVolumeRelative:書房|volume_step=up"
+  },
+  {
+   "id": "HassSetVolumeRelative_s12",
+   "text": "把客廳的音量調高一點",
+   "expect": "HassSetVolumeRelative:客廳|volume_step=up"
+  },
+  {
+   "id": "HassSetVolumeRelative_s13",
+   "text": "把浴室音量調低一些",
+   "expect": "HassSetVolumeRelative:浴室|volume_step=down"
+  },
+  {
+   "id": "HassSetVolumeRelative_s14",
+   "text": "把客廳的音量小聲一點",
+   "expect": "HassSetVolumeRelative:客廳|volume_step=down"
+  },
+  {
+   "id": "HassSetVolumeRelative_s15",
+   "text": "把房間的音量大聲",
+   "expect": "HassSetVolumeRelative:房間|volume_step=up"
+  },
+  {
+   "id": "HassSetVolumeRelative_s16",
+   "text": "將房間音量調高",
+   "expect": "HassSetVolumeRelative:房間|volume_step=up"
+  },
+  {
+   "id": "HassSetVolumeRelative_s17",
+   "text": "把客廳的音量調大一些",
+   "expect": "HassSetVolumeRelative:客廳|volume_step=up"
+  },
+  {
+   "id": "HassSetVolumeRelative_s18",
+   "text": "把廚房音量變小一點",
+   "expect": "HassSetVolumeRelative:廚房|volume_step=down"
+  },
+  {
+   "id": "HassSetVolumeRelative_s19",
+   "text": "將房間音量調低一點",
+   "expect": "HassSetVolumeRelative:房間|volume_step=down"
+  },
+  {
+   "id": "HassSetVolumeRelative_s20",
+   "text": "將廚房的音量小聲一些",
+   "expect": "HassSetVolumeRelative:廚房|volume_step=down"
+  },
+  {
+   "id": "HassSetVolumeRelative_s21",
+   "text": "把浴室的音量調高",
+   "expect": "HassSetVolumeRelative:浴室|volume_step=up"
+  },
+  {
+   "id": "HassSetVolumeRelative_s22",
+   "text": "將廚房音量調小一點",
+   "expect": "HassSetVolumeRelative:廚房|volume_step=down"
+  },
+  {
+   "id": "HassSetVolumeRelative_s23",
+   "text": "把廚房的音量變小",
+   "expect": "HassSetVolumeRelative:廚房|volume_step=down"
+  },
+  {
+   "id": "HassSetVolumeRelative_s24",
+   "text": "把房間音量調大一點",
+   "expect": "HassSetVolumeRelative:房間|volume_step=up"
+  },
+  {
+   "id": "HassSetVolumeRelative_s25",
+   "text": "將浴室的音量調大一點",
+   "expect": "HassSetVolumeRelative:浴室|volume_step=up"
+  },
+  {
+   "id": "HassSetVolumeRelative_s26",
+   "text": "將房間的音量調高",
+   "expect": "HassSetVolumeRelative:房間|volume_step=up"
+  },
+  {
+   "id": "HassSetVolumeRelative_s27",
+   "text": "把浴室的音量調高一點",
+   "expect": "HassSetVolumeRelative:浴室|volume_step=up"
+  },
+  {
+   "id": "HassSetVolumeRelative_s28",
+   "text": "把廚房的音量調大一些",
+   "expect": "HassSetVolumeRelative:廚房|volume_step=up"
+  },
+  {
+   "id": "HassSetVolumeRelative_s29",
+   "text": "把房間的音量調高",
+   "expect": "HassSetVolumeRelative:房間|volume_step=up"
+  },
+  {
+   "id": "HassSetVolumeRelative_s30",
+   "text": "把書房音量變大一點",
+   "expect": "HassSetVolumeRelative:書房|volume_step=up"
+  },
+  {
+   "id": "HassSetVolumeRelative_s31",
+   "text": "把書房音量變小一些",
+   "expect": "HassSetVolumeRelative:書房|volume_step=down"
+  },
+  {
+   "id": "HassSetVolumeRelative_s32",
+   "text": "將廚房音量變大一點",
+   "expect": "HassSetVolumeRelative:廚房|volume_step=up"
+  },
+  {
+   "id": "HassSetVolumeRelative_s33",
+   "text": "把浴室音量調大一些",
+   "expect": "HassSetVolumeRelative:浴室|volume_step=up"
+  },
+  {
+   "id": "HassSetVolumeRelative_s34",
+   "text": "把書房的音量調高一些",
+   "expect": "HassSetVolumeRelative:書房|volume_step=up"
+  },
+  {
+   "id": "HassSetVolumeRelative_s35",
+   "text": "把房間音量調小",
+   "expect": "HassSetVolumeRelative:房間|volume_step=down"
+  },
+  {
+   "id": "HassSetVolumeRelative_s36",
+   "text": "把書房的音量小聲",
+   "expect": "HassSetVolumeRelative:書房|volume_step=down"
+  },
+  {
+   "id": "HassSetVolumeRelative_s37",
+   "text": "將房間音量變小一些",
+   "expect": "HassSetVolumeRelative:房間|volume_step=down"
+  },
+  {
+   "id": "HassSetVolumeRelative_s38",
+   "text": "把房間音量調高一點",
+   "expect": "HassSetVolumeRelative:房間|volume_step=up"
+  },
+  {
+   "id": "HassSetVolumeRelative_s39",
+   "text": "把書房音量調小一些",
+   "expect": "HassSetVolumeRelative:書房|volume_step=down"
+  },
+  {
+   "id": "HassStartTimer_s0",
+   "text": "26個小時又26分鐘計時器",
+   "expect": "HassStartTimer:conversation_command=又26分鐘計時器,hours=26.0"
+  },
+  {
+   "id": "HassStartTimer_s1",
+   "text": "設一個26小時又26分鐘倒數計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s2",
+   "text": "建立一個26小時26分鐘的計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s3",
+   "text": "開始個26個小時又26分鐘的倒數計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s4",
+   "text": "設一個26個小時又26分鐘計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s5",
+   "text": "設個26小時又26分鐘計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s6",
+   "text": "設一26小時26分鐘倒數計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s7",
+   "text": "啟動個26個小時又26分鐘倒數計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s8",
+   "text": "開始26個小時又26分鐘計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s9",
+   "text": "啟動一個26個小時26分鐘倒數計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s10",
+   "text": "啟動一26小時又26分鐘計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s11",
+   "text": "啟動26小時又26分鐘倒數計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s12",
+   "text": "26小時26分鐘的倒數計時器",
+   "expect": "HassStartTimer:conversation_command=26分鐘的倒數計時器,hours=26.0"
+  },
+  {
+   "id": "HassStartTimer_s13",
+   "text": "設26個小時又26分鐘的計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s14",
+   "text": "設個26個小時26分鐘的計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s15",
+   "text": "啟動個26個小時又26分鐘的計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s16",
+   "text": "設個26小時又26分鐘的計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s17",
+   "text": "建立個26小時26分鐘的計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s18",
+   "text": "26個小時又26分鐘倒數計時器",
+   "expect": "HassStartTimer:conversation_command=又26分鐘倒數計時器,hours=26.0"
+  },
+  {
+   "id": "HassStartTimer_s19",
+   "text": "設定一26小時又26分鐘的倒數計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s20",
+   "text": "啟動一個26個小時26分鐘計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s21",
+   "text": "設定一26個小時又26分鐘的倒數計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s22",
+   "text": "設26個小時26分鐘倒數計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s23",
+   "text": "設定倒數計時器26個小時又26分鐘",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s24",
+   "text": "設定個26小時又26分鐘倒數計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s25",
+   "text": "開始26小時又26分鐘計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s26",
+   "text": "設定一26小時26分鐘的倒數計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s27",
+   "text": "計時26個小時又26分鐘",
+   "expect": "HassStartTimer:conversation_command=又26分鐘,hours=26.0"
+  },
+  {
+   "id": "HassStartTimer_s28",
+   "text": "設定倒數計時器26小時又26分鐘",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s29",
+   "text": "啟動計時器26小時又26分鐘",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s30",
+   "text": "設一26小時又26分鐘的計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s31",
+   "text": "建立26小時又26分鐘的計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s32",
+   "text": "開始一26小時又26分鐘的計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s33",
+   "text": "建立26小時又26分鐘的倒數計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s34",
+   "text": "設定個26小時26分鐘的計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s35",
+   "text": "26個小時又26分鐘的計時器",
+   "expect": "HassStartTimer:conversation_command=又26分鐘的計時器,hours=26.0"
+  },
+  {
+   "id": "HassStartTimer_s36",
+   "text": "建立一個26個小時26分鐘計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s37",
+   "text": "設定一個26個半小時的計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=30"
+  },
+  {
+   "id": "HassStartTimer_s38",
+   "text": "開始一26個小時又26分鐘的倒數計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=26.0"
+  },
+  {
+   "id": "HassStartTimer_s39",
+   "text": "設定個26個半小時計時器",
+   "expect": "HassStartTimer:hours=26.0,minutes=30"
+  },
+  {
+   "id": "HassTimerStatus_s0",
+   "text": "書房的倒數計時器還有多少時間",
+   "expect": "HassTimerStatus:書房"
+  },
+  {
+   "id": "HassTimerStatus_s1",
+   "text": "我的計時器還要多少時間",
+   "expect": "HassTimerStatus"
+  },
+  {
+   "id": "HassTimerStatus_s2",
+   "text": "倒數計時器還要多少時間",
+   "expect": "HassTimerStatus"
+  },
+  {
+   "id": "HassTimerStatus_s3",
+   "text": "浴室的倒數計時器狀態",
+   "expect": "HassTimerStatus:浴室"
+  },
+  {
+   "id": "HassTimerStatus_s4",
+   "text": "那個26小時計時器還要多久",
+   "expect": "HassTimerStatus:start_hours=26.0"
+  },
+  {
+   "id": "HassTimerStatus_s5",
+   "text": "那個26個小時的倒數計時器還有多少時間",
+   "expect": "HassTimerStatus:start_hours=26.0"
+  },
+  {
+   "id": "HassTimerStatus_s6",
+   "text": "計時器還剩多少時間",
+   "expect": "HassTimerStatus"
+  },
+  {
+   "id": "HassTimerStatus_s7",
+   "text": "那個26個小時倒數計時器還有多久",
+   "expect": "HassTimerStatus:start_hours=26.0"
+  },
+  {
+   "id": "HassTimerStatus_s8",
+   "text": "倒數計時器還有多少時間",
+   "expect": "HassTimerStatus"
+  },
+  {
+   "id": "HassTimerStatus_s9",
+   "text": "那個26小時倒數計時器的狀態",
+   "expect": "HassTimerStatus:start_hours=26.0"
+  },
+  {
+   "id": "HassTimerStatus_s10",
+   "text": "廚房倒數計時器剩下多少時間",
+   "expect": "HassTimerStatus:廚房"
+  },
+  {
+   "id": "HassTimerStatus_s11",
+   "text": "那個26個小時倒數計時器狀態",
+   "expect": "HassTimerStatus:start_hours=26.0"
+  },
+  {
+   "id": "HassTimerStatus_s12",
+   "text": "廚房的計時器還要多少時間",
+   "expect": "HassTimerStatus:廚房"
+  },
+  {
+   "id": "HassTimerStatus_s13",
+   "text": "書房的計時器還有多少時間",
+   "expect": "HassTimerStatus:書房"
+  },
+  {
+   "id": "HassTimerStatus_s14",
+   "text": "浴室的計時器還剩多少時間",
+   "expect": "HassTimerStatus:浴室"
+  },
+  {
+   "id": "HassTimerStatus_s15",
+   "text": "廚房計時器狀態",
+   "expect": "HassTimerStatus:廚房"
+  },
+  {
+   "id": "HassTimerStatus_s16",
+   "text": "廚房倒數計時器的狀態",
+   "expect": "HassTimerStatus:廚房"
+  },
+  {
+   "id": "HassTimerStatus_s17",
+   "text": "浴室的倒數計時器的狀態",
+   "expect": "HassTimerStatus:浴室"
+  },
+  {
+   "id": "HassTimerStatus_s18",
+   "text": "房間的倒數計時器剩下多久",
+   "expect": "HassTimerStatus:房間"
+  },
+  {
+   "id": "HassTimerStatus_s19",
+   "text": "書房的倒數計時器剩下多久",
+   "expect": "HassTimerStatus:書房"
+  },
+  {
+   "id": "HassTimerStatus_s20",
+   "text": "客廳的計時器狀態",
+   "expect": "HassTimerStatus:客廳"
+  },
+  {
+   "id": "HassTimerStatus_s21",
+   "text": "浴室的倒數計時器還有多少時間",
+   "expect": "HassTimerStatus:浴室"
+  },
+  {
+   "id": "HassTimerStatus_s22",
+   "text": "客廳的倒數計時器狀態",
+   "expect": "HassTimerStatus:客廳"
+  },
+  {
+   "id": "HassTimerStatus_s23",
+   "text": "客廳倒數計時器還要多久",
+   "expect": "HassTimerStatus:客廳"
+  },
+  {
+   "id": "HassTimerStatus_s24",
+   "text": "書房的計時器的狀態",
+   "expect": "HassTimerStatus:書房"
+  },
+  {
+   "id": "HassTimerStatus_s25",
+   "text": "我的倒數計時器還要多久",
+   "expect": "HassTimerStatus"
+  },
+  {
+   "id": "HassTimerStatus_s26",
+   "text": "廚房的倒數計時器還剩多久",
+   "expect": "HassTimerStatus:廚房"
+  },
+  {
+   "id": "HassTimerStatus_s27",
+   "text": "那個26小時的倒數計時器剩下多久",
+   "expect": "HassTimerStatus:start_hours=26.0"
+  },
+  {
+   "id": "HassTimerStatus_s28",
+   "text": "倒數計時器狀態",
+   "expect": "HassTimerStatus"
+  },
+  {
+   "id": "HassTimerStatus_s29",
+   "text": "那個26個小時計時器還剩多久",
+   "expect": "HassTimerStatus:start_hours=26.0"
+  },
+  {
+   "id": "HassTimerStatus_s30",
+   "text": "房間倒數計時器剩下多少時間",
+   "expect": "HassTimerStatus:房間"
+  },
+  {
+   "id": "HassTimerStatus_s31",
+   "text": "書房的計時器還有多久",
+   "expect": "HassTimerStatus:書房"
+  },
+  {
+   "id": "HassTurnOff_s0",
+   "text": "關書房的窗簾",
+   "expect": "HassTurnOff:書房/blind"
+  },
+  {
+   "id": "HassTurnOff_s1",
+   "text": "關客廳紗簾",
+   "expect": "HassTurnOff:客廳/blind"
+  },
+  {
+   "id": "HassTurnOff_s2",
+   "text": "關閉客廳窗簾",
+   "expect": "HassTurnOff:客廳/blind"
+  },
+  {
+   "id": "HassTurnOff_s3",
+   "text": "關客廳雨棚",
+   "expect": "HassTurnOff:客廳/awning"
+  },
+  {
+   "id": "HassTurnOff_s4",
+   "text": "關閉客廳的車庫門",
+   "expect": "HassTurnOff:客廳/garage"
+  },
+  {
+   "id": "HassTurnOff_s5",
+   "text": "關廚房的羅馬簾",
+   "expect": "HassTurnOff:廚房/blind"
+  },
+  {
+   "id": "HassTurnOff_s6",
+   "text": "關廚房的捲簾",
+   "expect": "HassTurnOff:廚房/blind"
+  },
+  {
+   "id": "HassTurnOff_s7",
+   "text": "關浴室百葉窗",
+   "expect": "HassTurnOff:浴室/blind"
+  },
+  {
+   "id": "HassTurnOff_s8",
+   "text": "關浴室的雨棚",
+   "expect": "HassTurnOff:浴室/awning"
+  },
+  {
+   "id": "HassTurnOff_s9",
+   "text": "關廚房的紗簾",
+   "expect": "HassTurnOff:廚房/blind"
+  },
+  {
+   "id": "HassTurnOff_s10",
+   "text": "關房間門簾",
+   "expect": "HassTurnOff:房間/blind"
+  },
+  {
+   "id": "HassTurnOff_s11",
+   "text": "關客廳的紗簾",
+   "expect": "HassTurnOff:客廳/blind"
+  },
+  {
+   "id": "HassTurnOff_s12",
+   "text": "關浴室遮陽棚",
+   "expect": "HassTurnOff:浴室/awning"
+  },
+  {
+   "id": "HassTurnOff_s13",
+   "text": "關客廳的房間門",
+   "expect": "HassTurnOff:客廳/door"
+  },
+  {
+   "id": "HassTurnOff_s14",
+   "text": "關房間的門",
+   "expect": "HassTurnOff:房間/door"
+  },
+  {
+   "id": "HassTurnOff_s15",
+   "text": "關廚房的鋁窗",
+   "expect": "HassTurnOff:廚房/window"
+  },
+  {
+   "id": "HassTurnOff_s16",
+   "text": "關客廳遮雨棚",
+   "expect": "HassTurnOff:客廳/awning"
+  },
+  {
+   "id": "HassTurnOff_s17",
+   "text": "關房間的大門",
+   "expect": "HassTurnOff:房間/gate"
+  },
+  {
+   "id": "HassTurnOff_s18",
+   "text": "關浴室遮雨棚",
+   "expect": "HassTurnOff:浴室/awning"
+  },
+  {
+   "id": "HassTurnOff_s19",
+   "text": "關廚房的房門",
+   "expect": "HassTurnOff:廚房/door"
+  },
+  {
+   "id": "HassTurnOff_s20",
+   "text": "關閉客廳的門簾",
+   "expect": "HassTurnOff:客廳/blind"
+  },
+  {
+   "id": "HassTurnOff_s21",
+   "text": "關房間的車庫門",
+   "expect": "HassTurnOff:房間/garage"
+  },
+  {
+   "id": "HassTurnOff_s22",
+   "text": "關房間紗簾",
+   "expect": "HassTurnOff:房間/blind"
+  },
+  {
+   "id": "HassTurnOff_s23",
+   "text": "關書房遮雨棚",
+   "expect": "HassTurnOff:書房/awning"
+  },
+  {
+   "id": "HassTurnOff_s24",
+   "text": "關書房大門",
+   "expect": "HassTurnOff:書房/gate"
+  },
+  {
+   "id": "HassTurnOff_s25",
+   "text": "關廚房的遮雨棚",
+   "expect": "HassTurnOff:廚房/awning"
+  },
+  {
+   "id": "HassTurnOff_s26",
+   "text": "關廚房的窗簾",
+   "expect": "HassTurnOff:廚房/blind"
+  },
+  {
+   "id": "HassTurnOff_s27",
+   "text": "關浴室的鋁窗",
+   "expect": "HassTurnOff:浴室/window"
+  },
+  {
+   "id": "HassTurnOff_s28",
+   "text": "關廚房窗簾",
+   "expect": "HassTurnOff:廚房/blind"
+  },
+  {
+   "id": "HassTurnOff_s29",
+   "text": "關閉客廳的房門",
+   "expect": "HassTurnOff:客廳/door"
+  },
+  {
+   "id": "HassTurnOff_s30",
+   "text": "關浴室的遮光簾",
+   "expect": "HassTurnOff:浴室/blind"
+  },
+  {
+   "id": "HassTurnOff_s31",
+   "text": "關閉客廳的窗簾",
+   "expect": "HassTurnOff:客廳/blind"
+  },
+  {
+   "id": "HassTurnOff_s32",
+   "text": "關房間百葉窗",
+   "expect": "HassTurnOff:房間/blind"
+  },
+  {
+   "id": "HassTurnOff_s33",
+   "text": "關閉客廳的遮光簾",
+   "expect": "HassTurnOff:客廳/blind"
+  },
+  {
+   "id": "HassTurnOff_s34",
+   "text": "關廚房的雨棚",
+   "expect": "HassTurnOff:廚房/awning"
+  },
+  {
+   "id": "HassTurnOff_s35",
+   "text": "關浴室門簾",
+   "expect": "HassTurnOff:浴室/blind"
+  },
+  {
+   "id": "HassTurnOff_s36",
+   "text": "關客廳的鋁窗",
+   "expect": "HassTurnOff:客廳/window"
+  },
+  {
+   "id": "HassTurnOff_s37",
+   "text": "關客廳的雨棚",
+   "expect": "HassTurnOff:客廳/awning"
+  },
+  {
+   "id": "HassTurnOff_s38",
+   "text": "關浴室的窗簾",
+   "expect": "HassTurnOff:浴室/blind"
+  },
+  {
+   "id": "HassTurnOff_s39",
+   "text": "關浴室的房門",
+   "expect": "HassTurnOff:浴室/door"
+  },
+  {
+   "id": "HassTurnOn_s0",
+   "text": "打開書房車庫",
+   "expect": "HassTurnOn:書房/garage"
+  },
+  {
+   "id": "HassTurnOn_s1",
+   "text": "打開廚房落地窗",
+   "expect": "HassTurnOn:廚房/window"
+  },
+  {
+   "id": "HassTurnOn_s2",
+   "text": "打開客廳的房門",
+   "expect": "HassTurnOn:客廳/door"
+  },
+  {
+   "id": "HassTurnOn_s3",
+   "text": "開啟客廳的落地窗",
+   "expect": "HassTurnOn:客廳/window"
+  },
+  {
+   "id": "HassTurnOn_s4",
+   "text": "打開廚房門",
+   "expect": "HassTurnOn:廚房/door"
+  },
+  {
+   "id": "HassTurnOn_s5",
+   "text": "打開浴室的房門",
+   "expect": "HassTurnOn:浴室/door"
+  },
+  {
+   "id": "HassTurnOn_s6",
+   "text": "打開浴室的窗簾",
+   "expect": "HassTurnOn:浴室/blind"
+  },
+  {
+   "id": "HassTurnOn_s7",
+   "text": "開啟客廳雨棚",
+   "expect": "HassTurnOn:客廳/awning"
+  },
+  {
+   "id": "HassTurnOn_s8",
+   "text": "打開客廳房間門",
+   "expect": "HassTurnOn:客廳/door"
+  },
+  {
+   "id": "HassTurnOn_s9",
+   "text": "打開客廳雨棚",
+   "expect": "HassTurnOn:客廳/awning"
+  },
+  {
+   "id": "HassTurnOn_s10",
+   "text": "打開客廳遮雨棚",
+   "expect": "HassTurnOn:客廳/awning"
+  },
+  {
+   "id": "HassTurnOn_s11",
+   "text": "打開房間百葉窗",
+   "expect": "HassTurnOn:房間/blind"
+  },
+  {
+   "id": "HassTurnOn_s12",
+   "text": "打開客廳捲簾",
+   "expect": "HassTurnOn:客廳/blind"
+  },
+  {
+   "id": "HassTurnOn_s13",
+   "text": "開啟客廳的羅馬簾",
+   "expect": "HassTurnOn:客廳/blind"
+  },
+  {
+   "id": "HassTurnOn_s14",
+   "text": "打開房間的遮雨棚",
+   "expect": "HassTurnOn:房間/awning"
+  },
+  {
+   "id": "HassTurnOn_s15",
+   "text": "開啟客廳的鋁窗",
+   "expect": "HassTurnOn:客廳/window"
+  },
+  {
+   "id": "HassTurnOn_s16",
+   "text": "打開房間的窗戶",
+   "expect": "HassTurnOn:房間/window"
+  },
+  {
+   "id": "HassTurnOn_s17",
+   "text": "開啟客廳的大門",
+   "expect": "HassTurnOn:客廳/gate"
+  },
+  {
+   "id": "HassTurnOn_s18",
+   "text": "打開書房的百葉窗",
+   "expect": "HassTurnOn:書房/blind"
+  },
+  {
+   "id": "HassTurnOn_s19",
+   "text": "打開客廳遮陽棚",
+   "expect": "HassTurnOn:客廳/awning"
+  },
+  {
+   "id": "HassTurnOn_s20",
+   "text": "打開廚房車庫",
+   "expect": "HassTurnOn:廚房/garage"
+  },
+  {
+   "id": "HassTurnOn_s21",
+   "text": "打開浴室門",
+   "expect": "HassTurnOn:浴室/door"
+  },
+  {
+   "id": "HassTurnOn_s22",
+   "text": "打開廚房羅馬簾",
+   "expect": "HassTurnOn:廚房/blind"
+  },
+  {
+   "id": "HassTurnOn_s23",
+   "text": "打開客廳的門",
+   "expect": "HassTurnOn:客廳/door"
+  },
+  {
+   "id": "HassTurnOn_s24",
+   "text": "打開房間的門簾",
+   "expect": "HassTurnOn:房間/blind"
+  },
+  {
+   "id": "HassTurnOn_s25",
+   "text": "打開房間捲簾",
+   "expect": "HassTurnOn:房間/blind"
+  },
+  {
+   "id": "HassTurnOn_s26",
+   "text": "打開浴室的房間門",
+   "expect": "HassTurnOn:浴室/door"
+  },
+  {
+   "id": "HassTurnOn_s27",
+   "text": "打開房間的鋁窗",
+   "expect": "HassTurnOn:房間/window"
+  },
+  {
+   "id": "HassTurnOn_s28",
+   "text": "打開客廳車庫門",
+   "expect": "HassTurnOn:客廳/garage"
+  },
+  {
+   "id": "HassTurnOn_s29",
+   "text": "打開房間車庫",
+   "expect": "HassTurnOn:房間/garage"
+  },
+  {
+   "id": "HassTurnOn_s30",
+   "text": "打開廚房的車庫",
+   "expect": "HassTurnOn:廚房/garage"
+  },
+  {
+   "id": "HassTurnOn_s31",
+   "text": "打開廚房的羅馬簾",
+   "expect": "HassTurnOn:廚房/blind"
+  },
+  {
+   "id": "HassTurnOn_s32",
+   "text": "打開廚房窗戶",
+   "expect": "HassTurnOn:廚房/window"
+  },
+  {
+   "id": "HassTurnOn_s33",
+   "text": "打開客廳門簾",
+   "expect": "HassTurnOn:客廳/blind"
+  },
+  {
+   "id": "HassTurnOn_s34",
+   "text": "打開浴室遮光簾",
+   "expect": "HassTurnOn:浴室/blind"
+  },
+  {
+   "id": "HassTurnOn_s35",
+   "text": "打開房間窗戶",
+   "expect": "HassTurnOn:房間/window"
+  },
+  {
+   "id": "HassTurnOn_s36",
+   "text": "開啟客廳的百葉窗",
+   "expect": "HassTurnOn:客廳/blind"
+  },
+  {
+   "id": "HassTurnOn_s37",
+   "text": "打開浴室羅馬簾",
+   "expect": "HassTurnOn:浴室/blind"
+  },
+  {
+   "id": "HassTurnOn_s38",
+   "text": "打開房間的車庫門",
+   "expect": "HassTurnOn:房間/garage"
+  },
+  {
+   "id": "HassTurnOn_s39",
+   "text": "打開房間鋁窗",
+   "expect": "HassTurnOn:房間/window"
+  },
+  {
+   "id": "HassUnpauseTimer_s0",
+   "text": "那個26秒鐘倒數計時器繼續計時",
+   "expect": "HassUnpauseTimer:那個26秒鐘倒數"
+  },
+  {
+   "id": "HassUnpauseTimer_s1",
+   "text": "那個26個小時的倒數計時器繼續計時",
+   "expect": "HassUnpauseTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassUnpauseTimer_s2",
+   "text": "繼續我的26分鐘倒數計時器",
+   "expect": "HassUnpauseTimer:start_minutes=26.0"
+  },
+  {
+   "id": "HassUnpauseTimer_s3",
+   "text": "那個26小時計時器繼續計時",
+   "expect": "HassUnpauseTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassUnpauseTimer_s4",
+   "text": "恢復我的26分鐘計時器",
+   "expect": "HassUnpauseTimer:start_minutes=26.0"
+  },
+  {
+   "id": "HassUnpauseTimer_s5",
+   "text": "繼續我的26秒的計時器",
+   "expect": "HassUnpauseTimer:26秒"
+  },
+  {
+   "id": "HassUnpauseTimer_s6",
+   "text": "讓計時器繼續",
+   "expect": "HassUnpauseTimer"
+  },
+  {
+   "id": "HassUnpauseTimer_s7",
+   "text": "我的倒數計時器繼續",
+   "expect": "HassUnpauseTimer"
+  },
+  {
+   "id": "HassUnpauseTimer_s8",
+   "text": "書房倒數計時器繼續計時",
+   "expect": "HassUnpauseTimer:書房"
+  },
+  {
+   "id": "HassUnpauseTimer_s9",
+   "text": "繼續廚房的計時器",
+   "expect": "HassUnpauseTimer:廚房"
+  },
+  {
+   "id": "HassUnpauseTimer_s10",
+   "text": "讓廚房計時器繼續計時",
+   "expect": "HassUnpauseTimer:廚房"
+  },
+  {
+   "id": "HassUnpauseTimer_s11",
+   "text": "繼續那個26秒鐘計時器",
+   "expect": "HassUnpauseTimer:那個26秒鐘"
+  },
+  {
+   "id": "HassUnpauseTimer_s12",
+   "text": "讓那個26秒鐘計時器繼續計時",
+   "expect": "HassUnpauseTimer:那個26秒鐘"
+  },
+  {
+   "id": "HassUnpauseTimer_s13",
+   "text": "讓房間的倒數計時器繼續計時",
+   "expect": "HassUnpauseTimer:房間"
+  },
+  {
+   "id": "HassUnpauseTimer_s14",
+   "text": "房間的計時器繼續計時",
+   "expect": "HassUnpauseTimer:房間"
+  },
+  {
+   "id": "HassUnpauseTimer_s15",
+   "text": "讓那個26秒倒數計時器繼續",
+   "expect": "HassUnpauseTimer:那個26秒倒數"
+  },
+  {
+   "id": "HassUnpauseTimer_s16",
+   "text": "讓26個小時計時器繼續計時",
+   "expect": "HassUnpauseTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassUnpauseTimer_s17",
+   "text": "恢復倒數計時器",
+   "expect": "HassUnpauseTimer"
+  },
+  {
+   "id": "HassUnpauseTimer_s18",
+   "text": "浴室倒數計時器繼續",
+   "expect": "HassUnpauseTimer:浴室"
+  },
+  {
+   "id": "HassUnpauseTimer_s19",
+   "text": "繼續那個26個小時的倒數計時器",
+   "expect": "HassUnpauseTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassUnpauseTimer_s20",
+   "text": "讓26秒鐘的計時器繼續計時",
+   "expect": "HassUnpauseTimer:26秒鐘的"
+  },
+  {
+   "id": "HassUnpauseTimer_s21",
+   "text": "恢復那個26秒鐘的倒數計時器",
+   "expect": "HassUnpauseTimer:那個26秒鐘"
+  },
+  {
+   "id": "HassUnpauseTimer_s22",
+   "text": "繼續客廳倒數計時器",
+   "expect": "HassUnpauseTimer:客廳"
+  },
+  {
+   "id": "HassUnpauseTimer_s23",
+   "text": "讓26秒鐘的倒數計時器繼續",
+   "expect": "HassUnpauseTimer:26秒鐘的倒數"
+  },
+  {
+   "id": "HassUnpauseTimer_s24",
+   "text": "讓26小時的倒數計時器繼續",
+   "expect": "HassUnpauseTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassUnpauseTimer_s25",
+   "text": "恢復房間的倒數計時器",
+   "expect": "HassUnpauseTimer:房間"
+  },
+  {
+   "id": "HassUnpauseTimer_s26",
+   "text": "讓廚房倒數計時器繼續計時",
+   "expect": "HassUnpauseTimer:廚房"
+  },
+  {
+   "id": "HassUnpauseTimer_s27",
+   "text": "讓那個26個小時計時器繼續計時",
+   "expect": "HassUnpauseTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassUnpauseTimer_s28",
+   "text": "繼續26秒鐘計時器",
+   "expect": "HassUnpauseTimer:26秒鐘"
+  },
+  {
+   "id": "HassUnpauseTimer_s29",
+   "text": "讓26秒鐘的計時器繼續",
+   "expect": "HassUnpauseTimer:26秒鐘的"
+  },
+  {
+   "id": "HassUnpauseTimer_s30",
+   "text": "讓26分鐘的計時器繼續",
+   "expect": "HassUnpauseTimer:start_minutes=26.0"
+  },
+  {
+   "id": "HassUnpauseTimer_s31",
+   "text": "恢復我的26小時倒數計時器",
+   "expect": "HassUnpauseTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassUnpauseTimer_s32",
+   "text": "書房計時器繼續",
+   "expect": "HassUnpauseTimer:書房"
+  },
+  {
+   "id": "HassUnpauseTimer_s33",
+   "text": "恢復我的26秒鐘的倒數計時器",
+   "expect": "HassUnpauseTimer:26秒鐘"
+  },
+  {
+   "id": "HassUnpauseTimer_s34",
+   "text": "讓那個26秒鐘倒數計時器繼續計時",
+   "expect": "HassUnpauseTimer:那個26秒鐘倒數"
+  },
+  {
+   "id": "HassUnpauseTimer_s35",
+   "text": "讓那個26秒鐘的計時器繼續計時",
+   "expect": "HassUnpauseTimer:那個26秒鐘的"
+  },
+  {
+   "id": "HassUnpauseTimer_s36",
+   "text": "恢復26分鐘倒數計時器",
+   "expect": "HassUnpauseTimer:start_minutes=26.0"
+  },
+  {
+   "id": "HassUnpauseTimer_s37",
+   "text": "恢復那個26秒鐘計時器",
+   "expect": "HassUnpauseTimer:那個26秒鐘"
+  },
+  {
+   "id": "HassUnpauseTimer_s38",
+   "text": "繼續那個26個小時的計時器",
+   "expect": "HassUnpauseTimer:start_hours=26.0"
+  },
+  {
+   "id": "HassVacuumCleanArea_s0",
+   "text": "打掃廚房",
+   "expect": "HassVacuumCleanArea:廚房"
+  },
+  {
+   "id": "HassVacuumCleanArea_s1",
+   "text": "清掃一下廚房",
+   "expect": "HassVacuumCleanArea:廚房"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s0",
+   "text": "讓浴室的吸塵器回充電座",
+   "expect": "HassVacuumReturnToBase:浴室"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s1",
+   "text": "叫房間的掃地機返回充電座",
+   "expect": "HassVacuumReturnToBase:房間"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s2",
+   "text": "客廳的吸塵器返回充電座",
+   "expect": "HassVacuumReturnToBase:客廳"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s3",
+   "text": "客廳的掃地機器人回充電座",
+   "expect": "HassVacuumReturnToBase:客廳"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s4",
+   "text": "書房的掃地機器人回去充電",
+   "expect": "HassVacuumReturnToBase:書房"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s5",
+   "text": "讓浴室的掃地機器人回充電座",
+   "expect": "HassVacuumReturnToBase:浴室"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s6",
+   "text": "讓客廳的吸塵器回充電座",
+   "expect": "HassVacuumReturnToBase:客廳"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s7",
+   "text": "書房的吸塵器返回充電座",
+   "expect": "HassVacuumReturnToBase:書房"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s8",
+   "text": "客廳的掃地機器人回去充電",
+   "expect": "HassVacuumReturnToBase:客廳"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s9",
+   "text": "浴室的吸塵器返回充電座",
+   "expect": "HassVacuumReturnToBase:浴室"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s10",
+   "text": "廚房的吸塵器返回充電座",
+   "expect": "HassVacuumReturnToBase:廚房"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s11",
+   "text": "叫浴室的吸塵器回去充電",
+   "expect": "HassVacuumReturnToBase:浴室"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s12",
+   "text": "讓客廳的掃地機回充電座",
+   "expect": "HassVacuumReturnToBase:客廳"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s13",
+   "text": "叫房間的掃地機器人返回充電座",
+   "expect": "HassVacuumReturnToBase:房間"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s14",
+   "text": "讓書房的掃地機返回充電座",
+   "expect": "HassVacuumReturnToBase:書房"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s15",
+   "text": "書房的掃地機器人回充電座",
+   "expect": "HassVacuumReturnToBase:書房"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s16",
+   "text": "浴室的吸塵器回充電座",
+   "expect": "HassVacuumReturnToBase:浴室"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s17",
+   "text": "叫浴室的吸塵器返回充電座",
+   "expect": "HassVacuumReturnToBase:浴室"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s18",
+   "text": "讓廚房的掃地機器人返回充電座",
+   "expect": "HassVacuumReturnToBase:廚房"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s19",
+   "text": "叫廚房的掃地機回充電座",
+   "expect": "HassVacuumReturnToBase:廚房"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s20",
+   "text": "讓浴室的吸塵器返回充電座",
+   "expect": "HassVacuumReturnToBase:浴室"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s21",
+   "text": "房間的掃地機回充電座",
+   "expect": "HassVacuumReturnToBase:房間"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s22",
+   "text": "叫客廳的掃地機回充電座",
+   "expect": "HassVacuumReturnToBase:客廳"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s23",
+   "text": "叫書房的掃地機器人回充電座",
+   "expect": "HassVacuumReturnToBase:書房"
+  },
+  {
+   "id": "HassVacuumReturnToBase_s24",
+   "text": "叫浴室的掃地機器人返回充電座",
+   "expect": "HassVacuumReturnToBase:浴室"
+  },
+  {
+   "id": "HassVacuumStart_s0",
+   "text": "廚房的掃地機開始掃地",
+   "expect": "HassVacuumStart:廚房"
+  },
+  {
+   "id": "HassVacuumStart_s1",
+   "text": "開始客廳的掃地機器人",
+   "expect": "HassVacuumStart:客廳"
+  },
+  {
+   "id": "HassVacuumStart_s2",
+   "text": "讓廚房的掃地機開始掃地",
+   "expect": "HassVacuumStart:廚房"
+  },
+  {
+   "id": "HassVacuumStart_s3",
+   "text": "啟動浴室的掃地機器人",
+   "expect": "HassVacuumStart:浴室"
+  },
+  {
+   "id": "HassVacuumStart_s4",
+   "text": "客廳的掃地機開始掃地",
+   "expect": "HassVacuumStart:客廳"
+  },
+  {
+   "id": "HassVacuumStart_s5",
+   "text": "讓浴室的吸塵器開始打掃",
+   "expect": "HassVacuumStart:浴室"
+  },
+  {
+   "id": "HassVacuumStart_s6",
+   "text": "房間的掃地機開始打掃",
+   "expect": "HassVacuumStart:房間"
+  },
+  {
+   "id": "HassVacuumStart_s7",
+   "text": "書房的掃地機器人開始工作",
+   "expect": "HassVacuumStart:書房"
+  },
+  {
+   "id": "HassVacuumStart_s8",
+   "text": "讓浴室的掃地機器人開始打掃",
+   "expect": "HassVacuumStart:浴室"
+  },
+  {
+   "id": "HassVacuumStart_s9",
+   "text": "讓書房的掃地機器人開始打掃",
+   "expect": "HassVacuumStart:書房"
+  },
+  {
+   "id": "HassVacuumStart_s10",
+   "text": "房間的掃地機開始工作",
+   "expect": "HassVacuumStart:房間"
+  },
+  {
+   "id": "HassVacuumStart_s11",
+   "text": "讓房間的掃地機器人開始掃地",
+   "expect": "HassVacuumStart:房間"
+  },
+  {
+   "id": "HassVacuumStart_s12",
+   "text": "客廳的掃地機開始打掃",
+   "expect": "HassVacuumStart:客廳"
+  },
+  {
+   "id": "HassVacuumStart_s13",
+   "text": "啟動房間的掃地機",
+   "expect": "HassVacuumStart:房間"
+  },
+  {
+   "id": "HassVacuumStart_s14",
+   "text": "房間的吸塵器開始工作",
+   "expect": "HassVacuumStart:房間"
+  },
+  {
+   "id": "HassVacuumStart_s15",
+   "text": "啟動書房的吸塵器",
+   "expect": "HassVacuumStart:書房"
+  },
+  {
+   "id": "HassVacuumStart_s16",
+   "text": "讓客廳的吸塵器開始掃地",
+   "expect": "HassVacuumStart:客廳"
+  },
+  {
+   "id": "HassVacuumStart_s17",
+   "text": "房間的吸塵器開始打掃",
+   "expect": "HassVacuumStart:房間"
+  },
+  {
+   "id": "HassVacuumStart_s18",
+   "text": "啟動房間的吸塵器",
+   "expect": "HassVacuumStart:房間"
+  },
+  {
+   "id": "HassVacuumStart_s19",
+   "text": "清掃一下二樓",
+   "expect": "HassVacuumStart:二樓"
+  },
+  {
+   "id": "HassVacuumStart_s20",
+   "text": "啟動廚房的掃地機器人",
+   "expect": "HassVacuumStart:廚房"
+  },
+  {
+   "id": "HassVacuumStart_s21",
+   "text": "讓浴室的掃地機開始工作",
+   "expect": "HassVacuumStart:浴室"
+  },
+  {
+   "id": "HassVacuumStart_s22",
+   "text": "啟動浴室的吸塵器",
+   "expect": "HassVacuumStart:浴室"
+  },
+  {
+   "id": "HassVacuumStart_s23",
+   "text": "啟動房間的掃地機器人",
+   "expect": "HassVacuumStart:房間"
+  },
+  {
+   "id": "HassVacuumStart_s24",
+   "text": "客廳的吸塵器開始掃地",
+   "expect": "HassVacuumStart:客廳"
+  },
+  {
+   "id": "HassVacuumStart_s25",
+   "text": "開始客廳的吸塵器",
+   "expect": "HassVacuumStart:客廳"
+  }
+ ]
+}

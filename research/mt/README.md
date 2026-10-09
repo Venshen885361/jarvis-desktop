@@ -326,6 +326,103 @@ python -m research.mt.subsume out/matrix_v5.csv
 - 三種運算子就找回 95% 的 dominator（227 / 238），縮減子集幾乎一樣大、一樣保留 100%：**突變體少 21%、可殺少 35%，結論不變**。以後跑矩陣可以省掉 BOOL / OPT_DEL / NUM / LOOK_DEL。
 - 用 dominator 算 APFD 排名不變、差距拉大：additional 幾乎不掉（0.984 → 0.972），total 與隨機掉 0.09–0.11，relation-first 掉到 0.52——它們排前面的測試殺的是同一群多餘突變體。
 
+## E9：真實使用紀錄當種子（`seeds_usage.json`）——種子偏誤的檢查
+
+前面 87 條種子都是我寫的（41 條憑印象、46 條對著突變體）。第三批從 `~/.jarvis/profile.json` 的 history 匯出：
+使用者實際講過的 41 條不重複指令（83 次使用）。
+
+```bash
+python -m research.mt.run --gen rules --seeds research/mt/seeds_usage.json --tag-suffix _usage --show-violations
+python -m research.mt.mutation --tags rules_usage
+```
+
+| | 數 |
+|---|---|
+| 不重複指令 / 使用次數 | 41 / 83 |
+| 英文指令（Open insta、Play rickroll on yt、Can u shut down the laptop…） | **11（27%）**，router 一律交給模型 |
+| 中文指令當種子 | 24 |
+| 現行路由就是錯的 | **4** |
+
+真實使用找到、87 條種子沒找到的 4 個錯：
+
+| 指令（使用次數） | 現行路由 | 應該 | 為什麼種子沒抓到 |
+|---|---|---|---|
+| 搜尋瑞克搖並播放（3） | google 搜尋「瑞克搖並播放」 | youtube_play:瑞克搖 | 「搜尋 X 並播放」是手機頁的功能，router 根本沒這條規則 |
+| 下載Spotify於桌面 | install_app:Spotify於桌面 | install_app:Spotify | 目標後面接地點，種子都沒有 |
+| 開啟螢幕 | open_application:螢幕 | 交給模型 | 「螢幕」不是程式；開程式規則對目標不設防 |
+| 截取看看這是什麼 | 純問答 | camera_search | 「截取」這個動詞沒收 |
+
+規則式生成器對 24 條真實種子生 390 句、54 個違反，**全部來自這 4 條種子本身就錯**（其餘 20 條 0 違反）。
+
+突變殺傷：真實使用批次（336 句）殺 147 個突變體，其中**只有 3 個是現有 3,529 條殺不掉的**——
+`"有哪些裝置"`（使用次數第二高的指令，之前零覆蓋）、`"框選"`、`"天氣"` 三個關鍵字。
+
+兩個結論：
+- **突變測試量不到「缺的規則」**。4 個真實錯裡 3 個是 router 沒有那條規則（搜尋並播放、截取、於桌面），突變體只能改現有規則，永遠產生不出「缺一條規則」的錯；所以突變分數 0.52 不代表路由只錯一半，真實使用才量得到缺口。
+- **種子偏誤是真的但有限**：curated 種子的殺傷覆蓋了真實使用 98%（147 裡的 144），但真實使用 27% 是英文、而且最常用的指令之一（有哪些裝置）完全沒測到——覆蓋率看起來很高，只是因為種子跟規則是同一個人寫的。
+
+## E10：第二個受測對象（`hass.py`、`hass_mutation.py`）——結論是不是只對我的 router 成立
+
+前面所有數字都來自一個 router，而且種子、規則、突變運算子都是同一個人寫的。第二個受測對象選
+[Home Assistant 的 zh-TW 意圖模板](https://github.com/home-assistant/intents)（`home-assistant-intents` 套件，用 `hassil` 比對）：
+正式產品在用、別人寫的、繁體中文、41 個意圖 520 條模板。它跟 router.py 一樣是「規則 → 意圖」，
+但實作相反——router 是 regex 在句子裡**找**關鍵字，hassil 是模板要**整句**精確匹配（只靠 `skip_words` 忽略 請 / 請問 / 謝謝 / 幫我 / 告訴我）。
+模板語法 `(a|b)` / `[可選]` / `<rule>` 跟我的突變運算子一一對應，所以同一套關係、生成器、縮減 / 排序、包含關係分析原封不動跑上去。
+
+```bash
+pip install hassil home-assistant-intents
+python -m research.mt.hass --seeds                                   # 64 條種子：每個意圖前 2 條模板自動展開 → seeds_hass.json
+python -m research.mt.run --subject hass --gen rules --seeds research/mt/seeds_hass.json --tag-suffix _hass
+python -m research.mt.hass_mutation --seed-files seeds_hass.json seeds_hass_sampled.json --out-tag hass_sampled
+python -m research.mt.reduce out/matrix_hass_sampled.csv --drop-trivial
+python -m research.mt.subsume out/matrix_hass_sampled.csv --mutants out/mutants_hass.json
+```
+
+標籤是 `意圖:區域/domain|其他 slot`（`HassTurnOn:客廳/light`、`HassSetTemperature:客廳|temperature=26`）；裝置 / 區域清單固定
+（5 區域、2 樓層、9 裝置），`intent_context={"area":"客廳"}`。`seeds_hass_sampled.json` 是 `hassil.sample` 對每個意圖最多抽 40 句（1 010 句），
+當作「使用者真的會講的句子」的替身——HA 沒有我的 history 可以用。
+
+### 蛻變測試：同一套關係，錯的方向相反
+
+規則式生成器對 64 條種子生 985 句，**596 個違反（60%）**；router v5 同一個生成器只有 7 個。
+
+| 關係 | 生成 | 違反 | HA 怎麼錯 | router 怎麼錯（v0 → v5） |
+|---|---|---|---|---|
+| R1 同義詞 | 13 | 7（54%） | 「啟動 / 執行客廳燈」不收（模板只有 打開 / 開 / 開啟）；另 3 句是我的生成器把「開始除草」改成「打開始除草」——生成器的錯，不是 HA 的 | v0 15%，修完 0 |
+| R2 禮貌語 | 320 | 260（81%） | 句尾 一下 / 好嗎 / 可以嗎 / 喔 全部 → none；只有「謝謝」在 skip_words 裡過得了（60 / 64）；「廣播吃飯了謝謝」把 謝謝 當成廣播內容 | v0 49%（「記事本好嗎」當目標），修完 0 |
+| R3 語序 | 12 | 9（75%） | 「客廳燈，打開」「客廳燈打開一下」→ none；**「客廳燈幫我打開」→ HassGetState（問燈開了沒）**：skip 掉「幫我」後剩「客廳燈打開」，撞到問狀態的模板 `{name}打開[了嗎]` | v0 96%，第四輪修完 0 |
+| R4 填充詞 | 320 | 320（**100%**） | 句首 欸 / 那個 / 嗯 一律 → none | v0 41%，修完 0 |
+| R5 近似句 | 320 | **0** | 整句匹配：任何不在模板裡的句子都 none，近似句自然不會誤觸發 | v0 47%（「不要打開記事本」真的打開），修完 0 |
+
+兩個 SUT 錯的地方不一樣，正好說明蛻變關係在量什麼：**整句匹配的 HA 只會「該觸發沒觸發」（R2 / R4 / R3），永遠不會 R5；regex 找關鍵字的 router 兩種都會，而且 v0 時 R5「不該觸發也觸發」佔一半**。
+HA 的 R2 / R4 違反是設計取捨（寧可不懂也不要亂做），但「客廳燈幫我打開 → 問狀態」是真的錯：使用者要開燈，它回答燈開了沒。
+
+### 突變測試、縮減、排序、包含關係：結論一樣
+
+模板突變體 2 748 個（ALT_DEL 1 031、OPT_DEL 1 634、RULE_ALT_DEL 73、RULE_OPT_DEL 4、SKIP_DEL 6）。
+加速：改某意圖的模板只會讓「原本就辨識到那個意圖」的句子變結果，所以每個模板突變體只重跑那些句子；全部矩陣 1 454 × 2 748 跑 8 分鐘。
+
+| | HA（本節） | router v5（E4 / E5 / E8） |
+|---|---|---|
+| 測試 | 1 454（64 種子 + 1 010 抽樣 + 380 規則式改寫） | 3 529 |
+| 突變體 / 可殺 | 2 748 / 400（**0.146**；只用 64 種子時 175，0.064） | 927 / 485（0.52） |
+| dominator | **259（65%）** | 238（49%） |
+| 多餘比例最高的運算子 | OPT_DEL 51%、RULE_ALT_DEL 34%、ALT_DEL **11%** | OPT_DEL 94%、BOOL 91%、ALT_DEL 27% |
+| 縮減（需求 = 突變體） | 1 454 → **186–187（12.9%）** 保留 100%；同大小隨機 **43%** | → 212–215（6%）保留 100%；隨機 52% |
+| 同大小隨機的最小分數 | 43% | 27% |
+| 縮減（需求 = 關係×種子） | → 1 193（82%），保留 94%；隨機 96% | → 222，保留 56–60%；隨機 57% |
+| APFD：additional / random / total / relation-first | **0.956** / 0.746 / 0.790 / 0.634 | **0.984** / 0.824 / 0.772 / 0.645 |
+| APFD（dominator）：additional / random / total / relation-first | **0.944** / 0.753 / 0.739 / 0.569 | **0.972** / 0.715 / 0.685 / 0.520 |
+| additional 前 10% 測試 | 89%（dominator 83%） | 100% |
+
+- **突變分數低是因為測試少，不是突變體壞**：64 條種子只殺 6%，加 1 010 句抽樣後 15%——每加一批測試分數就跳，表示 520 條模板的分支絕大多數沒有句子碰到。這跟 E3 的教訓一樣：存活體是在列種子缺什麼。
+- **排序結論一字不改**：additional 最好、total 輸隨機、relation-first 最差，在 dominator 分數下差距更開。三種縮減策略一樣保留 100%，隨機只有 43%，「關係×種子每格留一條」等於隨機——四個結論在第二個 SUT 上全部重現。
+- **哪種突變體是獨立的錯，取決於 SUT 的寫法**：router 的 OPT_DEL 94% 多餘（可選群組幾乎都被詞表突變體順便殺），HA 的 OPT_DEL 只有 51% 多餘、ALT_DEL 只有 11%——因為 hassil 整句匹配，`[的]` 變必要就讓「打開客廳燈」整句失敗，是獨立的錯。E8「以後只跑 ALT_DEL + KW_DEL + CMP」的省時建議**只對 regex 類 SUT 成立**，不能照搬。
+- **R5 在 HA 上零違反，殺傷也幾乎沒有**：近似句批次 320 句裡只有 17 句殺得到突變體（辨識成 none 的句子，突變體只會少收不會多收，怎麼改都還是 none）。relation-first 排序在 HA 上最差（0.634）就是因為它把這 320 句排前面。
+
+限制：HA 的種子是從模板展開的，不是真實使用（E9 那種缺口量不到）；LLM 生成器沒跑（Gemini 批次只有 router 有）；
+裝置清單是我固定的 9 個名稱，真實安裝的名稱衝突（「客廳燈」vs「客廳」）會多一類錯。
+
 ## 檔案
 
 | 檔案 | 作用 |
@@ -334,7 +431,7 @@ python -m research.mt.subsume out/matrix_v5.csv
 | `relations.py` | 五條蛻變關係的定義（兩個生成器共用） |
 | `rules.py` | 模板生成器（對照組） |
 | `llm.py` | Gemini 生成器：溫度可調、JSON 輸出、磁碟快取、失敗如實記錄 |
-| `run.py` | 生成 → 過濾 → 路由 → 判定 → 報表 |
+| `run.py` | 生成 → 過濾 → 路由 → 判定 → 報表（`--subject jarvis|hass`、`--rep`、`--seed-filter`、`--tag-suffix`、`--n`） |
 | `compare.py` | 批次比較：Jaccard、錯集合差、脆弱種子 |
 | `mutation.py` | 突變器 + 測試×突變體矩陣（`--range/--merge` 分段） |
 | `reduce.py` | 縮減（greedy / HGS / irreplaceable / random）與排序（APFD） |
@@ -345,6 +442,10 @@ python -m research.mt.subsume out/matrix_v5.csv
 | `demo.py` | 一鍵重跑全部 |
 | `sample.py` | E1：抽 400 句給人標（`e1_label.csv`）、算 κ 與各生成器 precision |
 | `seeds.json` | 87 條種子句與期望路由（41 條原始 + 46 條 `sv_*` killer） |
+| `seeds_usage.json` | E9：24 條真實使用指令（`~/.jarvis/profile.json` history） |
+| `hass.py` | E10：第二受測對象 Home Assistant zh-TW（hassil）的 `route_label` / `same_route`、種子展開 |
+| `hass_mutation.py` | E10：模板突變體（ALT_DEL / OPT_DEL / RULE_* / SKIP_DEL）× 測試矩陣 |
+| `seeds_hass.json`、`seeds_hass_sampled.json` | E10：64 條模板展開種子、1 010 條 `hassil.sample` 抽樣句 |
 | `../../tests/test_mt_harness.py` | 煙霧測試（CI 跑） |
 
 ## 下一步（研究計畫）

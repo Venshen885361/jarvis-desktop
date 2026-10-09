@@ -27,8 +27,21 @@ from collections import defaultdict
 from pathlib import Path
 
 from . import llm, rules
-from .harness import Label, route_label, same_route
+from .harness import Label
+from .harness import route_label as _jarvis_route_label
+from .harness import same_route as _jarvis_same_route
 from .relations import RELATIONS
+
+SUBJECTS = {"jarvis": (_jarvis_route_label, _jarvis_same_route)}
+
+
+def _subject(name: str):
+    """受測對象：jarvis（router.py）或 hass（Home Assistant zh-TW 模板，research/mt/hass.py）。"""
+    if name == "hass":
+        from . import hass
+
+        return hass.route_label, hass.same_route
+    return SUBJECTS["jarvis"]
 
 HERE = Path(__file__).resolve().parent
 OUT = HERE / "out"
@@ -90,7 +103,10 @@ def main() -> int:
     ap.add_argument("--no-cache", action="store_true")
     ap.add_argument("--rep", type=int, default=0, help="同參數第幾次重跑（>0 另開快取鍵並在 tag 加 _repN）")
     ap.add_argument("--seed-filter", default=None, help="只用 id 符合這個 regex 的種子（例：^(?!sv_) 排除 killer 種子）")
+    ap.add_argument("--tag-suffix", default="", help="輸出檔名加後綴（換種子檔時用，免得蓋掉 tests_rules.jsonl）")
+    ap.add_argument("--subject", choices=["jarvis", "hass"], default="jarvis", help="受測對象")
     args = ap.parse_args()
+    route_label, same_route = _subject(args.subject)
 
     seeds = json.loads(Path(args.seeds).read_text(encoding="utf-8"))["seeds"]
     if args.seed_filter:
@@ -100,7 +116,8 @@ def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
 
     for temp in temps:
-        tag = "rules" if temp is None else f"{args.model}_T{temp:g}" + (f"_rep{args.rep}" if args.rep else "")
+        tag = ("rules" if temp is None else f"{args.model}_T{temp:g}" + (f"_rep{args.rep}" if args.rep else "")
+               + (f"_n{args.n}" if args.n != 5 else "")) + args.tag_suffix
         rows: list[dict] = []
         gen_fail = 0
         for seed in seeds:

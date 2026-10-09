@@ -78,3 +78,16 @@ def test_transfer_cov_drops_trivial():
 
     cov, n = cov_of([[1, 1, 0], [1, 0, 0]])   # 第 0 個突變體每條測試都殺（trivial）→ 丟掉
     assert n == 1 and cov == [{0}, set()]
+
+
+def test_hass_template_mutants_do_not_need_hassil():
+    # 模板突變是純字串操作：不裝 hassil 也要能產生、而且數量跟分支數對得上
+    from research.mt.hass_mutation import _string_mutants
+
+    outs = _string_mutants("<open>[把|將]{name}(打開|開|開啟)[的]")
+    ops = [o[0] for o in outs]
+    assert ops.count("ALT_DEL") == 3          # 三個分支各刪一個
+    assert ops.count("OPT_DEL") == 2          # 兩個可選群組
+    assert ("ALT_DEL", "<open>[把|將]{name}(打開|開|開啟)[的]", "<open>[把|將]{name}(開|開啟)[的]") in outs
+    assert any(after == "<open>(把|將){name}(打開|開|開啟)[的]" for _, _, after in outs)   # [a|b] → (a|b)
+    assert all(before != after for _, before, after in outs)
