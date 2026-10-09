@@ -62,10 +62,16 @@ def main() -> int:
     ap.add_argument("matrix")
     ap.add_argument("--runs", type=int, default=30)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--ops", nargs="*", help="只用這些運算子的突變體（例：ALT_DEL KW_DEL CMP），看縮減 / 排序的結論變不變")
     a = ap.parse_args()
     tests, mutants, matrix = reduce.load_matrix(Path(a.matrix))
     meta = {m["id"]: m for m in json.loads((mutation.OUT / "mutants.json").read_text(encoding="utf-8"))} \
         if (mutation.OUT / "mutants.json").is_file() else {}
+    if a.ops:
+        keep = [j for j, mid in enumerate(mutants) if meta.get(mid, {}).get("op") in set(a.ops)]
+        mutants = [mutants[j] for j in keep]
+        matrix = [[row[j] for j in keep] for row in matrix]
+        print(f"只用運算子 {a.ops}：{len(mutants)} 個突變體")
     n_tests = len(tests)
     # 丟掉「每條測試都殺」的（沒鑑別力，reduce 也這樣做）
     kv = {j: s for j, s in kill_vectors(matrix).items() if len(s) < n_tests}
@@ -116,6 +122,21 @@ def main() -> int:
             rand_m.append(minimal_score(r, dom_list))
         print(f"{'  同大小隨機':28} {len(chosen):5d} {statistics.mean(rand_n):8.1%} {statistics.mean(rand_m):8.1%}")
     order = reduce.order_additional(cov_k)
+    # 以 dominator 類當「錯」算 APFD：每類被第一次殺到的位置
+    dom_idx = [{idx[j] for j in res["classes_map"][s]} for s in dom_list]   # 每個 dominator 類 → 它的突變體（新編號）
+    def apfd_dom(ordr):
+        pos = {}
+        for p_, i in enumerate(ordr, 1):
+            for d, muts in enumerate(dom_idx):
+                if d not in pos and cov_k[i] & muts:
+                    pos[d] = p_
+        n, m = len(ordr), len(dom_idx)
+        return 1 - sum(pos.get(d, n + 1) for d in range(m)) / (n * m) + 1 / (2 * n)
+    print(f"\n{'排序':20} {'APFD（全部突變體）':>14} {'APFD（dominator）':>14}")
+    for name, ordr in (("additional", order), ("total", reduce.order_total(cov_k)), ("relation-first", reduce.order_relation(tests, cov_k))):
+        print(f"{name:20} {reduce.apfd(ordr, cov_k, len(kv)):14.3f} {apfd_dom(ordr):14.3f}")
+    rnd = [rng.sample(range(n_tests), n_tests) for _ in range(5)]
+    print(f"{'random(5)':20} {statistics.mean(reduce.apfd(o, cov_k, len(kv)) for o in rnd):14.3f} {statistics.mean(apfd_dom(o) for o in rnd):14.3f}")
     for frac in (0.02, 0.05, 0.1):
         k = max(1, int(n_tests * frac))
         sub = set(order[:k])
