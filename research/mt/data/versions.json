@@ -37,9 +37,9 @@
    "mutants": 374,
    "killed": 175,
    "score": 0.468,
-   "seconds": 20
+   "seconds": 22
   },
-  "note": "第一次跑蛻變測試時的 router"
+  "note": ""
  },
  {
   "version": "v2",
@@ -79,9 +79,9 @@
    "mutants": 606,
    "killed": 314,
    "score": 0.518,
-   "seconds": 45
+   "seconds": 47
   },
-  "note": "第一、二輪：正規化、否定 / 問句守門、意願句、受詞在前、媒體鍵 / 時間只認整句"
+  "note": ""
  },
  {
   "version": "v3",
@@ -121,9 +121,9 @@
    "mutants": 865,
    "killed": 444,
    "score": 0.513,
-   "seconds": 78
+   "seconds": 80
   },
-  "note": "第三輪：鎖定 / 切換 / 家電 / 媒體鍵統一 regex、剝問法外圍詞、搜尋+問資訊走純問答"
+  "note": ""
  },
  {
   "version": "v4",
@@ -163,9 +163,9 @@
    "mutants": 854,
    "killed": 441,
    "score": 0.516,
-   "seconds": 77
+   "seconds": 78
   },
-  "note": "近似句種子後：否定守門前移、_ACTION_START lookahead"
+  "note": ""
  },
  {
   "version": "v5",
@@ -205,8 +205,50 @@
    "mutants": 966,
    "killed": 485,
    "score": 0.502,
-   "seconds": 124
+   "seconds": 128
   },
-  "note": "第四輪：受詞在前無「把」、語助詞不變問答、google / lens 觸發一致、跳到下一…不當視窗"
+  "note": ""
+ },
+ {
+  "version": "v6",
+  "sha": "36e6aed",
+  "batches": {
+   "rules": {
+    "tests": 1373,
+    "violations": 7,
+    "faults": 5
+   },
+   "gemini-3.5-flash-lite_T0": {
+    "tests": 964,
+    "violations": 71,
+    "faults": 49
+   },
+   "gemini-3.5-flash-lite_T0.3": {
+    "tests": 964,
+    "violations": 85,
+    "faults": 57
+   },
+   "gemini-3.5-flash-lite_T0.7": {
+    "tests": 964,
+    "violations": 72,
+    "faults": 49
+   },
+   "gemini-3.5-flash-lite_T1": {
+    "tests": 964,
+    "violations": 80,
+    "faults": 60
+   }
+  },
+  "seeds_ok": {
+   "original": "41/41",
+   "sv": "46/46"
+  },
+  "mutation": {
+   "mutants": 1120,
+   "killed": 467,
+   "score": 0.417,
+   "seconds": 165
+  },
+  "note": ""
  }
 ]

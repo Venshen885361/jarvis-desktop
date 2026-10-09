@@ -332,6 +332,7 @@ def main() -> int:
     ap.add_argument("--limit", type=int, default=0, help="只跑前 N 個突變體（debug）")
     ap.add_argument("--range", type=int, nargs=2, metavar=("FROM", "TO"), help="只跑第 FROM..TO-1 個突變體（分段跑用），寫 matrix_part_FROM-TO.csv")
     ap.add_argument("--merge", action="store_true", help="把 out/matrix_part_*.csv 合併成完整矩陣並算統計")
+    ap.add_argument("--out-tag", default=None, help="輸出檔名 matrix_<tag>.csv（預設用批次名串起來；批次多時檔名會太長）")
     args = ap.parse_args()
     if args.by_batch:
         tags = args.tags or sorted(p.stem[len("tests_"):] for p in OUT.glob("tests_*.jsonl"))
@@ -366,7 +367,7 @@ def main() -> int:
     print(f"測試 {len(tests)} 條（來源：{', '.join(tags) or '只有 seeds'}）")
     matrix, broken = run_matrix(tests, mutants, src)
 
-    tag = "+".join(tags) if tags else "seeds"
+    tag = args.out_tag or ("+".join(tags) if tags else "seeds")
     name = f"matrix_part_{args.range[0]}-{args.range[1]}.csv" if args.range else f"matrix_{tag}.csv"
     with (OUT / name).open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
