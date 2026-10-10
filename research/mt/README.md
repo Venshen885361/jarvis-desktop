@@ -543,6 +543,30 @@ python -m research.mt.subsume out/matrix_llmr.csv --mutants out/mutants_llmr.jso
 成本：矩陣 80 × 187 要 1,496 次 API（每句約 0.9 秒）；regex 的 966 × 3,529 離線 2 分鐘。模型路由每句上線都要一次呼叫——這是它跟 regex 真正的取捨，不是準確率。
 
 
+## E12：RQ10 是不是通則——換模型、換 prompt 寫法（`llm_router.py --model / --style`）
+
+E11 只試了一個模型（flash-lite）和一個 prompt 寫法。E12 把兩個變因各動一次，看三件事變不變：
+種子準確率 / 一致率、一致性違反率（`--baseline own`）、以及「例句 / 定義七成等價」。
+
+prompt 寫法（`--style`）：`full`（名稱｜定義｜格式｜例句 + 規則）、`noex`（沒例句）、`nodef`（沒定義）、`names`（只有名稱和格式）、`norules`（沒全域規則）。
+換模型（`--model`）：gemini-3.5-flash（同家族、較大；非 Gemini 要另外的金鑰，沒試）。
+
+```bash
+# 寫法：flash-lite × noex / names（各 ~2,500 次 API）
+python -m research.mt.llm_router --seeds research/mt/seeds.json --style noex
+python -m research.mt.run --subject llm --router-style noex --gen rules --seeds research/mt/seeds.json --tag-suffix _llmr_noex --baseline own
+python -m research.mt.run --subject llm --router-style noex --gen llm --temperature 0 --seed-filter "^(?!sv_)" --tag-suffix _llmr_noex --baseline own
+#（names 同上，把 noex 換成 names）
+# 模型：flash × full（~4,000 次，含 prompt 突變矩陣）
+python -m research.mt.llm_router --seeds research/mt/seeds.json --model gemini-3.5-flash
+python -m research.mt.run --subject llm --router-model gemini-3.5-flash --gen rules --seeds research/mt/seeds.json --tag-suffix _llmr_flash --baseline own
+python -m research.mt.run --subject llm --router-model gemini-3.5-flash --gen llm --temperature 0 --seed-filter "^(?!sv_)" --tag-suffix _llmr_flash --baseline own
+python -m research.mt.llm_router_mutation --model gemini-3.5-flash --tags rules_llmr_flash_own --per-relation 20 --out-tag llmr_flash
+python -m research.mt.subsume out/matrix_llmr_flash.csv --mutants out/mutants_llmr_flash.json
+```
+
+結果待跑。
+
 ## 檔案
 
 | 檔案 | 作用 |

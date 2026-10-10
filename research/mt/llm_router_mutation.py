@@ -90,8 +90,11 @@ def main() -> int:
     ap.add_argument("--list", action="store_true")
     ap.add_argument("--out-tag", default="llmr")
     ap.add_argument("--workers", type=int, default=llm_router.WORKERS)
+    ap.add_argument("--model", default=None, help="換模型")
+    ap.add_argument("--style", default=None, choices=llm_router.STYLES, help="prompt 寫法；跟原 prompt 一樣的突變體（例：noex 下的 EX_DEL）會被略過")
     a = ap.parse_args()
-    muts = generate()
+    llm_router.configure(a.model, a.style)
+    muts = [m for m in generate() if m.prompt != llm_router.default_prompt()]
     if a.ops:
         muts = [m for m in muts if m.op in a.ops]
     print(f"prompt 突變體 {len(muts)}：{dict(Counter(m.op for m in muts))}")

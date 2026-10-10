@@ -34,6 +34,19 @@ from .harness import same_route as _same_route
 HERE = Path(__file__).resolve().parent
 CACHE_DIR = HERE / "out" / "cache_llmrouter"
 MODEL = os.environ.get("JARVIS_MT_ROUTER_MODEL", "gemini-3.5-flash-lite")
+# E12：換模型 / 換 prompt 寫法看 RQ10 的結論是不是通則。style：full（名稱｜定義｜格式｜例句 + 規則）、
+# noex（沒例句）、nodef（沒定義）、names（只有名稱與格式）、norules（full 但沒有全域規則）
+STYLES = ("full", "noex", "nodef", "names", "norules")
+CONFIG = {"model": MODEL, "style": os.environ.get("JARVIS_MT_ROUTER_STYLE", "full")}
+
+
+def configure(model: str | None = None, style: str | None = None) -> None:
+    if model:
+        CONFIG["model"] = model
+    if style:
+        if style not in STYLES:
+            raise SystemExit(f"style 要是 {STYLES} 之一")
+        CONFIG["style"] = style
 TEMPERATURE = 0.0
 WORKERS = 4
 
@@ -77,19 +90,33 @@ RULES: list[str] = [
 _HEADER = "你是語音助理的意圖路由器。使用者講一句中文，你要判斷它屬於哪個意圖，只輸出 JSON 物件 {\"kind\": \"<意圖名稱>\", \"target\": \"<target 或空字串>\"}，不要任何說明。\n\n意圖（名稱：定義｜target 格式｜例子）："
 
 
-def build_prompt(intents: list[tuple[str, str, str, str]] | None = None, rules: list[str] | None = None) -> str:
+def build_prompt(intents: list[tuple[str, str, str, str]] | None = None, rules: list[str] | None = None, style: str | None = None) -> str:
+    style = style or CONFIG["style"]
     intents = INTENTS if intents is None else intents
     rules = RULES if rules is None else rules
+    if style == "norules":
+        rules = []
     lines = [_HEADER]
     for name, desc, fmt, ex in intents:
-        lines.append(f"- {name}：{desc}｜{fmt}｜{ex}")
+        if style == "noex":
+            lines.append(f"- {name}：{desc}｜{fmt}")
+        elif style == "nodef":
+            lines.append(f"- {name}：{fmt}｜{ex}")
+        elif style == "names":
+            lines.append(f"- {name}：{fmt}")
+        else:
+            lines.append(f"- {name}：{desc}｜{fmt}｜{ex}")
     if rules:
         lines.append("\n規則：")
         lines += [f"- {r}" for r in rules]
     return "\n".join(lines)
 
 
-DEFAULT_PROMPT = build_prompt()
+DEFAULT_PROMPT = build_prompt(style="full")
+
+
+def default_prompt() -> str:
+    return build_prompt()
 
 
 def _key(prompt: str, text: str, rep: int, model: str, temperature: float) -> Path:
@@ -121,7 +148,8 @@ def _parse(raw: str) -> Label:
     return Label(kind, target)
 
 
-def _ask(prompt: str, text: str, *, rep: int = 0, model: str = MODEL, temperature: float = TEMPERATURE, use_cache: bool = True) -> dict:
+def _ask(prompt: str, text: str, *, rep: int = 0, model: str | None = None, temperature: float = TEMPERATURE, use_cache: bool = True) -> dict:
+    model = model or CONFIG["model"]
     key = _key(prompt, text, rep, model, temperature)
     if use_cache and key.is_file():
         return json.loads(key.read_text(encoding="utf-8"))
@@ -151,10 +179,11 @@ def _ask(prompt: str, text: str, *, rep: int = 0, model: str = MODEL, temperatur
     return res
 
 
-def batch_labels(texts: list[str], prompt: str | None = None, *, rep: int = 0, model: str = MODEL,
+def batch_labels(texts: list[str], prompt: str | None = None, *, rep: int = 0, model: str | None = None,
                  temperature: float = TEMPERATURE, workers: int = WORKERS) -> list[Label]:
-    """同一批句子一起問（快取命中的不打 API；沒命中的開 workers 條線）。"""
-    prompt = prompt or DEFAULT_PROMPT
+    """同一批句子一起問（快取命中的不打 API；沒命中的開 workers 條線）。模型 / prompt 寫法看 CONFIG（configure()）。"""
+    prompt = prompt or default_prompt()
+    model = model or CONFIG["model"]
     out: list[Label | None] = [None] * len(texts)
     todo = []
     for i, t in enumerate(texts):
@@ -187,9 +216,12 @@ def main() -> int:
     ap.add_argument("--seeds", help="seeds.json：答對幾條 + 同句再問一次（rep 1）的一致率")
     ap.add_argument("--rep", type=int, default=1)
     ap.add_argument("--prompt", action="store_true", help="印出 prompt")
+    ap.add_argument("--model", default=None, help="換模型（預設 gemini-3.5-flash-lite）")
+    ap.add_argument("--style", default=None, choices=STYLES, help="prompt 寫法（預設 full）")
     a = ap.parse_args()
+    configure(a.model, a.style)
     if a.prompt:
-        print(DEFAULT_PROMPT)
+        print(default_prompt())
         return 0
     if a.try_text:
         for t, lab in zip(a.try_text, batch_labels(a.try_text), strict=True):

@@ -33,7 +33,7 @@ from .harness import same_route as _jarvis_same_route
 from .relations import RELATIONS
 
 
-def _subject(name: str):
+def _subject(name: str, model: str | None = None, style: str | None = None):
     """受測對象：jarvis（router.py）、hass（Home Assistant zh-TW 模板）、llm（Gemini 當路由器，llm_router.py）。
     回 (batch_labels, same_route)：一批句子一起路由（LLM 受測對象要靠這個開多線 + 快取）。"""
     if name == "hass":
@@ -43,6 +43,7 @@ def _subject(name: str):
     if name == "llm":
         from . import llm_router
 
+        llm_router.configure(model, style)
         return llm_router.batch_labels, llm_router.same_route
     return _jarvis_batch_labels, _jarvis_same_route
 
@@ -108,10 +109,12 @@ def main() -> int:
     ap.add_argument("--seed-filter", default=None, help="只用 id 符合這個 regex 的種子（例：^(?!sv_) 排除 killer 種子）")
     ap.add_argument("--tag-suffix", default="", help="輸出檔名加後綴（換種子檔時用，免得蓋掉 tests_rules.jsonl）")
     ap.add_argument("--subject", choices=["jarvis", "hass", "llm"], default="jarvis", help="受測對象")
+    ap.add_argument("--router-model", default=None, help="--subject llm 用：換模型（E12）")
+    ap.add_argument("--router-style", default=None, help="--subject llm 用：prompt 寫法 full / noex / nodef / names / norules（E12）")
     ap.add_argument("--baseline", choices=["expect", "own"], default="expect",
                     help="違反的基準：expect = seeds.json 的期望路由（準確 + 一致）；own = 受測對象自己對種子的路由（只量一致性，tag 加 _own）")
     args = ap.parse_args()
-    batch_labels, same_route = _subject(args.subject)
+    batch_labels, same_route = _subject(args.subject, args.router_model, args.router_style)
 
     seeds = json.loads(Path(args.seeds).read_text(encoding="utf-8"))["seeds"]
     if args.baseline == "own":
