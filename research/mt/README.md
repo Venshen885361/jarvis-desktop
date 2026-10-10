@@ -576,6 +576,7 @@ python -m research.mt.subsume out/matrix_llmr_flash.csv --mutants out/mutants_ll
 - **例句是多餘的，跟 E11 的 EX_DEL 七成存活一致**：拿掉 25 條例句，種子反而多對 2 條（「開 YouTube」在 full 下答 open_url:youtube.com，是被 `開啟github.com → open_url` 那條例句帶偏的；noex 答 open_application），一致性違反只差 0.4–0.6 個百分點。
 - **定義有用，而且用在邊界**：連定義都拿掉（names），種子掉 5 條、一致性違反翻倍（3.9% → 6.0%、2.7% → 5.3%）。掉的都是 info / model / set_volume 的邊界：「台北 top 10 美食」→ 去 Google、「給我台北美食列表」→ youtube_play、「音量太大我的耳朵痛」→ 調小音量——跟 DEF_DEL 存活分析說的「有用的定義是 info / model / set_volume」一樣。
 - 非確定性不隨寫法變：三種寫法同句兩次一致都在 84–86 / 87。
+- 重現：三種寫法的 prompt sha 分別是 full `ff2032978755`、noex `97fe544d8759`、names `f836553a62a0`（`cache_llmrouter/*.json` 的 `meta.prompt_sha`）；標題列固定寫「名稱：定義｜target 格式｜例子」不隨寫法變，改了就等於換 prompt、快取失效。`demo.py` 第 24–34 步全部讀快取，不用金鑰。
 
 ### 換模型（gemini-3.5-flash）：錯的句子一樣，例句 / 定義更多餘，縮減 / 排序結論不變
 

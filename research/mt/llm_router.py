@@ -88,7 +88,9 @@ RULES: list[str] = [
 ]
 
 _HEADER = "你是語音助理的意圖路由器。使用者講一句中文，你要判斷它屬於哪個意圖，只輸出 JSON 物件 {\"kind\": \"<意圖名稱>\", \"target\": \"<target 或空字串>\"}，不要任何說明。\n\n意圖（{cols}）："
-_COLS = {"full": "名稱：定義｜target 格式｜例子", "norules": "名稱：定義｜target 格式｜例子", "noex": "名稱：定義｜target 格式", "nodef": "名稱：target 格式｜例子", "names": "名稱：target 格式"}
+# 標題列固定寫「名稱：定義｜target 格式｜例子」，不隨 --style 變：E12 的 noex / names 批次（各 ~2,450 次 API）是用這個標題跑的，
+# 改標題 = 換 prompt = 快取全部失效（prompt sha 97fe544d8759 / f836553a62a0）。少一欄只在每行少那一段。
+_COLS = dict.fromkeys(STYLES, "名稱：定義｜target 格式｜例子")
 
 
 def build_prompt(intents: list[tuple[str, str, str, str]] | None = None, rules: list[str] | None = None, style: str | None = None) -> str:
