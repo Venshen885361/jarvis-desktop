@@ -1,0 +1,14 @@
+{
+ "text": "那個，不用打開記事本",
+ "kind": "error",
+ "target": "parse",
+ "raw": "{\"kind\": \"model\",",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "94bb101f7851",
+  "ms": 2358,
+  "ts": "2026-10-10T22:30:32"
+ }
+}

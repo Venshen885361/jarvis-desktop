@@ -1,0 +1,14 @@
+{
+ "text": "欸 用相機看牌子",
+ "kind": "camera_search",
+ "target": "",
+ "raw": "{\"kind\": \"camera_search\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "97fe544d8759",
+  "ms": 901,
+  "ts": "2026-10-10T21:12:06"
+ }
+}

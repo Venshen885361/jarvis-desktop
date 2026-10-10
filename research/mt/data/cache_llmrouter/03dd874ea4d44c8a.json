@@ -1,0 +1,14 @@
+{
+ "text": "欸把客廳燈關掉",
+ "kind": "home_control",
+ "target": "客廳燈=off",
+ "raw": "{\"kind\": \"home_control\", \"target\": \"客廳燈=off\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 1324,
+  "ts": "2026-10-11T01:34:49"
+ }
+}

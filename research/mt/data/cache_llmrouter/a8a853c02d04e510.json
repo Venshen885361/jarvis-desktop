@@ -1,0 +1,14 @@
+{
+ "text": "剛剛播放上一首了嗎",
+ "kind": "error",
+ "target": "parse",
+ "raw": "No, `info` is",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "8070ac4e5c0d",
+  "ms": 2375,
+  "ts": "2026-10-10T22:30:46"
+ }
+}

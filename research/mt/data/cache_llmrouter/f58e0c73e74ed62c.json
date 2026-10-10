@@ -1,0 +1,14 @@
+{
+ "text": "JARVIS，打開記事本的快速鍵",
+ "kind": "info",
+ "target": "",
+ "raw": "{\"kind\": \"info\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 1156,
+  "ts": "2026-10-11T00:53:13"
+ }
+}

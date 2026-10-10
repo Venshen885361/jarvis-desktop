@@ -1,0 +1,14 @@
+{
+ "text": "切到手機",
+ "kind": "focus_window",
+ "target": "手機",
+ "raw": "{\"kind\": \"focus_window\", \"target\": \"手機\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "9634ef9877a6",
+  "ms": 1134,
+  "ts": "2026-10-11T00:59:08"
+ }
+}

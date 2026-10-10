@@ -1,0 +1,14 @@
+{
+ "text": "誒 現在幾點可以嗎",
+ "kind": "time",
+ "target": "",
+ "raw": "{\"kind\": \"time\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 843,
+  "ts": "2026-10-10T21:30:31"
+ }
+}

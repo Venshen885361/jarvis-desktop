@@ -1,0 +1,14 @@
+{
+ "text": "為什麼桌面上的截圖整理到一個資料夾這麼麻煩",
+ "kind": "model",
+ "target": "",
+ "raw": "{\"kind\": \"model\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 2089,
+  "ts": "2026-10-10T22:21:15"
+ }
+}

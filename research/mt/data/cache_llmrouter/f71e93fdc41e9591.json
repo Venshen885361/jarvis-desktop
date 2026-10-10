@@ -1,0 +1,14 @@
+{
+ "text": "請問 VLC 安裝檔在哪裡下載",
+ "kind": "info",
+ "target": "",
+ "raw": "{\"kind\": \"info\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 2284,
+  "ts": "2026-10-10T22:13:16"
+ }
+}

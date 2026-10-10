@@ -1,0 +1,14 @@
+{
+ "text": "欸 音量太大我的耳朵真的非常非常痛",
+ "kind": "set_volume",
+ "target": "down",
+ "raw": "{\"kind\": \"set_volume\", \"target\": \"down\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "94bb101f7851",
+  "ms": 10983,
+  "ts": "2026-10-11T01:03:03"
+ }
+}

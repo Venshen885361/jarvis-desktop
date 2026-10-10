@@ -1,0 +1,14 @@
+{
+ "text": "幫我中英切換啦",
+ "kind": "switch_input_method",
+ "target": "toggle_lang",
+ "raw": "{\"kind\": \"switch_input_method\", \"target\": \"toggle_lang\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 1274,
+  "ts": "2026-10-11T00:54:16"
+ }
+}

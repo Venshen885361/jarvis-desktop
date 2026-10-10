@@ -1,0 +1,14 @@
+{
+ "text": "放一下周杰倫的歌",
+ "kind": "open_url",
+ "target": "google:周杰倫",
+ "raw": "{\"kind\": \"open_url\", \"target\": \"google:周杰倫\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "42f3f8be92e8",
+  "ms": 1093,
+  "ts": "2026-10-11T00:57:42"
+ }
+}

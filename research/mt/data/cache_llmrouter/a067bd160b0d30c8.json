@@ -1,0 +1,14 @@
+{
+ "text": "藏起來好不好",
+ "kind": "hide",
+ "target": "",
+ "raw": "{\"kind\": \"hide\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 1926,
+  "ts": "2026-10-10T22:19:25"
+ }
+}

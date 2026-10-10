@@ -1,0 +1,14 @@
+{
+ "text": "用 YouTube 找 lofi",
+ "kind": "youtube_play",
+ "target": "lofi",
+ "raw": "{\"kind\": \"youtube_play\", \"target\": \"lofi\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "5a34db41d002",
+  "ms": 2020,
+  "ts": "2026-10-10T22:24:33"
+ }
+}

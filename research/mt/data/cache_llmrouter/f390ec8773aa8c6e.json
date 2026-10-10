@@ -1,0 +1,14 @@
+{
+ "text": "對了，剪貼簿裡有什麼",
+ "kind": "read_clipboard",
+ "target": "",
+ "raw": "{\"kind\": \"read_clipboard\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "97fe544d8759",
+  "ms": 1116,
+  "ts": "2026-10-10T21:18:39"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "text": "有人用 Steam 安裝 Terraria 遇到錯誤嗎",
+ "kind": "info",
+ "target": "",
+ "raw": "{\"kind\": \"info\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 803,
+  "ts": "2026-10-11T01:34:12"
+ }
+}

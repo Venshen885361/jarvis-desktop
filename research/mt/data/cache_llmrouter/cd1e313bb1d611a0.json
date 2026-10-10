@@ -1,0 +1,14 @@
+{
+ "text": "JARVIS，下載 www.example.com/a.zip",
+ "kind": "open_url",
+ "target": "www.example.com/a.zip",
+ "raw": "{\"kind\": \"open_url\", \"target\": \"www.example.com/a.zip\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "b5870f7fe56a",
+  "ms": 994,
+  "ts": "2026-10-11T01:08:16"
+ }
+}

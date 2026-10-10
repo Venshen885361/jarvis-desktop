@@ -1,0 +1,14 @@
+{
+ "text": "VLC幫我裝",
+ "kind": "install_steam_game",
+ "target": "VLC",
+ "raw": "{\"kind\": \"install_steam_game\", \"target\": \"VLC\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "39db3db311a8",
+  "ms": 1051,
+  "ts": "2026-10-11T00:57:54"
+ }
+}

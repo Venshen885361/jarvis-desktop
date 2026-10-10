@@ -1,0 +1,14 @@
+{
+ "text": "用相機看牌子的教學在哪",
+ "kind": "error",
+ "target": "parse",
+ "raw": "{\"kind\": \"info\", \"",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "23c9fc1604cf",
+  "ms": 2537,
+  "ts": "2026-10-10T22:35:49"
+ }
+}

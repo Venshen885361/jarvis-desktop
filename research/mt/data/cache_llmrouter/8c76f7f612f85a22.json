@@ -1,0 +1,14 @@
+{
+ "text": "放晴天",
+ "kind": "youtube_play",
+ "target": "晴天",
+ "raw": "{\n  \"kind\": \"youtube_play\",\n  \"target\": \"晴天\"\n}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "97fe544d8759",
+  "ms": 822,
+  "ts": "2026-10-10T21:03:04"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "text": "幫我裝 VLC",
+ "kind": "open_application",
+ "target": "VLC",
+ "raw": "{\"kind\": \"open_application\", \"target\": \"VLC\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "39db3db311a8",
+  "ms": 1172,
+  "ts": "2026-10-11T00:57:51"
+ }
+}

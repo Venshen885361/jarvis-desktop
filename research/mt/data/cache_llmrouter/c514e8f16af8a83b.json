@@ -1,0 +1,14 @@
+{
+ "text": "開啟會中不要吵",
+ "kind": "error",
+ "target": "parse",
+ "raw": "{\n  \"kind\": \"model",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "d5c771011290",
+  "ms": 1887,
+  "ts": "2026-10-10T22:39:49"
+ }
+}

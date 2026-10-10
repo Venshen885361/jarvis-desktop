@@ -92,8 +92,37 @@ def steps(full: bool) -> list[tuple[str, list[str]]]:
          [*m, "research.mt.llm_router_mutation", "--tags", "rules_llmr", "--per-relation", "20"]),
         ("RQ10 縮減 / 排序", [*m, "research.mt.reduce", str(OUT / "matrix_llmr.csv"), "--drop-trivial"]),
         ("RQ10 包含關係", [*m, "research.mt.subsume", str(OUT / "matrix_llmr.csv"), "--mutants", str(OUT / "mutants_llmr.json")]),
+        *_e12_steps(m),
     ] + ([("RQ6 跨版本可轉移性：v4 決定 → v5 評估（需要 git，兩個版本各算一次矩陣，約 4 分鐘）",
            [*m, "research.mt.transfer", "--from", "v4=7040c54", "--to", "v5=3f5e658"])] if full else []) + (_hass_steps(m) if full else [])
+
+
+def _e12_steps(m: list[str]) -> list[tuple[str, list[str]]]:
+    """E12 RQ10 通則檢驗：換 prompt 寫法（noex / names）、換模型（flash）。全部讀快取。"""
+    out: list[tuple[str, list[str]]] = []
+    for style in ("noex", "names"):
+        out += [
+            (f"E12 寫法 {style}：87 條種子（讀快取）",
+             [*m, "research.mt.llm_router", "--seeds", str(HERE / "seeds.json"), "--style", style]),
+            (f"E12 寫法 {style}：規則式批次一致性（讀快取）",
+             [*m, "research.mt.run", "--subject", "llm", "--router-style", style, "--gen", "rules", "--seeds", str(HERE / "seeds.json"), "--tag-suffix", f"_llmr_{style}", "--baseline", "own"]),
+            (f"E12 寫法 {style}：模型批次 T0 一致性（讀快取）",
+             [*m, "research.mt.run", "--subject", "llm", "--router-style", style, "--gen", "llm", "--temperature", "0", "--seed-filter", ORIG, "--tag-suffix", f"_llmr_{style}", "--baseline", "own"]),
+        ]
+    fl = ["--router-model", "gemini-3.5-flash"]
+    out += [
+        ("E12 換模型 flash：87 條種子（讀快取）",
+         [*m, "research.mt.llm_router", "--seeds", str(HERE / "seeds.json"), "--model", "gemini-3.5-flash"]),
+        ("E12 換模型 flash：規則式批次 n=20 一致性（讀快取）",
+         [*m, "research.mt.run", "--subject", "llm", *fl, "--gen", "rules", "--n", "20", "--tag-suffix", "_llmr_flash", "--baseline", "own"]),
+        ("E12 換模型 flash：模型批次 T0 一致性（讀快取）",
+         [*m, "research.mt.run", "--subject", "llm", *fl, "--gen", "llm", "--temperature", "0", "--seed-filter", ORIG, "--tag-suffix", "_llmr_flash", "--baseline", "own"]),
+        ("E12 換模型 flash：prompt 突變矩陣 80 × 187（讀快取）",
+         [*m, "research.mt.llm_router_mutation", "--model", "gemini-3.5-flash", "--tags", "rules_llmr_flash_own", "--per-relation", "20", "--out-tag", "llmr_flash"]),
+        ("E12 換模型 flash：包含關係 + 縮減 / 排序",
+         [*m, "research.mt.subsume", str(OUT / "matrix_llmr_flash.csv"), "--mutants", str(OUT / "mutants_llmr_flash.json")]),
+    ]
+    return out
 
 
 def _hass_steps(m: list[str]) -> list[tuple[str, list[str]]]:

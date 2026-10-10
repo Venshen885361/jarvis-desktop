@@ -1,0 +1,14 @@
+{
+ "text": "晴天把它播出來",
+ "kind": "youtube_play",
+ "target": "晴天",
+ "raw": "{\"kind\": \"youtube_play\", \"target\": \"晴天\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 1262,
+  "ts": "2026-10-10T21:39:02"
+ }
+}

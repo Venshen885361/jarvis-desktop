@@ -1,0 +1,14 @@
+{
+ "text": "開除濕機的教學在哪",
+ "kind": "error",
+ "target": "parse",
+ "raw": "不確定、或句子不是指令",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "07dc55b41a24",
+  "ms": 2424,
+  "ts": "2026-10-10T22:29:36"
+ }
+}

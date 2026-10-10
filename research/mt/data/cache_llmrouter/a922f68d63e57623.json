@@ -1,0 +1,14 @@
+{
+ "text": "我藏起來都打不開怎麼辦",
+ "kind": "model",
+ "target": "",
+ "raw": "{\"kind\": \"model\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "07dc55b41a24",
+  "ms": 1279,
+  "ts": "2026-10-11T01:02:01"
+ }
+}

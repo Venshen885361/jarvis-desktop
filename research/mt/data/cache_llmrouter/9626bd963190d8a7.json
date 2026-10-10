@@ -1,0 +1,14 @@
+{
+ "text": "用相機看牌子喔",
+ "kind": "model",
+ "target": "",
+ "raw": "{\"kind\": \"model\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "366a2f3afde4",
+  "ms": 1172,
+  "ts": "2026-10-11T01:00:00"
+ }
+}

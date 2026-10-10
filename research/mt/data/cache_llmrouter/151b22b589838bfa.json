@@ -1,0 +1,14 @@
+{
+ "text": "麻煩幫我把輸入法切成英文啦",
+ "kind": "switch_input_method",
+ "target": "english",
+ "raw": "{\"kind\": \"switch_input_method\", \"target\": \"english\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "97fe544d8759",
+  "ms": 746,
+  "ts": "2026-10-10T21:18:18"
+ }
+}

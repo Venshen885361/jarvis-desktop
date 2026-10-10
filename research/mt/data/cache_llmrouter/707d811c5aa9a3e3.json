@@ -1,0 +1,14 @@
+{
+ "text": "我音量小一點都打不開怎麼辦",
+ "kind": "model",
+ "target": "",
+ "raw": "{\"kind\": \"model\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 819,
+  "ts": "2026-10-10T21:37:37"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "text": "可以幫我打開下載資料夾喔",
+ "kind": "open_folder",
+ "target": "下載",
+ "raw": "{\"kind\": \"open_folder\", \"target\": \"下載\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 932,
+  "ts": "2026-10-10T21:38:30"
+ }
+}

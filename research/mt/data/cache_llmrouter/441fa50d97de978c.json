@@ -1,0 +1,14 @@
+{
+ "text": "切到Chrome",
+ "kind": "focus_window",
+ "target": "Chrome",
+ "raw": "{\"kind\": \"focus_window\", \"target\": \"Chrome\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "7840e4b3e272",
+  "ms": 1198,
+  "ts": "2026-10-11T01:03:39"
+ }
+}

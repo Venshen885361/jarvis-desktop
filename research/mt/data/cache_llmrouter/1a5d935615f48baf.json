@@ -1,0 +1,14 @@
+{
+ "text": "前一首好嗎",
+ "kind": "computer:key",
+ "target": "prevtrack",
+ "raw": "{\"kind\": \"computer:key\", \"target\": \"prevtrack\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 833,
+  "ts": "2026-10-10T21:35:17"
+ }
+}

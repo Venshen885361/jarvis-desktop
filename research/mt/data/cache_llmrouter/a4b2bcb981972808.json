@@ -1,0 +1,14 @@
+{
+ "text": "剛剛把桌面上的截圖整理到一個資料夾了嗎",
+ "kind": "error",
+ "target": "parse",
+ "raw": "/不是指令\" -> `model`.",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "d5c771011290",
+  "ms": 2129,
+  "ts": "2026-10-10T22:41:08"
+ }
+}

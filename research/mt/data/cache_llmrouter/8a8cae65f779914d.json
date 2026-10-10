@@ -1,0 +1,14 @@
+{
+ "text": "切換到手機",
+ "kind": "device_switch",
+ "target": "手機",
+ "raw": "{\"kind\": \"device_switch\", \"target\": \"手機\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "32d153765dfd",
+  "ms": 1709,
+  "ts": "2026-10-10T22:26:55"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "text": "周杰倫的歌，播放",
+ "kind": "youtube_play",
+ "target": "周杰倫",
+ "raw": "{\"kind\": \"youtube_play\", \"target\": \"周杰倫\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 972,
+  "ts": "2026-10-10T21:25:16"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "text": "裝潢要多少錢",
+ "kind": "info",
+ "target": "",
+ "raw": "{\n  \"kind\": \"info\",\n  \"target\": \"\"\n}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 871,
+  "ts": "2026-10-10T21:22:40"
+ }
+}

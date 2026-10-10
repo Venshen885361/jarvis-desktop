@@ -1,0 +1,14 @@
+{
+ "text": "查一下網路python 教學",
+ "kind": "open_url",
+ "target": "google:python 教學",
+ "raw": "{\"kind\": \"open_url\", \"target\": \"google:python 教學\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f9807a2d0de6",
+  "ms": 1207,
+  "ts": "2026-10-11T00:57:32"
+ }
+}

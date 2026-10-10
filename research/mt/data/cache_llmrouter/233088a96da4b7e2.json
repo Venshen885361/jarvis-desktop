@@ -1,0 +1,14 @@
+{
+ "text": "欸，客廳燈關上",
+ "kind": "model",
+ "target": "",
+ "raw": "{\"kind\": \"model\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "16505d3cd5aa",
+  "ms": 1136,
+  "ts": "2026-10-11T00:58:26"
+ }
+}

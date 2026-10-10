@@ -1,0 +1,14 @@
+{
+ "text": "幫我開空調",
+ "kind": "error",
+ "target": "parse",
+ "raw": "`: Volume control. (No).\n",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "16505d3cd5aa",
+  "ms": 2214,
+  "ts": "2026-10-10T22:25:36"
+ }
+}

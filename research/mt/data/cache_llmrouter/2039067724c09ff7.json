@@ -1,0 +1,14 @@
+{
+ "text": "麻煩冷氣幫我設 26 度好嗎",
+ "kind": "home_control",
+ "target": "冷氣=set=26",
+ "raw": "{\"kind\": \"home_control\", \"target\": \"冷氣=set=26\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 886,
+  "ts": "2026-10-10T21:43:40"
+ }
+}

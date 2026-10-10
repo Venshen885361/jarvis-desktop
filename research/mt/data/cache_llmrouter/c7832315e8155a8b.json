@@ -1,0 +1,14 @@
+{
+ "text": "播放上一首謝謝",
+ "kind": "error",
+ "target": "parse",
+ "raw": "{\"kind\": \"computer:key\", \"target\": \"prevtrack",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "23c9fc1604cf",
+  "ms": 1921,
+  "ts": "2026-10-10T22:34:58"
+ }
+}

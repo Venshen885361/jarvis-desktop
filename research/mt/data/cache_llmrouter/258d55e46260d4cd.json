@@ -1,0 +1,14 @@
+{
+ "text": "不要螢幕鎖上",
+ "kind": "model",
+ "target": "",
+ "raw": "{\"kind\": \"model\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "8070ac4e5c0d",
+  "ms": 1801,
+  "ts": "2026-10-10T22:30:46"
+ }
+}

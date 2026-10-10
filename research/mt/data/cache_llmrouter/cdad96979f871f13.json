@@ -1,0 +1,14 @@
+{
+ "text": "嗯 給我台北美食列表",
+ "kind": "open_url",
+ "target": "google:台北美食列表",
+ "raw": "{\"kind\": \"open_url\", \"target\": \"google:\\u53f0\\u5317\\u7f8e\\u98df\\u5217\\u8868\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 1187,
+  "ts": "2026-10-10T21:32:59"
+ }
+}

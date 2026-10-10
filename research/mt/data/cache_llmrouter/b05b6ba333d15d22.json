@@ -1,0 +1,14 @@
+{
+ "text": "打開記事本謝啦喔",
+ "kind": "open_application",
+ "target": "記事本",
+ "raw": "{\"kind\": \"open_application\", \"target\": \"記事本\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "b5870f7fe56a",
+  "ms": 1404,
+  "ts": "2026-10-10T22:42:37"
+ }
+}

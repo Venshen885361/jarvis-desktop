@@ -1,0 +1,14 @@
+{
+ "text": "誰在問播報新聞的事情",
+ "kind": "error",
+ "target": "parse",
+ "raw": "model`: 以上都不是",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 2276,
+  "ts": "2026-10-10T22:22:34"
+ }
+}

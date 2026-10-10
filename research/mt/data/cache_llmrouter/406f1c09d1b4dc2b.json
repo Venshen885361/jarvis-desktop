@@ -1,0 +1,14 @@
+{
+ "text": "剪貼簿內容",
+ "kind": "read_clipboard",
+ "target": "",
+ "raw": "{\"kind\": \"read_clipboard\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "b5870f7fe56a",
+  "ms": 1795,
+  "ts": "2026-10-10T22:41:52"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "text": "欸 幫我跳下一首歌",
+ "kind": "error",
+ "target": "parse",
+ "raw": " intents carefully:\n",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "1aff50f4c6c0",
+  "ms": 2451,
+  "ts": "2026-10-10T22:27:22"
+ }
+}

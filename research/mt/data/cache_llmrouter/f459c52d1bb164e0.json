@@ -1,0 +1,14 @@
+{
+ "text": "有人知道為什麼藏起來會被抓到嗎",
+ "kind": "info",
+ "target": "",
+ "raw": "{\"kind\": \"info\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 898,
+  "ts": "2026-10-10T21:44:46"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "text": "對了 搜尋 python 教學",
+ "kind": "info",
+ "target": "",
+ "raw": "{\"kind\": \"info\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "3b9288820ad7",
+  "ms": 1106,
+  "ts": "2026-10-11T00:57:18"
+ }
+}

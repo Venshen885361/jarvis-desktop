@@ -1,0 +1,14 @@
+{
+ "text": "給我台北美食列表",
+ "kind": "youtube_play",
+ "target": "台北美食列表",
+ "raw": "{\n  \"kind\": \"youtube_play\",\n  \"target\": \"台北美食列表\"\n}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 1,
+  "prompt_sha": "f836553a62a0",
+  "ms": 824,
+  "ts": "2026-10-10T21:23:33"
+ }
+}

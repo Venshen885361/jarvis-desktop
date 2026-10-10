@@ -1,0 +1,14 @@
+{
+ "text": "搜尋 python 教學的教學在哪",
+ "kind": "open_url",
+ "target": "google:搜尋 python 教學的教學在哪",
+ "raw": "{\"kind\": \"open_url\", \"target\": \"google:\\u641c\\u5c0b python \\u6559\\u5b78\\u7684\\u6559\\u5b78\\u5728\\u54ea\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 951,
+  "ts": "2026-10-10T21:26:11"
+ }
+}

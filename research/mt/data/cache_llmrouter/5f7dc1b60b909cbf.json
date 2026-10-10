@@ -1,0 +1,14 @@
+{
+ "text": "欸 冷氣風量調到3",
+ "kind": "error",
+ "target": "parse",
+ "raw": "{\"kind\": \"home_control\",",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "b5870f7fe56a",
+  "ms": 2196,
+  "ts": "2026-10-10T22:43:17"
+ }
+}

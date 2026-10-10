@@ -1,0 +1,14 @@
+{
+ "text": "音量減一點",
+ "kind": "set_volume",
+ "target": "down",
+ "raw": "{\"kind\": \"set_volume\", \"target\": \"down\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "d5c771011290",
+  "ms": 1758,
+  "ts": "2026-10-10T22:39:22"
+ }
+}

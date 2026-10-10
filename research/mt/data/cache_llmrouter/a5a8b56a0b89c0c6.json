@@ -1,0 +1,14 @@
+{
+ "text": "桌面上的截圖弄個資料夾整理起來",
+ "kind": "open_folder",
+ "target": "截圖",
+ "raw": "{\"kind\": \"open_folder\", \"target\": \"截圖\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 1188,
+  "ts": "2026-10-11T01:35:30"
+ }
+}

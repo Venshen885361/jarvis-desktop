@@ -1,0 +1,14 @@
+{
+ "text": "對了，我想切 Chrome",
+ "kind": "focus_window",
+ "target": "Chrome",
+ "raw": "{\"kind\": \"focus_window\", \"target\": \"Chrome\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 1064,
+  "ts": "2026-10-11T00:51:07"
+ }
+}

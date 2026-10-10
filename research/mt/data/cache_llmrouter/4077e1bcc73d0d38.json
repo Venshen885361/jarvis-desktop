@@ -1,0 +1,14 @@
+{
+ "text": "可以幫我打開 YouTube 喔",
+ "kind": "open_url",
+ "target": "google:YouTube",
+ "raw": "{\"kind\": \"open_url\", \"target\": \"google:YouTube\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 1117,
+  "ts": "2026-10-11T01:33:32"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "text": "欸，下載 Discord",
+ "kind": "error",
+ "target": "parse",
+ "raw": "{\"kind\": \"open",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "39db3db311a8",
+  "ms": 2249,
+  "ts": "2026-10-10T22:24:44"
+ }
+}

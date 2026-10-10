@@ -1,0 +1,14 @@
+{
+ "text": "靜音",
+ "kind": "home_control",
+ "target": "靜音",
+ "raw": "{\"kind\": \"home_control\", \"target\": \"靜音\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "6b8124748714",
+  "ms": 1076,
+  "ts": "2026-10-11T00:58:51"
+ }
+}

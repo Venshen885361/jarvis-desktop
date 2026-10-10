@@ -1,0 +1,14 @@
+{
+ "text": "剛剛現在剪貼簿有什麼了嗎",
+ "kind": "error",
+ "target": "parse",
+ "raw": "{\"kind\": \"read_clipboard\",",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "23c9fc1604cf",
+  "ms": 2261,
+  "ts": "2026-10-10T22:35:47"
+ }
+}

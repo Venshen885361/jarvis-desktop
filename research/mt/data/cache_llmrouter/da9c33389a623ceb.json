@@ -1,0 +1,14 @@
+{
+ "text": "台北 top 10 美食謝謝",
+ "kind": "error",
+ "target": "parse",
+ "raw": "{\"kind\": \"",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ad3a6ac265fe",
+  "ms": 2268,
+  "ts": "2026-10-10T22:29:49"
+ }
+}

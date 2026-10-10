@@ -1,0 +1,14 @@
+{
+ "text": "打開暖氣",
+ "kind": "home_control",
+ "target": "暖氣=on",
+ "raw": "{\"kind\": \"home_control\", \"target\": \"暖氣=on\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "23c9fc1604cf",
+  "ms": 1145,
+  "ts": "2026-10-11T01:04:44"
+ }
+}

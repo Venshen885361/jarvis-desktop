@@ -1,0 +1,14 @@
+{
+ "text": "執行捲門",
+ "kind": "error",
+ "target": "parse",
+ "raw": "Check all intent types:\n",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "b5870f7fe56a",
+  "ms": 2168,
+  "ts": "2026-10-10T22:42:31"
+ }
+}

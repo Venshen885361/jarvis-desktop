@@ -1,0 +1,14 @@
+{
+ "text": "剪貼簿裡有什麼的教學在哪",
+ "kind": "info",
+ "target": "",
+ "raw": "{\"kind\": \"info\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "97fe544d8759",
+  "ms": 986,
+  "ts": "2026-10-10T21:05:47"
+ }
+}

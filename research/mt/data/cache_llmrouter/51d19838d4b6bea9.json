@@ -1,0 +1,14 @@
+{
+ "text": "放一下報新聞",
+ "kind": "error",
+ "target": "parse",
+ "raw": "{\"kind\": \"youtube_play\",",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "23c9fc1604cf",
+  "ms": 2567,
+  "ts": "2026-10-10T22:34:41"
+ }
+}

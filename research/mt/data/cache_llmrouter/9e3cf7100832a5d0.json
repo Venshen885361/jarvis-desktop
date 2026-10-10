@@ -1,0 +1,14 @@
+{
+ "text": "輸入法切成英文",
+ "kind": "model",
+ "target": "",
+ "raw": "{\"kind\": \"model\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f22b494c88e2",
+  "ms": 984,
+  "ts": "2026-10-11T00:59:43"
+ }
+}

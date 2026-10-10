@@ -1,0 +1,14 @@
+{
+ "text": "嗯 剪貼簿內容",
+ "kind": "error",
+ "target": "parse",
+ "raw": "{\"kind\": \"model\", \"",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "08570587ec2e",
+  "ms": 2042,
+  "ts": "2026-10-10T22:27:57"
+ }
+}

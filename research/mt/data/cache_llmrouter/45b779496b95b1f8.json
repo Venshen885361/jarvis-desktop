@@ -1,0 +1,14 @@
+{
+ "text": "輸入法切成英文會怎樣",
+ "kind": "error",
+ "target": "parse",
+ "raw": "都不是指令：問知識回 info",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "07dc55b41a24",
+  "ms": 2354,
+  "ts": "2026-10-10T22:29:37"
+ }
+}

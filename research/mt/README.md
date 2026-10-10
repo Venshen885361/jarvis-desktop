@@ -559,7 +559,7 @@ python -m research.mt.run --subject llm --router-style noex --gen llm --temperat
 #（names 同上，把 noex 換成 names）
 # 模型：flash × full（~4,000 次，含 prompt 突變矩陣）
 python -m research.mt.llm_router --seeds research/mt/seeds.json --model gemini-3.5-flash
-python -m research.mt.run --subject llm --router-model gemini-3.5-flash --gen rules --seeds research/mt/seeds.json --tag-suffix _llmr_flash --baseline own
+python -m research.mt.run --subject llm --router-model gemini-3.5-flash --gen rules --n 20 --tag-suffix _llmr_flash --baseline own   # 3,590 句
 python -m research.mt.run --subject llm --router-model gemini-3.5-flash --gen llm --temperature 0 --seed-filter "^(?!sv_)" --tag-suffix _llmr_flash --baseline own
 python -m research.mt.llm_router_mutation --model gemini-3.5-flash --tags rules_llmr_flash_own --per-relation 20 --out-tag llmr_flash
 python -m research.mt.subsume out/matrix_llmr_flash.csv --mutants out/mutants_llmr_flash.json
@@ -577,11 +577,28 @@ python -m research.mt.subsume out/matrix_llmr_flash.csv --mutants out/mutants_ll
 - **定義有用，而且用在邊界**：連定義都拿掉（names），種子掉 5 條、一致性違反翻倍（3.9% → 6.0%、2.7% → 5.3%）。掉的都是 info / model / set_volume 的邊界：「台北 top 10 美食」→ 去 Google、「給我台北美食列表」→ youtube_play、「音量太大我的耳朵痛」→ 調小音量——跟 DEF_DEL 存活分析說的「有用的定義是 info / model / set_volume」一樣。
 - 非確定性不隨寫法變：三種寫法同句兩次一致都在 84–86 / 87。
 
-### 換模型（gemini-3.5-flash）：第一次跑被「思考 token」弄壞，修了再跑
+### 換模型（gemini-3.5-flash）：錯的句子一樣，例句 / 定義更多餘，縮減 / 排序結論不變
 
+| | flash-lite（E11） | **flash** |
+|---|---|---|
+| 種子答對 | 78 / 87 | 77 / 87：錯的 10 條 = 2 條 prompt 漏列意圖（download_file → open_url、list_windows → info）、4 條可爭議（開 YouTube → open_url:google:YouTube、快速鍵 / 英文怎麼說 → info、冷氣風量調到3 → 冷氣風量=set=3）、4 條真錯（用電腦打開記事本、現在才要打開記事本、客廳燈改成、播報新聞 → info）——**跟 flash-lite 錯的是同一批句子** |
+| 同句兩次一致 | 86 / 87 | 86 / 87（翻的是 有哪些視窗：info ↔ model） |
+| 規則式批次一致性違反 | 52 / 1,339（3.9%，n=5） | **88 / 3,590（2.5%，n=20）**：R1 2.5%、R2 3.4%、R3 4.8%、R4 0.6%、R5 3.2% |
+| 模型批次 T0 一致性違反 | 25 / 941（2.7%） | 待跑 |
+| prompt 突變 殺 / 80 | 42（INTENT_DEL 24 / EX_DEL 7 / DEF_DEL 6 / RULE_DEL 5） | **36**（INTENT_DEL 24 / **EX_DEL 3 / DEF_DEL 4** / RULE_DEL 5）；1,496 次 API、12 分鐘 |
+| dominator | 26 / 42（62%） | 27 / 36（75%）；RULE_DEL 5 個只剩 1 個 dominator，每條規則只被 1–4 句殺 |
+| 縮減 187 → 25 | 100%（隨機 43%） | 100%（隨機 43%） |
+| APFD additional / total / 隨機 | 0.955 / 0.886 / 0.741 | 0.951 / 0.907 / 0.713 |
+
+- **換大一號的模型，種子錯的還是那幾句**：10 條裡 8 條跟 flash-lite 重疊，而且都是 prompt 的問題（漏列意圖、info / model 邊界沒寫清楚），不是模型能力的問題。要修的是 prompt，不是換模型。
+- **模型越大，例句和定義越多餘**：EX_DEL 存活 18 → 22、DEF_DEL 19 → 21；刪意圖仍然 24 / 24 全殺。「獨立的錯 = 一個意圖」這個結論在兩個模型上一樣。
+- 全域規則對 flash 幾乎沒作用（每條 1–4 句殺，RULE_DEL 2 / 3 / 4 全被 INTENT_DEL 包含）：大模型自己就會處理填充詞、禮貌語、語序。
+- 縮減 100%、APFD additional ≈ 0.95——**三個受測對象 × 兩個模型 × 三種寫法，縮減 / 排序的結論一次都沒變**。
+
+**測試工具自己又抓到自己一個 bug**（第五個：harness 標籤比對、去重順序、`--tag-suffix` 蓋檔、檔名太長、現在是模型輸出截斷）：
 第一次跑 87 條種子有 51 / 187 句回 `error:parse`——flash 會思考，思考算進 output tokens，`max_output_tokens=200` 把 JSON 截斷成 `{"kind": "`。
-那一輪的數字（種子 66 / 87、規則式 311 違反、prompt 突變 RULE_DEL 各殺 30–51）全部作廢。修法：`thinking_budget=0`（路由不需要思考）、上限 1,024、解析失敗不進快取。
-**測試工具自己又抓到自己一個 bug**（第五個：harness 標籤比對、去重順序、`--tag-suffix` 蓋檔、檔名太長、現在是模型輸出截斷）。修好後的結果待跑。
+那一輪的數字（種子 66 / 87、規則式 311 違反、prompt 突變 46 / 80、RULE_DEL 各殺 30–51）全部作廢：解析失敗是隨機的，同一句在原 prompt 和突變 prompt 下一邊失敗一邊成功就算「殺」，**錯誤標籤會把突變分數灌水**（0.575 → 修好後 0.45）。
+修法分兩次才對：`thinking_budget=0`（路由不需要思考）、上限 1,024、解析失敗不寫快取——還不夠，`_ask` 讀快取時也要把舊的錯誤項當沒看過，否則重跑永遠讀到第一次的錯。
 
 ## 檔案
 
@@ -605,7 +622,7 @@ python -m research.mt.subsume out/matrix_llmr_flash.csv --mutants out/mutants_ll
 | `seeds_usage.json` | E9：24 條真實使用指令（`~/.jarvis/profile.json` history） |
 | `hass.py` | E10：第二受測對象 Home Assistant zh-TW（hassil）的 `route_label` / `same_route`、種子展開 |
 | `hass_mutation.py` | E10：模板突變體（ALT_DEL / OPT_DEL / RULE_* / SKIP_DEL）× 測試矩陣 |
-| `llm_router.py` | E11：第三受測對象——Gemini 當路由器（prompt 列 25 個意圖，回 JSON），快取、多線、`--seeds` 一致率 |
+| `llm_router.py` | E11：第三受測對象——Gemini 當路由器（prompt 列 25 個意圖，回 JSON），快取、多線、`--seeds` 一致率；E12：`--model` / `--style full|noex|nodef|names|norules` |
 | `llm_router_mutation.py` | E11：prompt 突變體（INTENT_DEL / EX_DEL / DEF_DEL / RULE_DEL）× 測試矩陣 |
 | `seeds_hass.json`、`seeds_hass_sampled.json` | E10：64 條模板展開種子、1 010 條 `hassil.sample` 抽樣句 |
 | `../../tests/test_mt_harness.py` | 煙霧測試（CI 跑） |

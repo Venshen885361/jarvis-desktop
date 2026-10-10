@@ -1,0 +1,14 @@
+{
+ "text": "來首周杰倫的歌好了",
+ "kind": "youtube_play",
+ "target": "周杰倫",
+ "raw": "{\"kind\": \"youtube_play\", \"target\": \"周杰倫\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 823,
+  "ts": "2026-10-10T21:39:14"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "text": "冷氣風量調到3",
+ "kind": "home_control",
+ "target": "冷氣風量=set=3",
+ "raw": "{\"kind\": \"home_control\", \"target\": \"冷氣風量=set=3\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "7840e4b3e272",
+  "ms": 1102,
+  "ts": "2026-10-11T01:03:30"
+ }
+}

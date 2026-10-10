@@ -1,0 +1,14 @@
+{
+ "text": "Jarvis 幫我 前一首",
+ "kind": "set_volume",
+ "target": "",
+ "raw": "{\"kind\":\"set_volume\",\"target\":\"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "1aff50f4c6c0",
+  "ms": 3704,
+  "ts": "2026-10-11T00:59:30"
+ }
+}

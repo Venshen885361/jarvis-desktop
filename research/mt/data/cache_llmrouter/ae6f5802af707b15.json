@@ -1,0 +1,14 @@
+{
+ "text": "好嗎幫忙把音量調大一下",
+ "kind": "set_volume",
+ "target": "up",
+ "raw": "{\"kind\": \"set_volume\", \"target\": \"up\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "97fe544d8759",
+  "ms": 788,
+  "ts": "2026-10-10T21:17:13"
+ }
+}

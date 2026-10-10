@@ -1,0 +1,14 @@
+{
+ "text": "Jarvis 幫我，螢幕鎖上",
+ "kind": "lock_screen",
+ "target": "",
+ "raw": "{\"kind\": \"lock_screen\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 1205,
+  "ts": "2026-10-11T00:42:17"
+ }
+}

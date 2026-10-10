@@ -1,0 +1,14 @@
+{
+ "text": "不要有哪些視窗",
+ "kind": "error",
+ "target": "parse",
+ "raw": "{\n  \"kind",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 2199,
+  "ts": "2026-10-10T22:09:34"
+ }
+}

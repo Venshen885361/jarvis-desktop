@@ -1,0 +1,14 @@
+{
+ "text": "可以幫我裝一下 VLC 嗎",
+ "kind": "install_app",
+ "target": "VLC",
+ "raw": "{\n  \"kind\": \"install_app\",\n  \"target\": \"VLC\"\n}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 1375,
+  "ts": "2026-10-10T21:39:55"
+ }
+}

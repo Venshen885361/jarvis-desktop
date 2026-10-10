@@ -1,0 +1,14 @@
+{
+ "text": "記事本幫我打開",
+ "kind": "focus_window",
+ "target": "記事本",
+ "raw": "{\"kind\": \"focus_window\", \"target\": \"記事本\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "4b703fce2cb4",
+  "ms": 1173,
+  "ts": "2026-10-11T00:56:49"
+ }
+}

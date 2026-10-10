@@ -1,0 +1,14 @@
+{
+ "text": "開啟 YouTube",
+ "kind": "open_url",
+ "target": "https://www.youtube.com",
+ "raw": "{\"kind\": \"open_url\", \"target\": \"https://www.youtube.com\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 891,
+  "ts": "2026-10-10T21:38:12"
+ }
+}

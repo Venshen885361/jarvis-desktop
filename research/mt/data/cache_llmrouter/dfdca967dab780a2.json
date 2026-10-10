@@ -1,0 +1,14 @@
+{
+ "text": "那個，現在幾點",
+ "kind": "error",
+ "target": "parse",
+ "raw": "{\"kind\": \"",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "dd5e88c72f42",
+  "ms": 2164,
+  "ts": "2026-10-10T22:28:26"
+ }
+}

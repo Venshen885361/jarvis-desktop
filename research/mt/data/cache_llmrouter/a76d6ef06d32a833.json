@@ -1,0 +1,14 @@
+{
+ "text": "Jarvis 幫我 誒 現在幾點",
+ "kind": "time",
+ "target": "",
+ "raw": "{\"kind\": \"time\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "23c9fc1604cf",
+  "ms": 1177,
+  "ts": "2026-10-11T01:05:12"
+ }
+}

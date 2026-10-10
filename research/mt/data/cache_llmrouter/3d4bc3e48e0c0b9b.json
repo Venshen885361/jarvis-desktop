@@ -1,0 +1,14 @@
+{
+ "text": "尋找 python 教學",
+ "kind": "youtube_play",
+ "target": "python 教學",
+ "raw": "{\"kind\": \"youtube_play\", \"target\": \"python 教學\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 957,
+  "ts": "2026-10-10T21:40:26"
+ }
+}

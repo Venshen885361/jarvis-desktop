@@ -1,0 +1,14 @@
+{
+ "text": "麻煩幫我解答1加1等於多少啦",
+ "kind": "math",
+ "target": "",
+ "raw": "{\"kind\": \"math\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 2240,
+  "ts": "2026-10-10T22:14:46"
+ }
+}

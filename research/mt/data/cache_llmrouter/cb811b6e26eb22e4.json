@@ -1,0 +1,14 @@
+{
+ "text": "客廳燈改成好嗎",
+ "kind": "home_control",
+ "target": "客廳燈=set=好嗎",
+ "raw": "{\"kind\": \"home_control\", \"target\": \"客廳燈=set=好嗎\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 1013,
+  "ts": "2026-10-10T21:31:44"
+ }
+}

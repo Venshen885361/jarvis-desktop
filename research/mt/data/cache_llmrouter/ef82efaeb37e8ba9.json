@@ -1,0 +1,14 @@
+{
+ "text": "鎖一下螢幕",
+ "kind": "open_application",
+ "target": "螢幕鎖定",
+ "raw": "{\"kind\": \"open_application\", \"target\": \"螢幕鎖定\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "fe0bdaa98207",
+  "ms": 1224,
+  "ts": "2026-10-11T00:59:13"
+ }
+}

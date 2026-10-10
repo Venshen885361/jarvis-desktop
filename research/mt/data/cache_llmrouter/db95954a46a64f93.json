@@ -1,0 +1,14 @@
+{
+ "text": "嗯 附近有什麼好吃的",
+ "kind": "error",
+ "target": "parse",
+ "raw": "No\n    *",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "d5c771011290",
+  "ms": 2081,
+  "ts": "2026-10-10T22:40:50"
+ }
+}

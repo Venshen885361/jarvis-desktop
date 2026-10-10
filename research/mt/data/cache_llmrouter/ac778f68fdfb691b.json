@@ -1,0 +1,14 @@
+{
+ "text": "什麼是 Tailscale",
+ "kind": "info",
+ "target": "",
+ "raw": "{\"kind\": \"info\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "23c9fc1604cf",
+  "ms": 1770,
+  "ts": "2026-10-10T22:33:57"
+ }
+}

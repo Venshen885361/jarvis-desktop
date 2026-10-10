@@ -1,0 +1,14 @@
+{
+ "text": "怎麼查台北 top 10 美食的真實評價",
+ "kind": "info",
+ "target": "",
+ "raw": "{\"kind\": \"info\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 661,
+  "ts": "2026-10-10T21:45:26"
+ }
+}

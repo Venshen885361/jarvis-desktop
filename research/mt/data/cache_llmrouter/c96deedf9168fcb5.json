@@ -1,0 +1,14 @@
+{
+ "text": "現在幾點了怎麼還不公佈",
+ "kind": "time",
+ "target": "",
+ "raw": "{\"kind\": \"time\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 1116,
+  "ts": "2026-10-11T01:34:19"
+ }
+}

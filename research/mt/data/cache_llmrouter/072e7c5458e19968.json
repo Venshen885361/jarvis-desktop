@@ -1,0 +1,14 @@
+{
+ "text": "幫我裝www.example.com/a.zip",
+ "kind": "install_app",
+ "target": "www.example.com/a.zip",
+ "raw": "{\"kind\": \"install_app\", \"target\": \"www.example.com/a.zip\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "7840e4b3e272",
+  "ms": 1359,
+  "ts": "2026-10-11T01:03:35"
+ }
+}

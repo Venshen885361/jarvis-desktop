@@ -1,0 +1,14 @@
+{
+ "text": "跳上一首歌",
+ "kind": "youtube_play",
+ "target": "跳上一首歌",
+ "raw": "{\"kind\": \"youtube_play\", \"target\": \"跳上一首歌\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "1aff50f4c6c0",
+  "ms": 1185,
+  "ts": "2026-10-11T00:59:22"
+ }
+}

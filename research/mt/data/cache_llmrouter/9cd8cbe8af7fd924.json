@@ -1,0 +1,14 @@
+{
+ "text": "請幫我播放周杰倫的歌一下喔",
+ "kind": "youtube_play",
+ "target": "周杰倫",
+ "raw": "{\n  \"kind\": \"youtube_play\",\n  \"target\": \"周杰倫\"\n}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 829,
+  "ts": "2026-10-10T21:39:11"
+ }
+}

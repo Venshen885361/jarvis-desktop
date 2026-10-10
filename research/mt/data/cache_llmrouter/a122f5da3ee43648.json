@@ -1,0 +1,14 @@
+{
+ "text": "剛剛播放周杰倫的歌了嗎",
+ "kind": "model",
+ "target": "",
+ "raw": "{\"kind\": \"model\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "23c9fc1604cf",
+  "ms": 1255,
+  "ts": "2026-10-11T01:05:28"
+ }
+}

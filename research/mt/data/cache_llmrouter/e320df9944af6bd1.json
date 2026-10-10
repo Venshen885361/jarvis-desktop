@@ -1,0 +1,14 @@
+{
+ "text": "放晴天音樂來聽",
+ "kind": "youtube_play",
+ "target": "晴天音樂",
+ "raw": "{\"kind\": \"youtube_play\", \"target\": \"晴天音樂\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "97fe544d8759",
+  "ms": 1224,
+  "ts": "2026-10-10T21:15:11"
+ }
+}

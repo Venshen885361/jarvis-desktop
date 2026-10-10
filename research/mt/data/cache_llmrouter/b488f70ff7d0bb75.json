@@ -1,0 +1,14 @@
+{
+ "text": "把www.example.com/a.zip下載",
+ "kind": "open_url",
+ "target": "www.example.com/a.zip",
+ "raw": "{\"kind\": \"open_url\", \"target\": \"www.example.com/a.zip\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "6a0887764f0a",
+  "ms": 1600,
+  "ts": "2026-10-11T01:06:05"
+ }
+}

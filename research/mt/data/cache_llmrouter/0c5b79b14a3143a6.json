@@ -1,0 +1,14 @@
+{
+ "text": "google 貓咪飼料",
+ "kind": "open_url",
+ "target": "google:貓咪飼料",
+ "raw": "{\n  \"kind\": \"open_url\",\n  \"target\": \"google:貓咪飼料\"\n}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "97fe544d8759",
+  "ms": 756,
+  "ts": "2026-10-10T21:00:47"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "text": "那個 連去 github.com",
+ "kind": "open_url",
+ "target": "github.com",
+ "raw": "{\"kind\": \"open_url\", \"target\": \"github.com\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 1157,
+  "ts": "2026-10-10T21:35:11"
+ }
+}

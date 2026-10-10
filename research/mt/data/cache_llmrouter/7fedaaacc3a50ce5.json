@@ -1,0 +1,14 @@
+{
+ "text": "把客有什麼推薦播",
+ "kind": "error",
+ "target": "parse",
+ "raw": "{\"kind\":",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "d5c771011290",
+  "ms": 2270,
+  "ts": "2026-10-10T22:40:22"
+ }
+}

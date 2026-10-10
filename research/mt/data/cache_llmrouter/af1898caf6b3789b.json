@@ -1,0 +1,14 @@
+{
+ "text": "我冷氣風量調到3都打不開怎麼辦",
+ "kind": "info",
+ "target": "",
+ "raw": "{\n  \"kind\": \"info\",\n  \"target\": \"\"\n}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "97fe544d8759",
+  "ms": 1016,
+  "ts": "2026-10-10T21:09:27"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "text": "Discord下載一下",
+ "kind": "open_url",
+ "target": "google:Discord下載",
+ "raw": "{\"kind\": \"open_url\", \"target\": \"google:Discord下載\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "39db3db311a8",
+  "ms": 1079,
+  "ts": "2026-10-11T00:57:54"
+ }
+}

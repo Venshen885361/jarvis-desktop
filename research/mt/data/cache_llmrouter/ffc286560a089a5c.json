@@ -1,0 +1,14 @@
+{
+ "text": "台北的十大美食，查給我看",
+ "kind": "open_url",
+ "target": "google:台北的十大美食",
+ "raw": "{\"kind\": \"open_url\", \"target\": \"google:台北的十大美食\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 968,
+  "ts": "2026-10-10T21:45:21"
+ }
+}

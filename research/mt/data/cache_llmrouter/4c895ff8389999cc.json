@@ -1,0 +1,14 @@
+{
+ "text": "換首歌",
+ "kind": "computer:key",
+ "target": "nexttrack",
+ "raw": "{\n  \"kind\": \"computer:key\",\n  \"target\": \"nexttrack\"\n}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "97fe544d8759",
+  "ms": 759,
+  "ts": "2026-10-10T21:17:36"
+ }
+}

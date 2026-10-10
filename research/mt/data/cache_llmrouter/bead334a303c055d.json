@@ -1,0 +1,14 @@
+{
+ "text": "輸入法切成英文",
+ "kind": "switch_input_method",
+ "target": "english",
+ "raw": "{\n  \"kind\": \"switch_input_method\",\n  \"target\": \"english\"\n}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 775,
+  "ts": "2026-10-10T21:22:30"
+ }
+}

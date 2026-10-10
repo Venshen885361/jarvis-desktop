@@ -1,0 +1,14 @@
+{
+ "text": "上一首幫我播放",
+ "kind": "computer:key",
+ "target": "prevtrack",
+ "raw": "{\"kind\": \"computer:key\", \"target\": \"prevtrack\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "6a0887764f0a",
+  "ms": 2003,
+  "ts": "2026-10-10T22:37:55"
+ }
+}

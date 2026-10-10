@@ -1,0 +1,14 @@
+{
+ "text": "鎖定這個功能趕快用螢幕",
+ "kind": "lock_screen",
+ "target": "",
+ "raw": "{\"kind\": \"lock_screen\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 1267,
+  "ts": "2026-10-11T01:34:36"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "text": "用 YouTube 放 lofi",
+ "kind": "open_url",
+ "target": "google:YouTube lofi",
+ "raw": "{\"kind\": \"open_url\", \"target\": \"google:YouTube lofi\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "42f3f8be92e8",
+  "ms": 1111,
+  "ts": "2026-10-11T00:57:40"
+ }
+}

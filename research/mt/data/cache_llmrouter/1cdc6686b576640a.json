@@ -1,0 +1,14 @@
+{
+ "text": "上一首幫我播放",
+ "kind": "error",
+ "target": "parse",
+ "raw": "{\"kind\": \"youtube_",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "1aff50f4c6c0",
+  "ms": 2332,
+  "ts": "2026-10-10T22:27:21"
+ }
+}

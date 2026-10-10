@@ -1,0 +1,14 @@
+{
+ "text": "我不想剪貼簿內容",
+ "kind": "model",
+ "target": "",
+ "raw": "{\"kind\": \"model\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 1006,
+  "ts": "2026-10-11T00:43:44"
+ }
+}

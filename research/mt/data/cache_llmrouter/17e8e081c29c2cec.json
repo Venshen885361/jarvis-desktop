@@ -1,0 +1,14 @@
+{
+ "text": "連去 github.com一下",
+ "kind": "open_application",
+ "target": "github.com",
+ "raw": "{\"kind\": \"open_application\", \"target\": \"github.com\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "3b9288820ad7",
+  "ms": 1150,
+  "ts": "2026-10-11T00:57:15"
+ }
+}

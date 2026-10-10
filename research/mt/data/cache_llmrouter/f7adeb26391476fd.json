@@ -1,0 +1,14 @@
+{
+ "text": "幫我放晴天這首",
+ "kind": "youtube_play",
+ "target": "晴天",
+ "raw": "{\"kind\": \"youtube_play\", \"target\": \"晴天\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "97fe544d8759",
+  "ms": 1058,
+  "ts": "2026-10-10T21:15:10"
+ }
+}

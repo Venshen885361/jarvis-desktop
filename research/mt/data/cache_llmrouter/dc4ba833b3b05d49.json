@@ -1,0 +1,14 @@
+{
+ "text": "今天星期幾的日曆要怎麼看",
+ "kind": "info",
+ "target": "",
+ "raw": "{\"kind\": \"info\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 1433,
+  "ts": "2026-10-10T21:41:10"
+ }
+}

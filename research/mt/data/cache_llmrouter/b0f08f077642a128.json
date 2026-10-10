@@ -1,0 +1,14 @@
+{
+ "text": "我音量調大都打不開怎麼辦",
+ "kind": "model",
+ "target": "",
+ "raw": "{\n  \"kind\": \"model\",\n  \"target\": \"\"\n}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "97fe544d8759",
+  "ms": 948,
+  "ts": "2026-10-10T21:04:54"
+ }
+}

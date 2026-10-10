@@ -1,0 +1,14 @@
+{
+ "text": "下一首",
+ "kind": "computer:key",
+ "target": "nexttrack",
+ "raw": "{\"kind\": \"computer:key\", \"target\": \"nexttrack\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "d5c771011290",
+  "ms": 1567,
+  "ts": "2026-10-10T22:38:54"
+ }
+}

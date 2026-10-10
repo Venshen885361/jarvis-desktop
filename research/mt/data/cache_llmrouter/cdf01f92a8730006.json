@@ -1,0 +1,14 @@
+{
+ "text": "Jarvis 幫我 google 貓咪飼料",
+ "kind": "open_url",
+ "target": "google:貓咪飼料",
+ "raw": "{\"kind\": \"open_url\", \"target\": \"google:貓咪飼料\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 1233,
+  "ts": "2026-10-11T00:44:47"
+ }
+}

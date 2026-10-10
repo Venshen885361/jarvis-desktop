@@ -1,0 +1,14 @@
+{
+ "text": "Chrome 啟動一下",
+ "kind": "open_application",
+ "target": "Chrome",
+ "raw": "{\"kind\": \"open_application\", \"target\": \"Chrome\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 1163,
+  "ts": "2026-10-10T21:38:03"
+ }
+}

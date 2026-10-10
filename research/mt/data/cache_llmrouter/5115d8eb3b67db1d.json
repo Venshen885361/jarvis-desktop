@@ -1,0 +1,14 @@
+{
+ "text": "安裝VLC",
+ "kind": "install_app",
+ "target": "VLC",
+ "raw": "{\"kind\": \"install_app\", \"target\": \"VLC\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "02374d11a8cb",
+  "ms": 2338,
+  "ts": "2026-10-10T22:24:48"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "text": "周杰倫的歌播放一下",
+ "kind": "open_url",
+ "target": "google:周杰倫的歌",
+ "raw": "{\"kind\": \"open_url\", \"target\": \"google:周杰倫的歌\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "42f3f8be92e8",
+  "ms": 1032,
+  "ts": "2026-10-11T00:57:43"
+ }
+}

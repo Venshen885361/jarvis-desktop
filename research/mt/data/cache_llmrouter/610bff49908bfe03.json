@@ -1,0 +1,14 @@
+{
+ "text": "剛剛把桌面上的截圖整理到一個資料夾了嗎",
+ "kind": "error",
+ "target": "parse",
+ "raw": "/contains \"了嗎\" asking if something",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 2180,
+  "ts": "2026-10-10T21:58:12"
+ }
+}

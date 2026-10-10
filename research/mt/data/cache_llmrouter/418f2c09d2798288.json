@@ -1,0 +1,14 @@
+{
+ "text": "對了 靜音",
+ "kind": "set_volume",
+ "target": "mute",
+ "raw": "{\"kind\": \"set_volume\", \"target\": \"mute\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 1235,
+  "ts": "2026-10-11T00:35:23"
+ }
+}

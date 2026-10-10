@@ -1,0 +1,14 @@
+{
+ "text": "欸 把音量調到百分之五十再高一點",
+ "kind": "set_volume",
+ "target": "up",
+ "raw": "{\n  \"kind\": \"set_volume\",\n  \"target\": \"up\"\n}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "97fe544d8759",
+  "ms": 940,
+  "ts": "2026-10-10T21:13:32"
+ }
+}

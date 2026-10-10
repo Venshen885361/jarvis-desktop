@@ -1,0 +1,14 @@
+{
+ "text": "用 Steam 安裝 Terraria好嗎",
+ "kind": "install_steam_game",
+ "target": "Terraria",
+ "raw": "{\"kind\": \"install_steam_game\", \"target\": \"Terraria\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "d887989f8d74",
+  "ms": 1675,
+  "ts": "2026-10-10T22:25:22"
+ }
+}

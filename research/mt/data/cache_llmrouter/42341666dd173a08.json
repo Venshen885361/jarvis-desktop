@@ -1,0 +1,14 @@
+{
+ "text": "鎖定螢幕",
+ "kind": "lock_screen",
+ "target": "",
+ "raw": "{\"kind\": \"lock_screen\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "b5870f7fe56a",
+  "ms": 1581,
+  "ts": "2026-10-10T22:41:28"
+ }
+}

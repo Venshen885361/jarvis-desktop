@@ -1,0 +1,14 @@
+{
+ "text": "附近有什麼好吃的可以嗎",
+ "kind": "weather",
+ "target": "附近有什麼好吃的",
+ "raw": "{\"kind\": \"weather\", \"target\": \"附近有什麼好吃的\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 1221,
+  "ts": "2026-10-10T21:29:07"
+ }
+}

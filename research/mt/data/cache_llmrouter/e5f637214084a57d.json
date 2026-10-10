@@ -1,0 +1,14 @@
+{
+ "text": "藏起來可以嗎",
+ "kind": "hide",
+ "target": "",
+ "raw": "{\"kind\": \"hide\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "f836553a62a0",
+  "ms": 741,
+  "ts": "2026-10-10T21:28:50"
+ }
+}

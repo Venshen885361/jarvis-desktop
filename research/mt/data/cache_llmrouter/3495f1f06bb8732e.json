@@ -1,0 +1,14 @@
+{
+ "text": "跳上一首歌",
+ "kind": "computer:key",
+ "target": "prevtrack",
+ "raw": "{\"kind\": \"computer:key\", \"target\": \"prevtrack\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "b5870f7fe56a",
+  "ms": 1544,
+  "ts": "2026-10-10T22:42:04"
+ }
+}

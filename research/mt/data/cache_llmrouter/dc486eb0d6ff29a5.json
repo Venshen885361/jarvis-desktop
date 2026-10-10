@@ -1,0 +1,14 @@
+{
+ "text": "那個，把客廳燈關掉",
+ "kind": "error",
+ "target": "parse",
+ "raw": " JSON object: `{\"kind\": \"",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "e5dcd2d2a2d6",
+  "ms": 1983,
+  "ts": "2026-10-10T22:26:09"
+ }
+}

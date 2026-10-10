@@ -1,0 +1,14 @@
+{
+ "text": "麻煩幫我開一下 YouTube 謝謝",
+ "kind": "open_application",
+ "target": "YouTube",
+ "raw": "{\"kind\": \"open_application\", \"target\": \"YouTube\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "97fe544d8759",
+  "ms": 1070,
+  "ts": "2026-10-10T21:14:32"
+ }
+}

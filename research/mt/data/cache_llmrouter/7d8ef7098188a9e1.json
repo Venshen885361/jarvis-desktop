@@ -1,0 +1,14 @@
+{
+ "text": "剛剛冷氣設 26 度了嗎",
+ "kind": "error",
+ "target": "parse",
+ "raw": "{\"kind\": \"model",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "23c9fc1604cf",
+  "ms": 2139,
+  "ts": "2026-10-10T22:35:56"
+ }
+}

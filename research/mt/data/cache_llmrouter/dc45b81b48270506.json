@@ -1,0 +1,14 @@
+{
+ "text": "1加1等於多少謝謝",
+ "kind": "math",
+ "target": "",
+ "raw": "{\"kind\": \"math\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "97fe544d8759",
+  "ms": 917,
+  "ts": "2026-10-10T21:04:42"
+ }
+}

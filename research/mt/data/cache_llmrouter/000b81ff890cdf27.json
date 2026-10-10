@@ -1,0 +1,14 @@
+{
+ "text": "YouTube 畫面叫出來",
+ "kind": "focus_window",
+ "target": "YouTube",
+ "raw": "{\"kind\": \"focus_window\", \"target\": \"YouTube\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 1076,
+  "ts": "2026-10-11T01:33:36"
+ }
+}

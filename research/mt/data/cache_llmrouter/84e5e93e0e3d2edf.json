@@ -1,0 +1,14 @@
+{
+ "text": "開啟github.com",
+ "kind": "open_url",
+ "target": "github.com",
+ "raw": "{\"kind\": \"open_url\", \"target\": \"github.com\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "bd3afa9b1675",
+  "ms": 1564,
+  "ts": "2026-10-10T22:24:05"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "text": "桌面上的截圖整理到一個資料夾的教學去哪找",
+ "kind": "error",
+ "target": "parse",
+ "raw": "教學去哪找\" is",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 2520,
+  "ts": "2026-10-10T22:21:11"
+ }
+}

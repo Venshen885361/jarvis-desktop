@@ -1,0 +1,14 @@
+{
+ "text": "切換到手機可以嗎",
+ "kind": "device_switch",
+ "target": "手機",
+ "raw": "{\"kind\": \"device_switch\", \"target\": \"手機\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "97fe544d8759",
+  "ms": 971,
+  "ts": "2026-10-10T21:06:18"
+ }
+}

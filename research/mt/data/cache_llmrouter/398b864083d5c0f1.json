@@ -1,0 +1,14 @@
+{
+ "text": "欸那個，有哪些視窗",
+ "kind": "device_list",
+ "target": "",
+ "raw": "{\"kind\":\"device_list\",\"target\":\"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "d5c771011290",
+  "ms": 1244,
+  "ts": "2026-10-11T01:07:29"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "text": "那個 切換到 Chrome",
+ "kind": "error",
+ "target": "parse",
+ "raw": "{\"kind\": \"open_",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "b65c01d73470",
+  "ms": 2137,
+  "ts": "2026-10-10T22:26:36"
+ }
+}

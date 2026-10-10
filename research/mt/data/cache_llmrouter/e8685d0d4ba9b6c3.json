@@ -1,0 +1,14 @@
+{
+ "text": "不要把桌面上的截圖整理到一個資料夾",
+ "kind": "model",
+ "target": "",
+ "raw": "{\n  \"kind\": \"model\",\n  \"target\": \"\"\n}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "00283bc313d9",
+  "ms": 1816,
+  "ts": "2026-10-10T22:30:54"
+ }
+}

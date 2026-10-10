@@ -1,0 +1,14 @@
+{
+ "text": "音量太大我的耳朵真的非常非常痛可以嗎",
+ "kind": "set_volume",
+ "target": "down",
+ "raw": "{\"kind\": \"set_volume\", \"target\": \"down\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "97fe544d8759",
+  "ms": 723,
+  "ts": "2026-10-10T21:13:05"
+ }
+}

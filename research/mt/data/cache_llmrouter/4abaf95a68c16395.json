@@ -1,0 +1,14 @@
+{
+ "text": "音量減一點可以嗎",
+ "kind": "set_volume",
+ "target": "down",
+ "raw": "{\"kind\": \"set_volume\", \"target\": \"down\"}",
+ "meta": {
+  "model": "gemini-3.5-flash",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 1590,
+  "ts": "2026-10-10T22:02:16"
+ }
+}
