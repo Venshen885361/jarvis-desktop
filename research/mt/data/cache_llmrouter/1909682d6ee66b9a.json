@@ -1,0 +1,14 @@
+{
+ "text": "客廳燈改成謝謝",
+ "kind": "home_control",
+ "target": "客廳燈=set=謝謝",
+ "raw": "{\"kind\": \"home_control\", \"target\": \"客廳燈=set=謝謝\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 1122,
+  "ts": "2026-10-09T15:53:49"
+ }
+}

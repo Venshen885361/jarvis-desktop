@@ -1,0 +1,14 @@
+{
+ "text": "中英切換的教學在哪",
+ "kind": "model",
+ "target": "",
+ "raw": "{\n  \"kind\": \"model\",\n  \"target\": \"\"\n}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "07dc55b41a24",
+  "ms": 899,
+  "ts": "2026-10-09T16:22:06"
+ }
+}

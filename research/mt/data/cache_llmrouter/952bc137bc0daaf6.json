@@ -1,0 +1,14 @@
+{
+ "text": "放上一首",
+ "kind": "youtube_play",
+ "target": "",
+ "raw": "{\"kind\": \"youtube_play\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "da457d177e8d",
+  "ms": 1113,
+  "ts": "2026-10-09T16:19:40"
+ }
+}

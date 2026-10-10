@@ -1,0 +1,14 @@
+{
+ "text": "今天星期幾",
+ "kind": "date",
+ "target": "",
+ "raw": "{\n  \"kind\": \"date\",\n  \"target\": \"\"\n}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "d5c771011290",
+  "ms": 4722,
+  "ts": "2026-10-09T16:30:53"
+ }
+}

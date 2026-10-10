@@ -1,0 +1,14 @@
+{
+ "text": "欸，下載 Discord",
+ "kind": "open_application",
+ "target": "Discord",
+ "raw": "{\"kind\": \"open_application\", \"target\": \"Discord\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "39db3db311a8",
+  "ms": 1332,
+  "ts": "2026-10-09T16:17:03"
+ }
+}

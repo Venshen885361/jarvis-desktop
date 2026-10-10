@@ -1,0 +1,14 @@
+{
+ "text": "放上一首",
+ "kind": "computer:key",
+ "target": "prevtrack",
+ "raw": "{\"kind\": \"computer:key\", \"target\": \"prevtrack\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "d5c771011290",
+  "ms": 776,
+  "ts": "2026-10-09T16:32:29"
+ }
+}

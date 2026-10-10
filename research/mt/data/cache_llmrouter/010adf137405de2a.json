@@ -1,0 +1,14 @@
+{
+ "text": "下載 www.example.com/a.zip",
+ "kind": "model",
+ "target": "",
+ "raw": "{\n  \"kind\": \"model\",\n  \"target\": \"\"\n}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 1,
+  "prompt_sha": "ff2032978755",
+  "ms": 1127,
+  "ts": "2026-10-09T15:43:06"
+ }
+}

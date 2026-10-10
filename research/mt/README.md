@@ -504,7 +504,44 @@ python -m research.mt.reduce out/matrix_llmr.csv --drop-trivial
 python -m research.mt.subsume out/matrix_llmr.csv --mutants out/mutants_llmr.json
 ```
 
-每句一次 API（flash-lite、T=0、快取在 `out/cache_llmrouter/`），全部約 4,500 次呼叫。結果待跑。
+每句一次 API（flash-lite、T=0、快取在 `out/cache_llmrouter/`，進 `data/` 可重現）。
+
+### 零調校的模型路由：種子 90%、同句兩次 99% 一致
+
+| | 數 |
+|---|---|
+| 87 條種子答對 | **78（90%）**；錯的 9 條裡 2 條是 prompt 漏列意圖（download_file、list_windows）、3 條可爭議（開 YouTube → open_url:youtube.com、問快速鍵 / 英文怎麼說 → info 而非 model）、4 條真錯（用電腦打開記事本 沒切裝置、現在才要打開記事本 照開、客廳燈改成 → model、有哪些視窗 → model） |
+| 同句問兩次（rep 1） | 86 / 87 一致（翻的是 播報新聞：info ↔ model）——T=0 仍不是確定性，跟 E2 的生成器一樣 |
+
+### 蛻變違反：對「期望」算會把種子答錯算進去，對「自己」算才是一致性
+
+`run.py --baseline own`：種子的期望換成受測對象自己對種子的路由，違反 = 改寫後跟自己對原句的判斷不一致。
+
+| 批次 | 對期望路由（準確 + 一致） | 對自己的路由（只量一致） | regex v6 同一批 |
+|---|---|---|---|
+| 規則式 1,373 句 | 114（8.3%），其中 81 來自 9 條答錯的種子 | **52 / 1,339（3.9%）**：R2 21/430、R4 14/430、R5 7/330、R3 7/76、R1 3/73 | 7（0.5%） |
+| 模型 T0 n=5 964 句 | 28（2.9%） | **25 / 941（2.7%）** | 71（7.4%） |
+
+- **零調校的模型路由在自然改寫上比修了五輪的 regex 穩（2.7% vs 7.4%），在模板句上輸（3.9% vs 0.5%）**——regex 的 0.5% 是五輪對著這批修出來的；模型沒看過任何一句。
+- **蛻變關係抓得到「種子才是異類」**：「開 YouTube」模型答 open_url:youtube.com，「欸 開 YouTube」「YouTube 幫我開」「啟動 YouTube」全部答 open_application:YouTube——兩個方向都算違反，哪邊是錯要人判。這是 regex 不會出現的錯型：regex 對同一條規則永遠給同一個答案。
+- 模型的 R2 錯是把「可以嗎」當問句（音量調大可以嗎 → info）；R5 錯是整句包含指令就做（播晴天會怎樣 → 照播、剛剛剪貼簿裡有什麼了嗎 → 照讀）——跟 regex v5 以前的 R5 錯同一型，比例 4%。
+
+### prompt 突變：刪意圖全殺、刪例句 / 定義七成活、刪規則殺得到但弱
+
+80 個突變體 × 187 句（87 種子 + 規則式每關係抽 20）= 1,496 次 API、22 分鐘：
+
+| 運算子 | 突變體 | 殺 | dominator | 怎麼讀 |
+|---|---|---|---|---|
+| INTENT_DEL（刪一個意圖） | 25（1 個沒測試碰到） | **24 / 24** | 16 | 刪功能 = 一定被殺，而且每個意圖只靠那幾句殺（date / math / lens / hide / weather 各 1 句） |
+| EX_DEL（刪例句） | 25 | 7 | 5 | **七成的例句是多餘的**：模型從名稱就知道 open_application 是什麼 |
+| DEF_DEL（刪定義） | 25 | 6 | 5 | 同上；有用的定義是 info / model / set_volume 這種邊界 |
+| RULE_DEL（刪一條全域規則） | 5 | 5 | **0** | 殺得到但每條只被 3–7 句殺，全部被 INTENT_DEL 包含——規則對模型是「加分」不是「開關」 |
+
+突變分數 42 / 80 = 0.525、dominator 26（62%）；縮減 187 → 25（13.4%）保留 100%、同大小隨機 43%；APFD additional 0.955、total 0.886、隨機 0.741、relation-first 0.740；dominator-APFD additional 0.936、隨機 0.652。
+**三個受測對象（regex、整句匹配、模型）的縮減 / 排序結論一樣。** 不一樣的是「什麼叫一個獨立的錯」：regex 是一個分支、模板是一個可選群組、prompt 是一個意圖；例句和定義在 prompt 裡幾乎都是等價突變體。
+
+成本：矩陣 80 × 187 要 1,496 次 API（每句約 0.9 秒）；regex 的 966 × 3,529 離線 2 分鐘。模型路由每句上線都要一次呼叫——這是它跟 regex 真正的取捨，不是準確率。
+
 
 ## 檔案
 
@@ -514,7 +551,7 @@ python -m research.mt.subsume out/matrix_llmr.csv --mutants out/mutants_llmr.jso
 | `relations.py` | 五條蛻變關係的定義（兩個生成器共用） |
 | `rules.py` | 模板生成器（對照組） |
 | `llm.py` | Gemini 生成器：溫度可調、JSON 輸出、磁碟快取、失敗如實記錄 |
-| `run.py` | 生成 → 過濾 → 路由 → 判定 → 報表（`--subject jarvis|hass`、`--rep`、`--seed-filter`、`--tag-suffix`、`--n`） |
+| `run.py` | 生成 → 過濾 → 路由 → 判定 → 報表（`--subject jarvis|hass|llm`、`--baseline expect|own`、`--rep`、`--seed-filter`、`--tag-suffix`、`--n`） |
 | `compare.py` | 批次比較：Jaccard、錯集合差、脆弱種子 |
 | `mutation.py` | 突變器 + 測試×突變體矩陣（`--range/--merge` 分段） |
 | `reduce.py` | 縮減（greedy / HGS / irreplaceable / random）與排序（APFD） |

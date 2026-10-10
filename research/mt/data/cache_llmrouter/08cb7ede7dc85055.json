@@ -1,0 +1,14 @@
+{
+ "text": "打開 github.com會怎樣",
+ "kind": "model",
+ "target": "",
+ "raw": "{\"kind\": \"model\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 846,
+  "ts": "2026-10-09T15:45:50"
+ }
+}

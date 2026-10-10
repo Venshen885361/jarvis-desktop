@@ -1,0 +1,248 @@
+{
+ "tests": 187,
+ "mutants": 80,
+ "killed": 42,
+ "score": 0.525,
+ "calls": 1496,
+ "killed_by_source": {
+  "seed": 31,
+  "seed_sv": 24,
+  "rules_llmr": 36
+ },
+ "killed_by_op": {
+  "DEF_DEL": 6,
+  "EX_DEL": 7,
+  "INTENT_DEL": 24,
+  "RULE_DEL": 5
+ },
+ "survivors": [
+  {
+   "id": "p001",
+   "op": "EX_DEL",
+   "where": "open_application",
+   "before": "打開記事本 → open_application:記事本"
+  },
+  {
+   "id": "p002",
+   "op": "DEF_DEL",
+   "where": "open_application",
+   "before": "開啟電腦上的程式"
+  },
+  {
+   "id": "p004",
+   "op": "EX_DEL",
+   "where": "open_folder",
+   "before": "打開下載資料夾 → open_folder:下載"
+  },
+  {
+   "id": "p005",
+   "op": "DEF_DEL",
+   "where": "open_folder",
+   "before": "開啟資料夾"
+  },
+  {
+   "id": "p011",
+   "op": "DEF_DEL",
+   "where": "youtube_play",
+   "before": "用 YouTube 播歌 / 影片"
+  },
+  {
+   "id": "p013",
+   "op": "EX_DEL",
+   "where": "install_app",
+   "before": "下載 Discord → install_app:Discord"
+  },
+  {
+   "id": "p014",
+   "op": "DEF_DEL",
+   "where": "install_app",
+   "before": "下載 / 安裝程式"
+  },
+  {
+   "id": "p016",
+   "op": "EX_DEL",
+   "where": "install_steam_game",
+   "before": "用 Steam 安裝 Terraria → install_steam_game:Terraria"
+  },
+  {
+   "id": "p017",
+   "op": "DEF_DEL",
+   "where": "install_steam_game",
+   "before": "用 Steam 安裝或開遊戲"
+  },
+  {
+   "id": "p019",
+   "op": "EX_DEL",
+   "where": "home_control",
+   "before": "把客廳燈關掉 → home_control:客廳燈=off；冷氣設 26 度 → home_control:冷氣=set=26"
+  },
+  {
+   "id": "p026",
+   "op": "DEF_DEL",
+   "where": "focus_window",
+   "before": "切換到某個視窗"
+  },
+  {
+   "id": "p028",
+   "op": "EX_DEL",
+   "where": "device_switch",
+   "before": "切換到手機 → device_switch:手機"
+  },
+  {
+   "id": "p029",
+   "op": "DEF_DEL",
+   "where": "device_switch",
+   "before": "切換要控制的裝置（手機 / 電腦）"
+  },
+  {
+   "id": "p031",
+   "op": "EX_DEL",
+   "where": "lock_screen",
+   "before": "鎖定螢幕 → lock_screen"
+  },
+  {
+   "id": "p032",
+   "op": "DEF_DEL",
+   "where": "lock_screen",
+   "before": "鎖定螢幕"
+  },
+  {
+   "id": "p037",
+   "op": "EX_DEL",
+   "where": "switch_input_method",
+   "before": "輸入法切成英文 → switch_input_method:english"
+  },
+  {
+   "id": "p038",
+   "op": "DEF_DEL",
+   "where": "switch_input_method",
+   "before": "切換輸入法"
+  },
+  {
+   "id": "p040",
+   "op": "EX_DEL",
+   "where": "read_clipboard",
+   "before": "剪貼簿裡有什麼 → read_clipboard"
+  },
+  {
+   "id": "p041",
+   "op": "DEF_DEL",
+   "where": "read_clipboard",
+   "before": "唸出剪貼簿內容"
+  },
+  {
+   "id": "p043",
+   "op": "EX_DEL",
+   "where": "lens_search",
+   "before": "以圖搜圖 → lens_search"
+  },
+  {
+   "id": "p044",
+   "op": "DEF_DEL",
+   "where": "lens_search",
+   "before": "以圖搜圖（Google Lens）"
+  },
+  {
+   "id": "p046",
+   "op": "EX_DEL",
+   "where": "camera_search",
+   "before": "用鏡頭查這是什麼 → camera_search"
+  },
+  {
+   "id": "p047",
+   "op": "DEF_DEL",
+   "where": "camera_search",
+   "before": "用鏡頭拍東西來查"
+  },
+  {
+   "id": "p049",
+   "op": "EX_DEL",
+   "where": "time",
+   "before": "現在幾點 → time"
+  },
+  {
+   "id": "p050",
+   "op": "DEF_DEL",
+   "where": "time",
+   "before": "問現在幾點"
+  },
+  {
+   "id": "p052",
+   "op": "EX_DEL",
+   "where": "date",
+   "before": "今天星期幾 → date"
+  },
+  {
+   "id": "p053",
+   "op": "DEF_DEL",
+   "where": "date",
+   "before": "問今天日期 / 星期幾"
+  },
+  {
+   "id": "p055",
+   "op": "EX_DEL",
+   "where": "math",
+   "before": "1加1等於多少 → math"
+  },
+  {
+   "id": "p056",
+   "op": "DEF_DEL",
+   "where": "math",
+   "before": "算算術"
+  },
+  {
+   "id": "p058",
+   "op": "EX_DEL",
+   "where": "weather",
+   "before": "查一下台北天氣 → weather:查台北天氣"
+  },
+  {
+   "id": "p059",
+   "op": "DEF_DEL",
+   "where": "weather",
+   "before": "問天氣"
+  },
+  {
+   "id": "p061",
+   "op": "EX_DEL",
+   "where": "greeting",
+   "before": "早安 → greeting"
+  },
+  {
+   "id": "p062",
+   "op": "DEF_DEL",
+   "where": "greeting",
+   "before": "打招呼"
+  },
+  {
+   "id": "p064",
+   "op": "EX_DEL",
+   "where": "hide",
+   "before": "藏起來 → hide"
+  },
+  {
+   "id": "p065",
+   "op": "DEF_DEL",
+   "where": "hide",
+   "before": "把桌寵藏起來"
+  },
+  {
+   "id": "p066",
+   "op": "INTENT_DEL",
+   "where": "device_list",
+   "before": "- device_list：問有哪些裝置"
+  },
+  {
+   "id": "p067",
+   "op": "EX_DEL",
+   "where": "device_list",
+   "before": "有哪些裝置 → device_list"
+  },
+  {
+   "id": "p068",
+   "op": "DEF_DEL",
+   "where": "device_list",
+   "before": "問有哪些裝置"
+  }
+ ]
+}

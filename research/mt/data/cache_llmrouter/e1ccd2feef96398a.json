@@ -1,0 +1,14 @@
+{
+ "text": "客廳燈熄掉",
+ "kind": "home_control",
+ "target": "客廳燈=off",
+ "raw": "{\n  \"kind\": \"home_control\",\n  \"target\": \"客廳燈=off\"\n}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "6a0887764f0a",
+  "ms": 770,
+  "ts": "2026-10-09T16:29:03"
+ }
+}

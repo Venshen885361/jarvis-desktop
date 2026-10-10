@@ -1,0 +1,14 @@
+{
+ "text": "台北 top 10 美食有哪些，跟我講一下",
+ "kind": "info",
+ "target": "",
+ "raw": "{\"kind\": \"info\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 1016,
+  "ts": "2026-10-09T16:11:31"
+ }
+}

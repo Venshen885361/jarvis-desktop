@@ -1,0 +1,55 @@
+{
+  "tag": "gemini-3.5-flash-lite_T0_llmr_own",
+  "gen": "llm",
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "n_per_pair": 5,
+  "gen_failures": 0,
+  "relations": {
+    "R1_synonym": {
+      "generated": 204,
+      "valid": 199,
+      "violations": 6,
+      "valid_rate": 0.975,
+      "violation_rate": 0.03,
+      "distinct2": 0.416
+    },
+    "R2_politeness": {
+      "generated": 205,
+      "valid": 200,
+      "violations": 5,
+      "valid_rate": 0.976,
+      "violation_rate": 0.025,
+      "distinct2": 0.263
+    },
+    "R3_reorder": {
+      "generated": 205,
+      "valid": 197,
+      "violations": 7,
+      "valid_rate": 0.961,
+      "violation_rate": 0.036,
+      "distinct2": 0.465
+    },
+    "R4_filler": {
+      "generated": 205,
+      "valid": 200,
+      "violations": 4,
+      "valid_rate": 0.976,
+      "violation_rate": 0.02,
+      "distinct2": 0.189
+    },
+    "R5_near_miss": {
+      "generated": 145,
+      "valid": 145,
+      "violations": 3,
+      "valid_rate": 1.0,
+      "violation_rate": 0.021,
+      "distinct2": 0.448
+    }
+  },
+  "total": {
+    "generated": 964,
+    "valid": 941,
+    "violations": 25
+  }
+}

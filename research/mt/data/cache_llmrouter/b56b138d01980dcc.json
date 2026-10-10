@@ -1,0 +1,14 @@
+{
+ "text": "下載 Discord",
+ "kind": "install_app",
+ "target": "Discord",
+ "raw": "{\"kind\": \"install_app\", \"target\": \"Discord\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 1,
+  "prompt_sha": "ff2032978755",
+  "ms": 1048,
+  "ts": "2026-10-09T15:42:14"
+ }
+}

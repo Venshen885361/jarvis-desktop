@@ -1,0 +1,14 @@
+{
+ "text": "查一下剪貼簿裡有什麼",
+ "kind": "read_clipboard",
+ "target": "",
+ "raw": "{\n  \"kind\": \"read_clipboard\",\n  \"target\": \"\"\n}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 955,
+  "ts": "2026-10-09T16:07:41"
+ }
+}

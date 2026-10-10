@@ -108,10 +108,19 @@ def main() -> int:
     ap.add_argument("--seed-filter", default=None, help="只用 id 符合這個 regex 的種子（例：^(?!sv_) 排除 killer 種子）")
     ap.add_argument("--tag-suffix", default="", help="輸出檔名加後綴（換種子檔時用，免得蓋掉 tests_rules.jsonl）")
     ap.add_argument("--subject", choices=["jarvis", "hass", "llm"], default="jarvis", help="受測對象")
+    ap.add_argument("--baseline", choices=["expect", "own"], default="expect",
+                    help="違反的基準：expect = seeds.json 的期望路由（準確 + 一致）；own = 受測對象自己對種子的路由（只量一致性，tag 加 _own）")
     args = ap.parse_args()
     batch_labels, same_route = _subject(args.subject)
 
     seeds = json.loads(Path(args.seeds).read_text(encoding="utf-8"))["seeds"]
+    if args.baseline == "own":
+        # 種子的「期望」換成受測對象自己的答案：違反 = 改寫後跟自己對原句的判斷不一致（跟種子答對不對無關）
+        own = batch_labels([s["text"] for s in seeds])
+        for s, lab in zip(seeds, own, strict=True):
+            s["expect"] = str(lab)
+        args.tag_suffix += "_own"
+
     if args.seed_filter:
         seeds = [s for s in seeds if re.search(args.seed_filter, s["id"])]
     rels = [r for r in RELATIONS if r.id in args.relations]

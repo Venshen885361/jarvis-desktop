@@ -1,0 +1,14 @@
+{
+ "text": "幫我裝Discord",
+ "kind": "install_app",
+ "target": "Discord",
+ "raw": "{\"kind\": \"install_app\", \"target\": \"Discord\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 1150,
+  "ts": "2026-10-09T15:46:59"
+ }
+}

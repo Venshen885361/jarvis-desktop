@@ -1,0 +1,14 @@
+{
+ "text": "那個 給我台北美食列表",
+ "kind": "info",
+ "target": "",
+ "raw": "{\"kind\": \"info\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "6a0887764f0a",
+  "ms": 1166,
+  "ts": "2026-10-09T16:30:04"
+ }
+}

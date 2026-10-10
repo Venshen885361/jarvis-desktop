@@ -1,0 +1,14 @@
+{
+ "text": "欸，幫我裝 VLC",
+ "kind": "install_app",
+ "target": "VLC",
+ "raw": "{\"kind\": \"install_app\", \"target\": \"VLC\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "6a0887764f0a",
+  "ms": 1402,
+  "ts": "2026-10-09T16:29:58"
+ }
+}

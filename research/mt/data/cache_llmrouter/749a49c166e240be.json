@@ -1,0 +1,14 @@
+{
+ "text": "欸，現在氣溫幾度",
+ "kind": "weather",
+ "target": "現在氣溫幾度",
+ "raw": "{\"kind\": \"weather\", \"target\": \"現在氣溫幾度\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 1161,
+  "ts": "2026-10-09T15:57:36"
+ }
+}

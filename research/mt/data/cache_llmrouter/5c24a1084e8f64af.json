@@ -1,0 +1,14 @@
+{
+ "text": "steam 安裝 Terraria",
+ "kind": "install_app",
+ "target": "Terraria",
+ "raw": "{\n  \"kind\": \"install_app\",\n  \"target\": \"Terraria\"\n}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "6d93ea0c42dd",
+  "ms": 799,
+  "ts": "2026-10-09T16:17:22"
+ }
+}

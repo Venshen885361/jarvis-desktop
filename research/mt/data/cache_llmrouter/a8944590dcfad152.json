@@ -1,0 +1,14 @@
+{
+ "text": "用鏡頭查這是什麼",
+ "kind": "camera_search",
+ "target": "",
+ "raw": "{\"kind\": \"camera_search\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 799,
+  "ts": "2026-10-09T15:41:22"
+ }
+}

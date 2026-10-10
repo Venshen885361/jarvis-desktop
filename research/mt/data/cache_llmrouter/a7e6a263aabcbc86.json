@@ -1,0 +1,14 @@
+{
+ "text": "設冷氣在26度謝謝",
+ "kind": "home_control",
+ "target": "冷氣=set=26",
+ "raw": "{\"kind\": \"home_control\", \"target\": \"冷氣=set=26\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 896,
+  "ts": "2026-10-09T15:53:29"
+ }
+}

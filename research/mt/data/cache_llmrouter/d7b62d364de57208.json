@@ -1,0 +1,14 @@
+{
+ "text": "Discord下載一下",
+ "kind": "install_steam_game",
+ "target": "Discord",
+ "raw": "{\"kind\": \"install_steam_game\", \"target\": \"Discord\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "39db3db311a8",
+  "ms": 1073,
+  "ts": "2026-10-09T16:17:01"
+ }
+}

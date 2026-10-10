@@ -1,0 +1,14 @@
+{
+ "text": "Chrome 瀏覽器一直切換過去會當機耶",
+ "kind": "model",
+ "target": "",
+ "raw": "{\"kind\": \"model\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 706,
+  "ts": "2026-10-09T16:07:20"
+ }
+}

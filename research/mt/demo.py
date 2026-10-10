@@ -4,7 +4,7 @@
     python -m research.mt.demo --full     # 完整版：全部 927 個突變體 + E7 + E10（裝了 hassil 才跑），約 20 分鐘
     python -m research.mt.demo --list     # 只列出會跑哪些步驟
 
-資料：research/mt/data/ 是實驗的快照（生成的測試句、LLM 的 API 快取 2,364 筆含 n=20 六批、人工標記、
+資料：research/mt/data/ 是實驗的快照（生成的測試句、LLM 的 API 快取 2,364 筆含 n=20 六批、模型路由快取 3,962 筆、人工標記、
 各版本結果）。第一次跑會複製到 research/mt/out/（out/ 不進 git）。有快取，所以 `--gen llm`
 不會真的打 Gemini；想重新生成才需要 GEMINI_API_KEY 和 --no-cache。
 """
@@ -82,6 +82,16 @@ def steps(full: bool) -> list[tuple[str, list[str]]]:
          [*m, "research.mt.versions", "--no-mutation"]),
         ("RQ7 突變體包含關係：dominator、最小突變分數（用突變測試那一步的矩陣）",
          [*m, "research.mt.subsume", str(OUT / f"matrix_{'+'.join(tags)}.csv")]),
+        ("RQ10 第三受測對象：Gemini 當路由器——87 條種子答對幾條、同句兩次一致率（讀快取）",
+         [*m, "research.mt.llm_router", "--seeds", str(HERE / "seeds.json")]),
+        ("RQ10 規則式批次 × 模型路由，基準 = 模型自己對種子的路由（讀快取）",
+         [*m, "research.mt.run", "--subject", "llm", "--gen", "rules", "--seeds", str(HERE / "seeds.json"), "--tag-suffix", "_llmr", "--baseline", "own"]),
+        ("RQ10 模型批次 T0 × 模型路由（讀快取）",
+         [*m, "research.mt.run", "--subject", "llm", "--gen", "llm", "--temperature", "0", "--seed-filter", ORIG, "--tag-suffix", "_llmr", "--baseline", "own"]),
+        ("RQ10 prompt 突變矩陣 80 × 187（讀快取）",
+         [*m, "research.mt.llm_router_mutation", "--tags", "rules_llmr", "--per-relation", "20"]),
+        ("RQ10 縮減 / 排序", [*m, "research.mt.reduce", str(OUT / "matrix_llmr.csv"), "--drop-trivial"]),
+        ("RQ10 包含關係", [*m, "research.mt.subsume", str(OUT / "matrix_llmr.csv"), "--mutants", str(OUT / "mutants_llmr.json")]),
     ] + ([("RQ6 跨版本可轉移性：v4 決定 → v5 評估（需要 git，兩個版本各算一次矩陣，約 4 分鐘）",
            [*m, "research.mt.transfer", "--from", "v4=7040c54", "--to", "v5=3f5e658"])] if full else []) + (_hass_steps(m) if full else [])
 

@@ -1,0 +1,14 @@
+{
+ "text": "Chrome，開啟",
+ "kind": "open_application",
+ "target": "Chrome",
+ "raw": "{\"kind\": \"open_application\", \"target\": \"Chrome\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "4aa60bd81172",
+  "ms": 873,
+  "ts": "2026-10-09T16:15:48"
+ }
+}

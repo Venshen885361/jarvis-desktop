@@ -1,0 +1,14 @@
+{
+ "text": "空調幫我打開",
+ "kind": "open_application",
+ "target": "空調",
+ "raw": "{\"kind\": \"open_application\", \"target\": \"空調\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "16505d3cd5aa",
+  "ms": 894,
+  "ts": "2026-10-09T16:17:51"
+ }
+}

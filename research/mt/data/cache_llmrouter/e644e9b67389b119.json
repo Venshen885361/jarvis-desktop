@@ -1,0 +1,14 @@
+{
+ "text": "捲門打開一下",
+ "kind": "home_control",
+ "target": "捲門=on",
+ "raw": "{\n  \"kind\": \"home_control\",\n  \"target\": \"捲門=on\"\n}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "af6de8826888",
+  "ms": 1276,
+  "ts": "2026-10-09T16:18:12"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "text": "以圖搜圖",
+ "kind": "camera_search",
+ "target": "",
+ "raw": "{\"kind\": \"camera_search\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "04c6cf85cab5",
+  "ms": 743,
+  "ts": "2026-10-09T16:20:20"
+ }
+}

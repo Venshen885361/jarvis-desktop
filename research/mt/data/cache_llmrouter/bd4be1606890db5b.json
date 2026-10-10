@@ -1,0 +1,14 @@
+{
+ "text": "有人知道怎麼關掉記事本嗎",
+ "kind": "info",
+ "target": "",
+ "raw": "{\"kind\": \"info\", \"target\": \"\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 768,
+  "ts": "2026-10-09T16:01:36"
+ }
+}

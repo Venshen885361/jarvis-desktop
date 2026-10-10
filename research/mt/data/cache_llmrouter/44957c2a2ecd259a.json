@@ -1,0 +1,14 @@
+{
+ "text": "欸，幫我跳下一首歌",
+ "kind": "computer:key",
+ "target": "nexttrack",
+ "raw": "{\"kind\": \"computer:key\", \"target\": \"nexttrack\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "ff2032978755",
+  "ms": 1186,
+  "ts": "2026-10-09T15:55:20"
+ }
+}

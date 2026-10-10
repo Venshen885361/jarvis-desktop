@@ -1,0 +1,14 @@
+{
+ "text": "打開空調可以嗎",
+ "kind": "home_control",
+ "target": "空調=on",
+ "raw": "{\"kind\": \"home_control\", \"target\": \"空調=on\"}",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "rep": 0,
+  "prompt_sha": "6a0887764f0a",
+  "ms": 1039,
+  "ts": "2026-10-09T16:29:28"
+ }
+}
