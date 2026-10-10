@@ -565,7 +565,23 @@ python -m research.mt.llm_router_mutation --model gemini-3.5-flash --tags rules_
 python -m research.mt.subsume out/matrix_llmr_flash.csv --mutants out/mutants_llmr_flash.json
 ```
 
-結果待跑。
+### 換 prompt 寫法（flash-lite）：例句拿掉不掉分，定義拿掉才掉
+
+| 寫法 | 種子答對 | 同句兩次一致 | 規則式批次一致性違反 | 模型批次一致性違反 |
+|---|---|---|---|---|
+| full（名稱｜定義｜格式｜例句） | 78 / 87 | 86 / 87 | 52 / 1,339（3.9%） | 25 / 941（2.7%） |
+| noex（沒例句） | **80 / 87** | 84 / 87 | 58 / 1,347（4.3%） | 32 / 961（3.3%） |
+| names（只有名稱和格式） | 75 / 87 | 85 / 87 | **83 / 1,376（6.0%）** | **51 / 963（5.3%）** |
+
+- **例句是多餘的，跟 E11 的 EX_DEL 七成存活一致**：拿掉 25 條例句，種子反而多對 2 條（「開 YouTube」在 full 下答 open_url:youtube.com，是被 `開啟github.com → open_url` 那條例句帶偏的；noex 答 open_application），一致性違反只差 0.4–0.6 個百分點。
+- **定義有用，而且用在邊界**：連定義都拿掉（names），種子掉 5 條、一致性違反翻倍（3.9% → 6.0%、2.7% → 5.3%）。掉的都是 info / model / set_volume 的邊界：「台北 top 10 美食」→ 去 Google、「給我台北美食列表」→ youtube_play、「音量太大我的耳朵痛」→ 調小音量——跟 DEF_DEL 存活分析說的「有用的定義是 info / model / set_volume」一樣。
+- 非確定性不隨寫法變：三種寫法同句兩次一致都在 84–86 / 87。
+
+### 換模型（gemini-3.5-flash）：第一次跑被「思考 token」弄壞，修了再跑
+
+第一次跑 87 條種子有 51 / 187 句回 `error:parse`——flash 會思考，思考算進 output tokens，`max_output_tokens=200` 把 JSON 截斷成 `{"kind": "`。
+那一輪的數字（種子 66 / 87、規則式 311 違反、prompt 突變 RULE_DEL 各殺 30–51）全部作廢。修法：`thinking_budget=0`（路由不需要思考）、上限 1,024、解析失敗不進快取。
+**測試工具自己又抓到自己一個 bug**（第五個：harness 標籤比對、去重順序、`--tag-suffix` 蓋檔、檔名太長、現在是模型輸出截斷）。修好後的結果待跑。
 
 ## 檔案
 

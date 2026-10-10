@@ -87,7 +87,8 @@ RULES: list[str] = [
     "不確定就回 model，不要猜一個動作。",
 ]
 
-_HEADER = "你是語音助理的意圖路由器。使用者講一句中文，你要判斷它屬於哪個意圖，只輸出 JSON 物件 {\"kind\": \"<意圖名稱>\", \"target\": \"<target 或空字串>\"}，不要任何說明。\n\n意圖（名稱：定義｜target 格式｜例子）："
+_HEADER = "你是語音助理的意圖路由器。使用者講一句中文，你要判斷它屬於哪個意圖，只輸出 JSON 物件 {\"kind\": \"<意圖名稱>\", \"target\": \"<target 或空字串>\"}，不要任何說明。\n\n意圖（{cols}）："
+_COLS = {"full": "名稱：定義｜target 格式｜例子", "norules": "名稱：定義｜target 格式｜例子", "noex": "名稱：定義｜target 格式", "nodef": "名稱：target 格式｜例子", "names": "名稱：target 格式"}
 
 
 def build_prompt(intents: list[tuple[str, str, str, str]] | None = None, rules: list[str] | None = None, style: str | None = None) -> str:
@@ -96,7 +97,7 @@ def build_prompt(intents: list[tuple[str, str, str, str]] | None = None, rules: 
     rules = RULES if rules is None else rules
     if style == "norules":
         rules = []
-    lines = [_HEADER]
+    lines = [_HEADER.replace("{cols}", _COLS[style])]
     for name, desc, fmt, ex in intents:
         if style == "noex":
             lines.append(f"- {name}：{desc}｜{fmt}")
@@ -161,11 +162,15 @@ def _ask(prompt: str, text: str, *, rep: int = 0, model: str | None = None, temp
         raise SystemExit("需要 GEMINI_API_KEY（.env 或環境變數）")
     client = genai.Client(api_key=api_key)
     t0 = time.time()
+    # 會思考的模型（gemini-3.5-flash）把 thinking 算進 output tokens：200 不夠就被截斷、JSON 解析失敗。
+    # 關掉思考（路由不需要）、放寬上限；舊版 SDK 沒有 ThinkingConfig 就退回不設
+    cfg = {"system_instruction": prompt, "temperature": temperature, "max_output_tokens": 1024, "response_mime_type": "application/json"}
     try:
-        resp = client.models.generate_content(
-            model=model, contents=text,
-            config=types.GenerateContentConfig(system_instruction=prompt, temperature=temperature,
-                                               max_output_tokens=200, response_mime_type="application/json"))
+        cfg["thinking_config"] = types.ThinkingConfig(thinking_budget=0)
+    except AttributeError:
+        pass
+    try:
+        resp = client.models.generate_content(model=model, contents=text, config=types.GenerateContentConfig(**cfg))
         raw = resp.text or ""
     except Exception as e:
         raw = f"__ERROR__ {type(e).__name__}: {e}"
@@ -173,7 +178,7 @@ def _ask(prompt: str, text: str, *, rep: int = 0, model: str | None = None, temp
     res = {"text": text, "kind": lab.kind, "target": lab.target, "raw": raw[:500],
            "meta": {"model": model, "temperature": temperature, "rep": rep, "prompt_sha": hashlib.sha1(prompt.encode()).hexdigest()[:12],
                     "ms": int((time.time() - t0) * 1000), "ts": time.strftime("%Y-%m-%dT%H:%M:%S")}}
-    if use_cache and not raw.startswith("__ERROR__"):
+    if use_cache and lab.kind != "error":      # 解析失敗 / API 錯誤不進快取，下次重問
         CACHE_DIR.mkdir(parents=True, exist_ok=True)
         key.write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding="utf-8")
     return res
@@ -190,7 +195,10 @@ def batch_labels(texts: list[str], prompt: str | None = None, *, rep: int = 0, m
         key = _key(prompt, t, rep, model, temperature)
         if key.is_file():
             d = json.loads(key.read_text(encoding="utf-8"))
-            out[i] = Label(d["kind"], d["target"])
+            if d["kind"] == "error":          # 以前快取過的解析失敗：當作沒問過
+                todo.append(i)
+            else:
+                out[i] = Label(d["kind"], d["target"])
         else:
             todo.append(i)
     if todo:
