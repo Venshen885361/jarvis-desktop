@@ -153,7 +153,9 @@ def _ask(prompt: str, text: str, *, rep: int = 0, model: str | None = None, temp
     model = model or CONFIG["model"]
     key = _key(prompt, text, rep, model, temperature)
     if use_cache and key.is_file():
-        return json.loads(key.read_text(encoding="utf-8"))
+        cached = json.loads(key.read_text(encoding="utf-8"))
+        if cached["kind"] != "error":       # 舊快取裡的解析失敗不算，重問
+            return cached
     from google import genai
     from google.genai import types
 
