@@ -1,0 +1,111 @@
+{
+ "from": "v5all=3f5e658",
+ "to": "v6all=db00e03",
+ "tests": 13879,
+ "forward": [
+  {
+   "kind": "reduction",
+   "strategy": "greedy",
+   "size": 275,
+   "kept_on_v5all": 1.0,
+   "kept_on_v6all": 0.952,
+   "random_on_v6all": 0.431,
+   "random_sd": 0.019
+  },
+  {
+   "kind": "reduction",
+   "strategy": "hgs",
+   "size": 272,
+   "kept_on_v5all": 1.0,
+   "kept_on_v6all": 0.945,
+   "random_on_v6all": 0.436,
+   "random_sd": 0.025
+  },
+  {
+   "kind": "reduction",
+   "strategy": "irreplaceable",
+   "size": 274,
+   "kept_on_v5all": 1.0,
+   "kept_on_v6all": 0.955,
+   "random_on_v6all": 0.434,
+   "random_sd": 0.019
+  },
+  {
+   "kind": "prioritization",
+   "strategy": "total",
+   "apfd_on_v5all": 0.788,
+   "apfd_on_v6all": 0.785
+  },
+  {
+   "kind": "prioritization",
+   "strategy": "additional",
+   "apfd_on_v5all": 0.994,
+   "apfd_on_v6all": 0.981
+  },
+  {
+   "kind": "prioritization",
+   "strategy": "relation-first",
+   "apfd_on_v5all": 0.703,
+   "apfd_on_v6all": 0.703
+  },
+  {
+   "kind": "prioritization",
+   "strategy": "random",
+   "apfd_on_v6all": 0.867,
+   "random_sd": 0.007
+  }
+ ],
+ "backward": [
+  {
+   "kind": "reduction",
+   "strategy": "greedy",
+   "size": 256,
+   "kept_on_v6all": 1.0,
+   "kept_on_v5all": 0.933,
+   "random_on_v5all": 0.424,
+   "random_sd": 0.025
+  },
+  {
+   "kind": "reduction",
+   "strategy": "hgs",
+   "size": 250,
+   "kept_on_v6all": 1.0,
+   "kept_on_v5all": 0.928,
+   "random_on_v5all": 0.423,
+   "random_sd": 0.018
+  },
+  {
+   "kind": "reduction",
+   "strategy": "irreplaceable",
+   "size": 253,
+   "kept_on_v6all": 1.0,
+   "kept_on_v5all": 0.933,
+   "random_on_v5all": 0.426,
+   "random_sd": 0.022
+  },
+  {
+   "kind": "prioritization",
+   "strategy": "total",
+   "apfd_on_v6all": 0.794,
+   "apfd_on_v5all": 0.784
+  },
+  {
+   "kind": "prioritization",
+   "strategy": "additional",
+   "apfd_on_v6all": 0.995,
+   "apfd_on_v5all": 0.976
+  },
+  {
+   "kind": "prioritization",
+   "strategy": "relation-first",
+   "apfd_on_v6all": 0.706,
+   "apfd_on_v5all": 0.702
+  },
+  {
+   "kind": "prioritization",
+   "strategy": "random",
+   "apfd_on_v5all": 0.863,
+   "random_sd": 0.006
+  }
+ ]
+}

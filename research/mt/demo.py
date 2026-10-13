@@ -25,6 +25,7 @@ OUT = HERE / "out"
 
 LLM = ["gemini-3.5-flash-lite_T0", "gemini-3.5-flash-lite_T0.3", "gemini-3.5-flash-lite_T0.7", "gemini-3.5-flash-lite_T1"]
 ORIG = '^(?!sv_)'   # 只用原始 41 條種子（跟報告的 E2 表一致）
+N20 = [t + "_n20" for t in LLM] + ["gemini-3.5-flash-lite_T0_rep1_n20", "gemini-3.5-flash-lite_T0_rep2_n20"]
 
 
 def restore() -> None:
@@ -94,7 +95,16 @@ def steps(full: bool) -> list[tuple[str, list[str]]]:
         ("RQ10 包含關係", [*m, "research.mt.subsume", str(OUT / "matrix_llmr.csv"), "--mutants", str(OUT / "mutants_llmr.json")]),
         *_e12_steps(m),
     ] + ([("RQ6 跨版本可轉移性：v4 決定 → v5 評估（需要 git，兩個版本各算一次矩陣，約 4 分鐘）",
-           [*m, "research.mt.transfer", "--from", "v4=7040c54", "--to", "v5=3f5e658"])] if full else []) + (_hass_steps(m) if full else [])
+           [*m, "research.mt.transfer", "--from", "v4=7040c54", "--to", "v5=3f5e658"]),
+          ("RQ6 補：v5 決定 → v6 評估（n=5 五批，約 4 分鐘）",
+           [*m, "research.mt.transfer", "--from", "v5=3f5e658", "--to", "v6=db00e03"]),
+          ("RQ5/RQ7 v6 全矩陣：13,879 句 × 1,120 個突變體（約 12 分鐘；要在 v6 以後的 router 上跑）",
+           [*m, "research.mt.mutation", "--out-tag", "v6_all", "--tags", *tags, *N20]),
+          ("RQ7 補：v6 全矩陣的包含關係（dominator 307 / 560）",
+           [*m, "research.mt.subsume", str(OUT / "matrix_v6_all.csv")]),
+          ("E1 補抽：n=20 六批 400 句的人工標記 → precision 94.8%",
+           [*m, "research.mt.sample", "--score", str(OUT / "e1_label_n20_claude.csv"), "--suffix", "_n20"]),
+          ] if full else []) + (_hass_steps(m) if full else [])
 
 
 def _e12_steps(m: list[str]) -> list[tuple[str, list[str]]]:

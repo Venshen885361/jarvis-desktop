@@ -1,0 +1,111 @@
+{
+ "from": "v5=3f5e658",
+ "to": "v6=db00e03",
+ "tests": 3529,
+ "forward": [
+  {
+   "kind": "reduction",
+   "strategy": "greedy",
+   "size": 215,
+   "kept_on_v5": 1.0,
+   "kept_on_v6": 0.972,
+   "random_on_v6": 0.532,
+   "random_sd": 0.019
+  },
+  {
+   "kind": "reduction",
+   "strategy": "hgs",
+   "size": 212,
+   "kept_on_v5": 1.0,
+   "kept_on_v6": 0.97,
+   "random_on_v6": 0.521,
+   "random_sd": 0.024
+  },
+  {
+   "kind": "reduction",
+   "strategy": "irreplaceable",
+   "size": 213,
+   "kept_on_v5": 1.0,
+   "kept_on_v6": 0.97,
+   "random_on_v6": 0.531,
+   "random_sd": 0.026
+  },
+  {
+   "kind": "prioritization",
+   "strategy": "total",
+   "apfd_on_v5": 0.772,
+   "apfd_on_v6": 0.776
+  },
+  {
+   "kind": "prioritization",
+   "strategy": "additional",
+   "apfd_on_v5": 0.984,
+   "apfd_on_v6": 0.972
+  },
+  {
+   "kind": "prioritization",
+   "strategy": "relation-first",
+   "apfd_on_v5": 0.645,
+   "apfd_on_v6": 0.653
+  },
+  {
+   "kind": "prioritization",
+   "strategy": "random",
+   "apfd_on_v6": 0.823,
+   "random_sd": 0.007
+  }
+ ],
+ "backward": [
+  {
+   "kind": "reduction",
+   "strategy": "greedy",
+   "size": 206,
+   "kept_on_v6": 1.0,
+   "kept_on_v5": 0.942,
+   "random_on_v5": 0.51,
+   "random_sd": 0.018
+  },
+  {
+   "kind": "reduction",
+   "strategy": "hgs",
+   "size": 201,
+   "kept_on_v6": 1.0,
+   "kept_on_v5": 0.955,
+   "random_on_v5": 0.516,
+   "random_sd": 0.019
+  },
+  {
+   "kind": "reduction",
+   "strategy": "irreplaceable",
+   "size": 202,
+   "kept_on_v6": 1.0,
+   "kept_on_v5": 0.942,
+   "random_on_v5": 0.507,
+   "random_sd": 0.02
+  },
+  {
+   "kind": "prioritization",
+   "strategy": "total",
+   "apfd_on_v6": 0.783,
+   "apfd_on_v5": 0.77
+  },
+  {
+   "kind": "prioritization",
+   "strategy": "additional",
+   "apfd_on_v6": 0.985,
+   "apfd_on_v5": 0.966
+  },
+  {
+   "kind": "prioritization",
+   "strategy": "relation-first",
+   "apfd_on_v6": 0.654,
+   "apfd_on_v5": 0.641
+  },
+  {
+   "kind": "prioritization",
+   "strategy": "random",
+   "apfd_on_v5": 0.823,
+   "random_sd": 0.009
+  }
+ ]
+}

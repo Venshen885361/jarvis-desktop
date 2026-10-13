@@ -19,6 +19,7 @@ import argparse
 import csv
 import json
 import random
+import re
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -34,11 +35,16 @@ def _gen_of(tag: str) -> str:
     return "rules" if tag == "rules" else "llm"
 
 
-def _load_all() -> list[dict]:
+def _load_all(tags: list[str] | None = None) -> list[dict]:
+    """tags：要抽的批次（fnmatch 樣式，例如 `*_n20`）；None = 第一次 E1 的範圍（n=5 的六批 + 規則式，不含 _rep）。"""
+    import fnmatch
     rows = []
     for p in sorted(OUT.glob("tests_*.jsonl")):
         tag = p.stem[len("tests_"):]
-        if "_rep" in tag:  # E2 的重跑批次不抽，跟第一次是同分佈
+        if tags is None:
+            if "_rep" in tag or not (tag == "rules" or re.fullmatch(r"gemini-3\.5-flash-lite_T[\d.]+", tag)):
+                continue
+        elif not any(fnmatch.fnmatch(tag, t) for t in tags):
             continue
         for line in p.read_text(encoding="utf-8").splitlines():
             if line.strip():
@@ -48,8 +54,8 @@ def _load_all() -> list[dict]:
     return rows
 
 
-def cmd_sample(per: int, seed: int) -> int:
-    rows = [r for r in _load_all() if r["valid"]]
+def cmd_sample(per: int, seed: int, tags: list[str] | None = None, suffix: str = "") -> int:
+    rows = [r for r in _load_all(tags) if r["valid"]]
     groups: dict[tuple[str, str], list[dict]] = defaultdict(list)
     for r in rows:
         groups[(_gen_of(r["tag"]), r["relation"])].append(r)
@@ -60,7 +66,7 @@ def cmd_sample(per: int, seed: int) -> int:
         picked += rng.sample(pool, min(per, len(pool)))
     rng.shuffle(picked)
     key_out = {}
-    with (OUT / "e1_label.csv").open("w", encoding="utf-8-sig", newline="") as f:
+    with (OUT / f"e1_label{suffix}.csv").open("w", encoding="utf-8-sig", newline="") as f:
         w = csv.writer(f)
         w.writerow(["id", "seed", "relation", "requirement", "text", "label", "note"])
         w.writerow(["說明", "label：1 = 改寫句仍在要求同一件事（同一個程式 / 歌 / 裝置 / 動作）；0 = 意圖變了或句子不通。"
@@ -71,9 +77,9 @@ def cmd_sample(per: int, seed: int) -> int:
             w.writerow([sid, r["seed"], rel.name, rel.instruction, r["text"], "", ""])
             key_out[sid] = {"tag": r["tag"], "gen": _gen_of(r["tag"]), "seed_id": r["seed_id"], "relation": r["relation"],
                             "expect": r["expect"], "got": r["got"], "violation": r["violation"]}
-    (OUT / "e1_key.json").write_text(json.dumps(key_out, ensure_ascii=False, indent=1), encoding="utf-8")
+    (OUT / f"e1_key{suffix}.json").write_text(json.dumps(key_out, ensure_ascii=False, indent=1), encoding="utf-8")
     n_g = {k: len(v) for k, v in groups.items()}
-    print(f"抽了 {len(picked)} 句 → out/e1_label.csv（給人標）、out/e1_key.json（答案卷）")
+    print(f"抽了 {len(picked)} 句 → out/e1_label{suffix}.csv（給人標）、out/e1_key{suffix}.json（答案卷）")
     print("各組可抽數：", {f"{g}/{r}": n for (g, r), n in sorted(n_g.items())})
     return 0
 
@@ -102,8 +108,8 @@ def kappa(a: dict[str, int], b: dict[str, int]) -> tuple[float, int]:
     return (agree - pe) / (1 - pe) if pe < 1 else 1.0, n
 
 
-def cmd_score(files: list[str]) -> int:
-    key = json.loads((OUT / "e1_key.json").read_text(encoding="utf-8"))
+def cmd_score(files: list[str], suffix: str = "") -> int:
+    key = json.loads((OUT / f"e1_key{suffix}.json").read_text(encoding="utf-8"))
     labels = [_read_labels(Path(f)) for f in files]
     if len(labels) >= 2:
         k, n = kappa(labels[0], labels[1])
@@ -136,10 +142,12 @@ def main() -> int:
     ap.add_argument("--per", type=int, default=40, help="每個 生成器×關係 抽幾句")
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--score", nargs="+", metavar="LABELED_CSV")
+    ap.add_argument("--tags", nargs="*", default=None, help="只從這些批次抽（fnmatch，例：'*_n20'）；不給 = 第一次 E1 的範圍")
+    ap.add_argument("--suffix", default="", help="輸出檔名後綴（e1_label<suffix>.csv / e1_key<suffix>.json）")
     a = ap.parse_args()
     if a.score:
-        return cmd_score(a.score)
-    return cmd_sample(a.per, a.seed)
+        return cmd_score(a.score, a.suffix)
+    return cmd_sample(a.per, a.seed, a.tags, a.suffix)
 
 
 if __name__ == "__main__":
