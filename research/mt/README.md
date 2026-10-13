@@ -272,7 +272,9 @@ python -m research.mt.sample --score research/mt/data/e1_label_n20_claude.csv --
 
 - 掉的 1.7 個百分點全在 R3 語序（100% → 87.5%）：後 15 句的語序改寫開始不通（`去哪走走好放假`、`26度把它設在冷氣`、`一個資料夾把桌面上的截圖收好`），12.5% 不是人會講的句子。R2 的 0 是模型多塞了一個動作（`麻煩幫我記錄今天過得挺開心的啦`——把一句心情話變成記事指令）。
 - 真違反率 13.7% vs 原 14.5%：n=20 多找到的錯 **94% 是真的**（n=5 是 88%），跟上面抽看 246 句的印象一致——n=20 的違反反而更乾淨，因為 n=5 的違反有一半是 R2 漂移。
-- 標記者仍只有一位（同 E1）；第二位標記者的 κ 要等 `out/e1_label_n20.csv` 另一份標回來（`--score A.csv B.csv --suffix _n20`）。
+- 第二次標記（`data/e1_label_n20_claude_strict.csv`）：同一個標記者（Claude）換一套判準重標一次——不問「意思有沒有變」，改問「助理照這句做，結果跟照種子做是不是同一件事」，外加一道「母語者會不會這樣講」的流暢度關卡，比第一次嚴。
+  結果 33 句標 0（第一次 21 句，全部包含在這 33 句裡），**Cohen's κ = 0.763**，兩次都標 1 的 precision 91.8%、真違反率 13.4%。
+  要老實說：這不是獨立的第二位人類標記者，κ 量的是「換判準之後結論穩不穩」，不是人與人之間的信度；多出來的 12 句都是流暢度被嚴判的（「幫我開會中不要吵」「下一首音樂來」「等於多少呢 1加1」）。獨立人類標記者的 κ 還是未來工作。
 - **代價**：dist2 砍半（0.41 → 0.21）、句子 Jaccard 從 0.24 掉到 0.17——後 15 句彼此很像、跟別批重疊也少，六批 23,000 句裡只有 315 個不同的錯，每個錯平均被 12 句打中。
 - 違反的性質（T0_n20）：掉到模型 55%、路由到別的意圖 26%、意圖對目標髒 14%、R5 誤觸發 6%——n=5 時是 43 / 41 / 9 / 8。放大批次多撈到的主要是「該觸發沒觸發」這種安全的錯。
 
@@ -659,6 +661,50 @@ python -m research.mt.subsume out/matrix_llmr_flash.csv --mutants out/mutants_ll
 那一輪的數字（種子 66 / 87、規則式 311 違反、prompt 突變 46 / 80、RULE_DEL 各殺 30–51）全部作廢：解析失敗是隨機的，同一句在原 prompt 和突變 prompt 下一邊失敗一邊成功就算「殺」，**錯誤標籤會把突變分數灌水**（0.575 → 修好後 0.45）。
 修法分兩次才對：`thinking_budget=0`（路由不需要思考）、上限 1,024、解析失敗不寫快取——還不夠，`_ask` 讀快取時也要把舊的錯誤項當沒看過，否則重跑永遠讀到第一次的錯。
 
+## E13：第六條關係「格式」＋ 生到飽和（`llm_router_format.py`、`saturate.py`）
+
+兩件事都是看完 2025–2026 的文獻後補的（見「近期相關研究」）。
+
+### 格式：模型路由的回答有沒有離開答案空間
+
+Liu 與 Meng（2026）說小模型遇到等價改寫有 78% 會離開答案格式。這裡 `response_mime_type=application/json` 強制了 JSON，所以能崩的是兩種：
+JSON 被截斷（E12 已經撞到：flash 的思考 token）、kind 編出 25 個意圖以外的名字。
+
+```bash
+python -m research.mt.llm_router_format --by-relation --only-styles full noex names   # 讀快取，離線
+```
+
+| 模型 × 寫法 | 句數（快取） | kind 不在清單內 |
+|---|---|---|
+| flash-lite × full | 2,466 | **0** |
+| flash-lite × noex | 2,432 | 0 |
+| flash-lite × names | 2,466 | 0 |
+| flash × full | 4,701 | 0 |
+
+- 12,000 筆回答裡 **沒有一個 kind 是清單外的**，五條關係、三種寫法、兩個模型都一樣——連只給名稱不給定義的 names 也沒有。
+  給了 JSON schema 式的輸出格式 + 封閉的意圖清單，「編一個新意圖」這種崩潰在這個設定下不會發生；會發生的是輸出被截斷（E12 的 51 / 187）。
+- 解析失敗不進快取（會重問），所以離線量不到失敗率。`llm_router._ask` 現在每打一次 API 就記一行到 `out/llmrouter_format.jsonl`（json_ok / api_ok / kind / in_vocab），
+  之後任何一次真的打 API 的批次都會累積，`llm_router_format` 會多印一張「真的打 API 的回應」表。
+
+### 生到飽和：錯數在第幾輪不再長
+
+Guglielmi 等人（EMSE 2026）是「生到沒有新句為止」。這裡改成一輪一輪生（每輪 n=20、換 rep 當快取鍵），
+量每多一輪多幾句、多幾個違反、多幾個去重的錯；T=0 n=20 的 rep 0 / 1 / 2 在 E2 已經打過，前三輪免費。
+
+```bash
+python -m research.mt.saturate --max-rounds 8        # 41 條原始種子、router 現版；新句 < 5% 就停
+```
+
+前三輪（讀快取，router v6）：
+
+| 輪 | 這輪新句 | 累計句 | 新句比例 | 有效 | 違反 | 去重錯 | 這輪新錯 | dist2 |
+|---|---|---|---|---|---|---|---|---|
+| 0 | 3,826 | 3,826 | — | 3,796 | 409 | 138 | 138 | 0.135 |
+| 1 | 2,656 | 6,482 | 41% | 6,449 | 822 | 191 | 53 | 0.108 |
+| 2 | 2,378 | 8,860 | 27% | 8,822 | 1,216 | 220 | 29 | 0.095 |
+
+新錯 138 → 53 → 29，每輪大約砍半；新句比例 41% → 27%。第 3–7 輪要再打 API（每輪 193 次），結果待跑。
+
 ## 近期相關研究（2025–2026）與本研究的定位
 
 2026-10-13 查的（arXiv 標 preprint 的未經同儕審查）。每篇一句「他們做什麼」、一句「跟這裡的關係」。
@@ -737,6 +783,8 @@ python -m research.mt.subsume out/matrix_llmr_flash.csv --mutants out/mutants_ll
 | `hass_mutation.py` | E10：模板突變體（ALT_DEL / OPT_DEL / RULE_* / SKIP_DEL）× 測試矩陣 |
 | `llm_router.py` | E11：第三受測對象——Gemini 當路由器（prompt 列 25 個意圖，回 JSON），快取、多線、`--seeds` 一致率；E12：`--model` / `--style full|noex|nodef|names|norules` |
 | `llm_router_mutation.py` | E11：prompt 突變體（INTENT_DEL / EX_DEL / DEF_DEL / RULE_DEL）× 測試矩陣 |
+| `llm_router_format.py` | E13：格式關係——模型路由的 kind 在不在清單內（讀快取）、JSON 失敗率（讀 `out/llmrouter_format.jsonl`） |
+| `saturate.py` | E13：生到飽和——一輪一輪生、每輪的新句 / 新錯 |
 | `seeds_hass.json`、`seeds_hass_sampled.json` | E10：64 條模板展開種子、1 010 條 `hassil.sample` 抽樣句 |
 | `../../tests/test_mt_harness.py` | 煙霧測試（CI 跑） |
 

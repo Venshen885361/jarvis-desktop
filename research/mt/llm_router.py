@@ -179,6 +179,7 @@ def _ask(prompt: str, text: str, *, rep: int = 0, model: str | None = None, temp
     except Exception as e:
         raw = f"__ERROR__ {type(e).__name__}: {e}"
     lab = Label("error", "api") if raw.startswith("__ERROR__") else _parse(raw)
+    _log_format(model, prompt, text, raw, lab)
     res = {"text": text, "kind": lab.kind, "target": lab.target, "raw": raw[:500],
            "meta": {"model": model, "temperature": temperature, "rep": rep, "prompt_sha": hashlib.sha1(prompt.encode()).hexdigest()[:12],
                     "ms": int((time.time() - t0) * 1000), "ts": time.strftime("%Y-%m-%dT%H:%M:%S")}}
@@ -186,6 +187,24 @@ def _ask(prompt: str, text: str, *, rep: int = 0, model: str | None = None, temp
         CACHE_DIR.mkdir(parents=True, exist_ok=True)
         key.write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding="utf-8")
     return res
+
+
+KNOWN_KINDS = {name for name, _, _, _ in INTENTS}
+FORMAT_LOG = HERE / "out" / "llmrouter_format.jsonl"
+
+
+def _log_format(model: str, prompt: str, text: str, raw: str, lab: Label) -> None:
+    """E13 的「格式」關係要看每一次真的打 API 的回應：JSON 合不合法、kind 在不在清單內。
+    解析失敗不進快取（會重問），所以另外記一行，不然失敗率量不到。"""
+    rec = {"model": model, "prompt_sha": hashlib.sha1(prompt.encode()).hexdigest()[:12], "text": text,
+           "json_ok": lab.kind != "error" or lab.target == "api", "api_ok": lab.target != "api",
+           "kind": lab.kind, "in_vocab": lab.kind in KNOWN_KINDS, "raw_len": len(raw), "ts": time.strftime("%Y-%m-%dT%H:%M:%S")}
+    try:
+        FORMAT_LOG.parent.mkdir(parents=True, exist_ok=True)
+        with FORMAT_LOG.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+    except OSError:
+        pass
 
 
 def batch_labels(texts: list[str], prompt: str | None = None, *, rep: int = 0, model: str | None = None,

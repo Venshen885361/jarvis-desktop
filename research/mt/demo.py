@@ -131,6 +131,10 @@ def _e12_steps(m: list[str]) -> list[tuple[str, list[str]]]:
          [*m, "research.mt.llm_router_mutation", "--model", "gemini-3.5-flash", "--tags", "rules_llmr_flash_own", "--per-relation", "20", "--out-tag", "llmr_flash"]),
         ("E12 換模型 flash：包含關係 + 縮減 / 排序",
          [*m, "research.mt.subsume", str(OUT / "matrix_llmr_flash.csv"), "--mutants", str(OUT / "mutants_llmr_flash.json")]),
+        ("E13 格式關係：模型路由的回答 kind 在不在清單內（離線，讀快取）",
+         [*m, "research.mt.llm_router_format", "--by-relation", "--only-styles", "full", "noex", "names"]),
+        ("E13 生到飽和：T=0 每輪 20 句、最多 8 輪，看錯數何時飽和（讀快取）",
+         [*m, "research.mt.saturate", "--max-rounds", "8"]),
     ]
     return out
 
