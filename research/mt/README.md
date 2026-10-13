@@ -659,6 +659,25 @@ python -m research.mt.subsume out/matrix_llmr_flash.csv --mutants out/mutants_ll
 那一輪的數字（種子 66 / 87、規則式 311 違反、prompt 突變 46 / 80、RULE_DEL 各殺 30–51）全部作廢：解析失敗是隨機的，同一句在原 prompt 和突變 prompt 下一邊失敗一邊成功就算「殺」，**錯誤標籤會把突變分數灌水**（0.575 → 修好後 0.45）。
 修法分兩次才對：`thinking_budget=0`（路由不需要思考）、上限 1,024、解析失敗不寫快取——還不夠，`_ask` 讀快取時也要把舊的錯誤項當沒看過，否則重跑永遠讀到第一次的錯。
 
+## 近期相關研究（2025–2026）與本研究的定位
+
+2026-10-13 查的（arXiv 標 preprint 的未經同儕審查）。每篇一句「他們做什麼」、一句「跟這裡的關係」。
+
+| 文獻 | 他們做什麼 | 跟這裡的關係 |
+|---|---|---|
+| Cho, Ruberto, Terragni, *Metamorphic Testing of LLMs for NLP*, ICSME 2025（[arXiv 2511.02108](https://arxiv.org/abs/2511.02108)）；工具 LLMORPH（ASE 2025 demo） | 整理文獻裡 191 條 NLP 的蛻變關係、實作 36 條，對 GPT-4 / LLAMA3 / HERMES 2 跑 56 萬次測試，平均違反率 18%；人工看 937 個違反，**各關係的假陽性 0–70%**；不處理非確定性 | 他們的假陽性問題就是這裡的 E1（模型改寫 3.5–5% 無效、模板 8.5%）；他們沒做的非確定性底線就是 E2。這裡的受測對象是路由器不是 LLM 本身，但 E11 把 LLM 也當受測對象測了一次 |
+| Guglielmi, Spina, Bavota, Oliveto, Scalabrino 等，*Using LLMs to test voice user interfaces*, Empirical Software Engineering 31:132, 2026（[DOI](https://doi.org/10.1007/s10664-026-10859-7)） | 用 GPT-4 對 40 個 Alexa skill 的指令生改寫句（few-shot + skill 脈絡 + 反覆生到沒新句），**79.5% 改寫等價、37.6% 揭露 bug**；把改寫句補進 interaction model 能修掉大部分、但有的修不掉、有的新壞；GPT-oss-20B 便宜且差不多 | 最接近的工作：同樣「改寫句當測試」。差別：他們測 Alexa 的黑盒 NLU，這裡測 regex / 整句模板 / LLM 三種路由並加上突變、縮減、排序；他們的「補進 model 會新壞」對應這裡五輪回饋的回歸集抓到 3 句；他們「生到飽和」對應 n=5 → n=20（錯 2.5 倍、dist2 砍半） |
+| Haroon, Khan, Gulzar, *Evaluating LLM-Based Test Generation Under Software Evolution*（[arXiv 2603.23443](https://arxiv.org/abs/2603.23443)，2026-03，preprint） | 突變驅動的框架、8 個 LLM、22,374 個程式變體：語意保持的改動下 LLM 生的測試通過率掉到 79%，模型丟掉很多舊測試重生 | 同一個問題換個角度：這裡 E7 問「舊版決定的測試集到新版還有用嗎」——隔一輪 95%、隔四輪 41%；他們問「LLM 重生的測試跟得上改版嗎」 |
+| Commey, *When Generic Prompt Improvements Hurt*（[arXiv 2601.22025](https://arxiv.org/abs/2601.22025)，2026-01，preprint） | 加「通用規則」到 prompt 不一定變好，Qwen 2.5 的 RAG 合規從 26/30 掉到 9/30；主張 prompt 改動要當回歸風險、要有最小評估套件 | E12 的結論一樣方向：例句拿掉不掉分、定義拿掉才掉、全域規則對大模型幾乎沒作用——prompt 突變矩陣就是 prompt 的回歸測試 |
+| Liu, Meng, *Paraphrase-Induced Output-Mode Collapse*（[arXiv 2605.04665](https://arxiv.org/abs/2605.04665)，2026-05，preprint） | 900 句改寫基準：小模型遇到等價改寫，**78% 的回答離開答案格式**（該回標籤卻回句子），任務結構比模型更能預測崩潰 | 這裡模型路由強制 JSON 輸出所以沒看到格式崩潰，但看到它的表親：flash 的思考 token 把 JSON 截斷（51/187 解析失敗）。`same_route` 把全形冒號 / 空白正規化也是同一類防禦 |
+| Yagubyan, *How Consistent Are LLM Agents?*（[arXiv 2605.28840](https://arxiv.org/abs/2605.28840)，2026-04，preprint） | 同一個工具呼叫任務跑兩次，選的工具、順序、參數一不一樣 | 單步版本就是這裡的「同句問兩次」：T=0 仍 86/87，flash 一樣 |
+| Qin, Letha, *From GUI Tests to Conversational Interaction*（[arXiv 2607.11387](https://arxiv.org/abs/2607.11387)，2026-07，perspective） | 用 LLM 把 Android GUI 測試改成語音意圖、能力描述、動作計畫（AppVA 原型，5 個 app） | 方向相反但互補：他們從測試產意圖，這裡從意圖產測試；E9 的「真實使用紀錄當種子」是這裡最接近「從使用產測試」的做法 |
+
+三點定位：
+1. **「改寫句當測試」在 2025–2026 已經是主流做法**（Cho / Guglielmi），這裡不是第一個；這裡的差異是把後面三個問題（留多少、先測哪些、換版還有用嗎）用突變測試接上去，並且在三種實作（regex / 模板 / LLM）× 兩個模型 × 三種 prompt 寫法上重現同一組結論。
+2. **假陽性和非確定性是這條線公認的兩個洞**（Cho 的 0–70%、LLMORPH 不處理重跑），這裡用 E1 / E2 各給了一個量法和一條底線。
+3. **prompt 當程式來做突變測試**（E11 / E12）還沒看到別人做；最接近的是 Commey 的「prompt 改動要當回歸風險」，但他沒有系統地刪 prompt 的每一段看哪些是等價突變體。
+
 ## 成本效益總表（E1–E12 彙整）
 
 每個方法花什麼、換到什麼，放在同一張表。時間是實測（單線程，4 線程的另註）；API 次數從快取的 `meta` 數出來；費用是**付費層的上限估算**（gemini-3.5-flash-lite 標準價 $0.30 / 1M 輸入、$2.50 / 1M 輸出，[官方價目](https://ai.google.dev/gemini-api/docs/pricing)；以 1 個中文字 ≈ 1 token 粗估，路由 prompt 約 2,000 token；免費層存在，實際可能是 $0）。gemini-3.5-flash 的價格頁上沒找到 ⚠️ 未確認，不估。
@@ -723,6 +742,12 @@ python -m research.mt.subsume out/matrix_llmr_flash.csv --mutants out/mutants_ll
 
 ## 下一步（研究計畫）
 
-1. LLM 生成掃四個溫度，跟規則式比 valid% / viol% / dist2。
-2. `mutmut` 對 `router.py` 做突變 → 測試 × 突變體矩陣 → 縮減（coverage / greedy / irreplaceable）與排序（APFD）。
-3. 把 R5 找到的真 bug（否定句、語序）修回 router，重跑驗證。
+前三項（溫度掃描、突變 / 縮減 / 排序、R5 修回 router）都做完了，見上面各節。還沒做的：
+
+1. 第二位標記者標 `data/e1_label_n20.csv`，算 κ（`sample.py --score A B --suffix _n20`）。
+2. 英文指令當種子；收更多使用者的紀錄（E9 現在只有 24 條中文）。
+3. prompt 突變矩陣的測試從 187 句加到全批；試非 Gemini 家族的模型。
+4. 從 Cho 等人整理的 191 條 NLP 蛻變關係挑適合意圖路由的補進來（現在 5 條）。
+5. 模型路由加「格式」關係：改寫句下 JSON 仍合法、kind 仍在清單內（Liu 與 Meng 的輸出格式崩潰）。
+6. 模型生成器「生到沒新句為止」取代固定 n，看錯數是否在 n=20 後飽和（Guglielmi 等人的做法）。
+7. HA 跑模型生成器；把「客廳燈幫我打開 → 問狀態」回報上游。
