@@ -1,0 +1,36 @@
+{
+ "items": [
+  "啟動 YouTube",
+  "開啟 YouTube",
+  "幫我開 YouTube",
+  "我要看 YouTube",
+  "我要用 YouTube",
+  "轉到 YouTube",
+  "切換到 YouTube",
+  "播放 YouTube",
+  "秀出 YouTube",
+  "叫出 YouTube",
+  "打開 YouTube 吧",
+  "幫忙開一下 YouTube",
+  "立刻開 YouTube",
+  "可以開 YouTube 嗎",
+  "麻煩開 YouTube",
+  "我要開啟 YouTube",
+  "準備開 YouTube",
+  "將 YouTube 打開",
+  "把 YouTube 叫出來",
+  "搜尋 YouTube"
+ ],
+ "ok": true,
+ "raw": "[\n  \"啟動 YouTube\",\n  \"開啟 YouTube\",\n  \"幫我開 YouTube\",\n  \"我要看 YouTube\",\n  \"我要用 YouTube\",\n  \"轉到 YouTube\",\n  \"切換到 YouTube\",\n  \"播放 YouTube\",\n  \"秀出 YouTube\",\n  \"叫出 YouTube\",\n  \"打開 YouTube 吧\",\n  \"幫忙開一下 YouTube\",\n  \"立刻開 YouTube\",\n  \"可以開 YouTube 嗎\",\n  \"麻煩開 YouTube\",\n  \"我要開啟 YouTube\",\n  \"準備開 YouTube\",\n  \"將 YouTube 打開\",\n  \"把 YouTube 叫出來\",\n  \"搜尋 YouTube\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開 YouTube",
+  "relation": "R1_synonym",
+  "n": 20,
+  "rep": 3,
+  "ms": 1484,
+  "ts": "2026-10-14T02:13:05"
+ }
+}

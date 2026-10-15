@@ -1,0 +1,36 @@
+{
+ "items": [
+  "用 YouTube 放 lofi 的教學影片要怎麼找",
+  "為什麼用 YouTube 放 lofi 會一直卡住",
+  "不要用 YouTube 放 lofi 了啦",
+  "用 YouTube 放 lofi 真的比較好聽嗎",
+  "哪裡可以找到不用 YouTube 放 lofi 的方法",
+  "剛剛用 YouTube 放 lofi 的紀錄在哪裡",
+  "用 YouTube 放 lofi 會不會很耗網路流量",
+  "有人會用 YouTube 放 lofi 當作唸書背景音樂嗎",
+  "可以用別的軟體代替用 YouTube 放 lofi 嗎",
+  "為什麼我昨天用 YouTube 放 lofi 會一直斷線",
+  "誰知道用 YouTube 放 lofi 怎麼把廣告關掉",
+  "用 YouTube 放 lofi 其實還蠻方便的對吧",
+  "你覺得用 YouTube 放 lofi 跟 Spotify 哪個好",
+  "不要再叫我用 YouTube 放 lofi 了",
+  "用 YouTube 放 lofi 的音質是不是比較差",
+  "幫我查一下用 YouTube 放 lofi 的相關新聞",
+  "請問用 YouTube 放 lofi 需要付費嗎",
+  "我剛剛用 YouTube 放 lofi 的歌單叫什麼名字",
+  "用 YouTube 放 lofi 會不會傷手機電池",
+  "有沒有人跟我一樣喜歡用 YouTube 放 lofi"
+ ],
+ "ok": true,
+ "raw": "[\n  \"用 YouTube 放 lofi 的教學影片要怎麼找\",\n  \"為什麼用 YouTube 放 lofi 會一直卡住\",\n  \"不要用 YouTube 放 lofi 了啦\",\n  \"用 YouTube 放 lofi 真的比較好聽嗎\",\n  \"哪裡可以找到不用 YouTube 放 lofi 的方法\",\n  \"剛剛用 YouTube 放 lofi 的紀錄在哪裡\",\n  \"用 YouTube 放 lofi 會不會很耗網路流量\",\n  \"有人會用 YouTube 放 lofi 當作唸書背景音樂嗎\",\n  \"可以用別的軟體代替用 YouTube 放 lofi 嗎\",\n  \"為什麼我昨天用 YouTube 放 lofi 會一直斷線\",\n  \"誰知道用 YouTube 放 lofi 怎麼把廣告關掉\",\n  \"用 YouTube 放 lofi 其實還蠻方便的對吧\",\n  \"你覺得用 YouTube 放 lofi 跟 Spotify 哪個好\",\n  \"不要再叫我用 YouTube 放 lofi 了\",\n  \"用 YouTube 放 lofi 的音質是不是比較差\",\n  \"幫我查一下用 YouTube 放 lofi 的相關新聞\",\n  \"請問用 YouTube 放 lofi 需要付費嗎\",\n  \"我剛剛用 YouTube 放 lofi 的歌單叫什麼名字\",\n  \"用 YouTube 放 lofi 會不會傷手機電池\",\n  \"有沒有人跟我一樣喜歡用 YouTube 放 lofi\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "用 YouTube 放 lofi",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 5,
+  "ms": 2162,
+  "ts": "2026-10-14T22:27:03"
+ }
+}

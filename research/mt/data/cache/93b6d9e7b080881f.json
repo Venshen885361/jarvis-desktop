@@ -1,0 +1,36 @@
+{
+ "items": [
+  "搜尋 python 教學要點入哪一個網站",
+  "python 教學的搜尋紀錄怎麼刪掉",
+  "不要搜尋 python 教學",
+  "為什麼搜尋 python 教學都是英文的",
+  "搜尋 python 教學以前的歷史哪裡看",
+  "誰幫我搜尋 python 教學的",
+  "查 python 教學跟搜尋 python 教學有一樣嗎",
+  "搜尋 python 教學會不會中毒",
+  "搜尋 python 教學這個功能壞掉了",
+  "取消搜尋 python 教學",
+  "搜尋 python 教學的快速鍵是什麼",
+  "找不到搜尋 python 教學的按鈕",
+  "搜尋 python 教學需要付費嗎",
+  "可以不要自動搜尋 python 教學嗎",
+  "搜尋 python 教學的結果怎麼全是廣告",
+  "搜尋 python 教學會記錄帳號嗎",
+  "把搜尋 python 教學的權限關掉",
+  "剛才搜尋 python 教學的東西去哪了",
+  "搜尋 python 教學要怎麼過濾掉舊資料",
+  "搜尋 python 教學有推薦的頻道嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"搜尋 python 教學要點入哪一個網站\",\n  \"python 教學的搜尋紀錄怎麼刪掉\",\n  \"不要搜尋 python 教學\",\n  \"為什麼搜尋 python 教學都是英文的\",\n  \"搜尋 python 教學以前的歷史哪裡看\",\n  \"誰幫我搜尋 python 教學的\",\n  \"查 python 教學跟搜尋 python 教學有一樣嗎\",\n  \"搜尋 python 教學會不會中毒\",\n  \"搜尋 python 教學這個功能壞掉了\",\n  \"取消搜尋 python 教學\",\n  \"搜尋 python 教學的快速鍵是什麼\",\n  \"找不到搜尋 python 教學的按鈕\",\n  \"搜尋 python 教學需要付費嗎\",\n  \"可以不要自動搜尋 python 教學嗎\",\n  \"搜尋 python 教學的結果怎麼全是廣告\",\n  \"搜尋 python 教學會記錄帳號嗎\",\n  \"把搜尋 python 教學的權限關掉\",\n  \"剛才搜尋 python 教學的東西去哪了\",\n  \"搜尋 python 教學要怎麼過濾掉舊資料\",\n  \"搜尋 python 教學有推薦的頻道嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "搜尋 python 教學",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 4,
+  "ms": 1889,
+  "ts": "2026-10-14T22:16:45"
+ }
+}

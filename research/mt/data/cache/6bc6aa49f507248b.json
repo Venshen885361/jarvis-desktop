@@ -1,0 +1,36 @@
+{
+ "items": [
+  "YouTube的網址是多少",
+  "YouTube打不開是怎麼回事",
+  "為什麼YouTube一直轉圈圈",
+  "有人會用YouTube剪片嗎",
+  "YouTube的客服電話幾號",
+  "教我怎麼下載YouTube的影片",
+  "YouTube Premium怎麼取消",
+  "哪裡可以看YouTube的教學",
+  "YouTube壞掉了嗎",
+  "不要自動播放YouTube",
+  "幫我查YouTube的創辦人",
+  "YouTube為什麼不能登入",
+  "怎麼把YouTube影片轉成音樂",
+  "YouTube今天流量好像很高",
+  "誰會用YouTube直播",
+  "YouTube有什麼好看的頻道",
+  "幫我檢舉YouTube的這個影片",
+  "YouTube的背景播放怎麼設定",
+  "我的YouTube帳號被封鎖了",
+  "YouTube影片一直廣告好煩"
+ ],
+ "ok": true,
+ "raw": "[\n  \"YouTube的網址是多少\",\n  \"YouTube打不開是怎麼回事\",\n  \"為什麼YouTube一直轉圈圈\",\n  \"有人會用YouTube剪片嗎\",\n  \"YouTube的客服電話幾號\",\n  \"教我怎麼下載YouTube的影片\",\n  \"YouTube Premium怎麼取消\",\n  \"哪裡可以看YouTube的教學\",\n  \"YouTube壞掉了嗎\",\n  \"不要自動播放YouTube\",\n  \"幫我查YouTube的創辦人\",\n  \"YouTube為什麼不能登入\",\n  \"怎麼把YouTube影片轉成音樂\",\n  \"YouTube今天流量好像很高\",\n  \"誰會用YouTube直播\",\n  \"YouTube有什麼好看的頻道\",\n  \"幫我檢舉YouTube的這個影片\",\n  \"YouTube的背景播放怎麼設定\",\n  \"我的YouTube帳號被封鎖了\",\n  \"YouTube影片一直廣告好煩\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開 YouTube",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 3,
+  "ms": 1542,
+  "ts": "2026-10-14T02:13:21"
+ }
+}

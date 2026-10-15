@@ -1,0 +1,36 @@
+{
+ "items": [
+  "github.com 幫我開一下",
+  "github.com 這個網站開起來",
+  "github.com 畫面秀一下",
+  "github.com 頁面開一下",
+  "github.com 幫我連上去",
+  "github.com 網址開起來",
+  "github.com 幫我點開",
+  "github.com 畫面叫出來",
+  "github.com 幫我載入",
+  "github.com 這個網頁開一下",
+  "github.com 幫我連線",
+  "github.com 瀏覽器幫我開",
+  "github.com 網頁秀一下",
+  "github.com 幫我連過去",
+  "github.com 網址點一下",
+  "github.com 幫我連到",
+  "github.com 畫面打開來",
+  "github.com 幫我開網頁",
+  "github.com 頁面叫出來",
+  "github.com 連結幫我開"
+ ],
+ "ok": true,
+ "raw": "[\n  \"github.com 幫我開一下\",\n  \"github.com 這個網站開起來\",\n  \"github.com 畫面秀一下\",\n  \"github.com 頁面開一下\",\n  \"github.com 幫我連上去\",\n  \"github.com 網址開起來\",\n  \"github.com 幫我點開\",\n  \"github.com 畫面叫出來\",\n  \"github.com 幫我載入\",\n  \"github.com 這個網頁開一下\",\n  \"github.com 幫我連線\",\n  \"github.com 瀏覽器幫我開\",\n  \"github.com 網頁秀一下\",\n  \"github.com 幫我連過去\",\n  \"github.com 網址點一下\",\n  \"github.com 幫我連到\",\n  \"github.com 畫面打開來\",\n  \"github.com 幫我開網頁\",\n  \"github.com 頁面叫出來\",\n  \"github.com 連結幫我開\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "打開 github.com",
+  "relation": "R3_reorder",
+  "n": 20,
+  "rep": 5,
+  "ms": 1341,
+  "ts": "2026-10-14T22:25:57"
+ }
+}

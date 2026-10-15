@@ -1,0 +1,36 @@
+{
+ "items": [
+  "怎麼把 github.com 打開",
+  "github.com 網址打不開耶",
+  "你幫我查一下 github.com 的意思",
+  "不要幫我開 github.com",
+  "為什麼我的電腦打不開 github.com",
+  "你知道 github.com 在幹嘛嗎",
+  "github.com 搜尋功能怎麼用",
+  "可以教我怎麼封鎖 github.com 嗎",
+  "github.com 這個網站安全嗎",
+  "誰可以告訴我 github.com 怎麼註冊",
+  "我覺得 github.com 介面很難用",
+  "github.com 登入一直失敗怎麼辦",
+  "我剛剛不小心關掉 github.com 了",
+  "你有聽過 github.com 這個平台嗎",
+  "github.com 跟其他網站有什麼差別",
+  "為什麼大家都喜歡用 github.com",
+  "可以把 github.com 加入我的最愛嗎",
+  "github.com 伺服器是不是掛了",
+  "我找不到 github.com 的下載按鈕",
+  "不要再推薦我看 github.com 了"
+ ],
+ "ok": true,
+ "raw": "[\n  \"怎麼把 github.com 打開\",\n  \"github.com 網址打不開耶\",\n  \"你幫我查一下 github.com 的意思\",\n  \"不要幫我開 github.com\",\n  \"為什麼我的電腦打不開 github.com\",\n  \"你知道 github.com 在幹嘛嗎\",\n  \"github.com 搜尋功能怎麼用\",\n  \"可以教我怎麼封鎖 github.com 嗎\",\n  \"github.com 這個網站安全嗎\",\n  \"誰可以告訴我 github.com 怎麼註冊\",\n  \"我覺得 github.com 介面很難用\",\n  \"github.com 登入一直失敗怎麼辦\",\n  \"我剛剛不小心關掉 github.com 了\",\n  \"你有聽過 github.com 這個平台嗎\",\n  \"github.com 跟其他網站有什麼差別\",\n  \"為什麼大家都喜歡用 github.com\",\n  \"可以把 github.com 加入我的最愛嗎\",\n  \"github.com 伺服器是不是掛了\",\n  \"我找不到 github.com 的下載按鈕\",\n  \"不要再推薦我看 github.com 了\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "打開 github.com",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 4,
+  "ms": 1666,
+  "ts": "2026-10-14T22:14:44"
+ }
+}

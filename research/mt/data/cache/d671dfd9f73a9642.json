@@ -1,0 +1,36 @@
+{
+ "items": [
+  "怎麼用 github.com 這個網站",
+  "github.com 網址是多少啊",
+  "github.com 打不開是怎麼回事",
+  "不要打開 github.com 叫我",
+  "github.com 這個網站有什麼用",
+  "查詢 github.com 的相關教學",
+  "為什麼我進不去 github.com",
+  "有人知道 github.com 怎麼註冊嗎",
+  "github.com 算不算是一個論壇",
+  "我要去哪裡找到 github.com",
+  "github.com 網頁一直顯示錯誤",
+  "你幫我查一下 github.com 的客服電話",
+  "github.com 是寫程式用的嗎",
+  "誰可以教我使用 github.com",
+  "github.com 伺服器掛了嗎",
+  "為什麼大家都在用 github.com",
+  "找一下關於 github.com 的新聞",
+  "github.com 登入按鈕在哪裡",
+  "這個檔案可以上傳到 github.com 嗎",
+  "github.com 介面怎麼變成中文"
+ ],
+ "ok": true,
+ "raw": "[\n  \"怎麼用 github.com 這個網站\",\n  \"github.com 網址是多少啊\",\n  \"github.com 打不開是怎麼回事\",\n  \"不要打開 github.com 叫我\",\n  \"github.com 這個網站有什麼用\",\n  \"查詢 github.com 的相關教學\",\n  \"為什麼我進不去 github.com\",\n  \"有人知道 github.com 怎麼註冊嗎\",\n  \"github.com 算不算是一個論壇\",\n  \"我要去哪裡找到 github.com\",\n  \"github.com 網頁一直顯示錯誤\",\n  \"你幫我查一下 github.com 的客服電話\",\n  \"github.com 是寫程式用的嗎\",\n  \"誰可以教我使用 github.com\",\n  \"github.com 伺服器掛了嗎\",\n  \"為什麼大家都在用 github.com\",\n  \"找一下關於 github.com 的新聞\",\n  \"github.com 登入按鈕在哪裡\",\n  \"這個檔案可以上傳到 github.com 嗎\",\n  \"github.com 介面怎麼變成中文\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "打開 github.com",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 3,
+  "ms": 1810,
+  "ts": "2026-10-14T02:14:02"
+ }
+}

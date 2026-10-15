@@ -1,0 +1,36 @@
+{
+ "items": [
+  "YouTube幫我開一下",
+  "YouTube開起來",
+  "YouTube快開",
+  "YouTube幫忙開一下啦",
+  "幫我把YouTube打開",
+  "幫忙開一下YouTube",
+  "把YouTube開起來",
+  "幫我開YouTube",
+  "YouTube點開",
+  "YouTube畫面叫出來",
+  "幫我點開YouTube",
+  "YouTube弄開一下",
+  "YouTube開通一下",
+  "YouTube程式開一下",
+  "YouTube直接開",
+  "YouTube現在開",
+  "YouTube幫我點一下",
+  "YouTube幫忙開起來",
+  "YouTube把它打開",
+  "YouTube快幫我開"
+ ],
+ "ok": true,
+ "raw": "[\n  \"YouTube幫我開一下\",\n  \"YouTube開起來\",\n  \"YouTube快開\",\n  \"YouTube幫忙開一下啦\",\n  \"幫我把YouTube打開\",\n  \"幫忙開一下YouTube\",\n  \"把YouTube開起來\",\n  \"幫我開YouTube\",\n  \"YouTube點開\",\n  \"YouTube畫面叫出來\",\n  \"幫我點開YouTube\",\n  \"YouTube弄開一下\",\n  \"YouTube開通一下\",\n  \"YouTube程式開一下\",\n  \"YouTube直接開\",\n  \"YouTube現在開\",\n  \"YouTube幫我點一下\",\n  \"YouTube幫忙開起來\",\n  \"YouTube把它打開\",\n  \"YouTube快幫我開\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開 YouTube",
+  "relation": "R3_reorder",
+  "n": 20,
+  "rep": 6,
+  "ms": 1311,
+  "ts": "2026-10-14T23:10:48"
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Discord 下載一下",
+  "幫我把 Discord 下載",
+  "Discord 抓一下安裝檔",
+  "下載 Discord 好了",
+  "Discord 裝一下啦",
+  "下載這個 Discord",
+  "Discord 載下來吧",
+  "幫忙下載 Discord",
+  "Discord 趕快下載",
+  "載 Discord 拜託",
+  "Discord 載入中... 不對，下載 Discord 啦",
+  "安裝 Discord 幫我下載",
+  "Discord 抓下來",
+  "下載的事情，Discord 載一下",
+  "Discord 軟體下載",
+  "Discord 載好不好",
+  "載 Discord 程式",
+  "Discord 拿來下載",
+  "載 Discord 裝在電腦",
+  "Discord 載下來裝"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Discord 下載一下\",\n  \"幫我把 Discord 下載\",\n  \"Discord 抓一下安裝檔\",\n  \"下載 Discord 好了\",\n  \"Discord 裝一下啦\",\n  \"下載這個 Discord\",\n  \"Discord 載下來吧\",\n  \"幫忙下載 Discord\",\n  \"Discord 趕快下載\",\n  \"載 Discord 拜託\",\n  \"Discord 載入中... 不對，下載 Discord 啦\",\n  \"安裝 Discord 幫我下載\",\n  \"Discord 抓下來\",\n  \"下載的事情，Discord 載一下\",\n  \"Discord 軟體下載\",\n  \"Discord 載好不好\",\n  \"載 Discord 程式\",\n  \"Discord 拿來下載\",\n  \"載 Discord 裝在電腦\",\n  \"Discord 載下來裝\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "下載 Discord",
+  "relation": "R3_reorder",
+  "n": 20,
+  "rep": 7,
+  "ms": 1282,
+  "ts": "2026-10-14T23:29:07"
+ }
+}

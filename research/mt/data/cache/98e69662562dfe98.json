@@ -1,0 +1,36 @@
+{
+ "items": [
+  "切換到 Chrome 之前幫我存檔",
+  "Chrome 到底要怎麼切換到全螢幕",
+  "為什麼我切換到 Chrome 會一直當機",
+  "切換到 Chrome 的快捷鍵是什麼",
+  "不要切換到 Chrome 啦",
+  "可以教我怎麼切換到 Chrome 分頁嗎",
+  "切換到 Chrome 的方法有哪些",
+  "Chrome 視窗切換到別的桌面去哪了",
+  "切換到 Chrome 之後畫面變黑怎麼辦",
+  "我的電腦沒辦法切換到 Chrome",
+  "切換到 Chrome 的速度怎麼那麼慢",
+  "剛剛切換到 Chrome 看到的網頁呢",
+  "不要幫我切換到 Chrome",
+  "切換到 Chrome 的外掛去哪裡找",
+  "Chrome 這樣切換到手機版怎麼用",
+  "切換到 Chrome 之前先關掉其他程式",
+  "為什麼按了沒辦法切換到 Chrome",
+  "切換到 Chrome 的設定在哪裡調整",
+  "切換到 Chrome 之後滑鼠就動不了了",
+  "Chrome 自動切換到英文版了怎麼改回來"
+ ],
+ "ok": true,
+ "raw": "[\n  \"切換到 Chrome 之前幫我存檔\",\n  \"Chrome 到底要怎麼切換到全螢幕\",\n  \"為什麼我切換到 Chrome 會一直當機\",\n  \"切換到 Chrome 的快捷鍵是什麼\",\n  \"不要切換到 Chrome 啦\",\n  \"可以教我怎麼切換到 Chrome 分頁嗎\",\n  \"切換到 Chrome 的方法有哪些\",\n  \"Chrome 視窗切換到別的桌面去哪了\",\n  \"切換到 Chrome 之後畫面變黑怎麼辦\",\n  \"我的電腦沒辦法切換到 Chrome\",\n  \"切換到 Chrome 的速度怎麼那麼慢\",\n  \"剛剛切換到 Chrome 看到的網頁呢\",\n  \"不要幫我切換到 Chrome\",\n  \"切換到 Chrome 的外掛去哪裡找\",\n  \"Chrome 這樣切換到手機版怎麼用\",\n  \"切換到 Chrome 之前先關掉其他程式\",\n  \"為什麼按了沒辦法切換到 Chrome\",\n  \"切換到 Chrome 的設定在哪裡調整\",\n  \"切換到 Chrome 之後滑鼠就動不了了\",\n  \"Chrome 自動切換到英文版了怎麼改回來\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "切換到 Chrome",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 3,
+  "ms": 1875,
+  "ts": "2026-10-14T02:19:19"
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "items": [
+  "YouTube的網址是多少",
+  "YouTube為什麼畫面一直轉圈圈",
+  "我上次看YouTube的歷史紀錄在哪裡",
+  "YouTube這個影片怎麼下載",
+  "YouTube會不會收費啊",
+  "YouTube有辦法阻擋廣告嗎",
+  "YouTube的創作者收益怎麼算",
+  "YouTube這首歌是誰唱的",
+  "怎麼把YouTube影片傳到電腦",
+  "YouTube可以背景播放嗎",
+  "YouTube帳號被登出了怎麼辦",
+  "YouTube直播在哪裡看",
+  "我覺得YouTube介面越來越難用了",
+  "YouTube有沒有兒童專用版本",
+  "這個YouTube連結打不開耶",
+  "YouTube小幫手有什麼功能",
+  "YouTube畫質怎麼調成最高",
+  "訂閱YouTube Premium划算嗎",
+  "YouTube留言功能怎麼關閉",
+  "為什麼YouTube一直閃退"
+ ],
+ "ok": true,
+ "raw": "[\n  \"YouTube的網址是多少\",\n  \"YouTube為什麼畫面一直轉圈圈\",\n  \"我上次看YouTube的歷史紀錄在哪裡\",\n  \"YouTube這個影片怎麼下載\",\n  \"YouTube會不會收費啊\",\n  \"YouTube有辦法阻擋廣告嗎\",\n  \"YouTube的創作者收益怎麼算\",\n  \"YouTube這首歌是誰唱的\",\n  \"怎麼把YouTube影片傳到電腦\",\n  \"YouTube可以背景播放嗎\",\n  \"YouTube帳號被登出了怎麼辦\",\n  \"YouTube直播在哪裡看\",\n  \"我覺得YouTube介面越來越難用了\",\n  \"YouTube有沒有兒童專用版本\",\n  \"這個YouTube連結打不開耶\",\n  \"YouTube小幫手有什麼功能\",\n  \"YouTube畫質怎麼調成最高\",\n  \"訂閱YouTube Premium划算嗎\",\n  \"YouTube留言功能怎麼關閉\",\n  \"為什麼YouTube一直閃退\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開 YouTube",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 5,
+  "ms": 1553,
+  "ts": "2026-10-14T22:25:28"
+ }
+}

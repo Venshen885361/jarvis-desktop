@@ -1,0 +1,36 @@
+{
+ "items": [
+  "python 教學幫我查一下",
+  "python 教學找一下好不好",
+  "幫我找 python 教學",
+  "找一下 python 教學",
+  "python 教學搜尋看看",
+  "查看看 python 教學",
+  "幫我查看看 python 教學",
+  "python 的教學幫我找",
+  "找 python 的教學",
+  "python 教學這東西幫我搜尋",
+  "查一下關於 python 教學",
+  "幫我搜尋關於 python 教學",
+  "python 教學趕快幫我查",
+  "搜尋一下 python 教學",
+  "python 相關教學幫我找",
+  "找一下 python 相關教學",
+  "幫我找找 python 教學",
+  "python 教學立刻幫我查",
+  "找 python 基礎教學",
+  "python 教學幫我找出來"
+ ],
+ "ok": true,
+ "raw": "[\n  \"python 教學幫我查一下\",\n  \"python 教學找一下好不好\",\n  \"幫我找 python 教學\",\n  \"找一下 python 教學\",\n  \"python 教學搜尋看看\",\n  \"查看看 python 教學\",\n  \"幫我查看看 python 教學\",\n  \"python 的教學幫我找\",\n  \"找 python 的教學\",\n  \"python 教學這東西幫我搜尋\",\n  \"查一下關於 python 教學\",\n  \"幫我搜尋關於 python 教學\",\n  \"python 教學趕快幫我查\",\n  \"搜尋一下 python 教學\",\n  \"python 相關教學幫我找\",\n  \"找一下 python 相關教學\",\n  \"幫我找找 python 教學\",\n  \"python 教學立刻幫我查\",\n  \"找 python 基礎教學\",\n  \"python 教學幫我找出來\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "搜尋 python 教學",
+  "relation": "R3_reorder",
+  "n": 20,
+  "rep": 6,
+  "ms": 1149,
+  "ts": "2026-10-14T23:14:11"
+ }
+}

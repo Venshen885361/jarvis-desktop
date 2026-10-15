@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Steam 為什麼安裝不了 Terraria",
+  "Terraria 一定要用 Steam 安裝嗎",
+  "用 Steam 安裝 Terraria 失敗了怎麼辦",
+  "不要用 Steam 安裝 Terraria 啦",
+  "用 Steam 怎麼安裝 Terraria 的教學在哪",
+  "用 Steam 安裝 Terraria 會很慢嗎",
+  "Terraria 在 Steam 安裝畫面一直轉圈圈怎麼辦",
+  "用 Steam 安裝 Terraria 需要多少容量",
+  "有人試過用 Steam 安裝 Terraria 嗎",
+  "用 Steam 可以免費安裝 Terraria 嗎",
+  "為什麼我用 Steam 安裝 Terraria 會跳出錯誤",
+  "用 Steam 安裝 Terraria 卡在 99% 怎麼解",
+  "不要透過 Steam 安裝 Terraria 比較好嗎",
+  "用 Steam 安裝 Terraria 哪裡可以看進度",
+  "用 Steam 安裝 Terraria 畫面黑屏了",
+  "用 Steam 安裝 Terraria 到底要等多久",
+  "可以用非 Steam 的方式安裝 Terraria 嗎",
+  "用 Steam 安裝 Terraria 之後怎麼找不到捷徑",
+  "灌 Terraria 一定要用 Steam 安裝這條路嗎",
+  "用 Steam 安裝 Terraria 會影響電腦效能嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Steam 為什麼安裝不了 Terraria\",\n  \"Terraria 一定要用 Steam 安裝嗎\",\n  \"用 Steam 安裝 Terraria 失敗了怎麼辦\",\n  \"不要用 Steam 安裝 Terraria 啦\",\n  \"用 Steam 怎麼安裝 Terraria 的教學在哪\",\n  \"用 Steam 安裝 Terraria 會很慢嗎\",\n  \"Terraria 在 Steam 安裝畫面一直轉圈圈怎麼辦\",\n  \"用 Steam 安裝 Terraria 需要多少容量\",\n  \"有人試過用 Steam 安裝 Terraria 嗎\",\n  \"用 Steam 可以免費安裝 Terraria 嗎\",\n  \"為什麼我用 Steam 安裝 Terraria 會跳出錯誤\",\n  \"用 Steam 安裝 Terraria 卡在 99% 怎麼解\",\n  \"不要透過 Steam 安裝 Terraria 比較好嗎\",\n  \"用 Steam 安裝 Terraria 哪裡可以看進度\",\n  \"用 Steam 安裝 Terraria 畫面黑屏了\",\n  \"用 Steam 安裝 Terraria 到底要等多久\",\n  \"可以用非 Steam 的方式安裝 Terraria 嗎\",\n  \"用 Steam 安裝 Terraria 之後怎麼找不到捷徑\",\n  \"灌 Terraria 一定要用 Steam 安裝這條路嗎\",\n  \"用 Steam 安裝 Terraria 會影響電腦效能嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "用 Steam 安裝 Terraria",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 7,
+  "ms": 1744,
+  "ts": "2026-10-14T23:30:06"
+ }
+}

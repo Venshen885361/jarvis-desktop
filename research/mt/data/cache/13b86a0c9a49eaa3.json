@@ -1,0 +1,36 @@
+{
+ "items": [
+  "搜尋 python 教學的網頁怎麼關掉",
+  "不要搜尋 python 教學了",
+  "python 教學不用搜尋了",
+  "搜尋 python 教學會不會中毒",
+  "哪裡可以不用搜尋 python 教學就看到",
+  "搜尋 python 教學的按鈕在哪裡",
+  "為什麼搜尋 python 教學要付費",
+  "搜尋 python 教學的速度怎麼那麼慢",
+  "幫我把搜尋 python 教學的歷史紀錄刪掉",
+  "搜尋 python 教學有沒有推薦的書",
+  "誰叫你搜尋 python 教學的",
+  "搜尋 python 教學會不會侵權",
+  "搜尋 python 教學跟 c++ 教學哪個好",
+  "剛剛搜尋 python 教學的東西不見了",
+  "搜尋 python 教學居然當機了",
+  "為什麼搜尋 python 教學會出現這個廣告",
+  "取消搜尋 python 教學",
+  "搜尋 python 教學的照片怎麼存",
+  "搜尋 python 教學的影片畫質怎麼調",
+  "搜尋 python 教學可以關閉通知嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"搜尋 python 教學的網頁怎麼關掉\",\n  \"不要搜尋 python 教學了\",\n  \"python 教學不用搜尋了\",\n  \"搜尋 python 教學會不會中毒\",\n  \"哪裡可以不用搜尋 python 教學就看到\",\n  \"搜尋 python 教學的按鈕在哪裡\",\n  \"為什麼搜尋 python 教學要付費\",\n  \"搜尋 python 教學的速度怎麼那麼慢\",\n  \"幫我把搜尋 python 教學的歷史紀錄刪掉\",\n  \"搜尋 python 教學有沒有推薦的書\",\n  \"誰叫你搜尋 python 教學的\",\n  \"搜尋 python 教學會不會侵權\",\n  \"搜尋 python 教學跟 c++ 教學哪個好\",\n  \"剛剛搜尋 python 教學的東西不見了\",\n  \"搜尋 python 教學居然當機了\",\n  \"為什麼搜尋 python 教學會出現這個廣告\",\n  \"取消搜尋 python 教學\",\n  \"搜尋 python 教學的照片怎麼存\",\n  \"搜尋 python 教學的影片畫質怎麼調\",\n  \"搜尋 python 教學可以關閉通知嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "搜尋 python 教學",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 7,
+  "ms": 1711,
+  "ts": "2026-10-14T23:30:29"
+ }
+}

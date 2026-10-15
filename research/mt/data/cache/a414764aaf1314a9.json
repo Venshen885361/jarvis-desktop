@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Steam 為什麼安裝 Terraria 會失敗",
+  "Terraria 在 Steam 買完怎麼下載",
+  "用 Steam 安裝 Terraria 要花多少錢",
+  "不要用 Steam 安裝 Terraria 了啦",
+  "有沒有不用 Steam 就能安裝 Terraria 的方法",
+  "Steam 安裝 Terraria 卡在 99% 怎麼辦",
+  "請問可以用 Steam 安裝 Terraria 嗎",
+  "用 Steam 安裝 Terraria 會中毒嗎",
+  "我的 Steam 找不到在哪裡安裝 Terraria",
+  "用 Steam 安裝 Terraria 需要買正版嗎",
+  "Steam 顯示安裝 Terraria 發生錯誤",
+  "用 Steam 安裝 Terraria 會很慢嗎",
+  "可以教我怎麼用 Steam 安裝 Terraria 嗎",
+  "用 Steam 安裝 Terraria 竟然要更新很久",
+  "為什麼用 Steam 安裝 Terraria 一直當機",
+  "用 Steam 安裝 Terraria 之後在哪裡開遊戲",
+  "解除安裝 Terraria 之後要怎麼從 Steam 重裝",
+  "用 Steam 安裝 Terraria 需要網路連線嗎",
+  "用 Steam 安裝 Terraria 的步驟是什麼",
+  "誰可以幫我用 Steam 安裝 Terraria"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Steam 為什麼安裝 Terraria 會失敗\",\n  \"Terraria 在 Steam 買完怎麼下載\",\n  \"用 Steam 安裝 Terraria 要花多少錢\",\n  \"不要用 Steam 安裝 Terraria 了啦\",\n  \"有沒有不用 Steam 就能安裝 Terraria 的方法\",\n  \"Steam 安裝 Terraria 卡在 99% 怎麼辦\",\n  \"請問可以用 Steam 安裝 Terraria 嗎\",\n  \"用 Steam 安裝 Terraria 會中毒嗎\",\n  \"我的 Steam 找不到在哪裡安裝 Terraria\",\n  \"用 Steam 安裝 Terraria 需要買正版嗎\",\n  \"Steam 顯示安裝 Terraria 發生錯誤\",\n  \"用 Steam 安裝 Terraria 會很慢嗎\",\n  \"可以教我怎麼用 Steam 安裝 Terraria 嗎\",\n  \"用 Steam 安裝 Terraria 竟然要更新很久\",\n  \"為什麼用 Steam 安裝 Terraria 一直當機\",\n  \"用 Steam 安裝 Terraria 之後在哪裡開遊戲\",\n  \"解除安裝 Terraria 之後要怎麼從 Steam 重裝\",\n  \"用 Steam 安裝 Terraria 需要網路連線嗎\",\n  \"用 Steam 安裝 Terraria 的步驟是什麼\",\n  \"誰可以幫我用 Steam 安裝 Terraria\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "用 Steam 安裝 Terraria",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 3,
+  "ms": 2205,
+  "ts": "2026-10-14T02:16:11"
+ }
+}

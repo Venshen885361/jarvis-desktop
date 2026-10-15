@@ -1,0 +1,36 @@
+{
+ "items": [
+  "用 YouTube 放 lofi 的教學影片要怎麼找",
+  "為什麼用 YouTube 放 lofi 會一直卡住",
+  "不要用 YouTube 放 lofi 音樂了啦",
+  "用 YouTube 放 lofi 的時候可以順便關螢幕嗎",
+  "有沒有不用 YouTube 放 lofi 的其他app",
+  "用 YouTube 放 lofi 怎麼會搜尋不到東西",
+  "剛剛用 YouTube 放 lofi 的那首歌叫什麼名字",
+  "用 YouTube 放 lofi 好像很耗網路流量",
+  "我想問用 YouTube 放 lofi 的音量怎麼調整",
+  "用 YouTube 放 lofi 會不會很傷手機電池",
+  "誰跟你說用 YouTube 放 lofi 比較好聽的",
+  "用 YouTube 放 lofi 怎麼設定自動關閉",
+  "用 YouTube 放 lofi 之前要先登入帳號嗎",
+  "為什麼用 YouTube 放 lofi 出現版權警告",
+  "用 YouTube 放 lofi 的畫質可以調最低嗎",
+  "用 YouTube 放 lofi 居然會一直跳廣告",
+  "你有沒有試過不用 YouTube 放 lofi",
+  "用 YouTube 放 lofi 的播放清單在哪裡看",
+  "用 YouTube 放 lofi 好像比其他軟體慢",
+  "請問用 YouTube 放 lofi 怎麼開子母畫面"
+ ],
+ "ok": true,
+ "raw": "[\n  \"用 YouTube 放 lofi 的教學影片要怎麼找\",\n  \"為什麼用 YouTube 放 lofi 會一直卡住\",\n  \"不要用 YouTube 放 lofi 音樂了啦\",\n  \"用 YouTube 放 lofi 的時候可以順便關螢幕嗎\",\n  \"有沒有不用 YouTube 放 lofi 的其他app\",\n  \"用 YouTube 放 lofi 怎麼會搜尋不到東西\",\n  \"剛剛用 YouTube 放 lofi 的那首歌叫什麼名字\",\n  \"用 YouTube 放 lofi 好像很耗網路流量\",\n  \"我想問用 YouTube 放 lofi 的音量怎麼調整\",\n  \"用 YouTube 放 lofi 會不會很傷手機電池\",\n  \"誰跟你說用 YouTube 放 lofi 比較好聽的\",\n  \"用 YouTube 放 lofi 怎麼設定自動關閉\",\n  \"用 YouTube 放 lofi 之前要先登入帳號嗎\",\n  \"為什麼用 YouTube 放 lofi 出現版權警告\",\n  \"用 YouTube 放 lofi 的畫質可以調最低嗎\",\n  \"用 YouTube 放 lofi 居然會一直跳廣告\",\n  \"你有沒有試過不用 YouTube 放 lofi\",\n  \"用 YouTube 放 lofi 的播放清單在哪裡看\",\n  \"用 YouTube 放 lofi 好像比其他軟體慢\",\n  \"請問用 YouTube 放 lofi 怎麼開子母畫面\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "用 YouTube 放 lofi",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 7,
+  "ms": 1754,
+  "ts": "2026-10-14T23:28:53"
+ }
+}

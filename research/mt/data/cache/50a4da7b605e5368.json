@@ -1,0 +1,36 @@
+{
+ "items": [
+  "搜尋 python 教學的網頁怎麼都開不起來",
+  "不要搜尋 python 教學了",
+  "誰叫你搜尋 python 教學的",
+  "搜尋 python 教學跟 C++ 教學哪個比較難",
+  "我想知道怎麼刪除搜尋 python 教學的紀錄",
+  "搜尋 python 教學有沒有不用錢的",
+  "搜尋 python 教學的影片在哪裡看",
+  "查理剛剛搜尋 python 教學被我抓到",
+  "為什麼我每次搜尋 python 教學當機",
+  "搜尋 python 教學可以幫我轉成英文嗎",
+  "搜尋 python 教學這句話是什麼意思",
+  "以前搜尋 python 教學的網站倒了嗎",
+  "幫我取消剛剛搜尋 python 教學的動作",
+  "搜尋 python 教學有包含基礎語法嗎",
+  "搜尋 python 教學需要先安裝軟體嗎",
+  "你可以不要推薦我搜尋 python 教學嗎",
+  "搜尋 python 教學的書籍推薦哪一本",
+  "搜尋 python 教學居然要收費太誇張了吧",
+  "我才不要搜尋 python 教學勒",
+  "搜尋 python 教學跟這題完全無關吧"
+ ],
+ "ok": true,
+ "raw": "[\n  \"搜尋 python 教學的網頁怎麼都開不起來\",\n  \"不要搜尋 python 教學了\",\n  \"誰叫你搜尋 python 教學的\",\n  \"搜尋 python 教學跟 C++ 教學哪個比較難\",\n  \"我想知道怎麼刪除搜尋 python 教學的紀錄\",\n  \"搜尋 python 教學有沒有不用錢的\",\n  \"搜尋 python 教學的影片在哪裡看\",\n  \"查理剛剛搜尋 python 教學被我抓到\",\n  \"為什麼我每次搜尋 python 教學當機\",\n  \"搜尋 python 教學可以幫我轉成英文嗎\",\n  \"搜尋 python 教學這句話是什麼意思\",\n  \"以前搜尋 python 教學的網站倒了嗎\",\n  \"幫我取消剛剛搜尋 python 教學的動作\",\n  \"搜尋 python 教學有包含基礎語法嗎\",\n  \"搜尋 python 教學需要先安裝軟體嗎\",\n  \"你可以不要推薦我搜尋 python 教學嗎\",\n  \"搜尋 python 教學的書籍推薦哪一本\",\n  \"搜尋 python 教學居然要收費太誇張了吧\",\n  \"我才不要搜尋 python 教學勒\",\n  \"搜尋 python 教學跟這題完全無關吧\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "搜尋 python 教學",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 3,
+  "ms": 2457,
+  "ts": "2026-10-14T02:16:33"
+ }
+}

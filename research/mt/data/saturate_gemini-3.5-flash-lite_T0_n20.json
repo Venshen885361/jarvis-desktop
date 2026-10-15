@@ -1,0 +1,142 @@
+{
+ "tag": "gemini-3.5-flash-lite_T0_n20",
+ "model": "gemini-3.5-flash-lite",
+ "temperature": 0.0,
+ "n": 20,
+ "subject": "jarvis",
+ "seeds": 41,
+ "pairs": 193,
+ "rounds": [
+  {
+   "round": 0,
+   "new": 3826,
+   "total": 3826,
+   "new_frac": 1.0,
+   "gen_failures": 1,
+   "elapsed_s": 0,
+   "valid": 3796,
+   "violations": 409,
+   "faults": 138,
+   "new_faults": 138,
+   "distinct2": 0.135
+  },
+  {
+   "round": 1,
+   "new": 2656,
+   "total": 6482,
+   "new_frac": 0.41,
+   "gen_failures": 2,
+   "elapsed_s": 0,
+   "valid": 6449,
+   "violations": 822,
+   "faults": 191,
+   "new_faults": 53,
+   "distinct2": 0.108
+  },
+  {
+   "round": 2,
+   "new": 2378,
+   "total": 8860,
+   "new_frac": 0.268,
+   "gen_failures": 0,
+   "elapsed_s": 0,
+   "valid": 8822,
+   "violations": 1216,
+   "faults": 220,
+   "new_faults": 29,
+   "distinct2": 0.095
+  },
+  {
+   "round": 3,
+   "new": 2125,
+   "total": 10985,
+   "new_frac": 0.193,
+   "gen_failures": 2,
+   "elapsed_s": 312,
+   "valid": 10941,
+   "violations": 1577,
+   "faults": 240,
+   "new_faults": 20,
+   "distinct2": 0.086
+  },
+  {
+   "round": 4,
+   "new": 2000,
+   "total": 12985,
+   "new_frac": 0.154,
+   "gen_failures": 1,
+   "elapsed_s": 1000,
+   "valid": 12935,
+   "violations": 1877,
+   "faults": 260,
+   "new_faults": 20,
+   "distinct2": 0.08
+  },
+  {
+   "round": 5,
+   "new": 1856,
+   "total": 14841,
+   "new_frac": 0.125,
+   "gen_failures": 1,
+   "elapsed_s": 3718,
+   "valid": 14787,
+   "violations": 2162,
+   "faults": 274,
+   "new_faults": 14,
+   "distinct2": 0.076
+  },
+  {
+   "round": 6,
+   "new": 1746,
+   "total": 16587,
+   "new_frac": 0.105,
+   "gen_failures": 1,
+   "elapsed_s": 4632,
+   "valid": 16527,
+   "violations": 2450,
+   "faults": 278,
+   "new_faults": 4,
+   "distinct2": 0.073
+  },
+  {
+   "round": 7,
+   "new": 1657,
+   "total": 18244,
+   "new_frac": 0.091,
+   "gen_failures": 2,
+   "elapsed_s": 5553,
+   "valid": 18176,
+   "violations": 2740,
+   "faults": 291,
+   "new_faults": 13,
+   "distinct2": 0.07
+  }
+ ],
+ "by_relation": {
+  "R1_synonym": {
+   "valid": 2975,
+   "violations": 623,
+   "faults": 94
+  },
+  "R2_politeness": {
+   "valid": 4373,
+   "violations": 200,
+   "faults": 38
+  },
+  "R3_reorder": {
+   "valid": 4699,
+   "violations": 1703,
+   "faults": 126
+  },
+  "R4_filler": {
+   "valid": 2120,
+   "violations": 58,
+   "faults": 21
+  },
+  "R5_near_miss": {
+   "valid": 4009,
+   "violations": 156,
+   "faults": 12
+  }
+ }
+}

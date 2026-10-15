@@ -1,0 +1,36 @@
+{
+ "items": [
+  "用 YouTube 播 lofi",
+  "幫我用 YouTube 播 lofi",
+  "在 YouTube 上播放 lofi",
+  "用 YouTube 聽 lofi",
+  "幫我用 YouTube 找 lofi 來放",
+  "透過 YouTube 播一下 lofi",
+  "用 YouTube 搜尋 lofi 並播放",
+  "打開 YouTube 播 lofi",
+  "用 YouTube 播個 lofi",
+  "請用 YouTube 播放 lofi",
+  "去 YouTube 播 lofi",
+  "用 YouTube 放首 lofi",
+  "利用 YouTube 播放 lofi",
+  "幫忙用 YouTube 播 lofi",
+  "用 YouTube 來播 lofi",
+  "用 YouTube 播放一下 lofi",
+  "在 YouTube 幫我播 lofi",
+  "用 YouTube 點播 lofi",
+  "用 YouTube 轉播 lofi",
+  "用 YouTube 唱 lofi"
+ ],
+ "ok": true,
+ "raw": "[\n  \"用 YouTube 播 lofi\",\n  \"幫我用 YouTube 播 lofi\",\n  \"在 YouTube 上播放 lofi\",\n  \"用 YouTube 聽 lofi\",\n  \"幫我用 YouTube 找 lofi 來放\",\n  \"透過 YouTube 播一下 lofi\",\n  \"用 YouTube 搜尋 lofi 並播放\",\n  \"打開 YouTube 播 lofi\",\n  \"用 YouTube 播個 lofi\",\n  \"請用 YouTube 播放 lofi\",\n  \"去 YouTube 播 lofi\",\n  \"用 YouTube 放首 lofi\",\n  \"利用 YouTube 播放 lofi\",\n  \"幫忙用 YouTube 播 lofi\",\n  \"用 YouTube 來播 lofi\",\n  \"用 YouTube 播放一下 lofi\",\n  \"在 YouTube 幫我播 lofi\",\n  \"用 YouTube 點播 lofi\",\n  \"用 YouTube 轉播 lofi\",\n  \"用 YouTube 唱 lofi\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "用 YouTube 放 lofi",
+  "relation": "R1_synonym",
+  "n": 20,
+  "rep": 6,
+  "ms": 1797,
+  "ts": "2026-10-14T23:12:40"
+ }
+}

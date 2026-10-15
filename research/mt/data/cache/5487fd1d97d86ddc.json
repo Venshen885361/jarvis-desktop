@@ -1,0 +1,36 @@
+{
+ "items": [
+  "YouTube 幫我開一下",
+  "幫我開一下 YouTube 喔",
+  "YouTube 這個 App 打開",
+  "開 YouTube 軟體給我",
+  "YouTube 叫出來",
+  "開一下 YouTube 嘛",
+  "YouTube 畫面幫我打開",
+  "幫我把 YouTube 打開",
+  "YouTube 啟動一下",
+  "開 YouTube 好不好",
+  "YouTube 程式幫我開",
+  "幫我開 YouTube 看看",
+  "YouTube 這個幫我開",
+  "快點幫我開 YouTube",
+  "YouTube 點開來",
+  "幫忙開一下 YouTube",
+  "YouTube 趕快打開",
+  "把 YouTube 打開來",
+  "YouTube 播放程式打開",
+  "開 YouTube 啦"
+ ],
+ "ok": true,
+ "raw": "[\n  \"YouTube 幫我開一下\",\n  \"幫我開一下 YouTube 喔\",\n  \"YouTube 這個 App 打開\",\n  \"開 YouTube 軟體給我\",\n  \"YouTube 叫出來\",\n  \"開一下 YouTube 嘛\",\n  \"YouTube 畫面幫我打開\",\n  \"幫我把 YouTube 打開\",\n  \"YouTube 啟動一下\",\n  \"開 YouTube 好不好\",\n  \"YouTube 程式幫我開\",\n  \"幫我開 YouTube 看看\",\n  \"YouTube 這個幫我開\",\n  \"快點幫我開 YouTube\",\n  \"YouTube 點開來\",\n  \"幫忙開一下 YouTube\",\n  \"YouTube 趕快打開\",\n  \"把 YouTube 打開來\",\n  \"YouTube 播放程式打開\",\n  \"開 YouTube 啦\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開 YouTube",
+  "relation": "R3_reorder",
+  "n": 20,
+  "rep": 4,
+  "ms": 1247,
+  "ts": "2026-10-14T22:13:58"
+ }
+}

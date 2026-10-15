@@ -1,0 +1,36 @@
+{
+ "items": [
+  "怎麼用 github.com 建立網頁",
+  "github.com 為什麼連不上",
+  "github.com 到底是什麼意思",
+  "有人知道 github.com 的客服電話嗎",
+  "github.com 這網站安全嗎",
+  "不要幫我開 github.com",
+  "github.com 註冊教學在哪裡",
+  "github.com 帳號被封鎖了怎麼辦",
+  "我想查 github.com 的股價",
+  "github.com 和 gitlab 有什麼差別",
+  "誰可以教我用 github.com",
+  "github.com 介面怎麼變成中文",
+  "為什麼我的 github.com 一直轉圈圈",
+  "github.com 伺服器掛了嗎",
+  "查一下 github.com 的評價",
+  "github.com 忘記密碼怎麼救",
+  "取消前往 github.com",
+  "github.com 可以用手機看嗎",
+  "介紹一下 github.com 的功能",
+  "github.com 怎麼付費訂閱"
+ ],
+ "ok": true,
+ "raw": "[\n  \"怎麼用 github.com 建立網頁\",\n  \"github.com 為什麼連不上\",\n  \"github.com 到底是什麼意思\",\n  \"有人知道 github.com 的客服電話嗎\",\n  \"github.com 這網站安全嗎\",\n  \"不要幫我開 github.com\",\n  \"github.com 註冊教學在哪裡\",\n  \"github.com 帳號被封鎖了怎麼辦\",\n  \"我想查 github.com 的股價\",\n  \"github.com 和 gitlab 有什麼差別\",\n  \"誰可以教我用 github.com\",\n  \"github.com 介面怎麼變成中文\",\n  \"為什麼我的 github.com 一直轉圈圈\",\n  \"github.com 伺服器掛了嗎\",\n  \"查一下 github.com 的評價\",\n  \"github.com 忘記密碼怎麼救\",\n  \"取消前往 github.com\",\n  \"github.com 可以用手機看嗎\",\n  \"介紹一下 github.com 的功能\",\n  \"github.com 怎麼付費訂閱\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "打開 github.com",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 7,
+  "ms": 3317,
+  "ts": "2026-10-14T23:27:16"
+ }
+}

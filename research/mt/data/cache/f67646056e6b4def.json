@@ -1,0 +1,36 @@
+{
+ "items": [
+  "github.com這個網址是什麼意思",
+  "有人知道github.com怎麼唸嗎",
+  "為什麼github.com打不開",
+  "github.com跟gitlab有什麼差別",
+  "不要連到github.com去了",
+  "github.com是防毒軟體阻擋了嗎",
+  "查一下github.com的創辦人是誰",
+  "我的筆電為什麼連不上github.com",
+  "github.com這個網站安全嗎",
+  "教我怎麼封鎖github.com",
+  "github.com現在是不是掛了",
+  "幫我查github.com的客服電話",
+  "github.com註冊帳號要錢嗎",
+  "github.com伺服器在台灣嗎",
+  "為什麼一直自動跳到github.com",
+  "github.com有出手機App嗎",
+  "如何檢舉github.com上面的專案",
+  "github.com的介面可以改中文嗎",
+  "今天新聞說github.com被駭了嗎",
+  "誰可以解釋一下github.com是用來幹嘛的"
+ ],
+ "ok": true,
+ "raw": "[\n  \"github.com這個網址是什麼意思\",\n  \"有人知道github.com怎麼唸嗎\",\n  \"為什麼github.com打不開\",\n  \"github.com跟gitlab有什麼差別\",\n  \"不要連到github.com去了\",\n  \"github.com是防毒軟體阻擋了嗎\",\n  \"查一下github.com的創辦人是誰\",\n  \"我的筆電為什麼連不上github.com\",\n  \"github.com這個網站安全嗎\",\n  \"教我怎麼封鎖github.com\",\n  \"github.com現在是不是掛了\",\n  \"幫我查github.com的客服電話\",\n  \"github.com註冊帳號要錢嗎\",\n  \"github.com伺服器在台灣嗎\",\n  \"為什麼一直自動跳到github.com\",\n  \"github.com有出手機App嗎\",\n  \"如何檢舉github.com上面的專案\",\n  \"github.com的介面可以改中文嗎\",\n  \"今天新聞說github.com被駭了嗎\",\n  \"誰可以解釋一下github.com是用來幹嘛的\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "打開 github.com",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 5,
+  "ms": 1675,
+  "ts": "2026-10-14T22:26:04"
+ }
+}

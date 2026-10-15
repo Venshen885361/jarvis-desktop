@@ -1,0 +1,36 @@
+{
+ "items": [
+  "YouTube 的發音到底怎麼唸",
+  "幫我查 YouTube 股價多少",
+  "YouTube 影片一直轉圈圈怎麼辦",
+  "怎麼把 YouTube 頻道刪除",
+  "為什麼 YouTube 會一直廣告",
+  "YouTube 帳號被登出了啦",
+  "我的 YouTube プレミアム 怎麼取消",
+  "YouTube 兒童版要怎麼設定",
+  "手機的 YouTube 畫面變黑白了",
+  "YouTube 離線下載功能在哪裡",
+  "電腦版 YouTube 怎麼開深色模式",
+  "YouTube 音樂播放清單怎麼備份",
+  "為什麼 YouTube 直播會一直卡頓",
+  "YouTube 留言區看不到是怎麼回事",
+  "如何檢舉 YouTube 上的詐騙影片",
+  "YouTube 授權音樂要去哪裡找",
+  "昨天看 YouTube 的歷史紀錄怎麼找回來",
+  "YouTube 創作者工作室怎麼登入",
+  "有沒有類似 YouTube 的免費平台",
+  "YouTube 影片解析度最高可以調到多少"
+ ],
+ "ok": true,
+ "raw": "[\n  \"YouTube 的發音到底怎麼唸\",\n  \"幫我查 YouTube 股價多少\",\n  \"YouTube 影片一直轉圈圈怎麼辦\",\n  \"怎麼把 YouTube 頻道刪除\",\n  \"為什麼 YouTube 會一直廣告\",\n  \"YouTube 帳號被登出了啦\",\n  \"我的 YouTube プレミアム 怎麼取消\",\n  \"YouTube 兒童版要怎麼設定\",\n  \"手機的 YouTube 畫面變黑白了\",\n  \"YouTube 離線下載功能在哪裡\",\n  \"電腦版 YouTube 怎麼開深色模式\",\n  \"YouTube 音樂播放清單怎麼備份\",\n  \"為什麼 YouTube 直播會一直卡頓\",\n  \"YouTube 留言區看不到是怎麼回事\",\n  \"如何檢舉 YouTube 上的詐騙影片\",\n  \"YouTube 授權音樂要去哪裡找\",\n  \"昨天看 YouTube 的歷史紀錄怎麼找回來\",\n  \"YouTube 創作者工作室怎麼登入\",\n  \"有沒有類似 YouTube 的免費平台\",\n  \"YouTube 影片解析度最高可以調到多少\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開 YouTube",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 6,
+  "ms": 1613,
+  "ts": "2026-10-14T23:10:58"
+ }
+}

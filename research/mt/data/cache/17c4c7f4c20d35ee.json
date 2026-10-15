@@ -1,0 +1,36 @@
+{
+ "items": [
+  "怎麼下載 Discord 的電腦版",
+  "下載 Discord 速度太慢怎麼辦",
+  "為什麼我下載 Discord 會一直失敗",
+  "手機下載 Discord 要去哪裡找",
+  "不要下載 Discord 比較好嗎",
+  "下載 Discord 需不需要收費",
+  "我想問下載 Discord 的安全問題",
+  "下載 Discord 完怎麼找不到捷徑",
+  "下載 Discord 失敗的錯誤代碼是什麼",
+  "朋友傳給我的 Discord 下載點安全嗎",
+  "下載 Discord 的官方網站是哪個",
+  "平板能不能下載 Discord 來用",
+  "下載 Discord 佔用很多容量嗎",
+  "有沒有不用下載 Discord 就能用的方法",
+  "下載 Discord 更新檔要等多久",
+  "下載 Discord 之後怎麼註冊帳號",
+  "為什麼不能下載 Discord 到外接硬碟",
+  "下載 Discord 的時候畫面一直卡住",
+  "老舊電腦還支援下載 Discord 嗎",
+  "下載 Discord 發生未知的錯誤怎麼解決"
+ ],
+ "ok": true,
+ "raw": "[\n  \"怎麼下載 Discord 的電腦版\",\n  \"下載 Discord 速度太慢怎麼辦\",\n  \"為什麼我下載 Discord 會一直失敗\",\n  \"手機下載 Discord 要去哪裡找\",\n  \"不要下載 Discord 比較好嗎\",\n  \"下載 Discord 需不需要收費\",\n  \"我想問下載 Discord 的安全問題\",\n  \"下載 Discord 完怎麼找不到捷徑\",\n  \"下載 Discord 失敗的錯誤代碼是什麼\",\n  \"朋友傳給我的 Discord 下載點安全嗎\",\n  \"下載 Discord 的官方網站是哪個\",\n  \"平板能不能下載 Discord 來用\",\n  \"下載 Discord 佔用很多容量嗎\",\n  \"有沒有不用下載 Discord 就能用的方法\",\n  \"下載 Discord 更新檔要等多久\",\n  \"下載 Discord 之後怎麼註冊帳號\",\n  \"為什麼不能下載 Discord 到外接硬碟\",\n  \"下載 Discord 的時候畫面一直卡住\",\n  \"老舊電腦還支援下載 Discord 嗎\",\n  \"下載 Discord 發生未知的錯誤怎麼解決\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "下載 Discord",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 6,
+  "ms": 1972,
+  "ts": "2026-10-14T23:13:29"
+ }
+}

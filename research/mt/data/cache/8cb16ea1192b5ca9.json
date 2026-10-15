@@ -1,0 +1,36 @@
+{
+ "items": [
+  "YouTube 怎麼一直轉圈圈",
+  "幫我查 YouTube 股價多少",
+  "不要 YouTube 繼續播了",
+  "YouTube 帳號被登出了怎麼辦",
+  "YouTube 影片下載到哪裡去了",
+  "為什麼 YouTube 會一直廣告",
+  "我想問 YouTube 創辦人是誰",
+  "YouTube 沒辦法登入帳號",
+  "把 YouTube 關掉好不好",
+  "YouTube 裡面的影片可以轉傳嗎",
+  "誰知道 YouTube プレミアム 多少錢",
+  "YouTube 歷史紀錄怎麼清除",
+  "不要讓 YouTube 自動播放下一個",
+  "YouTube 畫面怎麼變黑白了",
+  "為什麼 YouTube 音樂會突然斷掉",
+  "YouTube 搜尋紀錄怎麼刪掉",
+  "把 YouTube App 移除掉",
+  "YouTube 為什麼不能留言",
+  "我想取消 YouTube 訂閱",
+  "YouTube 怎麼開子母畫面"
+ ],
+ "ok": true,
+ "raw": "[\n  \"YouTube 怎麼一直轉圈圈\",\n  \"幫我查 YouTube 股價多少\",\n  \"不要 YouTube 繼續播了\",\n  \"YouTube 帳號被登出了怎麼辦\",\n  \"YouTube 影片下載到哪裡去了\",\n  \"為什麼 YouTube 會一直廣告\",\n  \"我想問 YouTube 創辦人是誰\",\n  \"YouTube 沒辦法登入帳號\",\n  \"把 YouTube 關掉好不好\",\n  \"YouTube 裡面的影片可以轉傳嗎\",\n  \"誰知道 YouTube プレミアム 多少錢\",\n  \"YouTube 歷史紀錄怎麼清除\",\n  \"不要讓 YouTube 自動播放下一個\",\n  \"YouTube 畫面怎麼變黑白了\",\n  \"為什麼 YouTube 音樂會突然斷掉\",\n  \"YouTube 搜尋紀錄怎麼刪掉\",\n  \"把 YouTube App 移除掉\",\n  \"YouTube 為什麼不能留言\",\n  \"我想取消 YouTube 訂閱\",\n  \"YouTube 怎麼開子母畫面\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開 YouTube",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 7,
+  "ms": 1618,
+  "ts": "2026-10-14T23:26:21"
+ }
+}

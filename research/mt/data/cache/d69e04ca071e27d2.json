@@ -1,0 +1,36 @@
+{
+ "items": [
+  "開啟 Chrome 的教學影片要去哪裡看",
+  "我 Chrome 怎麼都打不開到底該怎麼辦",
+  "不要幫我開啟 Chrome 啦",
+  "為什麼我的電腦一直自動開啟 Chrome",
+  "你知道怎麼把自動開啟 Chrome 關掉嗎",
+  "開啟 Chrome 之前要先更新嗎",
+  "可以不要每次開機就開啟 Chrome 嗎",
+  "誰叫你幫我開啟 Chrome 的",
+  "開啟 Chrome 之後很常當機怎麼辦",
+  "有沒有辦法不要預設開啟 Chrome",
+  "剛剛是不是有人遠端開啟 Chrome",
+  "平板一直強制開啟 Chrome 是中毒了嗎",
+  "開啟 Chrome 的快速鍵是什麼啊",
+  "手機版開啟 Chrome 怎麼會變這樣",
+  "我剛剛沒有叫你開啟 Chrome 吧",
+  "為什麼點這個連結會自動開啟 Chrome",
+  "開啟 Chrome 真的會比較耗電嗎",
+  "如何設定不要讓系統自動開啟 Chrome",
+  "開啟 Chrome 之後分頁都不見了",
+  "你確定現在適合開啟 Chrome 嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"開啟 Chrome 的教學影片要去哪裡看\",\n  \"我 Chrome 怎麼都打不開到底該怎麼辦\",\n  \"不要幫我開啟 Chrome 啦\",\n  \"為什麼我的電腦一直自動開啟 Chrome\",\n  \"你知道怎麼把自動開啟 Chrome 關掉嗎\",\n  \"開啟 Chrome 之前要先更新嗎\",\n  \"可以不要每次開機就開啟 Chrome 嗎\",\n  \"誰叫你幫我開啟 Chrome 的\",\n  \"開啟 Chrome 之後很常當機怎麼辦\",\n  \"有沒有辦法不要預設開啟 Chrome\",\n  \"剛剛是不是有人遠端開啟 Chrome\",\n  \"平板一直強制開啟 Chrome 是中毒了嗎\",\n  \"開啟 Chrome 的快速鍵是什麼啊\",\n  \"手機版開啟 Chrome 怎麼會變這樣\",\n  \"我剛剛沒有叫你開啟 Chrome 吧\",\n  \"為什麼點這個連結會自動開啟 Chrome\",\n  \"開啟 Chrome 真的會比較耗電嗎\",\n  \"如何設定不要讓系統自動開啟 Chrome\",\n  \"開啟 Chrome 之後分頁都不見了\",\n  \"你確定現在適合開啟 Chrome 嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開啟 Chrome",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 4,
+  "ms": 1496,
+  "ts": "2026-10-14T22:13:46"
+ }
+}

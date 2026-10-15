@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Chrome 為什麼打不開",
+  "Chrome 瀏覽器怎麼關閉",
+  "不要開啟 Chrome",
+  "Chrome 捷徑要怎麼刪除",
+  "教我怎麼解除安裝 Chrome",
+  "Chrome 更新失敗怎麼辦",
+  "開啟 Chrome 的教學在哪裡",
+  "Chrome 一直當機是為什麼",
+  "Chrome 裡面有病毒嗎",
+  "怎麼把 Chrome 移除",
+  "誰可以幫我修好 Chrome",
+  "Chrome 的歷史紀錄怎麼查",
+  "安裝 Chrome 需要多少時間",
+  "Chrome 登入畫面在哪裡",
+  "我要找 Chrome 的客服",
+  "Chrome 怎麼設定首頁",
+  "為什麼 Chrome 跑那麼慢",
+  "下載 Chrome 會中毒嗎",
+  "Chrome 發生錯誤怎麼解決",
+  "關閉 Chrome 視窗"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Chrome 為什麼打不開\",\n  \"Chrome 瀏覽器怎麼關閉\",\n  \"不要開啟 Chrome\",\n  \"Chrome 捷徑要怎麼刪除\",\n  \"教我怎麼解除安裝 Chrome\",\n  \"Chrome 更新失敗怎麼辦\",\n  \"開啟 Chrome 的教學在哪裡\",\n  \"Chrome 一直當機是為什麼\",\n  \"Chrome 裡面有病毒嗎\",\n  \"怎麼把 Chrome 移除\",\n  \"誰可以幫我修好 Chrome\",\n  \"Chrome 的歷史紀錄怎麼查\",\n  \"安裝 Chrome 需要多少時間\",\n  \"Chrome 登入畫面在哪裡\",\n  \"我要找 Chrome 的客服\",\n  \"Chrome 怎麼設定首頁\",\n  \"為什麼 Chrome 跑那麼慢\",\n  \"下載 Chrome 會中毒嗎\",\n  \"Chrome 發生錯誤怎麼解決\",\n  \"關閉 Chrome 視窗\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開啟 Chrome",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 3,
+  "ms": 1744,
+  "ts": "2026-10-14T02:13:01"
+ }
+}

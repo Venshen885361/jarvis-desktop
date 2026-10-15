@@ -1,0 +1,36 @@
+{
+ "items": [
+  "github.com 幫我開一下",
+  "幫我把 github.com 打開",
+  "github.com 瀏覽器幫我開",
+  "幫我開網頁 github.com",
+  "github.com 這個網址幫我開起來",
+  "把 github.com 給我打開",
+  "網頁 github.com 幫我開一下",
+  "github.com 幫我連上去",
+  "幫我連到 github.com",
+  "github.com 這個網站幫我開",
+  "幫我打開這個 github.com",
+  "github.com 立即幫我開",
+  "把 github.com 點開來",
+  "github.com 幫我開一下網頁",
+  "幫我開啟 github.com",
+  "github.com 這網址幫我開",
+  "幫我開一下網站 github.com",
+  "github.com 幫忙打開",
+  "把網址 github.com 打開",
+  "github.com 幫我秀出來"
+ ],
+ "ok": true,
+ "raw": "[\n  \"github.com 幫我開一下\",\n  \"幫我把 github.com 打開\",\n  \"github.com 瀏覽器幫我開\",\n  \"幫我開網頁 github.com\",\n  \"github.com 這個網址幫我開起來\",\n  \"把 github.com 給我打開\",\n  \"網頁 github.com 幫我開一下\",\n  \"github.com 幫我連上去\",\n  \"幫我連到 github.com\",\n  \"github.com 這個網站幫我開\",\n  \"幫我打開這個 github.com\",\n  \"github.com 立即幫我開\",\n  \"把 github.com 點開來\",\n  \"github.com 幫我開一下網頁\",\n  \"幫我開啟 github.com\",\n  \"github.com 這網址幫我開\",\n  \"幫我開一下網站 github.com\",\n  \"github.com 幫忙打開\",\n  \"把網址 github.com 打開\",\n  \"github.com 幫我秀出來\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "打開 github.com",
+  "relation": "R3_reorder",
+  "n": 20,
+  "rep": 6,
+  "ms": 1309,
+  "ts": "2026-10-14T23:11:36"
+ }
+}

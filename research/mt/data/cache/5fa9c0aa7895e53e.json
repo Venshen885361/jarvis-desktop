@@ -1,0 +1,36 @@
+{
+ "items": [
+  "切換到 Chrome 的方法是什麼",
+  "為什麼我切換到 Chrome 會一直當機",
+  "Chrome 怎麼切換到別的分頁",
+  "切換到 Chrome 之前是要存檔嗎",
+  "不要切換到 Chrome 啦",
+  "切換到 Chrome 的快速鍵是什麼",
+  "Chrome 這樣切換畫面好慢喔",
+  "可以不要自動切換到 Chrome 嗎",
+  "切換到 Chrome 會不會吃太多記憶體",
+  "我剛剛才從 Chrome 切換到 Safari",
+  "Chrome 分頁怎麼切換比較順",
+  "切換到 Chrome 之後滑鼠就不能用了",
+  "Chrome 視窗切換不過去怎麼辦",
+  "切換到 Chrome 的設定在哪裡找",
+  "誰叫你幫我切換到 Chrome 的",
+  "切換到 Chrome 之後畫面變黑了",
+  "要怎麼把 Chrome 切換成中文介面",
+  "Chrome 頁籤切換太快讓我頭暈",
+  "切換到 Chrome 的那個按鈕壞了",
+  "我不需要你幫我切換到 Chrome"
+ ],
+ "ok": true,
+ "raw": "[\n  \"切換到 Chrome 的方法是什麼\",\n  \"為什麼我切換到 Chrome 會一直當機\",\n  \"Chrome 怎麼切換到別的分頁\",\n  \"切換到 Chrome 之前是要存檔嗎\",\n  \"不要切換到 Chrome 啦\",\n  \"切換到 Chrome 的快速鍵是什麼\",\n  \"Chrome 這樣切換畫面好慢喔\",\n  \"可以不要自動切換到 Chrome 嗎\",\n  \"切換到 Chrome 會不會吃太多記憶體\",\n  \"我剛剛才從 Chrome 切換到 Safari\",\n  \"Chrome 分頁怎麼切換比較順\",\n  \"切換到 Chrome 之後滑鼠就不能用了\",\n  \"Chrome 視窗切換不過去怎麼辦\",\n  \"切換到 Chrome 的設定在哪裡找\",\n  \"誰叫你幫我切換到 Chrome 的\",\n  \"切換到 Chrome 之後畫面變黑了\",\n  \"要怎麼把 Chrome 切換成中文介面\",\n  \"Chrome 頁籤切換太快讓我頭暈\",\n  \"切換到 Chrome 的那個按鈕壞了\",\n  \"我不需要你幫我切換到 Chrome\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "切換到 Chrome",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 4,
+  "ms": 2262,
+  "ts": "2026-10-14T22:18:42"
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Chrome 為什麼打不開",
+  "Chrome 捷徑怎麼放在桌面",
+  "Chrome 更新要去哪裡按",
+  "Chrome 常常當機怎麼辦",
+  "Chrome 瀏覽紀錄怎麼全部刪除",
+  "Chrome 突然一直跳出廣告",
+  "Chrome 裝了什麼奇怪的擴充功能",
+  "Chrome 登出帳號會怎樣",
+  "Chrome 書籤不小心被我刪掉了",
+  "Chrome 分頁太多可以群組嗎",
+  "Chrome 怎麼設定首頁",
+  "Chrome 翻譯功能壞掉了嗎",
+  "Chrome 記憶體吃太兇怎麼解決",
+  "Chrome 無痕模式怎麼開",
+  "Chrome 下載檔案一直失敗",
+  "Chrome 怎麼清除快取",
+  "Chrome 字體變得好奇怪",
+  "Chrome 密碼忘記怎麼找回來",
+  "Chrome 封鎖彈出視窗在哪裡設定",
+  "Chrome 要怎麼解除安裝"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Chrome 為什麼打不開\",\n  \"Chrome 捷徑怎麼放在桌面\",\n  \"Chrome 更新要去哪裡按\",\n  \"Chrome 常常當機怎麼辦\",\n  \"Chrome 瀏覽紀錄怎麼全部刪除\",\n  \"Chrome 突然一直跳出廣告\",\n  \"Chrome 裝了什麼奇怪的擴充功能\",\n  \"Chrome 登出帳號會怎樣\",\n  \"Chrome 書籤不小心被我刪掉了\",\n  \"Chrome 分頁太多可以群組嗎\",\n  \"Chrome 怎麼設定首頁\",\n  \"Chrome 翻譯功能壞掉了嗎\",\n  \"Chrome 記憶體吃太兇怎麼解決\",\n  \"Chrome 無痕模式怎麼開\",\n  \"Chrome 下載檔案一直失敗\",\n  \"Chrome 怎麼清除快取\",\n  \"Chrome 字體變得好奇怪\",\n  \"Chrome 密碼忘記怎麼找回來\",\n  \"Chrome 封鎖彈出視窗在哪裡設定\",\n  \"Chrome 要怎麼解除安裝\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開啟 Chrome",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 7,
+  "ms": 1639,
+  "ts": "2026-10-14T23:25:55"
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "items": [
+  "欸搜尋 python 教學",
+  "那個搜尋 python 教學",
+  "嗯搜尋 python 教學",
+  "JARVIS搜尋 python 教學",
+  "Jarvis 幫我搜尋 python 教學",
+  "對了搜尋 python 教學",
+  "欸那個搜尋 python 教學",
+  "嗯欸搜尋 python 教學",
+  "Jarvis 幫我嗯搜尋 python 教學",
+  "對了欸搜尋 python 教學",
+  "欸 JARVIS 幫我搜尋 python 教學",
+  "那個 JARVIS 幫我搜尋 python 教學",
+  "嗯對了搜尋 python 教學",
+  "Jarvis 幫我對了搜尋 python 教學",
+  "欸嗯搜尋 python 教學",
+  "那個嗯搜尋 python 教學",
+  "對了那個搜尋 python 教學",
+  "JARVIS 幫我欸搜尋 python 教學",
+  "嗯 JARVIS 幫我搜尋 python 教學",
+  "欸對了搜尋 python 教學"
+ ],
+ "ok": true,
+ "raw": "[\n  \"欸搜尋 python 教學\",\n  \"那個搜尋 python 教學\",\n  \"嗯搜尋 python 教學\",\n  \"JARVIS搜尋 python 教學\",\n  \"Jarvis 幫我搜尋 python 教學\",\n  \"對了搜尋 python 教學\",\n  \"欸那個搜尋 python 教學\",\n  \"嗯欸搜尋 python 教學\",\n  \"Jarvis 幫我嗯搜尋 python 教學\",\n  \"對了欸搜尋 python 教學\",\n  \"欸 JARVIS 幫我搜尋 python 教學\",\n  \"那個 JARVIS 幫我搜尋 python 教學\",\n  \"嗯對了搜尋 python 教學\",\n  \"Jarvis 幫我對了搜尋 python 教學\",\n  \"欸嗯搜尋 python 教學\",\n  \"那個嗯搜尋 python 教學\",\n  \"對了那個搜尋 python 教學\",\n  \"JARVIS 幫我欸搜尋 python 教學\",\n  \"嗯 JARVIS 幫我搜尋 python 教學\",\n  \"欸對了搜尋 python 教學\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "搜尋 python 教學",
+  "relation": "R4_filler",
+  "n": 20,
+  "rep": 3,
+  "ms": 1736,
+  "ts": "2026-10-14T02:16:28"
+ }
+}

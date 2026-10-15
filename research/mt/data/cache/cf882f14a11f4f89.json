@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Discord 為什麼下載不了",
+  "Discord 下載到一半當機怎麼辦",
+  "Discord 下載檔案在哪裡找",
+  "Discord 下載速度很慢是正常的嗎",
+  "Discord 下載失敗怎麼解決",
+  "可以直接用網頁版不要下載 Discord 嗎",
+  "Discord 下載安裝教學",
+  "Discord 下載更新要等多久",
+  "解除安裝 Discord 後要怎麼重新下載",
+  "手機版 Discord 下載安全嗎",
+  "Discord 下載會中毒嗎",
+  "找不到 Discord 官方下載點",
+  "Discord 下載很久都沒有動靜",
+  "有人可以傳 Discord 下載連結給我嗎",
+  "平板電腦可以下載 Discord 嗎",
+  "為什麼我的電腦不能下載 Discord",
+  "Discord 下載之後怎麼註冊帳號",
+  "Discord 下載容量會很大嗎",
+  "Mac 電腦要怎麼下載 Discord",
+  "Discord 下載時出現錯誤代碼"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Discord 為什麼下載不了\",\n  \"Discord 下載到一半當機怎麼辦\",\n  \"Discord 下載檔案在哪裡找\",\n  \"Discord 下載速度很慢是正常的嗎\",\n  \"Discord 下載失敗怎麼解決\",\n  \"可以直接用網頁版不要下載 Discord 嗎\",\n  \"Discord 下載安裝教學\",\n  \"Discord 下載更新要等多久\",\n  \"解除安裝 Discord 後要怎麼重新下載\",\n  \"手機版 Discord 下載安全嗎\",\n  \"Discord 下載會中毒嗎\",\n  \"找不到 Discord 官方下載點\",\n  \"Discord 下載很久都沒有動靜\",\n  \"有人可以傳 Discord 下載連結給我嗎\",\n  \"平板電腦可以下載 Discord 嗎\",\n  \"為什麼我的電腦不能下載 Discord\",\n  \"Discord 下載之後怎麼註冊帳號\",\n  \"Discord 下載容量會很大嗎\",\n  \"Mac 電腦要怎麼下載 Discord\",\n  \"Discord 下載時出現錯誤代碼\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "下載 Discord",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 5,
+  "ms": 1508,
+  "ts": "2026-10-14T22:27:22"
+ }
+}

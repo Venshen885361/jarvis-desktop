@@ -1,0 +1,36 @@
+{
+ "items": [
+  "用 Steam 安裝 Terraria 失敗怎麼辦",
+  "為什麼用 Steam 安裝 Terraria 會一直卡住",
+  "用 Steam 安裝 Terraria 的速度怎麼那麼慢",
+  "用 Steam 安裝 Terraria 需要多少容量",
+  "用 Steam 安裝 Terraria 居然出現錯誤代碼",
+  "用 Steam 安裝 Terraria 之後打不開是要重灌嗎",
+  "用 Steam 安裝 Terraria 的教學影片在哪裡看",
+  "用 Steam 安裝 Terraria 會不會要付費買兩次",
+  "用 Steam 安裝 Terraria 怎麼找不到下載按鈕",
+  "用 Steam 安裝 Terraria 的捷徑可以刪掉嗎",
+  "用 Steam 安裝 Terraria 好像跟防毒軟體衝突了",
+  "用 Steam 安裝 Terraria 居然把我的電腦搞当機",
+  "用 Steam 安裝 Terraria 真的有那麼難嗎",
+  "用 Steam 安裝 Terraria 前需要先準備什麼嗎",
+  "用 Steam 安裝 Terraria 應該要選哪個資料夾",
+  "用 Steam 安裝 Terraria 的檔案可以備份嗎",
+  "用 Steam 安裝 Terraria 途中可以暫停嗎",
+  "用 Steam 安裝 Terraria 完怎麼找不到遊戲圖示",
+  "用 Steam 安裝 Terraria 的版本是不是最新的",
+  "用 Steam 安裝 Terraria 怎麼一直顯示磁碟寫入錯誤"
+ ],
+ "ok": true,
+ "raw": "[\n  \"用 Steam 安裝 Terraria 失敗怎麼辦\",\n  \"為什麼用 Steam 安裝 Terraria 會一直卡住\",\n  \"用 Steam 安裝 Terraria 的速度怎麼那麼慢\",\n  \"用 Steam 安裝 Terraria 需要多少容量\",\n  \"用 Steam 安裝 Terraria 居然出現錯誤代碼\",\n  \"用 Steam 安裝 Terraria 之後打不開是要重灌嗎\",\n  \"用 Steam 安裝 Terraria 的教學影片在哪裡看\",\n  \"用 Steam 安裝 Terraria 會不會要付費買兩次\",\n  \"用 Steam 安裝 Terraria 怎麼找不到下載按鈕\",\n  \"用 Steam 安裝 Terraria 的捷徑可以刪掉嗎\",\n  \"用 Steam 安裝 Terraria 好像跟防毒軟體衝突了\",\n  \"用 Steam 安裝 Terraria 居然把我的電腦搞当機\",\n  \"用 Steam 安裝 Terraria 真的有那麼難嗎\",\n  \"用 Steam 安裝 Terraria 前需要先準備什麼嗎\",\n  \"用 Steam 安裝 Terraria 應該要選哪個資料夾\",\n  \"用 Steam 安裝 Terraria 的檔案可以備份嗎\",\n  \"用 Steam 安裝 Terraria 途中可以暫停嗎\",\n  \"用 Steam 安裝 Terraria 完怎麼找不到遊戲圖示\",\n  \"用 Steam 安裝 Terraria 的版本是不是最新的\",\n  \"用 Steam 安裝 Terraria 怎麼一直顯示磁碟寫入錯誤\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "用 Steam 安裝 Terraria",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 6,
+  "ms": 1670,
+  "ts": "2026-10-14T23:14:03"
+ }
+}

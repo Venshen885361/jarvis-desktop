@@ -1,0 +1,36 @@
+{
+ "items": [
+  "請幫我打開 github.com 謝謝",
+  "麻煩幫我開一下 github.com 好嗎",
+  "幫我打開 github.com 可以嗎",
+  "請幫我開 github.com 喔",
+  "麻煩幫我打開 github.com 啦",
+  "好啦請幫我打開 github.com",
+  "幫我開一下 github.com 謝謝",
+  "請幫我打開 github.com 拜託",
+  "麻煩幫我開 github.com 可以嗎",
+  "幫我打開 github.com 喔謝謝",
+  "請幫我開一下 github.com 好嗎",
+  "麻煩幫我打開 github.com 謝謝啦",
+  "幫我打開 github.com 拜託啦",
+  "請幫我開 github.com 喔",
+  "麻煩幫我開一下 github.com 拜託",
+  "幫我打開 github.com 可以嗎謝謝",
+  "請幫我打開 github.com 好不好",
+  "麻煩幫我開 github.com 喔好嗎",
+  "幫我開一下 github.com 拜託你囉",
+  "請幫我打開 github.com 謝謝你"
+ ],
+ "ok": true,
+ "raw": "[\n  \"請幫我打開 github.com 謝謝\",\n  \"麻煩幫我開一下 github.com 好嗎\",\n  \"幫我打開 github.com 可以嗎\",\n  \"請幫我開 github.com 喔\",\n  \"麻煩幫我打開 github.com 啦\",\n  \"好啦請幫我打開 github.com\",\n  \"幫我開一下 github.com 謝謝\",\n  \"請幫我打開 github.com 拜託\",\n  \"麻煩幫我開 github.com 可以嗎\",\n  \"幫我打開 github.com 喔謝謝\",\n  \"請幫我開一下 github.com 好嗎\",\n  \"麻煩幫我打開 github.com 謝謝啦\",\n  \"幫我打開 github.com 拜託啦\",\n  \"請幫我開 github.com 喔\",\n  \"麻煩幫我開一下 github.com 拜託\",\n  \"幫我打開 github.com 可以嗎謝謝\",\n  \"請幫我打開 github.com 好不好\",\n  \"麻煩幫我開 github.com 喔好嗎\",\n  \"幫我開一下 github.com 拜託你囉\",\n  \"請幫我打開 github.com 謝謝你\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "打開 github.com",
+  "relation": "R2_politeness",
+  "n": 20,
+  "rep": 5,
+  "ms": 1551,
+  "ts": "2026-10-14T22:25:53"
+ }
+}

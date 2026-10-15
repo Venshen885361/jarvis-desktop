@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Tailscale到底是什麼",
+  "Tailscale這東西是什麼意思",
+  "什麼叫作Tailscale",
+  "Tailscale是在講什麼",
+  "能跟我解釋一下Tailscale是什麼嗎",
+  "想知道Tailscale是什麼東西",
+  "Tailscale到底是指什麼",
+  "可以跟我說Tailscale是什麼嗎",
+  "Tailscale這名詞是什麼意思",
+  "到底什麼是Tailscale呢",
+  "有沒有人知道Tailscale是什麼",
+  "Tailscale這個到底是什麼啊",
+  "可以解釋一下什麼是Tailscale嗎",
+  "Tailscale是什麼鬼東西",
+  "請告訴我Tailscale是什麼",
+  "關於Tailscale它是什麼東西",
+  "我想了解Tailscale到底是什麼",
+  "這裏問一下Tailscale是什麼意思",
+  "Tailscale到底是在幹嘛的",
+  "科普一下Tailscale是什麼"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Tailscale到底是什麼\",\n  \"Tailscale這東西是什麼意思\",\n  \"什麼叫作Tailscale\",\n  \"Tailscale是在講什麼\",\n  \"能跟我解釋一下Tailscale是什麼嗎\",\n  \"想知道Tailscale是什麼東西\",\n  \"Tailscale到底是指什麼\",\n  \"可以跟我說Tailscale是什麼嗎\",\n  \"Tailscale這名詞是什麼意思\",\n  \"到底什麼是Tailscale呢\",\n  \"有沒有人知道Tailscale是什麼\",\n  \"Tailscale這個到底是什麼啊\",\n  \"可以解釋一下什麼是Tailscale嗎\",\n  \"Tailscale是什麼鬼東西\",\n  \"請告訴我Tailscale是什麼\",\n  \"關於Tailscale它是什麼東西\",\n  \"我想了解Tailscale到底是什麼\",\n  \"這裏問一下Tailscale是什麼意思\",\n  \"Tailscale到底是在幹嘛的\",\n  \"科普一下Tailscale是什麼\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "什麼是 Tailscale",
+  "relation": "R3_reorder",
+  "n": 20,
+  "rep": 7,
+  "ms": 1448,
+  "ts": "2026-10-14T23:38:01"
+ }
+}

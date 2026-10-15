@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Discord 為什麼下載不了",
+  "Discord 下載到一半當機怎麼辦",
+  "去哪裡找 Discord 下載的教學",
+  "下載 Discord 速度怎麼那麼慢",
+  "Discord 下載完結果打不開",
+  "不要下載 Discord 佔容量",
+  "Discord 下載按鈕在哪裡啊",
+  "手機下載 Discord 要錢嗎",
+  "怎麼取消下載 Discord",
+  "Discord 下載失敗一直出現錯誤",
+  "下載 Discord 需要註冊帳號嗎",
+  "Discord 下載到哪個資料夾了",
+  "誰叫你下載 Discord 的",
+  "電腦不小心下載 Discord 怎麼刪除",
+  "下載 Discord 的官方網址是什麼",
+  "大家都在問怎麼下載 Discord",
+  "Discord 下載更新要等多久",
+  "可以直接用網頁版不要下載 Discord 嗎",
+  "下載 Discord 會中毒嗎",
+  "幫我查一下下載 Discord 的安全風險"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Discord 為什麼下載不了\",\n  \"Discord 下載到一半當機怎麼辦\",\n  \"去哪裡找 Discord 下載的教學\",\n  \"下載 Discord 速度怎麼那麼慢\",\n  \"Discord 下載完結果打不開\",\n  \"不要下載 Discord 佔容量\",\n  \"Discord 下載按鈕在哪裡啊\",\n  \"手機下載 Discord 要錢嗎\",\n  \"怎麼取消下載 Discord\",\n  \"Discord 下載失敗一直出現錯誤\",\n  \"下載 Discord 需要註冊帳號嗎\",\n  \"Discord 下載到哪個資料夾了\",\n  \"誰叫你下載 Discord 的\",\n  \"電腦不小心下載 Discord 怎麼刪除\",\n  \"下載 Discord 的官方網址是什麼\",\n  \"大家都在問怎麼下載 Discord\",\n  \"Discord 下載更新要等多久\",\n  \"可以直接用網頁版不要下載 Discord 嗎\",\n  \"下載 Discord 會中毒嗎\",\n  \"幫我查一下下載 Discord 的安全風險\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "下載 Discord",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 3,
+  "ms": 2180,
+  "ts": "2026-10-14T02:15:30"
+ }
+}

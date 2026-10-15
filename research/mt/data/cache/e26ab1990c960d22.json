@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Chrome 為什麼打不開",
+  "Chrome 瀏覽器怎麼關閉",
+  "有人會用 Chrome 嗎",
+  "不要開啟 Chrome",
+  "Chrome 經常自己關閉怎麼辦",
+  "你知道 Chrome 是誰發明的嗎",
+  "我要怎麼解除安裝 Chrome",
+  "Chrome 跑很慢要怎麼清理",
+  "Chrome 分頁不小心全關了怎麼找回來",
+  "Chrome 搜尋引擎怎麼改成 Google",
+  "教我怎麼更新 Chrome",
+  "Chrome 為什麼一直當機",
+  "可以幫我把 Chrome 縮小嗎",
+  "Chrome 歷史紀錄去哪裡看",
+  "桌面上的 Chrome 不見了",
+  "Chrome 語系怎麼改成中文",
+  "Chrome 下載的東西在哪裡",
+  "為什麼 Chrome 不能連網路",
+  "Chrome 畫面變黑了怎麼處理",
+  "不要幫我開 Chrome"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Chrome 為什麼打不開\",\n  \"Chrome 瀏覽器怎麼關閉\",\n  \"有人會用 Chrome 嗎\",\n  \"不要開啟 Chrome\",\n  \"Chrome 經常自己關閉怎麼辦\",\n  \"你知道 Chrome 是誰發明的嗎\",\n  \"我要怎麼解除安裝 Chrome\",\n  \"Chrome 跑很慢要怎麼清理\",\n  \"Chrome 分頁不小心全關了怎麼找回來\",\n  \"Chrome 搜尋引擎怎麼改成 Google\",\n  \"教我怎麼更新 Chrome\",\n  \"Chrome 為什麼一直當機\",\n  \"可以幫我把 Chrome 縮小嗎\",\n  \"Chrome 歷史紀錄去哪裡看\",\n  \"桌面上的 Chrome 不見了\",\n  \"Chrome 語系怎麼改成中文\",\n  \"Chrome 下載的東西在哪裡\",\n  \"為什麼 Chrome 不能連網路\",\n  \"Chrome 畫面變黑了怎麼處理\",\n  \"不要幫我開 Chrome\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開啟 Chrome",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 6,
+  "ms": 1632,
+  "ts": "2026-10-14T23:10:36"
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Discord 幫我下載",
+  "Discord 抓一下",
+  "Discord 下載看看",
+  "Discord 裝一下",
+  "Discord 安裝一下",
+  "Discord 載一下",
+  "Discord 抓回來",
+  "Discord 載來用",
+  "Discord 下載好嗎",
+  "Discord 裝起來",
+  "Discord 載 Discord",
+  "Discord 給我下載",
+  "Discord 弄一下下載",
+  "Discord 下載安裝",
+  "Discord 抓下來",
+  "Discord 載下來",
+  "Discord 趕快下載",
+  "Discord 幫忙下載",
+  "Discord 載入",
+  "Discord 下載先"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Discord 幫我下載\",\n  \"Discord 抓一下\",\n  \"Discord 下載看看\",\n  \"Discord 裝一下\",\n  \"Discord 安裝一下\",\n  \"Discord 載一下\",\n  \"Discord 抓回來\",\n  \"Discord 載來用\",\n  \"Discord 下載好嗎\",\n  \"Discord 裝起來\",\n  \"Discord 載 Discord\",\n  \"Discord 給我下載\",\n  \"Discord 弄一下下載\",\n  \"Discord 下載安裝\",\n  \"Discord 抓下來\",\n  \"Discord 載下來\",\n  \"Discord 趕快下載\",\n  \"Discord 幫忙下載\",\n  \"Discord 載入\",\n  \"Discord 下載先\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "下載 Discord",
+  "relation": "R3_reorder",
+  "n": 20,
+  "rep": 6,
+  "ms": 1220,
+  "ts": "2026-10-14T23:13:17"
+ }
+}

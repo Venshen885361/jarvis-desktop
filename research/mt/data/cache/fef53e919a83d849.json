@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Steam 為什麼安裝 Terraria 會失敗",
+  "Terraria 在 Steam 買完要怎麼退費",
+  "用 Steam 安裝 Terraria 竟然卡住不動",
+  "Steam 顯示 Terraria 已經安裝是要去哪裡找",
+  "為什麼不用 Steam 也能安裝 Terraria",
+  "安裝 Terraria 的時候可以不要用 Steam 嗎",
+  "我的 Steam 找不到 Terraria 的安裝按鈕",
+  "用 Steam 安裝 Terraria 速度怎麼那麼慢",
+  "Terraria 安裝到一半 Steam 突然當機了",
+  "用 Steam 安裝 Terraria 會不會很佔容量",
+  "哪裡有教人怎麼用 Steam 安裝 Terraria 的影片",
+  "朋友叫我用 Steam 安裝 Terraria 可是我不會用",
+  "用 Steam 安裝 Terraria 需不需要先更新軟體",
+  "Steam 說我沒有權限安裝 Terraria 該怎麼辦",
+  "用 Steam 安裝 Terraria 會有中文化的問題嗎",
+  "每次用 Steam 安裝 Terraria 都會跳出錯誤代碼",
+  "用 Steam 安裝 Terraria 之前要先備份嗎",
+  "為什麼用 Steam 安裝 Terraria 會一直重新下載",
+  "安裝 Terraria 一定要透過 Steam 嗎",
+  "用 Steam 安裝 Terraria 的最快方法是什麼"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Steam 為什麼安裝 Terraria 會失敗\",\n  \"Terraria 在 Steam 買完要怎麼退費\",\n  \"用 Steam 安裝 Terraria 竟然卡住不動\",\n  \"Steam 顯示 Terraria 已經安裝是要去哪裡找\",\n  \"為什麼不用 Steam 也能安裝 Terraria\",\n  \"安裝 Terraria 的時候可以不要用 Steam 嗎\",\n  \"我的 Steam 找不到 Terraria 的安裝按鈕\",\n  \"用 Steam 安裝 Terraria 速度怎麼那麼慢\",\n  \"Terraria 安裝到一半 Steam 突然當機了\",\n  \"用 Steam 安裝 Terraria 會不會很佔容量\",\n  \"哪裡有教人怎麼用 Steam 安裝 Terraria 的影片\",\n  \"朋友叫我用 Steam 安裝 Terraria 可是我不會用\",\n  \"用 Steam 安裝 Terraria 需不需要先更新軟體\",\n  \"Steam 說我沒有權限安裝 Terraria 該怎麼辦\",\n  \"用 Steam 安裝 Terraria 會有中文化的問題嗎\",\n  \"每次用 Steam 安裝 Terraria 都會跳出錯誤代碼\",\n  \"用 Steam 安裝 Terraria 之前要先備份嗎\",\n  \"為什麼用 Steam 安裝 Terraria 會一直重新下載\",\n  \"安裝 Terraria 一定要透過 Steam 嗎\",\n  \"用 Steam 安裝 Terraria 的最快方法是什麼\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "用 Steam 安裝 Terraria",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 4,
+  "ms": 1811,
+  "ts": "2026-10-14T22:16:32"
+ }
+}

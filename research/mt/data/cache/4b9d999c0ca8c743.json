@@ -1,0 +1,36 @@
+{
+ "items": [
+  "Chrome 為什麼打不開",
+  "Chrome 瀏覽器怎麼關閉",
+  "有人教我怎麼用 Chrome 嗎",
+  "不要開啟 Chrome 啦",
+  "Chrome 的分頁跑哪去了",
+  "解除安裝 Chrome 要去哪裡弄",
+  "Chrome 更新失敗怎麼辦",
+  "Chrome 常常當機是為什麼",
+  "我想看 Chrome 的歷史紀錄",
+  "Chrome 桌面捷徑不見了",
+  "教我怎麼把 Chrome 移除",
+  "Chrome 的首頁要怎麼改",
+  "為什麼 Chrome 會一直跳廣告",
+  "Chrome 登出帳號會怎樣嗎",
+  "可以幫我清理 Chrome 的快取嗎",
+  "Chrome 的設定在哪裡找",
+  "Chrome 跑很慢有解嗎",
+  "重灌 Chrome 比較快嗎",
+  "Chrome 擴充功能怎麼停用",
+  "我看得到 Chrome 的下載記錄嗎"
+ ],
+ "ok": true,
+ "raw": "[\n  \"Chrome 為什麼打不開\",\n  \"Chrome 瀏覽器怎麼關閉\",\n  \"有人教我怎麼用 Chrome 嗎\",\n  \"不要開啟 Chrome 啦\",\n  \"Chrome 的分頁跑哪去了\",\n  \"解除安裝 Chrome 要去哪裡弄\",\n  \"Chrome 更新失敗怎麼辦\",\n  \"Chrome 常常當機是為什麼\",\n  \"我想看 Chrome 的歷史紀錄\",\n  \"Chrome 桌面捷徑不見了\",\n  \"教我怎麼把 Chrome 移除\",\n  \"Chrome 的首頁要怎麼改\",\n  \"為什麼 Chrome 會一直跳廣告\",\n  \"Chrome 登出帳號會怎樣嗎\",\n  \"可以幫我清理 Chrome 的快取嗎\",\n  \"Chrome 的設定在哪裡找\",\n  \"Chrome 跑很慢有解嗎\",\n  \"重灌 Chrome 比較快嗎\",\n  \"Chrome 擴充功能怎麼停用\",\n  \"我看得到 Chrome 的下載記錄嗎\"\n]",
+ "meta": {
+  "model": "gemini-3.5-flash-lite",
+  "temperature": 0.0,
+  "seed": "開啟 Chrome",
+  "relation": "R5_near_miss",
+  "n": 20,
+  "rep": 5,
+  "ms": 1688,
+  "ts": "2026-10-14T22:25:10"
+ }
+}
